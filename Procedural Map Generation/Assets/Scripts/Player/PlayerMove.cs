@@ -11,7 +11,7 @@ public class PlayerMove : MonoBehaviour
 
     Vector3 moveInput = Vector3.zero;
     Vector3 moveDir;
-    float ySpeed, rotationSpeed = 10;
+    float ySpeed, rotationSpeed = 6;
 
     void Start()
     {
@@ -49,13 +49,18 @@ public class PlayerMove : MonoBehaviour
             animator.SetBool("IsMoving", true);
 
             Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
-            //transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
             
             float angle = Vector3.SignedAngle(transform.forward, moveDir, Vector3.up);
-            angle = Mathf.Clamp(angle/180, -1f, 1f);
-
-
-            animator.SetFloat("Turn Magnitude", angle);
+            if (Mathf.Abs(angle) < 45)
+            {
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
+                animator.SetFloat("Turn Magnitude", 0);
+            }
+            else
+            {
+                angle = angle/140;
+                animator.SetFloat("Turn Magnitude", angle, 0.035f, deltaTime);
+            }
         }
         else
         {
