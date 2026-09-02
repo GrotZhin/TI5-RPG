@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 954e723ab5f74464fa235fa3c58e3ee4
+guid: 5162211591a0d5b4586edaaf661fa1d5
 ModelImporter:
   serializedVersion: 24300
   internalIDToNameTable: []
@@ -18,63 +18,70 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'TaylaArmature|idle' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Spine1' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Shouder.L' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'TaylaArmature|IdleAni1' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'UpperFinger2.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.L'
+    animationImportWarnings: "\nClip 'TaylaArmature|TaylaArmature|idle' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Spine1' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'Shouder.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'TaylaArmature|TaylaArmature|IdleAni1' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'Spine1' is inbetween humanoid transforms and has rotation
+      animation that will be discarded.\n\t'Shouder.R' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'UpperFinger2.R' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'UpperFinger2.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'TaylaArmature|Run1' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.R'
-      has translation animation that will be discarded.\n\t'Shouder.R' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'UpperFinger2.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.L'
+      'TaylaArmature|TaylaArmature|Run1' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'Spine1' is inbetween humanoid transforms and has rotation
+      animation that will be discarded.\n\t'Shouder.R' has translation animation
+      that will be discarded.\n\t'Shouder.R' is inbetween humanoid transforms and
+      has rotation animation that will be discarded.\n\t'UpperFinger2.R' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.L'
       has translation animation that will be discarded.\n\t'Shouder.L' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\t'UpperFinger2.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'TaylaArmature|Run1NoRoot' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.R'
-      has translation animation that will be discarded.\n\t'Shouder.R' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'UpperFinger2.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.L'
+      'TaylaArmature|TaylaArmature|Run1NoRoot' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Spine1' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Shouder.R' has translation
+      animation that will be discarded.\n\t'Shouder.R' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'UpperFinger2.R' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.L'
       has translation animation that will be discarded.\n\t'Shouder.L' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\t'UpperFinger2.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'TaylaArmature|Run2' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.R'
-      has translation animation that will be discarded.\n\t'Shouder.R' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'UpperFinger2.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.L'
+      'TaylaArmature|TaylaArmature|Run2' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'Spine1' is inbetween humanoid transforms and has rotation
+      animation that will be discarded.\n\t'Shouder.R' has translation animation
+      that will be discarded.\n\t'Shouder.R' is inbetween humanoid transforms and
+      has rotation animation that will be discarded.\n\t'UpperFinger2.R' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.L'
       has translation animation that will be discarded.\n\t'Shouder.L' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\t'UpperFinger2.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'TaylaArmature|Run2NoRoot' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.R'
-      has translation animation that will be discarded.\n\t'Shouder.R' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'UpperFinger2.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.L'
+      'TaylaArmature|TaylaArmature|Run2NoRoot' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Spine1' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Shouder.R' has translation
+      animation that will be discarded.\n\t'Shouder.R' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'UpperFinger2.R' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.L'
       has translation animation that will be discarded.\n\t'Shouder.L' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\t'UpperFinger2.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'TaylaArmature|Walk' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.L'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'TaylaArmature|WalkNoRoot' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.L'
+      'TaylaArmature|TaylaArmature|Walk' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'Spine1' is inbetween humanoid transforms and has rotation
+      animation that will be discarded.\n\t'Shouder.R' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Shouder.L' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'TaylaArmature|TaylaArmature|WalkNoRoot' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Spine1' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Shouder.R' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'Shouder.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
@@ -89,9 +96,9 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: TaylaArmature|idle
-      takeName: TaylaArmature|idle
-      internalID: -5238676452548600381
+      name: Taylaidle
+      takeName: TaylaArmature|TaylaArmature|idle
+      internalID: -1762144297815616236
       firstFrame: 0
       lastFrame: 100
       wrapMode: 0
@@ -118,9 +125,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: TaylaArmature|IdleAni1
-      takeName: TaylaArmature|IdleAni1
-      internalID: -3855006271562668901
+      name: TaylaIdleAni1
+      takeName: TaylaArmature|TaylaArmature|IdleAni1
+      internalID: 113788427840056571
       firstFrame: 0
       lastFrame: 90
       wrapMode: 0
@@ -132,7 +139,7 @@ ModelImporter:
       loopTime: 1
       loopBlend: 1
       loopBlendOrientation: 1
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
@@ -147,9 +154,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: TaylaArmature|Run1
-      takeName: TaylaArmature|Run1
-      internalID: 3962823379399422689
+      name: TaylaRun1
+      takeName: TaylaArmature|TaylaArmature|Run1
+      internalID: -5294803382946091630
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -159,7 +166,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 1
       loopBlendPositionY: 1
       loopBlendPositionXZ: 0
@@ -176,9 +183,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: TaylaArmature|Run1NoRoot
-      takeName: TaylaArmature|Run1NoRoot
-      internalID: 7224216333881037604
+      name: TaylaRun1NoRoot
+      takeName: TaylaArmature|TaylaArmature|Run1NoRoot
+      internalID: 5292657398644325066
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -205,9 +212,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: TaylaArmature|Run2
-      takeName: TaylaArmature|Run2
-      internalID: -4112616479079424457
+      name: TaylaRun2
+      takeName: TaylaArmature|TaylaArmature|Run2
+      internalID: -5383664929100688734
       firstFrame: 0
       lastFrame: 12
       wrapMode: 0
@@ -234,9 +241,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: TaylaArmature|Run2NoRoot
-      takeName: TaylaArmature|Run2NoRoot
-      internalID: -1493517604726862747
+      name: TaylaRun2NoRoot
+      takeName: TaylaArmature|TaylaArmature|Run2NoRoot
+      internalID: 9202697200363904485
       firstFrame: 0
       lastFrame: 12
       wrapMode: 0
@@ -263,9 +270,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: TaylaArmature|Walk
-      takeName: TaylaArmature|Walk
-      internalID: 587909969875504499
+      name: TaylaWalk
+      takeName: TaylaArmature|TaylaArmature|Walk
+      internalID: 6670609391867943680
       firstFrame: 0
       lastFrame: 36
       wrapMode: 0
@@ -292,9 +299,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: TaylaArmature|WalkNoRoot
-      takeName: TaylaArmature|WalkNoRoot
-      internalID: -3172801460549998491
+      name: TaylaWalkNoRoot
+      takeName: TaylaArmature|TaylaArmature|WalkNoRoot
+      internalID: 5613137121592320392
       firstFrame: 0
       lastFrame: 36
       wrapMode: 0
@@ -320,7 +327,7 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -2849,11 +2856,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
