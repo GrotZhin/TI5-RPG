@@ -4,12 +4,10 @@ using UnityEngine.Events;
 public class Fogeinimigo : Istateinimigos
 {
     inimigoagente agente;
-    int chace;
-    CharacterController cc;
     Animator animator;
-    Vector3 target, dirtmp;
+    Vector3 target;
     SkinnedMeshRenderer renderer;
-    float ySpeed, rotationSpeed = 10;
+    float rotationSpeed = 10;
     public Fogeinimigo(inimigoagente agent, SkinnedMeshRenderer renderer)
     {
         this.agente = agent;
@@ -20,20 +18,20 @@ public class Fogeinimigo : Istateinimigos
     {
         Debug.Log("foge entrou");
         renderer.material.color = Color.purple;
-        chace = Random.Range(0, 100);
-        target = (Random.insideUnitSphere * 5) + agente.player.transform.position;
+        target = (Random.insideUnitSphere * 5) + agente.transform.position;
+        target.z = -Mathf.Abs(target.z);
+        target -= agente.transform.position;
         target.y = agente.transform.position.y;
-        dirtmp = target - agente.transform.position;
-        cc = agente.GetComponent<CharacterController>();
         animator = agente.GetComponent<Animator>();
 
     }
 
     public void Execute(float delta)
     {
+        Debug.Log("foge executando");
         Vector3 dir = agente.transform.position - agente.player.transform.position;
         animator.SetFloat("Input Magnitude", 1, 0.05f, delta);
-        Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up);
+        Quaternion toRotation = Quaternion.LookRotation(target, Vector3.up);
         agente.transform.rotation = Quaternion.RotateTowards(agente.transform.rotation, toRotation, rotationSpeed);
         animator.SetBool("IsMoving", true);
         if(dir.magnitude > 5f)

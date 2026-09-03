@@ -30,4 +30,6 @@ public class inimigoagente : MonoBehaviour
         this.state = state;
         state.Enter();
     }
-}
+
+    
+    }

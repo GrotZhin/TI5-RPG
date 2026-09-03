@@ -10,7 +10,7 @@ public class Ataque1player : Istateinimigos
     }
     public void Enter()
     {
-        agente.GetComponent<MeshRenderer>().material.color = Color.magenta;
+        //agente.GetComponent<MeshRenderer>().material.color = Color.magenta;
         time = 2;
     }
 

@@ -9,7 +9,7 @@ public class Idleplayer : Istateinimigos
     }
     public void Enter()
     {
-        agente.GetComponent<MeshRenderer>().material.color = Color.gray;
+        //agente.GetComponent<MeshRenderer>().material.color = Color.gray;
     }
 
     public void Execute(float delta)

@@ -13,8 +13,7 @@ public class agenteplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        stat?.Execute(Time.fixedDeltaTime);
-        
+        stat?.Execute(Time.deltaTime);
     }
 
     public void ChangeState(Istateinimigos state)
