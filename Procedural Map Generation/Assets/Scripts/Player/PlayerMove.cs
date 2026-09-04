@@ -11,7 +11,7 @@ public class PlayerMove : MonoBehaviour
 
     Vector3 moveInput = Vector3.zero;
     Vector3 moveDir;
-    float ySpeed, rotationSpeed = 10;
+    float ySpeed, rotationSpeed = 14;
 
     void Start()
     {
