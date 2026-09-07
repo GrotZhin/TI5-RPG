@@ -16,11 +16,10 @@ public class Fogeinimigo : Istateinimigos
 
     public void Enter()
     {
-        Debug.Log("foge entrou");
+        //Debug.Log("foge entrou");
         renderer.material.color = Color.purple;
         target = (Random.insideUnitSphere * 5) + agente.transform.position;
         target.z = -Mathf.Abs(target.z);
-        target -= agente.transform.position;
         target.y = agente.transform.position.y;
         animator = agente.GetComponent<Animator>();
 
@@ -28,10 +27,11 @@ public class Fogeinimigo : Istateinimigos
 
     public void Execute(float delta)
     {
-        Debug.Log("foge executando");
+        //Debug.Log("foge executando");
         Vector3 dir = agente.transform.position - agente.player.transform.position;
+        target = Geralageteinimigo.Geralinimigo.PesoMover(target, 1f, Geralageteinimigo.Geralinimigo.Separar(this.agente), 1f);
         animator.SetFloat("Input Magnitude", 1, 0.05f, delta);
-        Quaternion toRotation = Quaternion.LookRotation(target, Vector3.up);
+        Quaternion toRotation = Quaternion.LookRotation(target.normalized, Vector3.up);
         agente.transform.rotation = Quaternion.RotateTowards(agente.transform.rotation, toRotation, rotationSpeed);
         animator.SetBool("IsMoving", true);
         if(dir.magnitude > 5f)
@@ -42,7 +42,7 @@ public class Fogeinimigo : Istateinimigos
 
     public void Exite()
     {
-        Debug.Log("foge saiu");
+        //Debug.Log("foge saiu");
         animator.SetBool("IsMoving", false);
     }
 

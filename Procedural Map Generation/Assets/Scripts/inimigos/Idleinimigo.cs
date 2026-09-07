@@ -13,23 +13,23 @@ public class Idleinimigo : Istateinimigos
 
     public void Enter()
     {
-        Debug.Log("IDLE entrou");
-        time = 2;
+        //Debug.Log("IDLE entrou");
+        time = 3;
         renderer.material.color = Color.gray;
     }
 
     public void Execute(float delta)
     {
-        Debug.Log("IDLE executando");
+        //Debug.Log("IDLE executando");
         time -= delta;
         if (time < 0)
         {
-            agente.ChangeState(new Atackinimigo(agente, renderer));
+            agente.ChangeState(new Moveinimigo(agente, renderer));
         }
     }
 
     public void Exite()
     {
-        Debug.Log("IDLE saiu");
+        //Debug.Log("IDLE saiu");
     }
 }
