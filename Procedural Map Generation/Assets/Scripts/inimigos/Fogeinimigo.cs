@@ -29,12 +29,15 @@ public class Fogeinimigo : Istateinimigos
     {
         //Debug.Log("foge executando");
         Vector3 dir = agente.transform.position - agente.player.transform.position;
-        target = Geralageteinimigo.Geralinimigo.PesoMover(target, 1f, Geralageteinimigo.Geralinimigo.Separar(this.agente), 1f);
-        animator.SetFloat("Input Magnitude", 1, 0.05f, delta);
-        Quaternion toRotation = Quaternion.LookRotation(target.normalized, Vector3.up);
+        int i = 0;
+        Vector3 separar = Geralageteinimigo.Geralinimigo.Separar(this.agente, ref i);
+        target = Geralageteinimigo.Geralinimigo.PesoMover(target, 1 - separar.magnitude, separar, separar.magnitude);
+
+        animator.SetFloat("Input Magnitude", target.magnitude, 0.05f, delta);
+        Quaternion toRotation = Quaternion.LookRotation(target, Vector3.up);
         agente.transform.rotation = Quaternion.RotateTowards(agente.transform.rotation, toRotation, rotationSpeed);
         animator.SetBool("IsMoving", true);
-        if(dir.magnitude > 5f)
+        if (dir.magnitude > 5f)
         {
             agente.ChangeState(new Idleinimigo(agente, renderer));
         }
@@ -44,6 +47,7 @@ public class Fogeinimigo : Istateinimigos
     {
         //Debug.Log("foge saiu");
         animator.SetBool("IsMoving", false);
+        agente.passavizinho().Clear();
     }
 
 }

@@ -23,7 +23,7 @@ public class Moveinimigo: Istateinimigos
     public void Enter()
     {
         //Debug.Log("Move entrou");
-        agente.passavizinho().Clear();
+        
         renderer.material.color = Color.blue;
         chace = Random.Range(0, 100);
         dirtmp = (Random.insideUnitSphere * 2);
@@ -34,8 +34,11 @@ public class Moveinimigo: Istateinimigos
     public void Execute(float delta)
     {
         //Debug.Log("move executando");
-        
-        Vector3 dir = Geralageteinimigo.Geralinimigo.PesoMover(Geralageteinimigo.Geralinimigo.Mover(this.dirtmp, this.agente),1f, Geralageteinimigo.Geralinimigo.Separar(this.agente), 1f);
+        int i = 0;
+        Vector3 separar = Geralageteinimigo.Geralinimigo.Separar(this.agente, ref i);
+        Vector3 move = Geralageteinimigo.Geralinimigo.Mover(this.dirtmp, this.agente);
+        Vector3 dir  = Geralageteinimigo.Geralinimigo.PesoMover(move, 1 - separar.magnitude, separar, separar.magnitude);
+        Debug.Log(1 - separar.magnitude + "  " + separar.magnitude);
         //Debug.Log((agente.player.transform.position - agente.transform.position).magnitude);
         if((agente.player.transform.position - agente.transform.position).magnitude < 1.5)
         {
@@ -61,6 +64,7 @@ public class Moveinimigo: Istateinimigos
     {
         //Debug.Log("move saiu");
         animator.SetBool("IsMoving", false);
+        agente.passavizinho().Clear();
     }
     
 }

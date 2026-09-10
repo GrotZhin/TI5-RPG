@@ -40,7 +40,7 @@ public class Geralageteinimigo : MonoBehaviour
     }
 
 
-    public Vector3 Separar(inimigoagente menosagente)
+    public Vector3 Separar(inimigoagente menosagente, ref int i)
     {
         Vector3 separation = Vector3.zero;
         int count = 0;
@@ -62,11 +62,11 @@ public class Geralageteinimigo : MonoBehaviour
         }*/
         foreach (inimigoagente other in menosagente.passavizinho())
         {
-            Vector3 offset = other.transform.position - menosagente.transform.position;
+            Vector3 offset = menosagente.transform.position - other.transform.position;
             offset.y = 0f;
 
             float distance = offset.magnitude;
-            if (distance < 1.5f && offset.normalized.z >= 0)
+            if (distance < 1.5f)
             {
                 // Quanto mais próximo, maior a repulsão
                 separation += offset.normalized / distance;
@@ -76,9 +76,10 @@ public class Geralageteinimigo : MonoBehaviour
             if (count > 0)
         {
             separation /= count;
+            i= count;
         }
-        Debug.Log(menosagente.passavizinho().Count + "  " + separation*-1);
-        return separation*-1;
+        //Debug.Log(menosagente.passavizinho().Count + "  " + separation);
+        return separation;
     }
 
 
