@@ -13194,7 +13194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetOffset: {x: 0, y: 1, z: 0}
   TrackerSettings:
-    BindingMode: 3
+    BindingMode: 4
     PositionDamping: {x: 3, y: 3, z: 3}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
@@ -13294,8 +13294,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211961122}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000044318436, y: 0.99861234, z: -0.052657127, w: -0.00084047386}
-  m_LocalPosition: {x: 0.044284247, y: 5.6277347, z: 2.0708013}
+  m_LocalRotation: {x: 0.05265726, y: 0.0008405279, z: -0.000044321405, w: 0.9986123}
+  m_LocalPosition: {x: 0.010935761, y: 5.6277347, z: -17.741493}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21356,8 +21356,8 @@ SceneRoots:
   - {fileID: 366181931}
   - {fileID: 211349743}
   - {fileID: 700859194}
+  - {fileID: 1211961128}
   - {fileID: 1163970966}
   - {fileID: 7368990}
   - {fileID: 1906352296}
   - {fileID: 1470894063}
-  - {fileID: 1211961128}
