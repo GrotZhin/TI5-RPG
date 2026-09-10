@@ -64,9 +64,10 @@ public class Geralageteinimigo : MonoBehaviour
         {
             Vector3 offset = menosagente.transform.position - other.transform.position;
             offset.y = 0f;
+            Vector3 dot = other.transform.position - menosagente.transform.position;
 
             float distance = offset.magnitude;
-            if (distance < 1.5f)
+            if (distance < 1.5f && Vector3.Dot(menosagente.transform.forward, dot.normalized)>0)
             {
                 // Quanto mais próximo, maior a repulsão
                 separation += offset.normalized / distance;
