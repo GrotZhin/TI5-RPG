@@ -6,7 +6,7 @@ public class EnemyAgentControl
     public float maxSpeed = 5;
     public float radius;
 
-    public float flee = 0.4f, seek = 0.6f, avoid;
+    public float flee = 0.4f, seek = 0.6f, avoid = 1;
 
     public EnemyAgentControl (EnemyAgent agent) {  self = agent; }
 
@@ -24,12 +24,12 @@ public class EnemyAgentControl
             dir.Normalize();
             dir.y = 0;
         }
-        Debug.DrawRay(self.transform.position, dir, Color.blue);
         Debug.DrawRay(self.transform.position, Follow(), Color.green);
         Debug.DrawRay(self.transform.position, Separate(), Color.red);
         Debug.DrawRay(self.transform.position, Center(), Color.yellow);
+        Debug.DrawRay(self.transform.position, Avoid(), Color.blue);
 
-        Vector3 result = dir + flee * fleeMod * Separate() + seek * seekMod * Follow() + Center();
+        Vector3 result = dir + flee * fleeMod * Separate() + seek * seekMod * Follow() + Center() + avoid * Avoid();
         result = Vector3.ClampMagnitude(result, maxSpeed);
         Debug.DrawRay(self.transform.position, result, Color.black);
        return result;
@@ -91,15 +91,16 @@ public class EnemyAgentControl
         return result;
     }
 
-    public Vector3 PesoMover(Vector3 mover, float dirWeight,  Vector3 separar, float separationWeight)
+    Vector3 Avoid()
     {
-        Vector3 resultado =
-            mover * dirWeight +
-            separar * separationWeight;
+        Vector3 result = Vector3.zero;
+        /*
+         -------------------------------------
 
-        if (resultado.sqrMagnitude > 0f)
-            resultado.Normalize();
+          Implementar Avoid de obstáculos aqui
 
-        return resultado;
+        ----------------------------------------
+        */
+        return result;
     }
 }
