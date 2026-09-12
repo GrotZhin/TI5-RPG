@@ -1,5 +1,8 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
+[Serializable]
 public class EnemyAgentControl
 {
     public EnemyAgent self;
@@ -14,7 +17,7 @@ public class EnemyAgentControl
 
     public Vector3 Move(int fleeMod = 1, int seekMod = 1)
     {
-        Vector3 dir = Vector3.zero;
+        Vector3 dir = self.transform.forward * maxSpeed;
         if (self.player != null)
             dir = (self.player.transform.position - self.transform.position) * seek * seekMod;
 
@@ -55,7 +58,7 @@ public class EnemyAgentControl
             Vector3 dot = other.transform.position - self.transform.position;
 
             float distance = direction.magnitude;
-            if (distance < 1.5f && Vector3.Dot(self.transform.forward, dot.normalized)>0)
+            if (distance < 3f && Vector3.Dot(self.transform.forward, dot.normalized)>0)
             {
                 // Quanto mais próximo, maior a repulsão
                 separation += direction.normalized / distance;
@@ -74,7 +77,7 @@ public class EnemyAgentControl
     Vector3 Align()
     {
         Vector3 align = self.cc.velocity;
-        if (self.GetNeighbours().Count == 0) return self.transform.forward * maxSpeed;
+        if (self.GetNeighbours().Count == 0) return Vector3.zero;
         foreach (EnemyAgent e in self.GetNeighbours())
         {
             align += e.cc.velocity;
