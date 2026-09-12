@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class Idleplayer : Istateinimigos
+public class PlayerStateIdle : IState
 {
-    agenteplayer agente;
-    public Idleplayer(agenteplayer agente)
+    PlayerAgent agente;
+    public PlayerStateIdle(PlayerAgent agente)
     {
         this.agente = agente;
     }
@@ -20,7 +20,7 @@ public class Idleplayer : Istateinimigos
         }*/
     }
 
-    public void Exite()
+    public void Exit()
     {
        
     }

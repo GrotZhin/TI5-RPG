@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 6041820}
   m_Layer: 0
   m_Name: inimigo (1)
-  m_TagString: inimigo
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,7 +158,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.5
+  m_Radius: 4.83
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &6041821
 MonoBehaviour:
@@ -172,8 +172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7721085ee1c1c0e479d4f038baefa0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::inimigoagente
-  player: {fileID: 3075239441122500816}
+  player: {fileID: 0}
   renderer: {fileID: 1620081991}
+  cc: {fileID: 0}
+  neighbours: []
 --- !u!143 &6041822
 CharacterController:
   m_ObjectHideFlags: 0
@@ -229,8 +231,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6041819}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.94, y: 0, z: 4.85}
+  m_LocalRotation: {x: -0, y: -0.9988278, z: -0, w: -0.04840436}
+  m_LocalPosition: {x: 1.9400005, y: 0, z: 4.8500004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -238,7 +240,7 @@ Transform:
   - {fileID: 402400066}
   - {fileID: 64624729}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -185.549, z: 0}
 --- !u!1 &10063896
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +477,7 @@ GameObject:
   - component: {fileID: 42107876}
   m_Layer: 0
   m_Name: inimigo (4)
-  m_TagString: inimigo
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -499,7 +501,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.5
+  m_Radius: 4.83
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &42107877
 MonoBehaviour:
@@ -513,8 +515,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7721085ee1c1c0e479d4f038baefa0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::inimigoagente
-  player: {fileID: 3075239441122500816}
+  player: {fileID: 0}
   renderer: {fileID: 209183360}
+  cc: {fileID: 0}
+  neighbours: []
 --- !u!143 &42107878
 CharacterController:
   m_ObjectHideFlags: 0
@@ -570,7 +574,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42107875}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.060174108, z: -0, w: 0.99818796}
   m_LocalPosition: {x: -3.61, y: 0, z: -5.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -579,7 +583,7 @@ Transform:
   - {fileID: 557194248}
   - {fileID: 1320653285}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -6.9, z: 0}
 --- !u!1 &51123385
 GameObject:
   m_ObjectHideFlags: 0
@@ -4668,50 +4672,6 @@ Transform:
   m_Children:
   - {fileID: 20799833}
   m_Father: {fileID: 1931468964}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &240220900
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 240220902}
-  - component: {fileID: 240220901}
-  m_Layer: 0
-  m_Name: Geralageteinimigo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &240220901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240220900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b2904c0b58a1dc4a97a2b6b1fd75967, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Geralageteinimigo
---- !u!4 &240220902
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240220900}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.51086, y: -0, z: 0.08391}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &241242156
 GameObject:
@@ -14235,7 +14195,7 @@ GameObject:
   - component: {fileID: 1177232678}
   m_Layer: 0
   m_Name: inimigo (3)
-  m_TagString: inimigo
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14259,7 +14219,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.5
+  m_Radius: 4.83
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &1177232679
 MonoBehaviour:
@@ -14273,8 +14233,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7721085ee1c1c0e479d4f038baefa0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::inimigoagente
-  player: {fileID: 3075239441122500816}
+  player: {fileID: 0}
   renderer: {fileID: 1296606641}
+  cc: {fileID: 0}
+  neighbours: []
 --- !u!143 &1177232680
 CharacterController:
   m_ObjectHideFlags: 0
@@ -14330,7 +14292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177232677}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.8830005, z: -0, w: 0.46937203}
   m_LocalPosition: {x: -9.31, y: 0, z: -0.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14339,7 +14301,7 @@ Transform:
   - {fileID: 475889334}
   - {fileID: 1949379577}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -124.013, z: 0}
 --- !u!1 &1181202445
 GameObject:
   m_ObjectHideFlags: 0
@@ -25002,7 +24964,7 @@ GameObject:
   - component: {fileID: 1928160606}
   m_Layer: 0
   m_Name: inimigo (2)
-  m_TagString: inimigo
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25026,7 +24988,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.5
+  m_Radius: 4.83
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &1928160607
 MonoBehaviour:
@@ -25040,8 +25002,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7721085ee1c1c0e479d4f038baefa0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::inimigoagente
-  player: {fileID: 3075239441122500816}
+  player: {fileID: 0}
   renderer: {fileID: 1431420418}
+  cc: {fileID: 0}
+  neighbours: []
 --- !u!143 &1928160608
 CharacterController:
   m_ObjectHideFlags: 0
@@ -25097,7 +25061,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928160605}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.17677763, z: -0, w: 0.98425084}
   m_LocalPosition: {x: -4.18, y: 0, z: 4.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -25106,7 +25070,7 @@ Transform:
   - {fileID: 1413889752}
   - {fileID: 193949288}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 20.364, z: 0}
 --- !u!1 &1931392388
 GameObject:
   m_ObjectHideFlags: 0
@@ -25376,7 +25340,7 @@ GameObject:
   - component: {fileID: 1970503122}
   m_Layer: 0
   m_Name: inimigo (5)
-  m_TagString: inimigo
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25400,7 +25364,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.5
+  m_Radius: 4.83
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &1970503123
 MonoBehaviour:
@@ -25414,8 +25378,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7721085ee1c1c0e479d4f038baefa0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::inimigoagente
-  player: {fileID: 3075239441122500816}
+  player: {fileID: 0}
   renderer: {fileID: 413981951}
+  cc: {fileID: 0}
+  neighbours: []
 --- !u!143 &1970503124
 CharacterController:
   m_ObjectHideFlags: 0
@@ -25471,7 +25437,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970503121}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.39393988, z: -0, w: 0.9191362}
   m_LocalPosition: {x: 3.56, y: 0, z: -5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -25480,7 +25446,7 @@ Transform:
   - {fileID: 203006467}
   - {fileID: 1702081589}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -46.4, z: 0}
 --- !u!1 &1973009774
 GameObject:
   m_ObjectHideFlags: 0
@@ -26256,7 +26222,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.07, y: 6.07, z: 6.07}
+  m_LocalScale: {x: 21.822258, y: 21.822258, z: 21.822258}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -27369,7 +27335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148957451486}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.9667452, z: -0, w: -0.2557415}
   m_LocalPosition: {x: 5.83, y: 0, z: 0.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -27378,7 +27344,7 @@ Transform:
   - {fileID: 751176137070415579}
   - {fileID: 5465940247390858992}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 209.635, z: 0}
 --- !u!4 &546922980208206424
 Transform:
   m_ObjectHideFlags: 0
@@ -28741,7 +28707,7 @@ GameObject:
   - component: {fileID: 5866666021033448480}
   m_Layer: 0
   m_Name: inimigo
-  m_TagString: inimigo
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31501,7 +31467,7 @@ GameObject:
   - component: {fileID: 3075239441122500816}
   m_Layer: 0
   m_Name: TaylaModel
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33113,7 +33079,7 @@ Transform:
   m_GameObject: {fileID: 2442817242624227957}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.151, z: 0}
+  m_LocalPosition: {x: -22, y: 0.151, z: -9.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -38573,8 +38539,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7721085ee1c1c0e479d4f038baefa0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::inimigoagente
-  player: {fileID: 3075239441122500816}
+  player: {fileID: 0}
   renderer: {fileID: 3853268898736242259}
+  cc: {fileID: 0}
+  neighbours: []
 --- !u!135 &5866666021033448480
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -38594,7 +38562,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.5
+  m_Radius: 4.83
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &5876001785780185376
 GameObject:
@@ -45023,4 +44991,3 @@ SceneRoots:
   - {fileID: 1970503126}
   - {fileID: 924880919}
   - {fileID: 3075239441122500815}
-  - {fileID: 240220902}

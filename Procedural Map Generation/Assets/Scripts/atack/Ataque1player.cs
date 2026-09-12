@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class Ataque1player : Istateinimigos
+public class Ataque1player : IState
 {
-    agenteplayer agente;
+    PlayerAgent agente;
     float time;
-    public Ataque1player(agenteplayer agente)
+    public Ataque1player(PlayerAgent agente)
     {
         this.agente = agente;
     }
@@ -23,11 +23,11 @@ public class Ataque1player : Istateinimigos
         }
         else if (time < 0)
         {
-            agente.ChangeState(new Idleplayer(agente));
+            agente.ChangeState(new PlayerStateIdle(agente));
         }
         }
 
-    public void Exite()
+    public void Exit()
     {
        
     }

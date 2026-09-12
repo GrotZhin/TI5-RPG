@@ -1,25 +1,25 @@
 using UnityEngine;
 
-public class agenteplayer : MonoBehaviour
+public class PlayerAgent : MonoBehaviour
 {
-    Istateinimigos stat;
+    IState state;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        stat = new Idleplayer(this);
-        stat?.Enter();
+        state = new PlayerStateIdle(this);
+        state?.Enter();
     }
 
     // Update is called once per frame
     void Update()
     {
-        stat?.Execute(Time.deltaTime);
+        state?.Execute(Time.deltaTime);
     }
 
-    public void ChangeState(Istateinimigos state)
+    public void ChangeState(IState state)
     {
-        this.stat.Exite();
-        this.stat = state;
+        this.state?.Exit();
+        this.state = state;
         state.Enter();
     }
 }

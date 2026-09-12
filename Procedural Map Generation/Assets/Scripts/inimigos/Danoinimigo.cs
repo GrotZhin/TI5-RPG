@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class Danoinimigo : Istateinimigos
+public class Danoinimigo : IState
 {
-    inimigoagente agente;
+    EnemyAgent agent;
     int chace;
     float time;
     SkinnedMeshRenderer renderer;
-    public Danoinimigo(inimigoagente agent, SkinnedMeshRenderer renderer)
+    public Danoinimigo(EnemyAgent agent, SkinnedMeshRenderer renderer)
     {
-        this.agente = agent;
+        this.agent = agent;
         this.renderer = renderer;
     }
 
@@ -28,16 +28,16 @@ public class Danoinimigo : Istateinimigos
         {
             if (chace > 20)
             {
-                agente.ChangeState(new Fogeinimigo(agente, renderer));
+                agent.ChangeState(new EnemyStateFlee(agent, renderer));
             }
             else
             {
-                agente.ChangeState(new Atackinimigo(agente, renderer));
+                agent.ChangeState(new EnemyStateAttack(agent, renderer));
             }
         }
     }
 
-    public void Exite()
+    public void Exit()
     {
         Debug.Log("IDLE saiu");
     }

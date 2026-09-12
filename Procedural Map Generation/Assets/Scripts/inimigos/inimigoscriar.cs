@@ -4,5 +4,5 @@ using UnityEngine;
 public class inimigoscriar : ScriptableObject
 {
     public MeshRenderer render;
-    public inimigoagente agente;
+    public EnemyAgent agente;
 }

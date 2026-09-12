@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class Atackinimigo: Istateinimigos
+public class EnemyStateAttack : IState
 {
-    inimigoagente agente;
+    EnemyAgent agent;
     float time;
     int chace;
     SkinnedMeshRenderer renderer;
-    float rotationSpeed = 10;
-    public Atackinimigo(inimigoagente agent, SkinnedMeshRenderer renderer)
+
+    public EnemyStateAttack(EnemyAgent agent, SkinnedMeshRenderer renderer)
     {
-        this.agente = agent;
+        this.agent = agent;
         this.renderer = renderer;
     }
 
@@ -17,8 +17,8 @@ public class Atackinimigo: Istateinimigos
     {
         //Debug.Log("Atack entrou");
         renderer.material.color = Color.red;
-        Vector3 dir = agente.player.transform.position - agente.transform.position;
-        dir.y = agente.transform.position.y;
+        Vector3 dir = agent.player.transform.position - agent.transform.position;
+        dir.y = agent.transform.position.y;
         Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up);
 
         chace = Random.Range(0, 100);
@@ -34,20 +34,20 @@ public class Atackinimigo: Istateinimigos
         {
             if (chace > 50)
             {
-                agente.ChangeState(new Moveinimigo(agente, renderer));
+                agent.ChangeState(new EnemyStateMove(agent, renderer));
             }
             else if(chace > 40)
             {
-                agente.ChangeState(new Atackinimigo(agente, renderer));
+                agent.ChangeState(new EnemyStateMove(agent, renderer));
             }
             else
             {
-                agente.ChangeState(new Fogeinimigo(agente, renderer));
+                agent.ChangeState(new EnemyStateFlee(agent, renderer));
             }
         }
     }
 
-    public void Exite()
+    public void Exit()
     {
         //Debug.Log("IDLE saiu");
     }

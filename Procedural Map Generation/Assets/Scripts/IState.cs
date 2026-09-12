@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public interface Istateinimigos
+public interface IState
 {
     public void Enter();
     public void Execute(float delta);
-    public void Exite();
+    public void Exit();
 }

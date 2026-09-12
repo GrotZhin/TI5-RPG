@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class Idleinimigo : Istateinimigos
+public class EnemyStateIdle : IState
 {
-    inimigoagente agente;
+    EnemyAgent agent;
     float time;
     SkinnedMeshRenderer renderer;
-    public Idleinimigo(inimigoagente agent, SkinnedMeshRenderer renderer)
+    public EnemyStateIdle(EnemyAgent agent, SkinnedMeshRenderer renderer)
     {
-        this.agente = agent;
+        this.agent = agent;
         this.renderer = renderer;
     }
 
@@ -24,11 +24,11 @@ public class Idleinimigo : Istateinimigos
         time -= delta;
         if (time < 0)
         {
-            agente.ChangeState(new Moveinimigo(agente, renderer));
+            agent.ChangeState(new EnemyStateMove(agent, renderer));
         }
     }
 
-    public void Exite()
+    public void Exit()
     {
         //Debug.Log("IDLE saiu");
     }
