@@ -9,6 +9,7 @@ public class EnemyAgent : MonoBehaviour
     public EnemyAgentControl control;
     public CharacterController cc;
     public List<EnemyAgent> neighbours = new List<EnemyAgent>();
+    public SphereCollider collider;
     
     void OnEnable()
     {
@@ -19,12 +20,15 @@ public class EnemyAgent : MonoBehaviour
         control = new EnemyAgentControl(this);
         state = new EnemyStateIdle(this, renderer);
         cc = GetComponent<CharacterController>();
+        collider = GetComponent<SphereCollider>();
         state?.Enter();
     }
 
     void Update()
     {
         state?.Execute(Time.deltaTime);
+        if(collider.radius != control.radius)
+            collider.radius = control.radius;
         /*if (Input.GetKeyDown(KeyCode.Space))
         {
             this.ChangeState(new Danoinimigo(this));

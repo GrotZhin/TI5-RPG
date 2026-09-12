@@ -4,9 +4,10 @@ public class EnemyAgentControl
 {
     public EnemyAgent self;
     public float maxSpeed = 5;
-    public float radius;
+    public float radius = 4.8f;
 
-    public float flee = 0.4f, seek = 0.6f, avoid = 1;
+    [Range(0,1)]
+    public float separate = 0.4f, seek = 0.6f, align = 0.6f, avoid = 1, cohesion = 1;
 
     public EnemyAgentControl (EnemyAgent agent) {  self = agent; }
 
@@ -15,7 +16,7 @@ public class EnemyAgentControl
     {
         Vector3 dir = Vector3.zero;
         if (self.player != null)
-            dir = self.player.transform.position - self.transform.position;
+            dir = (self.player.transform.position - self.transform.position) * seek * seekMod;
 
         //dir.y = menosagent.transform.position.y;
 
@@ -24,12 +25,17 @@ public class EnemyAgentControl
             dir.Normalize();
             dir.y = 0;
         }
-        Debug.DrawRay(self.transform.position, Follow(), Color.green);
         Debug.DrawRay(self.transform.position, Separate(), Color.red);
-        Debug.DrawRay(self.transform.position, Center(), Color.yellow);
+        Debug.DrawRay(self.transform.position, Align(), Color.green);
+        Debug.DrawRay(self.transform.position, Cohesion(), Color.yellow);
         Debug.DrawRay(self.transform.position, Avoid(), Color.blue);
 
-        Vector3 result = dir + flee * fleeMod * Separate() + seek * seekMod * Follow() + Center() + avoid * Avoid();
+        Vector3 result = dir + 
+                         separate * fleeMod * Separate() + 
+                         align * seekMod * Align() + 
+                         cohesion * Cohesion() + 
+                         avoid * Avoid();
+
         result = Vector3.ClampMagnitude(result, maxSpeed);
         Debug.DrawRay(self.transform.position, result, Color.black);
        return result;
@@ -65,20 +71,20 @@ public class EnemyAgentControl
     }
 
 
-    Vector3 Follow()
+    Vector3 Align()
     {
-        Vector3 follow = self.cc.velocity;
+        Vector3 align = self.cc.velocity;
         if (self.GetNeighbours().Count == 0) return self.transform.forward * maxSpeed;
         foreach (EnemyAgent e in self.GetNeighbours())
         {
-            follow += e.cc.velocity;
+            align += e.cc.velocity;
         }
-        follow = follow / (self.GetNeighbours().Count + 1);
+        align = align / (self.GetNeighbours().Count + 1);
 
-        return follow.normalized * maxSpeed;
+        return align.normalized * maxSpeed;
     }
 
-    Vector3 Center()
+    Vector3 Cohesion()
     {
         Vector3 center = self.transform.position;
         foreach (EnemyAgent e in self.GetNeighbours())
