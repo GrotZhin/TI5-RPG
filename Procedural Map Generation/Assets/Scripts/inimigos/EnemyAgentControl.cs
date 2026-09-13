@@ -6,20 +6,19 @@ using UnityEngine;
 public class EnemyAgentControl
 {
     public EnemyAgent self;
-    public float maxSpeed = 5;
+    public float maxSpeed = 3;
     public float radius = 4.8f;
 
     [Range(0,1)]
-    public float separate = 0.4f, seek = 0.6f, align = 0.6f, avoid = 1, cohesion = 1;
-
-    public EnemyAgentControl (EnemyAgent agent) {  self = agent; }
+    public float separate = 0.6f, seek = 0.6f, align = 0.6f, avoid = 1, cohesion = 0.5f;
 
     public LayerMask obstacle;
-    public LayerMask agent;
+
+    public EnemyAgentControl (EnemyAgent agent) {  self = agent; obstacle = LayerMask.GetMask("Obstacle"); }
 
     public Vector3 Move(int fleeMod = 1, int seekMod = 1)
     {
-        Vector3 dir = self.transform.forward * maxSpeed;
+        Vector3 dir = self.transform.forward;
         if (self.player != null)
             dir = (self.player.transform.position - self.transform.position) * seek * seekMod;
 
@@ -79,12 +78,19 @@ public class EnemyAgentControl
     Vector3 Align()
     {
         Vector3 align = self.cc.velocity;
+        int count = 1;
         if (self.GetNeighbours().Count == 0) return Vector3.zero;
         foreach (EnemyAgent e in self.GetNeighbours())
         {
-            align += e.cc.velocity;
+            var angle = Vector3.Angle(self.transform.forward, e.transform.position - self.transform.position);
+            if (angle < 135)
+            {
+                align += e.cc.velocity;
+                count++;
+            }
         }
-        align = align / (self.GetNeighbours().Count + 1);
+        if (count == 0) return Vector3.zero;
+        align /= count;
 
         return align.normalized * maxSpeed;
     }
@@ -92,13 +98,19 @@ public class EnemyAgentControl
     Vector3 Cohesion()
     {
         Vector3 center = self.transform.position;
+        int count = 1;
         foreach (EnemyAgent e in self.GetNeighbours())
         {
-            center += e.transform.position;
+            var angle = Vector3.Angle(self.transform.forward, e.transform.position - self.transform.position);
+            if (angle < 135)
+            {
+                center += e.transform.position;
+                count++;
+            }
         }
-        center /= (self.GetNeighbours().Count + 1);
+        center /= count;
         Vector3 result = center - self.transform.position;
-        if (result.magnitude < 0.5) result = Vector3.zero;
+        //if (result.magnitude < 0.5) result = Vector3.zero;
         return result;
     }
 
@@ -106,12 +118,13 @@ public class EnemyAgentControl
     {
         RaycastHit hit;
         Vector3 result = Vector3.zero;
-        Vector3 origem = self.transform.position + self.transform.forward;
+        Vector3 origem = self.transform.position + self.transform.up;
         if (Physics.Raycast(origem, self.transform.forward, out hit, radius, obstacle)) 
         {
+            Debug.DrawRay(hit.point, hit.normal, Color.hotPink);
             result = ((hit.normal + self.cc.velocity.normalized) * 0.5f) * maxSpeed;
         }
-        Debug.DrawRay(origem, result * avoid * 2, Color.pink);
-        return result - self.cc.velocity;
+        Debug.DrawRay(origem, self.transform.forward * radius, Color.pink);
+        return result;
     }
 }

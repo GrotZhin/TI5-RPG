@@ -186,9 +186,6 @@ MonoBehaviour:
     obstacle:
       serializedVersion: 2
       m_Bits: 64
-    agent:
-      serializedVersion: 2
-      m_Bits: 128
   cc: {fileID: 6041822}
   neighbours: []
   collider: {fileID: 0}
@@ -211,7 +208,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 1.8
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -545,9 +542,6 @@ MonoBehaviour:
     obstacle:
       serializedVersion: 2
       m_Bits: 64
-    agent:
-      serializedVersion: 2
-      m_Bits: 128
   cc: {fileID: 42107878}
   neighbours: []
   collider: {fileID: 0}
@@ -570,7 +564,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 1.8
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -13789,7 +13783,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 1.8
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -14484,9 +14478,6 @@ MonoBehaviour:
     obstacle:
       serializedVersion: 2
       m_Bits: 64
-    agent:
-      serializedVersion: 2
-      m_Bits: 128
   cc: {fileID: 1177232680}
   neighbours: []
   collider: {fileID: 0}
@@ -14509,7 +14500,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 1.8
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -25586,9 +25577,6 @@ MonoBehaviour:
     obstacle:
       serializedVersion: 2
       m_Bits: 64
-    agent:
-      serializedVersion: 2
-      m_Bits: 128
   cc: {fileID: 1928160608}
   neighbours: []
   collider: {fileID: 0}
@@ -25611,7 +25599,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 1.8
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -25978,9 +25966,6 @@ MonoBehaviour:
     obstacle:
       serializedVersion: 2
       m_Bits: 64
-    agent:
-      serializedVersion: 2
-      m_Bits: 128
   cc: {fileID: 1970503124}
   neighbours: []
   collider: {fileID: 0}
@@ -26003,7 +25988,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 1.8
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -26606,7 +26591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2095533919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26619,7 +26604,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb9e81dc420a154bab7db6b49bab698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAgentManager
-  enemyAmount: 10
+  enemyPrefab: {fileID: 8594316515024330520, guid: ffde9974ab52dad4ab4bc2e57e04eb61, type: 3}
+  quantidade: 5
   spawnPoints:
   - {fileID: 1546522005}
   - {fileID: 1330164154}
@@ -26627,11 +26613,11 @@ MonoBehaviour:
   - {fileID: 1445910768}
   - {fileID: 477229205}
   - {fileID: 903849466}
-  enableSeek: 1
-  enableSeparate: 1
-  enableAlign: 1
-  enableCohesion: 1
-  enableAvoid: 1
+  Seek: 1
+  Separate: 1
+  Align: 1
+  Cohesion: 1
+  Avoid: 1
 --- !u!4 &2095533920
 Transform:
   m_ObjectHideFlags: 0
@@ -39212,9 +39198,6 @@ MonoBehaviour:
     obstacle:
       serializedVersion: 2
       m_Bits: 64
-    agent:
-      serializedVersion: 2
-      m_Bits: 128
   cc: {fileID: 1011689874}
   neighbours: []
   collider: {fileID: 0}
