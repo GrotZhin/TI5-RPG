@@ -14,6 +14,8 @@ public class EnemyAgentControl
 
     public EnemyAgentControl (EnemyAgent agent) {  self = agent; }
 
+    public LayerMask obstacle;
+    public LayerMask agent;
 
     public Vector3 Move(int fleeMod = 1, int seekMod = 1)
     {
@@ -102,14 +104,14 @@ public class EnemyAgentControl
 
     Vector3 Avoid()
     {
+        RaycastHit hit;
         Vector3 result = Vector3.zero;
-        /*
-         -------------------------------------
-
-          Implementar Avoid de obstáculos aqui
-
-        ----------------------------------------
-        */
-        return result;
+        Vector3 origem = self.transform.position + self.transform.forward;
+        if (Physics.Raycast(origem, self.transform.forward, out hit, radius, obstacle)) 
+        {
+            result = ((hit.normal + self.cc.velocity.normalized) * 0.5f) * maxSpeed;
+        }
+        Debug.DrawRay(origem, result * avoid * 2, Color.pink);
+        return result - self.cc.velocity;
     }
 }
