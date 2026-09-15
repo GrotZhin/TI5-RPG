@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class RoomStats : MonoBehaviour
 {
-    public Vector3Int size;
-    public BoundsInt sizeTo;
+   
+    public BoundsInt size;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
- 
+    
 }
