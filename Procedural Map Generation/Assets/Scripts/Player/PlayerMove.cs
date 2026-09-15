@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Specialized;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -9,27 +10,34 @@ public class PlayerMove : MonoBehaviour
     CharacterController cc;
     Animator animator;
 
+    [SerializeField]
+    InputInfo input;
     Vector3 moveInput = Vector3.zero;
     Vector3 moveDir;
     float ySpeed, rotationSpeed = 14;
 
+    void Awake()
+    {
+        input.Initialize();
+    }
     void Start()
     {
         cc = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         Move = MoveUnlocked;
+        InputInfo.OnMoveEvent += OnMoveInput;
+        InputInfo.OnSprintEvent += OnSprint;
     }
 
-    public void OnMoveInput(InputAction.CallbackContext context)
+    public void OnMoveInput(Vector2 v2)
     {
-        Vector2 input = context.ReadValue<Vector2>();
-        moveInput.x = input.x;
-        moveInput.z = input.y;
+        moveInput.x = v2.x;
+        moveInput.z = v2.y;
     }
 
-    public void OnSprint(InputAction.CallbackContext context)
+    public void OnSprint(bool context)
     {
-        animator.SetBool("IsRunning", context.performed);
+        animator.SetBool("IsRunning", context);
     }
 
     public void OnLockTarget(InputAction.CallbackContext context)
