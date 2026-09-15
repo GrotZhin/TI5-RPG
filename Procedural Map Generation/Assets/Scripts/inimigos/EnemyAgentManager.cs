@@ -53,10 +53,13 @@ public class EnemyAgentManager : MonoBehaviour
 
         public void Config(EnemyAgent enemy)
         {
-            enemy.control.seek = Seek ? 0.6f : 0f;
-            enemy.control.separate = Separate ? 0.4f : 0f;
-            enemy.control.align = Align ? 0.6f : 0f;
-            enemy.control.cohesion = Cohesion ? 1f : 0f;
+            enemy.control.seek = Seek ? 0.8f : 0f;
+            enemy.control.separate = Separate ? 0.85f : 0f;
+            enemy.control.align = Align ? 0.01f : 0f;
+            enemy.control.cohesion = Cohesion ? 0.03f : 0f;
             enemy.control.avoid = Avoid ? 1f : 0f;
+            Vector3 dirI = Random.insideUnitSphere;
+            dirI.y = 0;
+            enemy.transform.forward = dirI;
         }
 }

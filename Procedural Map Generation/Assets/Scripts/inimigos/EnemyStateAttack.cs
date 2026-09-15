@@ -6,7 +6,7 @@ public class EnemyStateAttack : IState
     float time;
     int chace;
     SkinnedMeshRenderer renderer;
-
+    Animator animator;
     public EnemyStateAttack(EnemyAgent agent, SkinnedMeshRenderer renderer)
     {
         this.agent = agent;
@@ -20,7 +20,7 @@ public class EnemyStateAttack : IState
         Vector3 dir = agent.player.transform.position - agent.transform.position;
         dir.y = agent.transform.position.y;
         Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up);
-
+        animator = agent.GetComponent<Animator>();
         chace = Random.Range(0, 100);
         time = 2;
     }
@@ -32,13 +32,13 @@ public class EnemyStateAttack : IState
         time -= delta;
         if (time < 0)
         {
-            if (chace > 50)
+            if (chace < 50)
             {
                 agent.ChangeState(new EnemyStateMove(agent, renderer));
             }
-            else if(chace > 40)
+            else if(chace < 65)
             {
-                agent.ChangeState(new EnemyStateMove(agent, renderer));
+                agent.ChangeState(new EnemyStateAttack(agent, renderer));
             }
             else
             {
@@ -49,7 +49,10 @@ public class EnemyStateAttack : IState
 
     public void Exit()
     {
-        //Debug.Log("IDLE saiu");
+        Debug.Log("atack saiu");
+        animator.SetBool("IsMoving", false);
+        animator.SetFloat("Input Magnitude", 0, 0, 0);
+        agent.GetNeighbours().Clear();
     }
 
 }

@@ -10,7 +10,7 @@ public class EnemyAgentControl
     public float radius = 4.8f;
 
     [Range(0,1)]
-    public float separate = 0.6f, seek = 0.6f, align = 0.6f, avoid = 1, cohesion = 0.5f;
+    public float separate = 0.9f, seek = 0.6f, align = 0.03f, avoid = 1f, cohesion = 0.05f;
 
     public LayerMask obstacle;
 

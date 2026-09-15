@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAgent : MonoBehaviour
 {
@@ -22,4 +23,9 @@ public class PlayerAgent : MonoBehaviour
         this.state = state;
         state.Enter();
     }
+    public void bater(InputAction.CallbackContext callback)
+    {
+        ChangeState(new Ataque1player(this));
+    }
+
 }

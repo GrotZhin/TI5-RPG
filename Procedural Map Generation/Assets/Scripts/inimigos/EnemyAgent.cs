@@ -58,6 +58,16 @@ public class EnemyAgent : MonoBehaviour
             player = null;
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if(player != null)
+        {
+            if (other.CompareTag("Player"))
+            {
+                player = other.GetComponent<PlayerAgent>();
+            }
+        }
+    }
 
     public void ChangeState(IState state)
     {
