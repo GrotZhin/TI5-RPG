@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Specialized;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -27,6 +25,7 @@ public class PlayerMove : MonoBehaviour
         Move = MoveUnlocked;
         InputInfo.OnMoveEvent += OnMoveInput;
         InputInfo.OnSprintEvent += OnSprint;
+        InputInfo.OnJumpEvent += OnJump;
     }
 
     public void OnMoveInput(Vector2 v2)
@@ -38,6 +37,15 @@ public class PlayerMove : MonoBehaviour
     public void OnSprint(bool context)
     {
         animator.SetBool("IsRunning", context);
+    }
+
+    public void OnJump()
+    {
+        if (cc.isGrounded)
+        {
+            animator.SetTrigger("Jump");
+            ySpeed = 4.7f;
+        }
     }
 
     public void OnLockTarget(InputAction.CallbackContext context)

@@ -154,5 +154,4 @@ public class InputInfo : ScriptableObject, Inputs.IPlayerActions
 
 
     }
-
 }
