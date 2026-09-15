@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class Danoinimigo : IState
+public class EnemyStateDano : IState
 {
     EnemyAgent agent;
     int chace;
     float time;
     SkinnedMeshRenderer renderer;
-    public Danoinimigo(EnemyAgent agent, SkinnedMeshRenderer renderer)
+    public EnemyStateDano(EnemyAgent agent, SkinnedMeshRenderer renderer)
     {
         this.agent = agent;
         this.renderer = renderer;
@@ -26,7 +26,7 @@ public class Danoinimigo : IState
         Debug.Log("move executando");
         if (time < 0)
         {
-            if (chace > 20)
+            if (chace > 20 || agent.player == null)
             {
                 agent.ChangeState(new EnemyStateFlee(agent, renderer));
             }

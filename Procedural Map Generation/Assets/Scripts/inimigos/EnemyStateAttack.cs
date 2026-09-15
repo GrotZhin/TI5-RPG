@@ -32,11 +32,11 @@ public class EnemyStateAttack : IState
         time -= delta;
         if (time < 0)
         {
-            if (chace < 50)
+            if (chace < 50 || agent.player == null)
             {
                 agent.ChangeState(new EnemyStateMove(agent, renderer));
             }
-            else if(chace < 65)
+            else if (chace < 65)
             {
                 agent.ChangeState(new EnemyStateAttack(agent, renderer));
             }
@@ -49,7 +49,7 @@ public class EnemyStateAttack : IState
 
     public void Exit()
     {
-        Debug.Log("atack saiu");
+        //Debug.Log("atack saiu");
         animator.SetBool("IsMoving", false);
         animator.SetFloat("Input Magnitude", 0, 0, 0);
         agent.GetNeighbours().Clear();

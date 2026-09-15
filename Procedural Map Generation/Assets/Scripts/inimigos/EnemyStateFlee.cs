@@ -42,7 +42,7 @@ public class EnemyStateFlee : IState
         agent.transform.rotation = Quaternion.RotateTowards(agent.transform.rotation, toRotation, rotationSpeed);
         if (agent.player)
         {
-            if ((agent.transform.position-agent.player.transform.position).magnitude > 5)
+            if ((agent.transform.position-agent.player.transform.position).magnitude > 5 || agent.player == null)
             {
                 agent.ChangeState(new EnemyStateIdle(agent, renderer));
             }
@@ -51,7 +51,7 @@ public class EnemyStateFlee : IState
 
     public void Exit()
     {
-        Debug.Log("foge saiu");
+        //Debug.Log("foge saiu");
         animator.SetBool("IsMoving", false);
         animator.SetFloat("Input Magnitude", 0, 0f, 0);
         agent.GetNeighbours().Clear();
