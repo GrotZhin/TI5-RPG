@@ -18,7 +18,10 @@ public class Ataque2player : IState
     public void Execute(float delta)
     {
         time -= delta;
-        
+        foreach (EnemyAgent agen in agente.agents)
+        {
+            agen.ChangeState(new EnemyStateDano(agen, agen.renderer));
+        }
         if (time < 0)
         {
             agente.ChangeState(new PlayerStateIdle(agente));

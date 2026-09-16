@@ -60,12 +60,19 @@ public class EnemyAgent : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if(player != null)
+        if (other != null)
         {
-            if (other.CompareTag("Player"))
+            if (player != null)
             {
-                player = other.GetComponent<PlayerAgent>();
+                if (other.CompareTag("Player"))
+                {
+                    player = other.GetComponent<PlayerAgent>();
+                }
             }
+        }
+        else
+        {
+            player = null;
         }
     }
 

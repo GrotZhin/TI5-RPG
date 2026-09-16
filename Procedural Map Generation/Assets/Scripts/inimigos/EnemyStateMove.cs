@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -23,7 +24,12 @@ public class EnemyStateMove: IState
     public void Enter()
     {
         //Debug.Log("Move entrou");
-        
+        agent.control.seek = 0.9f;
+        agent.control.separate = 0.65f;
+        agent.control.align = 0.08f;
+        agent.control.cohesion = 0.12f;
+        agent.control.avoid = 0.8f;
+
         renderer.material.color = Color.blue;
         chace = Random.Range(0, 100);
         time = Random.Range(5, 10);

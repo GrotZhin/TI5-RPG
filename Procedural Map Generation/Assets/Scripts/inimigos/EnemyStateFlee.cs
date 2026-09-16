@@ -20,11 +20,13 @@ public class EnemyStateFlee : IState
     {
         //Debug.Log("foge entrou");
         renderer.material.color = Color.purple;
-        agent.control.separate = 1f;
-        agent.control.seek = 0f;
-        agent.control.align = 0f;
-        agent.control.avoid = 1f;
-        agent.control.cohesion = 0f;
+        agent.control.seek = 0.0f;
+        agent.control.separate = 0.5f;
+        agent.control.align = 0.01f;
+        agent.control.cohesion = 0.02f;
+        agent.control.avoid = 1.0f;
+
+
         /*target = (Random.insideUnitSphere * 5) + agent.transform.position;
         target.z = -Mathf.Abs(target.z);
         target.y = agent.transform.position.y;*/
@@ -35,11 +37,12 @@ public class EnemyStateFlee : IState
     public void Execute(float delta)
     {
         //Debug.Log("foge executando");
-        Vector3 dir = agent.control.Move(3);
+        Vector3 dir = agent.control.Move(2, 0);
         target = dir;
         animator.SetFloat("Input Magnitude", target.magnitude, 0.05f, delta);
         Quaternion toRotation = Quaternion.LookRotation(target, Vector3.up);
         agent.transform.rotation = Quaternion.RotateTowards(agent.transform.rotation, toRotation, rotationSpeed);
+        Debug.Log(agent.player + "   " + agent);
         if (agent.player)
         {
             if ((agent.transform.position-agent.player.transform.position).magnitude > 5 || agent.player == null)

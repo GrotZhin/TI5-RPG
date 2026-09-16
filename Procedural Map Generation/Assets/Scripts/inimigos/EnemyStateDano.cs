@@ -39,7 +39,7 @@ public class EnemyStateDano : IState
 
     public void Exit()
     {
-        Debug.Log("IDLE saiu");
+        Debug.Log("dano saiu");
     }
     
 }
