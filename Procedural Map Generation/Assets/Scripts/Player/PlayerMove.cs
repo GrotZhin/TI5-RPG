@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Specialized;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -14,7 +12,9 @@ public class PlayerMove : MonoBehaviour
     InputInfo input;
     Vector3 moveInput = Vector3.zero;
     Vector3 moveDir;
-    float ySpeed, rotationSpeed = 14;
+
+    public Vector3 targetVelocity;
+    public float ySpeed, rotationSpeed = 14;
 
     void Awake()
     {
@@ -27,6 +27,7 @@ public class PlayerMove : MonoBehaviour
         Move = MoveUnlocked;
         InputInfo.OnMoveEvent += OnMoveInput;
         InputInfo.OnSprintEvent += OnSprint;
+        InputInfo.OnJumpEvent += OnJump;
     }
 
     public void OnMoveInput(Vector2 v2)
@@ -38,6 +39,14 @@ public class PlayerMove : MonoBehaviour
     public void OnSprint(bool context)
     {
         animator.SetBool("IsRunning", context);
+    }
+
+    public void OnJump()
+    {
+        if (cc.isGrounded)
+        {
+            animator.SetTrigger("Jump");
+        }
     }
 
     public void OnLockTarget(InputAction.CallbackContext context)
@@ -55,7 +64,12 @@ public class PlayerMove : MonoBehaviour
         moveDir = Quaternion.AngleAxis(Camera.main.transform.rotation.eulerAngles.y, Vector3.up) * moveInput;
         moveDir.Normalize();
 
-        ySpeed += Physics.gravity.y * deltaTime;
+        if(!cc.isGrounded)
+            ySpeed += Physics.gravity.y * deltaTime;
+        else if (ySpeed < -2)
+        {
+            ySpeed = -2;
+        }
 
         if (moveDir != Vector3.zero)
         {
@@ -112,14 +126,26 @@ public class PlayerMove : MonoBehaviour
     void FixedUpdate()
     {
         Move(Time.fixedDeltaTime);
+        animator.SetBool("IsGrounded", cc.isGrounded);
     }
 
     private void OnAnimatorMove()
     {
-        Vector3 velocity = animator.deltaPosition;
-        velocity.y = ySpeed * Time.deltaTime;
+        if(cc.isGrounded)
+            targetVelocity = animator.deltaPosition;
+        targetVelocity.y = ySpeed * Time.deltaTime;
 
-        cc.Move(velocity);
+        cc.Move(targetVelocity);
         transform.rotation *= animator.deltaRotation;
+    }
+
+    public CharacterController GetControler()
+    {
+        return cc;
+    }
+
+    public void SetTargetVelocity(Vector3 value)
+    {
+        targetVelocity = value;
     }
 }
