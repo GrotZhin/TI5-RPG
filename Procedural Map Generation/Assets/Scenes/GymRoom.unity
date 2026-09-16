@@ -13402,6 +13402,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   input: {fileID: 11400000, guid: ee353bc991b1ad64093f7671fac5b94b, type: 2}
+  targetVelocity: {x: 0, y: 0, z: 0}
+  ySpeed: 0
+  rotationSpeed: 14
 --- !u!4 &659903301 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8207250226287900956, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
