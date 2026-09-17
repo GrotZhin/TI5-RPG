@@ -15,6 +15,7 @@ public class PlayerMove : MonoBehaviour
 
     public Vector3 targetVelocity;
     public float ySpeed, rotationSpeed = 14, airSpeed = 3.85f;
+    public bool airAction = true;
 
     void Awake()
     {
@@ -47,6 +48,11 @@ public class PlayerMove : MonoBehaviour
         {
             animator.SetTrigger("Jump");
         }
+        else if (airAction)
+        {
+            animator.SetTrigger("Jump");
+            airAction = false;
+        }
     }
 
     public void OnLockTarget(InputAction.CallbackContext context)
@@ -71,7 +77,8 @@ public class PlayerMove : MonoBehaviour
             
             float angle = Vector3.SignedAngle(transform.forward, moveDir.normalized, Vector3.up);
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
+            if (animator.deltaRotation.eulerAngles.y < 1)
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
             //if (Mathf.Abs(angle) < 45)
             //{
             //    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);

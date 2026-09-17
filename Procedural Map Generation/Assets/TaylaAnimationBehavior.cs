@@ -2,11 +2,16 @@ using UnityEngine;
 
 public class TaylaAnimationBehavior : StateMachineBehaviour
 {
-    bool jump = false;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (stateInfo.IsName("Jump"))
             animator.GetComponent<PlayerMove>().ySpeed = 9f;
+        if (stateInfo.IsName("DoubleJump"))
+            animator.GetComponent<PlayerMove>().ySpeed = 7f;
+        if (stateInfo.IsName("Fall"))
+            animator.GetComponent<PlayerMove>().airAction = true;
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
