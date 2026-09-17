@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
     Vector3 moveDir;
 
     public Vector3 targetVelocity;
-    public float ySpeed, rotationSpeed = 14;
+    public float ySpeed, rotationSpeed = 14, airSpeed = 3.85f;
 
     void Awake()
     {
@@ -62,22 +62,14 @@ public class PlayerMove : MonoBehaviour
         animator.SetFloat("Input Magnitude", inputMagnitude, 0.05f, deltaTime);
 
         moveDir = Quaternion.AngleAxis(Camera.main.transform.rotation.eulerAngles.y, Vector3.up) * moveInput;
-        moveDir.Normalize();
-
-        if(!cc.isGrounded)
-            ySpeed += Physics.gravity.y * deltaTime;
-        else if (ySpeed < -2)
-        {
-            ySpeed = -2;
-        }
 
         if (moveDir != Vector3.zero)
         {
             animator.SetBool("IsMoving", true);
 
-            Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
+            Quaternion toRotation = Quaternion.LookRotation(moveDir.normalized, Vector3.up);
             
-            float angle = Vector3.SignedAngle(transform.forward, moveDir, Vector3.up);
+            float angle = Vector3.SignedAngle(transform.forward, moveDir.normalized, Vector3.up);
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
             //if (Mathf.Abs(angle) < 45)
@@ -123,9 +115,30 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    void Gravity(float deltaTime)
+    {
+        if (!cc.isGrounded)
+        {
+            if (ySpeed < 1.5f && ySpeed > -0.2f)
+            {
+                ySpeed += Physics.gravity.y/1.85f * deltaTime;
+
+            }
+            else
+                ySpeed += Physics.gravity.y * deltaTime;
+        }
+        else if (ySpeed < -2)
+        {
+            ySpeed = -2;
+        }
+    }
+
+
     void FixedUpdate()
     {
         Move(Time.fixedDeltaTime);
+        Gravity(Time.fixedDeltaTime);
+
         animator.SetBool("IsGrounded", cc.isGrounded);
     }
 
@@ -133,6 +146,11 @@ public class PlayerMove : MonoBehaviour
     {
         if(cc.isGrounded)
             targetVelocity = animator.deltaPosition;
+        else
+        {
+ 
+            targetVelocity = moveDir * Time.deltaTime * airSpeed;
+        }
         targetVelocity.y = ySpeed * Time.deltaTime;
 
         cc.Move(targetVelocity);
