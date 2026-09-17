@@ -13624,6 +13624,7 @@ MonoBehaviour:
   targetVelocity: {x: 0, y: 0, z: 0}
   ySpeed: 0
   rotationSpeed: 14
+  airSpeed: 4
 --- !u!114 &655379589
 MonoBehaviour:
   m_ObjectHideFlags: 0
