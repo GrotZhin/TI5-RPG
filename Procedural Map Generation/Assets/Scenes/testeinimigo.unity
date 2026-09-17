@@ -178,6 +178,7 @@ MonoBehaviour:
     self: {fileID: 0}
     maxSpeed: 0
     radius: 0
+    vida: 0
     separate: 0
     seek: 0
     align: 0
@@ -534,6 +535,7 @@ MonoBehaviour:
     self: {fileID: 0}
     maxSpeed: 0
     radius: 0
+    vida: 0
     separate: 0
     seek: 0
     align: 0
@@ -10112,7 +10114,7 @@ GameObject:
   - component: {fileID: 584327864}
   - component: {fileID: 584327863}
   - component: {fileID: 584327862}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Obstacle (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10351,7 +10353,7 @@ GameObject:
   - component: {fileID: 602422020}
   - component: {fileID: 602422019}
   - component: {fileID: 602422018}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11041,6 +11043,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   input: {fileID: 11400000, guid: ee353bc991b1ad64093f7671fac5b94b, type: 2}
+  targetVelocity: {x: 0, y: 0, z: 0}
+  ySpeed: 0
+  rotationSpeed: 14
+  airSpeed: 3.85
 --- !u!95 &699360407
 Animator:
   serializedVersion: 7
@@ -14389,7 +14395,7 @@ GameObject:
   - component: {fileID: 877221714}
   - component: {fileID: 877221713}
   - component: {fileID: 877221712}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Obstacle (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15913,6 +15919,7 @@ MonoBehaviour:
     self: {fileID: 0}
     maxSpeed: 0
     radius: 0
+    vida: 0
     separate: 0
     seek: 0
     align: 0
@@ -19893,7 +19900,7 @@ GameObject:
   - component: {fileID: 1454057554}
   - component: {fileID: 1454057553}
   - component: {fileID: 1454057552}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Obstacle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20698,7 +20705,7 @@ GameObject:
   - component: {fileID: 1597138294}
   - component: {fileID: 1597138293}
   - component: {fileID: 1597138292}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Obstacle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22041,7 +22048,7 @@ GameObject:
   - component: {fileID: 1794924838}
   - component: {fileID: 1794924837}
   - component: {fileID: 1794924836}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Obstacle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23375,6 +23382,7 @@ MonoBehaviour:
     self: {fileID: 0}
     maxSpeed: 0
     radius: 0
+    vida: 0
     separate: 0
     seek: 0
     align: 0
@@ -23717,7 +23725,7 @@ GameObject:
   - component: {fileID: 1968319984}
   - component: {fileID: 1968319983}
   - component: {fileID: 1968319982}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Obstacle (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23928,6 +23936,7 @@ MonoBehaviour:
     self: {fileID: 0}
     maxSpeed: 0
     radius: 0
+    vida: 0
     separate: 0
     seek: 0
     align: 0
@@ -39412,6 +39421,7 @@ MonoBehaviour:
     self: {fileID: 0}
     maxSpeed: 0
     radius: 0
+    vida: 0
     separate: 0
     seek: 0
     align: 0

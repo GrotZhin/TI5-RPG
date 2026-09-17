@@ -17,6 +17,11 @@ public class EnemyStateAttack : IState
     {
         //Debug.Log("Atack entrou");
         renderer.material.color = Color.red;
+        if (agent.player != null)
+        {
+            agent.player.dano(10);
+            Debug.Log("atack saiu  " + agent.player.vida);
+        }
         Vector3 dir = agent.player.transform.position - agent.transform.position;
         dir.y = agent.transform.position.y;
         Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up);
@@ -49,7 +54,6 @@ public class EnemyStateAttack : IState
 
     public void Exit()
     {
-        //Debug.Log("atack saiu");
         animator.SetBool("IsMoving", false);
         animator.SetFloat("Input Magnitude", 0, 0, 0);
         agent.GetNeighbours().Clear();

@@ -42,7 +42,7 @@ public class EnemyStateFlee : IState
         animator.SetFloat("Input Magnitude", target.magnitude, 0.05f, delta);
         Quaternion toRotation = Quaternion.LookRotation(target, Vector3.up);
         agent.transform.rotation = Quaternion.RotateTowards(agent.transform.rotation, toRotation, rotationSpeed);
-        Debug.Log(agent.player + "   " + agent);
+        //Debug.Log(agent.player + "   " + agent);
         if (agent.player)
         {
             if ((agent.transform.position-agent.player.transform.position).magnitude > 5 || agent.player == null)

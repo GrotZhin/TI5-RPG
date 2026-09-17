@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Video;
 
 [Serializable]
 public class EnemyAgentControl
@@ -8,7 +9,7 @@ public class EnemyAgentControl
     public EnemyAgent self;
     public float maxSpeed = 3;
     public float radius = 4.8f;
-
+    public float vida = 0f;
     [Range(0,1)]
     public float separate = 0.9f, seek = 0.6f, align = 0.03f, avoid = 1f, cohesion = 0.05f;
 
@@ -126,5 +127,9 @@ public class EnemyAgentControl
         }
         Debug.DrawRay(origem, self.transform.forward * radius, Color.pink);
         return result;
+    }
+    public void dano(int dano)
+    {
+        vida -= dano;
     }
 }

@@ -14,16 +14,17 @@ public class EnemyStateDano : IState
 
     public void Enter()
     {
-        Debug.Log("Move entrou");
+        //Debug.Log("Move entrou");
         renderer.material.color = Color.black;
+        agent.control.dano(5);
         chace = Random.Range(0, 100);
-        time = 2;
+        time = 1;
     }
 
     public void Execute(float delta)
     {
         time -= delta;
-        Debug.Log("move executando");
+        //Debug.Log("move executando");
         if (time < 0)
         {
             if (chace > 20 || agent.player == null)
@@ -39,7 +40,7 @@ public class EnemyStateDano : IState
 
     public void Exit()
     {
-        Debug.Log("dano saiu");
+        Debug.Log("dano saiu  " + agent.control.vida);
     }
     
 }

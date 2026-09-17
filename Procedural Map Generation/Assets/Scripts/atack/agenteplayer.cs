@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerAgent : MonoBehaviour
 {
     IState state;
+    public float vida = 100;
     public List<EnemyAgent> agents = new List<EnemyAgent>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,5 +46,10 @@ public class PlayerAgent : MonoBehaviour
             agents.Remove(other.GetComponent<EnemyAgent>());
 
         }
+    }
+
+    public void dano(int dano)
+    {
+        vida -= dano;
     }
 }
