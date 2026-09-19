@@ -16,9 +16,12 @@ public class PlayerMove : MonoBehaviour
     Vector3 moveDir;
 
     public Vector3 targetVelocity;
+    float velocityMultiplier = 1;
+    float gravityMultiplier = 1;
     public float ySpeed, rotationSpeed = 14, airSpeed = 3.85f;
     public bool airAction = true;
-    public float jumpHeight = 4.4f, jumpTime = 0.4f; 
+    public float jumpHeight = 4.4f, jumpTime = 0.4f;
+    float dashCooldown = 0;
 
     void Awake()
     {
@@ -32,8 +35,9 @@ public class PlayerMove : MonoBehaviour
         InputInfo.OnMoveEvent += OnMoveInput;
         InputInfo.OnSprintEvent += OnSprint;
         InputInfo.OnJumpEvent += OnJump;
+        InputInfo.OnDashEvent += OnDash;
 
-        CalculateJump();
+        CalculateJump(jumpHeight, jumpTime);
     }
 
     public void OnMoveInput(Vector2 v2)
@@ -56,6 +60,19 @@ public class PlayerMove : MonoBehaviour
         else if (airAction)
         {
             animator.SetTrigger("Jump");
+            airAction = false;
+        }
+    }
+
+    public void OnDash()
+    {
+        if (cc.isGrounded && dashCooldown <= 0)
+        {
+            animator.SetTrigger("Dash");
+        }
+        else if (airAction)
+        {
+            animator.SetTrigger("Dash");
             airAction = false;
         }
     }
@@ -133,15 +150,15 @@ public class PlayerMove : MonoBehaviour
         {
             if (ySpeed >= 1.5f)
             {
-                ySpeed += -gravity * deltaTime;
+                ySpeed += -gravity * deltaTime * gravityMultiplier;
             }
             else if (ySpeed < 1.5f && ySpeed > -0.2f)
             {
-                ySpeed += Physics.gravity.y/1.85f * deltaTime;
+                ySpeed += Physics.gravity.y/1.85f * deltaTime * gravityMultiplier;
 
             }
             else
-                ySpeed += Physics.gravity.y * deltaTime;
+                ySpeed += Physics.gravity.y * deltaTime * gravityMultiplier;
         }
         else if (ySpeed < -2)
         {
@@ -152,6 +169,9 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(dashCooldown > 0)
+            dashCooldown -= Time.fixedDeltaTime;
+        
         Move(Time.fixedDeltaTime);
         Gravity(Time.fixedDeltaTime);
 
@@ -161,11 +181,15 @@ public class PlayerMove : MonoBehaviour
     private void OnAnimatorMove()
     {
         if(cc.isGrounded)
-            targetVelocity = animator.deltaPosition;
+            targetVelocity = animator.deltaPosition * velocityMultiplier;
         else
         {
- 
-            targetVelocity = moveDir * Time.deltaTime * airSpeed;
+            var horizontal = animator.deltaPosition;
+            horizontal.y = 0;
+            if(horizontal.sqrMagnitude > 0.001)
+                targetVelocity = animator.deltaPosition * velocityMultiplier;
+            else
+                targetVelocity = moveDir * Time.deltaTime * airSpeed * velocityMultiplier;
         }
         targetVelocity.y = ySpeed * Time.deltaTime;
 
@@ -187,7 +211,7 @@ public class PlayerMove : MonoBehaviour
     public float InitialVelocity { get; private set; }
 
     [ContextMenu("Testa Calculo")]
-    public void CalculateJump()
+    public void CalculateJump(float jumpHeight, float jumpTime)
     {
         //v² = vo² + 2ad
         //0 = initialVelocity² + 2 * gravity * jumpHeight
@@ -204,9 +228,24 @@ public class PlayerMove : MonoBehaviour
         gravity = (2 * jumpHeight) / (jumpTime * jumpTime);
         InitialVelocity = gravity * jumpTime;
     }
-    public void Jump()
+    public void Jump(bool airJump = false)
     {
-        CalculateJump();
+        if(!airJump)
+            CalculateJump(jumpHeight, jumpTime);
+        else
+            CalculateJump(jumpHeight*4/5, jumpTime);
+
         ySpeed = InitialVelocity;
+    }
+    public void Dash()
+    {
+        dashCooldown = 1.35f;
+        velocityMultiplier = 1.85f;
+        gravityMultiplier = 0;
+    }
+    public void ResetDash()
+    {
+        velocityMultiplier = 1;
+        gravityMultiplier = 1;
     }
 }

@@ -19,6 +19,7 @@ public class InputInfo : ScriptableObject, Inputs.IPlayerActions
     public static event Action OnCrouchEvent;
     public static event Action OnCrouchReleaseEvent;
     public static event Action OnJumpEvent;
+    public static event Action OnDashEvent;
     public static event Action<bool> OnSprintEvent;
 
     public static event Action OnAttackEvent;
@@ -54,6 +55,7 @@ public class InputInfo : ScriptableObject, Inputs.IPlayerActions
         OnMapEvent = () => { };
         OnCrouchEvent = () => { };
         OnJumpEvent = () => { };
+        OnDashEvent = () => { };
         OnAttackEvent = () => { };
         OnAimEvent = () => { };
         OnMenuEvent = () => { };
@@ -114,6 +116,11 @@ public class InputInfo : ScriptableObject, Inputs.IPlayerActions
     {
         if (context.performed)
             OnJumpEvent();
+    }
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            OnDashEvent();
     }
     public void OnAim(InputAction.CallbackContext context)
     {
