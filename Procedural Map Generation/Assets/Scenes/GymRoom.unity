@@ -13861,6 +13861,8 @@ MonoBehaviour:
   rotationSpeed: 14
   airSpeed: 4
   airAction: 1
+  jumpHeight: 3.9
+  jumpTime: 0.6
 --- !u!114 &655379589
 MonoBehaviour:
   m_ObjectHideFlags: 0

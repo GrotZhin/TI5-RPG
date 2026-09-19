@@ -1,6 +1,8 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class PlayerMove : MonoBehaviour
     public Vector3 targetVelocity;
     public float ySpeed, rotationSpeed = 14, airSpeed = 3.85f;
     public bool airAction = true;
+    public float jumpHeight = 4.4f, jumpTime = 0.4f; 
 
     void Awake()
     {
@@ -29,6 +32,8 @@ public class PlayerMove : MonoBehaviour
         InputInfo.OnMoveEvent += OnMoveInput;
         InputInfo.OnSprintEvent += OnSprint;
         InputInfo.OnJumpEvent += OnJump;
+
+        CalculateJump();
     }
 
     public void OnMoveInput(Vector2 v2)
@@ -126,7 +131,11 @@ public class PlayerMove : MonoBehaviour
     {
         if (!cc.isGrounded)
         {
-            if (ySpeed < 1.5f && ySpeed > -0.2f)
+            if (ySpeed >= 1.5f)
+            {
+                ySpeed += -gravity * deltaTime;
+            }
+            else if (ySpeed < 1.5f && ySpeed > -0.2f)
             {
                 ySpeed += Physics.gravity.y/1.85f * deltaTime;
 
@@ -172,5 +181,32 @@ public class PlayerMove : MonoBehaviour
     public void SetTargetVelocity(Vector3 value)
     {
         targetVelocity = value;
+    }
+
+    float gravity;
+    public float InitialVelocity { get; private set; }
+
+    [ContextMenu("Testa Calculo")]
+    public void CalculateJump()
+    {
+        //v² = vo² + 2ad
+        //0 = initialVelocity² + 2 * gravity * jumpHeight
+
+        //float initialVelocity;
+        //float distante = jumpHeight;
+        //float acceleration = Physics.gravity.y;
+        //initialVelocity = math.sqrt(-(2 * distante * acceleration));
+        //Debug.Log(initialVelocity);
+
+        //s = so + vt - at²/2
+        //jumpHeight = 0 + initialVelocity * jumpTime - gravity * jumpTime²/2
+
+        gravity = (2 * jumpHeight) / (jumpTime * jumpTime);
+        InitialVelocity = gravity * jumpTime;
+    }
+    public void Jump()
+    {
+        CalculateJump();
+        ySpeed = InitialVelocity;
     }
 }
