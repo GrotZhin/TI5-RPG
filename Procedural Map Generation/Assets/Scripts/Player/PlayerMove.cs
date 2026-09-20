@@ -94,8 +94,6 @@ public class PlayerMove : MonoBehaviour
 
         if (moveDir != Vector3.zero)
         {
-            animator.SetBool("IsMoving", true);
-
             Quaternion toRotation = Quaternion.LookRotation(moveDir.normalized, Vector3.up);
             
             float angle = Vector3.SignedAngle(transform.forward, moveDir.normalized, Vector3.up);
@@ -112,10 +110,6 @@ public class PlayerMove : MonoBehaviour
             //    angle = angle/140;
             //    animator.SetFloat("Turn Magnitude", angle, 0.035f, deltaTime);
             //}
-        }
-        else
-        {
-            animator.SetBool("IsMoving", false);
         }
     }
 
@@ -134,12 +128,10 @@ public class PlayerMove : MonoBehaviour
 
         if (moveDir != Vector3.zero)
         {
-            animator.SetBool("IsMoving", true);
             animator.SetBool("IsStrafing", true);
         }
         else
         {
-            animator.SetBool("IsMoving", false);
             animator.SetBool("IsStrafing", false);
 
         }
@@ -244,6 +236,12 @@ public class PlayerMove : MonoBehaviour
         velocityMultiplier = 1.85f;
         gravityMultiplier = 0;
         rotationMultiplier = 0;
+        if (moveDir.magnitude > 0)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(moveDir.normalized, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 180);
+        }
+
     }
     public void ResetDash()
     {
