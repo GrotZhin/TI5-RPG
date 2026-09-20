@@ -88,7 +88,7 @@ public class PlayerMove : MonoBehaviour
         moveDir = moveInput;
         float inputMagnitude = Mathf.Clamp01(moveDir.magnitude);
 
-        animator.SetFloat("Input Magnitude", inputMagnitude, 0.05f, deltaTime);
+        animator.SetFloat("Input Magnitude", inputMagnitude, 0.03f, deltaTime);
 
         moveDir = Quaternion.AngleAxis(Camera.main.transform.rotation.eulerAngles.y, Vector3.up) * moveInput;
 
