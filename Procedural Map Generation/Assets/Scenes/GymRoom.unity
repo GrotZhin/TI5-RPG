@@ -13858,8 +13858,8 @@ MonoBehaviour:
   input: {fileID: 11400000, guid: ee353bc991b1ad64093f7671fac5b94b, type: 2}
   targetVelocity: {x: 0, y: 0, z: 0}
   ySpeed: 0
-  rotationSpeed: 14
-  airSpeed: 4
+  rotationSpeed: 16
+  airSpeed: 3.87
   airAction: 1
   jumpHeight: 3.9
   jumpTime: 0.6

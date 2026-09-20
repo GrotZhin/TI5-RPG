@@ -16,11 +16,12 @@ public class PlayerMove : MonoBehaviour
     Vector3 moveDir;
 
     public Vector3 targetVelocity;
-    float velocityMultiplier = 1;
-    float gravityMultiplier = 1;
-    public float ySpeed, rotationSpeed = 14, airSpeed = 3.85f;
+    public float ySpeed, rotationSpeed = 14, airSpeed = 3.75f;
     public bool airAction = true;
     public float jumpHeight = 4.4f, jumpTime = 0.4f;
+    float velocityMultiplier = 1;
+    float gravityMultiplier = 1;
+    float rotationMultiplier = 1;
     float dashCooldown = 0;
 
     void Awake()
@@ -100,7 +101,7 @@ public class PlayerMove : MonoBehaviour
             float angle = Vector3.SignedAngle(transform.forward, moveDir.normalized, Vector3.up);
 
             if (animator.deltaRotation.eulerAngles.y < 1)
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * rotationMultiplier);
             //if (Mathf.Abs(angle) < 45)
             //{
             //    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
@@ -242,10 +243,12 @@ public class PlayerMove : MonoBehaviour
         dashCooldown = 1.35f;
         velocityMultiplier = 1.85f;
         gravityMultiplier = 0;
+        rotationMultiplier = 0;
     }
     public void ResetDash()
     {
         velocityMultiplier = 1;
         gravityMultiplier = 1;
+        rotationMultiplier = 1;
     }
 }
