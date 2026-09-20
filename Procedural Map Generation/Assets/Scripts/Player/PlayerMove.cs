@@ -88,12 +88,14 @@ public class PlayerMove : MonoBehaviour
         moveDir = moveInput;
         float inputMagnitude = Mathf.Clamp01(moveDir.magnitude);
 
-        animator.SetFloat("Input Magnitude", inputMagnitude, 0.03f, deltaTime);
+        animator.SetFloat("Input Magnitude", inputMagnitude, 0.05f, deltaTime);
 
         moveDir = Quaternion.AngleAxis(Camera.main.transform.rotation.eulerAngles.y, Vector3.up) * moveInput;
 
         if (moveDir != Vector3.zero)
         {
+            animator.SetBool("IsMoving", true);
+
             Quaternion toRotation = Quaternion.LookRotation(moveDir.normalized, Vector3.up);
             
             float angle = Vector3.SignedAngle(transform.forward, moveDir.normalized, Vector3.up);
@@ -111,6 +113,10 @@ public class PlayerMove : MonoBehaviour
             //    animator.SetFloat("Turn Magnitude", angle, 0.035f, deltaTime);
             //}
         }
+        else
+        {
+            animator.SetBool("IsMoving", false);
+        }
     }
 
     void MoveLocked(float deltaTime)
@@ -119,7 +125,7 @@ public class PlayerMove : MonoBehaviour
 
         float inputMagnitude = Mathf.Clamp01(moveDir.magnitude);
 
-        animator.SetFloat("Input Magnitude", inputMagnitude, 0.05f, deltaTime);
+        animator.SetFloat("Input Magnitude", inputMagnitude, 0.03f, deltaTime);
 
         moveDir = Quaternion.AngleAxis(cc.transform.rotation.eulerAngles.y, Vector3.up) * moveDir;
         moveDir.Normalize();
@@ -128,10 +134,12 @@ public class PlayerMove : MonoBehaviour
 
         if (moveDir != Vector3.zero)
         {
+            animator.SetBool("IsMoving", true);
             animator.SetBool("IsStrafing", true);
         }
         else
         {
+            animator.SetBool("IsMoving", false);
             animator.SetBool("IsStrafing", false);
 
         }
