@@ -63,61 +63,68 @@ public static class ProceduralGeneration
     {
         int[,] map = new int[x, z];
         HashSet<Vector3Int> positions = new HashSet<Vector3Int>();
+        List<Bounds> rooms = new List<Bounds>();
         List<GameObject> objects = new List<GameObject>();
         var i = 0;
         var t = 0;
-        
+
         var distance = Vector3Int.zero;
+        int maxTrys = 100;
 
         while (roomCount > 0)
         {
-            Vector3Int pos;
-            // do
-            // {
-            var positionX = Random.Range(0, map.GetLength(0));
-            var positionZ = Random.Range(0, map.GetLength(1));
-
-            pos = new Vector3Int(positionX, 0, positionZ) + distance;
-
-
-            distance.x = Random.Range(islands[i].size.min.x, islands[i].size.max.x) * Random.Range(2, 5);
-            distance.z = Random.Range(islands[i].size.min.z, islands[i].size.max.z) * Random.Range(2, 5);
-
-
-            //} while (positions.Add(pos) == false);
-            GameObject obj = CreateGameObjects(pos, islands[i].size.size, ref t);
-            Collider[] hits;
-           // bool hit;
-            do
+            Vector3Int pos = Vector3Int.zero;
+            bool positionFound = false;
+            var trys = 0;
+            //GameObject obj = CreateGameObjects(pos, islands[i].size.size, ref t);
+            while (!positionFound && trys < maxTrys)
             {
-                hits = Physics.OverlapBox(pos, islands[i].size.size/2, Quaternion.identity, layerMask);
-             //   hit = Physics.CheckBox(pos, islands[i].size.size, Quaternion.identity, layerMask);
-                if (hits.Length > 0)
+                var positionX = Random.Range(0, map.GetLength(0));
+                var positionZ = Random.Range(0, map.GetLength(1));
+
+
+                distance.x = Random.Range(islands[i].size.min.x, islands[i].size.max.x) * Random.Range(2, 5);
+                distance.z = Random.Range(islands[i].size.min.z, islands[i].size.max.z) * Random.Range(2, 5);
+
+                pos = new Vector3Int(positionX, 0, positionZ) + distance;
+                var newRoom = new Bounds(pos, islands[i].size.size);
+                bool dontCollide = false;
+
+                foreach (var room in rooms)
                 {
-                    positionX = Random.Range(0, map.GetLength(0));
-                    positionZ = Random.Range(0, map.GetLength(1));
-
-                    
-                    distance.x = Random.Range(islands[i].size.min.x, islands[i].size.max.x) * Random.Range(2, 5);
-                    distance.z = Random.Range(islands[i].size.min.z, islands[i].size.max.z) * Random.Range(2, 5);
-
-                    pos = new Vector3Int(positionX, 0, positionZ) + distance;
-
-                    obj.transform.position = pos;
-
-                    Debug.Log("Dentro do if");
-                    for (int j = 0; j < hits.Length; j++)
+                    if (newRoom.Intersects(room))
                     {
-                        Debug.Log("Nome: " + hits[j].gameObject.name);
+                        dontCollide = true;
+                        break;
                     }
                 }
-                Debug.Log("Fora do if");
+                if (!dontCollide)
+                {
+                    positionFound = true;
+                    rooms.Add(newRoom);
+
+                }
+                trys++;
+            }
+            if (!positionFound)
+            {
+                Debug.Log("cabou o espaço");
+                break;
+            }
+            // Collider[] hits;
+            // bool hit;
+            // do
+            // {
 
 
-            } while (hits.Length != 0);
+            //     obj.transform.position = pos;
+            //     Physics.SyncTransforms();
+            //     hits = Physics.OverlapBox(pos, islands[i].size.size / 2, Quaternion.identity, layerMask);
 
-            obj.layer = LayerMask.NameToLayer("louco");
+            // } while (hits.Length != 0);
 
+            //obj.layer = LayerMask.NameToLayer("louco");
+            //rooms.Add(newRoom);
             positions.Add(pos);
             roomCount--;
             i++;
@@ -129,7 +136,7 @@ public static class ProceduralGeneration
     public static GameObject CreateGameObjects(Vector3Int pos, Vector3Int size, ref int i)
     {
         GameObject obj = new GameObject();
-        
+
         obj.name = i.ToString();
         obj.transform.position = pos;
         obj.layer = LayerMask.NameToLayer("excludeLayer");

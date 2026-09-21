@@ -54,6 +54,38 @@ public class Rooms : RandomWalkGenerator
         }
         return corridors;
     }
+    // private HashSet<Vector3Int> CreateCorridor(Vector3Int currentRoomCenter, Vector3Int destination)
+    // {
+    //     HashSet<Vector3Int> corridor = new HashSet<Vector3Int>();
+
+    //     var position = currentRoomCenter;
+    //     corridor.Add(position);
+    //     while (position.z != destination.z)
+    //     {
+    //         if (destination.z > position.z)
+    //         {
+    //             position += Vector3Int.forward ;
+    //         }
+    //         else if (destination.z < position.z)
+    //         {
+    //             position += Vector3Int.back ;
+    //         }
+    //         corridor.Add(position);
+    //     }
+    //     while (position.x != destination.x)
+    //     {
+    //         if (destination.x > position.x)
+    //         {
+    //             position += Vector3Int.right ;
+    //         }
+    //         else if (destination.x < position.x)
+    //         {
+    //             position += Vector3Int.left ;
+    //         }
+    //         corridor.Add(position);
+    //     }
+    //     return corridor;
+    // }
     private HashSet<Vector3Int> CreateCorridor(Vector3Int currentRoomCenter, Vector3Int destination)
     {
         HashSet<Vector3Int> corridor = new HashSet<Vector3Int>();

@@ -679,6 +679,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1658203213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1658203215}
+  - component: {fileID: 1658203214}
+  m_Layer: 0
+  m_Name: RandomWalkGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1658203214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658203213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cee6ba3d56229243870979f359838ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomWalkGenerator
+  startPosition: {x: 0, y: 0, z: 0}
+  prefabVisualizer: {fileID: 0}
+  randomWalkData: {fileID: 0}
+--- !u!4 &1658203215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658203213}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.999998, y: 0.16756918, z: 8.237727}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1818711467
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,9 +758,9 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   prefabVisualizer: {fileID: 742537792}
   randomWalkData: {fileID: 11400000, guid: a1bdf636a41a8c44194439f89129e17b, type: 2}
-  height: 5
-  witdth: 5
-  roomCount: 4
+  height: 250
+  witdth: 250
+  roomCount: 50
   island:
   - {fileID: -4886462899509217098, guid: 940589f069f40334286875d4c4e57ed0, type: 3}
   - {fileID: -7009407215719009836, guid: 4ca264e31e5dee748bcbbd81e5c4e3f4, type: 3}
@@ -721,8 +768,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
-  socorro1: {x: 1, y: 0, z: 52}
-  socorro2: {x: 13, y: 0, z: 15}
+  socorro1: {x: 0, y: 0, z: 0}
+  socorro2: {x: 0, y: 0, z: 0}
 --- !u!4 &1818711469
 Transform:
   m_ObjectHideFlags: 0
@@ -745,6 +792,7 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 1658203215}
   - {fileID: 1628169589}
   - {fileID: 742537793}
   - {fileID: 80464116}
