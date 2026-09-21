@@ -2,8 +2,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using JetBrains.Annotations;
 using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
