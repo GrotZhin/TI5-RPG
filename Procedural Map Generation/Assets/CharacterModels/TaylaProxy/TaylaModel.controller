@@ -65,7 +65,8 @@ AnimatorState:
   - {fileID: -4881300753016815968}
   - {fileID: -1964426340279542255}
   - {fileID: 5713680704140421847}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -8492892210187520118}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -132,7 +133,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: -2947633574771203950}
   - {fileID: 6339612033587149891}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -4898799107892124170}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -169,6 +171,19 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-8492892210187520118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d002d0fe7cbc774baf7d84df99d1585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaylaAnimationBehavior
+  canAttack: 1
 --- !u!1101 &-8216795009481241793
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -207,7 +222,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: 6350044925942611040}
   - {fileID: -8693444950823549054}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 2270752181981140707}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -507,7 +523,7 @@ AnimatorStateMachine:
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: 282886563325750868}
-    m_Position: {x: 430, y: 470, z: 0}
+    m_Position: {x: 410, y: 490, z: 0}
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
@@ -598,6 +614,19 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-4898799107892124170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d002d0fe7cbc774baf7d84df99d1585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaylaAnimationBehavior
+  canAttack: 1
 --- !u!1101 &-4881300753016815968
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -754,6 +783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d002d0fe7cbc774baf7d84df99d1585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaylaAnimationBehavior
+  canAttack: 1
 --- !u!1101 &-3102627015478033947
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -976,7 +1006,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: 2818523590959010809}
   - {fileID: -494561935800088821}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -874399726803023977}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -991,6 +1022,19 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-874399726803023977
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d002d0fe7cbc774baf7d84df99d1585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaylaAnimationBehavior
+  canAttack: 1
 --- !u!206 &-815721031660724838
 BlendTree:
   m_ObjectHideFlags: 1
@@ -1420,6 +1464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d002d0fe7cbc774baf7d84df99d1585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaylaAnimationBehavior
+  canAttack: 1
 --- !u!1101 &949996585924127630
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1558,6 +1603,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d002d0fe7cbc774baf7d84df99d1585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaylaAnimationBehavior
+  canAttack: 1
+--- !u!114 &2270752181981140707
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d002d0fe7cbc774baf7d84df99d1585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaylaAnimationBehavior
+  canAttack: 1
 --- !u!1101 &2387758998500423998
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1649,9 +1708,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.087346196
   m_TransitionOffset: 0
-  m_ExitTime: 0.625
+  m_ExitTime: 0.8689807
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1862,7 +1921,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.8
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -1986,9 +2045,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.11388445
   m_TransitionOffset: 0
-  m_ExitTime: 0.625
+  m_ExitTime: 0.8291733
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -2121,6 +2180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d002d0fe7cbc774baf7d84df99d1585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaylaAnimationBehavior
+  canAttack: 1
 --- !u!1102 &7953477469259591329
 AnimatorState:
   serializedVersion: 6
@@ -2161,6 +2221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d002d0fe7cbc774baf7d84df99d1585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaylaAnimationBehavior
+  canAttack: 1
 --- !u!1101 &8418719830265607716
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2223,6 +2284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d002d0fe7cbc774baf7d84df99d1585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaylaAnimationBehavior
+  canAttack: 1
 --- !u!1101 &9177566572259909329
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

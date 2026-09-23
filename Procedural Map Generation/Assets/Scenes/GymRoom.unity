@@ -7158,6 +7158,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 655379590}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 655379591}
   m_SourcePrefab: {fileID: 100100000, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
 --- !u!4 &171862859 stripped
 Transform:
@@ -14251,8 +14254,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac316cea546e3a84f8e534b693cf3b3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAgent
-  vida: 100
+  lifePoints: 100
   agents: []
+--- !u!114 &655379591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655379585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ae371251ff5714e95d192feb1715e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  animator: {fileID: 655379586}
+  pauseBufferTimer:
+    minTime: 0
+    maxTime: 0
 --- !u!4 &659903301 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8207250226287900956, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -40601,7 +40620,7 @@ Transform:
   m_GameObject: {fileID: 1211961122}
   serializedVersion: 2
   m_LocalRotation: {x: 0.018565072, y: 0.0008906164, z: -0.000016537215, w: 0.99982727}
-  m_LocalPosition: {x: 0.602874, y: 1.6833675, z: -4.947299}
+  m_LocalPosition: {x: 0.019273695, y: 4.9443674, z: -7.7930737}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
