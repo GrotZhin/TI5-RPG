@@ -19,8 +19,8 @@ public class EnemyStateAttack : IState
         renderer.material.color = Color.red;
         if (agent.player != null)
         {
-            agent.player.dano(10);
-            Debug.Log("atack saiu  " + agent.player.vida);
+            agent.player.Damage(10);
+            Debug.Log("atack saiu  " + agent.player.lifePoints);
         }
         Vector3 dir = agent.player.transform.position - agent.transform.position;
         dir.y = agent.transform.position.y;
