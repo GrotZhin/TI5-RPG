@@ -486,6 +486,57 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &467341543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 467341545}
+  - component: {fileID: 467341544}
+  m_Layer: 0
+  m_Name: Rooms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &467341544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467341543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921c41ef0dbc34a43aad1b5460cc3b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Rooms
+  startPosition: {x: 0, y: 0, z: 0}
+  prefabVisualizer: {fileID: 742537792}
+  randomWalkData: {fileID: 11400000, guid: a1bdf636a41a8c44194439f89129e17b, type: 2}
+  rooms:
+  - {fileID: -6491668022110887172, guid: 940589f069f40334286875d4c4e57ed0, type: 3}
+  roomCount: 10
+  offset: {x: 1, y: 0, z: 1}
+--- !u!4 &467341545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467341543}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &742537791
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e916cda99edc0774ab7e6d07672a167f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrefabVisualizer
-  floorPrefab: {fileID: 3328692094010930375, guid: 940589f069f40334286875d4c4e57ed0, type: 3}
+  floorPrefab: {fileID: 3646005755913151362, guid: 2015c963d9e293142af200b086ed7b69, type: 3}
   wallTop: {fileID: 3646005755913151362, guid: 994ec61cf09c2654eaab19fa1ffc3001, type: 3}
 --- !u!4 &742537793
 Transform:
@@ -628,6 +679,112 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1658203213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1658203215}
+  - component: {fileID: 1658203214}
+  m_Layer: 0
+  m_Name: RandomWalkGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1658203214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658203213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cee6ba3d56229243870979f359838ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomWalkGenerator
+  startPosition: {x: 0, y: 0, z: 0}
+  prefabVisualizer: {fileID: 0}
+  randomWalkData: {fileID: 0}
+--- !u!4 &1658203215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658203213}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.999998, y: 0.16756918, z: 8.237727}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1818711467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1818711469}
+  - component: {fileID: 1818711468}
+  m_Layer: 0
+  m_Name: MatrizRooms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1818711468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818711467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b491b4202d8a649a3a61c16bf4b963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MatrizRooms
+  startPosition: {x: 0, y: 0, z: 0}
+  prefabVisualizer: {fileID: 742537792}
+  randomWalkData: {fileID: 11400000, guid: a1bdf636a41a8c44194439f89129e17b, type: 2}
+  height: 250
+  witdth: 250
+  roomCount: 50
+  island:
+  - {fileID: -4886462899509217098, guid: 940589f069f40334286875d4c4e57ed0, type: 3}
+  - {fileID: -7009407215719009836, guid: 4ca264e31e5dee748bcbbd81e5c4e3f4, type: 3}
+  - {fileID: -4707209638117666382, guid: bb51de9edc8f8fd498d4878261634188, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  socorro1: {x: 0, y: 0, z: 0}
+  socorro2: {x: 0, y: 0, z: 0}
+--- !u!4 &1818711469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818711467}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -635,7 +792,10 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 1658203215}
   - {fileID: 1628169589}
   - {fileID: 742537793}
   - {fileID: 80464116}
   - {fileID: 166534580}
+  - {fileID: 467341545}
+  - {fileID: 1818711469}
