@@ -29,5 +29,6 @@ public class PlayerCombat : MonoBehaviour
     {
         if(animator.GetBehaviour<TaylaAnimationBehavior>().canAttack)
             animator.SetTrigger("XInput");
+            animator.SetTrigger("YInput");
     }
 }
