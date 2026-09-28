@@ -23,24 +23,18 @@ public class RoomGenerator : RandomWalkGenerator
     private void CreateRooms()
     {
 
-        var roomsList = ProceduralGeneration.BinarySpacePartitioning(new BoundsInt(startPosition,
-        new Vector3Int(dungeonWidth, 0, dungeonHeight)), minRoomWidth, minRoomHeight);
+      
 
         HashSet<Vector3Int> floor = new HashSet<Vector3Int>();
-        floor = CreateSimpleRooms(roomsList);
-
+      
         //floor = 
 
         List<Vector3Int> roomCenters = new List<Vector3Int>();
-        foreach (var room in roomsList)
-        {
-            roomCenters.Add(Vector3Int.RoundToInt(room.center));
-        }
-
+        
         HashSet<Vector3Int> corridors = ConnectRooms(roomCenters);
         floor.UnionWith(corridors);
-        prefabVisualizer.Clear();
-        prefabVisualizer.CreateFloorPrefabs(floor);
+       // prefabVisualizer.Clear();
+        //prefabVisualizer.CreateFloorPrefabs(floor);
         WallGenerator.CreateWalls(floor, prefabVisualizer);
     }
 

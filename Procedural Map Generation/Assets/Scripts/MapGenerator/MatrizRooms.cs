@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.IO.Compression;
 using JetBrains.Annotations;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.ProBuilder.Shapes;
 using Random = UnityEngine.Random;
 
-public class MatrizRooms : RandomWalkGenerator
+public class MatrizRooms : AbstractMapGenerator
 {
     [SerializeField]
     private int height;
@@ -18,8 +19,9 @@ public class MatrizRooms : RandomWalkGenerator
     public List<RoomStats> island;
     [SerializeField]
     LayerMask layerMask;
+    public GameObject floor;
     [SerializeField]
-    Vector3Int socorro1, socorro2;
+    List<Vector3Int> list = new List<Vector3Int>();
 
     protected override void RunProceduralGeneration()
     {
@@ -29,10 +31,11 @@ public class MatrizRooms : RandomWalkGenerator
     private void CreateRooms()
     {
         var roomsSorted = ProceduralGeneration.SortRooms(roomCount, island);
-        List<Vector3Int> doors = new List<Vector3Int>();
-        var map = ProceduralGeneration.CreateMatrizRooms(height, witdth, roomCount, roomsSorted, layerMask);
-        //HashSet<Vector3Int> corridors = ConnectRooms(doors);
-        
+
+        var map = ProceduralGeneration.CreateMatrizRooms(height, witdth, roomCount, roomsSorted, ref list);
+        var centers = ProceduralGeneration.ConnectRooms(list);
+
+
         var i = 0;
 
         foreach (var pos in map)
@@ -42,8 +45,20 @@ public class MatrizRooms : RandomWalkGenerator
 
             i++;
         }
-       // prefabVisualizer.CreateFloorPrefabs(corridors);
-      
+        //var doors = GameObject.FindGameObjectsWithTag("Door");
+        //Metodo com portas
+        // foreach (var item in doors)
+        // {
+        //     list.Add(Vector3Int.RoundToInt(item.transform.position));
+        // }
+
+       // var centers = ProceduralGeneration.ConnectRooms(list);
+        foreach (var pos in centers)
+        {
+            Instantiate(floor, pos, Quaternion.identity);
+        }
+        // prefabVisualizer.CreateFloorPrefabs(corridors);
+
     }
 
     private HashSet<Vector3Int> ConnectRooms(List<Vector3Int> doors)
@@ -101,11 +116,11 @@ public class MatrizRooms : RandomWalkGenerator
         {
             if (destination.z > position.z)
             {
-                position += Vector3Int.forward ;
+                position += Vector3Int.forward;
             }
             else if (destination.z < position.z)
             {
-                position += Vector3Int.back ;
+                position += Vector3Int.back;
             }
             corridor.Add(position);
         }
@@ -113,11 +128,11 @@ public class MatrizRooms : RandomWalkGenerator
         {
             if (destination.x > position.x)
             {
-                position += Vector3Int.right ;
+                position += Vector3Int.right;
             }
             else if (destination.x < position.x)
             {
-                position += Vector3Int.left ;
+                position += Vector3Int.left;
             }
             corridor.Add(position);
         }

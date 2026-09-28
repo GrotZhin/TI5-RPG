@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using System.Drawing;
 using JetBrains.Annotations;
 using Unity.VisualScripting;
@@ -8,63 +9,12 @@ using Random = UnityEngine.Random;
 
 public static class ProceduralGeneration
 {
-    public static HashSet<Vector3Int> SimpleRandomWalk(Vector3Int startPosition, int walkLenght)
-    {
-        HashSet<Vector3Int> path = new HashSet<Vector3Int>();
-        path.Add(startPosition);
-
-        var previousPosition = startPosition;
-
-        for (int i = 0; i < walkLenght; i++)
-        {
-            var newPosition = previousPosition + Direction2D.GetRandomDirection();
-            path.Add(newPosition);
-            previousPosition = newPosition;
-        }
-        return path;
-    }
-
-    public static List<Vector3Int> RandomWalkCorridor(Vector3Int startPosition, int corridorLength)
-    {
-        List<Vector3Int> corridor = new List<Vector3Int>();
-        var direction = Direction2D.GetRandomDirection();
-        var currentPosition = startPosition;
-        corridor.Add(currentPosition);
-        for (int i = 0; i < corridorLength; i++)
-        {
-            currentPosition += direction;
-            corridor.Add(currentPosition);
-        }
-        return corridor;
-    }
-    public static HashSet<BoundsInt> CreateRooms(List<RoomStats> rooms, Vector3Int startPosition, Vector3Int offset, int count)
-    {
-        HashSet<BoundsInt> roomsPosition = new HashSet<BoundsInt>();
-
-        BoundsInt currentPosition = new BoundsInt(startPosition, rooms[0].size.size);
-        while (count > 0)
-        {
-            count--;
-            foreach (var position in rooms)
-            {
-                roomsPosition.Add(currentPosition);
-                //if(Random.value < 0.5f)
-                currentPosition.position += position.size.max + Direction2D.GetRandomDirection() * offset;
-                // else  
-                // currentPosition = currentPosition + position.size.min * 2 +  Direction2D.GetRandomDirection() * offset;
-            }
-
-        }
-        return roomsPosition;
-    }
-    public static HashSet<Vector3Int> CreateMatrizRooms(int x, int z, int roomCount, List<RoomStats> islands, LayerMask layerMask)
+    public static HashSet<Vector3Int> CreateMatrizRooms(int x, int z, int roomCount, List<RoomStats> islands, ref List<Vector3Int> centers)
     {
         int[,] map = new int[x, z];
         HashSet<Vector3Int> positions = new HashSet<Vector3Int>();
         List<Bounds> rooms = new List<Bounds>();
-        List<GameObject> objects = new List<GameObject>();
         var i = 0;
-        var t = 0;
 
         var distance = Vector3Int.zero;
         int maxTrys = 100;
@@ -100,7 +50,8 @@ public static class ProceduralGeneration
                 {
                     positionFound = true;
                     rooms.Add(newRoom);
-
+                    
+                    centers.Add(Vector3Int.RoundToInt(newRoom.center));
                 }
                 trys++;
             }
@@ -109,42 +60,15 @@ public static class ProceduralGeneration
                 Debug.Log("cabou o espaço");
                 break;
             }
-            // Collider[] hits;
-            // bool hit;
-            // do
-            // {
-
-
-            //     obj.transform.position = pos;
-            //     Physics.SyncTransforms();
-            //     hits = Physics.OverlapBox(pos, islands[i].size.size / 2, Quaternion.identity, layerMask);
-
-            // } while (hits.Length != 0);
-
-            //obj.layer = LayerMask.NameToLayer("louco");
-            //rooms.Add(newRoom);
+           
             positions.Add(pos);
             roomCount--;
             i++;
         }
+       
         return positions;
 
     }
-
-    public static GameObject CreateGameObjects(Vector3Int pos, Vector3Int size, ref int i)
-    {
-        GameObject obj = new GameObject();
-
-        obj.name = i.ToString();
-        obj.transform.position = pos;
-        obj.layer = LayerMask.NameToLayer("excludeLayer");
-
-        BoxCollider box = obj.AddComponent<BoxCollider>();
-        box.size = size;
-        i++;
-        return obj;
-    }
-
 
     public static List<RoomStats> SortRooms(int roomCount, List<RoomStats> island)
     {
@@ -171,86 +95,79 @@ public static class ProceduralGeneration
         }
         return rooms;
     }
-
-
-    public static List<BoundsInt> BinarySpacePartitioning(BoundsInt spaceToSplit, int minWidth, int minHeight)
+    public static HashSet<Vector3Int> ConnectRooms(List<Vector3Int> roomCenters)
     {
-        Queue<BoundsInt> roomsQueue = new Queue<BoundsInt>();
-        List<BoundsInt> roomsList = new List<BoundsInt>();
+        HashSet<Vector3Int> corridors = new HashSet<Vector3Int>();
+        var currentRoomCenter = roomCenters[Random.Range(0, roomCenters.Count)];
 
-        roomsQueue.Enqueue(spaceToSplit);
-        while (roomsQueue.Count > 0)
+        roomCenters.Remove(currentRoomCenter);
+
+        while (roomCenters.Count > 0)
         {
-            //lembrar de trocar esses Ys para Z quando for mudar para 3D
-            var room = roomsQueue.Dequeue();
-            if (room.size.z >= minHeight && room.size.x >= minWidth)
+            Vector3Int closest = FindClosestPointTo(currentRoomCenter, roomCenters);
+            roomCenters.Remove(closest);
+
+            HashSet<Vector3Int> newCorridor = CreateCorridor(currentRoomCenter, closest);
+
+            currentRoomCenter = closest;
+            corridors.UnionWith(newCorridor);
+        }
+        return corridors;
+    }
+
+   private static HashSet<Vector3Int> CreateCorridor(Vector3Int currentRoomCenter, Vector3Int destination)
+    {
+        HashSet<Vector3Int> corridor = new HashSet<Vector3Int>();
+
+        var position = currentRoomCenter;
+        corridor.Add(position);
+        while (position.z != destination.z)
+        {
+            if (destination.z > position.z)
             {
-                if (Random.value < 0.5f)
-                {
-                    if (room.size.z >= minHeight * 2)
-                    {
-                        SplitHorizontally(minHeight, roomsQueue, room);
-                    }
-                    else if (room.size.x >= minWidth * 2)
-                    {
-                        SplitVertically(minWidth, roomsQueue, room);
-                    }
-                    else if (room.size.x >= minWidth && room.size.z >= minHeight)
-                    {
-                        roomsList.Add(room);
-                    }
-                }
-                else
-                {
+                position += Vector3Int.forward;
+            }
+            else if (destination.z < position.z)
+            {
+                position += Vector3Int.back;
+            }
+            corridor.Add(position);
+        }
+        while (position.x != destination.x)
+        {
+            if(destination.x > position.x)
+            {
+                position += Vector3Int.right;
+            }
+            else if( destination.x < position.x)
+            {
+                position += Vector3Int.left;
+            }
+            corridor.Add(position);
+        }
+        return corridor;
+    }
 
-                    if (room.size.x >= minWidth * 2)
-                    {
-                        SplitVertically(minWidth, roomsQueue, room);
-                    }
-                    else if (room.size.z >= minHeight * 2)
-                    {
-                        SplitHorizontally(minHeight, roomsQueue, room);
-                    }
-                    else if (room.size.x >= minWidth && room.size.z >= minHeight)
-                    {
+    private static Vector3Int FindClosestPointTo(Vector3Int currentRoomCenter, List<Vector3Int> roomCenters)
+    {
+        Vector3Int closest = Vector3Int.zero;
+        float distance = float.MaxValue;
 
-                        roomsList.Add(room);
-                    }
-                }
+        foreach (var position in roomCenters)
+        {
+            float currentDistance = Vector3Int.Distance(position, currentRoomCenter);
+            if (currentDistance < distance)
+            {
+                distance = currentDistance;
+                closest = position;
             }
         }
-        return roomsList;
+        return closest;
     }
 
-    private static void SplitVertically(int minWidth, Queue<BoundsInt> roomsQueue, BoundsInt room)
+    public static class Direction2D
     {
-        //var xSplit = Random.Range(minWidth, room.size.x - minWidth);
-        var xSplit = Random.Range(1, room.size.x);
-        BoundsInt room1 = new BoundsInt(room.min, new Vector3Int(xSplit, room.min.y, room.min.z));
-        BoundsInt room2 = new BoundsInt(new Vector3Int(room.min.x + xSplit, room.min.y, room.min.z),
-        new Vector3Int(room.size.x - xSplit, room.size.y, room.size.z));
-
-        roomsQueue.Enqueue(room1);
-        roomsQueue.Enqueue(room2);
-    }
-
-    private static void SplitHorizontally(int minHeight, Queue<BoundsInt> roomsQueue, BoundsInt room)
-    {
-        //var zSplit = Random.Range(minHeight, room.size.z - minHeight);
-        var zSplit = Random.Range(1, room.size.z);
-        BoundsInt room1 = new BoundsInt(room.min, new Vector3Int(room.size.x, room.size.y, zSplit));
-        BoundsInt room2 = new BoundsInt(new Vector3Int(room.min.x, room.size.y, room.min.z + zSplit),
-        new Vector3Int(room.size.x, room.size.y, room.size.z - zSplit));
-
-        roomsQueue.Enqueue(room1);
-        roomsQueue.Enqueue(room2);
-
-    }
-}
-
-public static class Direction2D
-{
-    public static List<Vector3Int> cardinalDirectionList = new List<Vector3Int>
+        public static List<Vector3Int> cardinalDirectionList = new List<Vector3Int>
         {
             new Vector3Int(0,0,1), //UP
             new Vector3Int(1,0,0), //RIGHT
@@ -258,10 +175,11 @@ public static class Direction2D
             new Vector3Int(-1,0,0) //LEFT
         };
 
-    public static Vector3Int GetRandomDirection()
-    {
-        return cardinalDirectionList[Random.Range(0, cardinalDirectionList.Count)];
+        public static Vector3Int GetRandomDirection()
+        {
+            return cardinalDirectionList[Random.Range(0, cardinalDirectionList.Count)];
+        }
+
     }
 
 }
-
