@@ -15,6 +15,12 @@ public class PlayerMove : MonoBehaviour
     Vector3 moveInput = Vector3.zero;
     Vector3 moveDir;
 
+    [Header("Lock-On")]
+    [SerializeField] private LockOnSystem lockOnSystem;
+    [Tooltip("Velocidade de giro pra encarar o alvo travado")]
+    [SerializeField] private float faceTargetRotationSpeed = 18f;
+    private Transform lockedTarget;
+
     public Vector3 targetVelocity;
     public float ySpeed, rotationSpeed = 14, airSpeed = 3.75f;
     public bool airAction = true;
@@ -38,7 +44,32 @@ public class PlayerMove : MonoBehaviour
         InputInfo.OnJumpEvent += OnJump;
         InputInfo.OnDashEvent += OnDash;
 
+        if (lockOnSystem != null)
+        {
+            lockOnSystem.OnTargetLocked += HandleLockTargetChanged;
+            lockOnSystem.OnTargetChanged += HandleLockTargetChanged;
+            lockOnSystem.OnTargetUnlocked += HandleLockTargetCleared;
+        }
+
         CalculateJump(jumpHeight, jumpTime);
+    }
+
+    void OnDestroy()
+    {
+        if (lockOnSystem != null)
+        {
+            lockOnSystem.OnTargetLocked -= HandleLockTargetChanged;
+            lockOnSystem.OnTargetChanged -= HandleLockTargetChanged;
+            lockOnSystem.OnTargetUnlocked -= HandleLockTargetCleared;
+        }
+    }
+    private void HandleLockTargetChanged(Transform target)
+    {
+        lockedTarget = target;
+    }
+    private void HandleLockTargetCleared()
+    {
+        lockedTarget = null;
     }
 
     public void OnMoveInput(Vector2 v2)
