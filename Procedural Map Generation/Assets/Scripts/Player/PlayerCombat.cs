@@ -16,6 +16,7 @@ public class PlayerCombat : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         InputInfo.OnAttackEvent += OnAttack;
+        InputInfo.OnAttackHeavyEvent += OnAttackHeavy;
 
     }
 
@@ -29,6 +30,10 @@ public class PlayerCombat : MonoBehaviour
     {
         if(animator.GetBehaviour<TaylaAnimationBehavior>().canAttack)
             animator.SetTrigger("XInput");
+    }
+    void OnAttackHeavy()
+    {
+        if(animator.GetBehaviour<TaylaAnimationBehavior>().canAttack)
             animator.SetTrigger("YInput");
     }
 }
