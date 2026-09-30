@@ -20,11 +20,11 @@ public class EnemyStateFlee : IState
     {
         Debug.Log("foge entrou");
         renderer.material.color = Color.purple;
-        agent.control.seek = 0.0f;
-        agent.control.separate = 0.5f;
-        agent.control.align = 0.01f;
-        agent.control.cohesion = 0.02f;
-        agent.control.avoid = 1.0f;
+        agent.control.seek = 0.01f;
+        agent.control.separate = 0.9f;
+        agent.control.align = 0.08f;
+        agent.control.cohesion = 0.12f;
+        agent.control.avoid = 0.8f;
 
 
         /*target = (Random.insideUnitSphere * 5) + agent.transform.position;
@@ -36,19 +36,24 @@ public class EnemyStateFlee : IState
 
     public void Execute(float delta)
     {
-        //Debug.Log("foge executando");
-        Vector3 dir = agent.control.Move(2, 0);
-        target = dir;
-        //animator.SetFloat("Input Magnitude", target.magnitude, 0.05f, delta);
-        Quaternion toRotation = Quaternion.LookRotation(target, Vector3.up);
-        agent.transform.rotation = Quaternion.RotateTowards(agent.transform.rotation, toRotation, rotationSpeed);
-        Debug.Log(agent.player + "   " + agent);
+        
         if (agent.player)
         {
-            if ((agent.transform.position-agent.player.transform.position).magnitude > 5 || agent.player == null)
-            {
-                agent.ChangeState(new EnemyStateIdle(agent, renderer));
-            }
+            //Debug.Log("foge executando");
+            Vector3 dir = agent.control.Move() + (2 * (agent.transform.position - agent.player.transform.position).normalized);
+            target = dir.normalized;
+            //animator.SetFloat("Input Magnitude", target.magnitude, 0.05f, delta);
+            Quaternion toRotation = Quaternion.LookRotation(target, Vector3.up);
+            agent.transform.rotation = Quaternion.RotateTowards(agent.transform.rotation, toRotation, rotationSpeed);
+            Debug.Log(dir + "   " + target);
+            agent.cc.SimpleMove(target * 1f * Time.timeScale);
+            animator.SetFloat("velocidadeanimaçao", 2);
+            //Debug.Log(agent.player + "   " + agent);
+            
+        }
+        else
+        {
+            agent.ChangeState(new EnemyStateIdle(agent, renderer));
         }
     }
 
@@ -57,6 +62,7 @@ public class EnemyStateFlee : IState
         //Debug.Log("foge saiu");
         //animator.SetBool("IsMoving", false);
         //animator.SetFloat("Input Magnitude", 0, 0f, 0);
+        animator.SetFloat("velocidadeanimaçao", 2);
         agent.GetNeighbours().Clear();
     }
 

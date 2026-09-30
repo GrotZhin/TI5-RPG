@@ -7,7 +7,7 @@ using UnityEngine.Video;
 public class EnemyAgentControl
 {
     public EnemyAgent self;
-    public float maxSpeed = 3;
+    //public float maxSpeed = 3;
     public float radius = 4.8f;
     public float vida = 0f;
     [Range(0,1)]
@@ -41,7 +41,7 @@ public class EnemyAgentControl
                          cohesion * Cohesion() + 
                          avoid * Avoid();
 
-        result = Vector3.ClampMagnitude(result, maxSpeed);
+        //result = Vector3.ClampMagnitude(result, maxSpeed);
         Debug.DrawRay(self.transform.position, result, Color.black);
        return result;
     }
@@ -93,7 +93,7 @@ public class EnemyAgentControl
         if (count == 0) return Vector3.zero;
         align /= count;
 
-        return align.normalized * maxSpeed;
+        return align.normalized;
     }
 
     Vector3 Cohesion()
@@ -123,7 +123,7 @@ public class EnemyAgentControl
         if (Physics.Raycast(origem, self.transform.forward, out hit, radius, obstacle)) 
         {
             Debug.DrawRay(hit.point, hit.normal, Color.hotPink);
-            result = ((hit.normal + self.cc.velocity.normalized) * 0.5f) * maxSpeed;
+            result = ((hit.normal + self.cc.velocity.normalized) * 0.5f);
         }
         Debug.DrawRay(origem, self.transform.forward * radius, Color.pink);
         return result;
