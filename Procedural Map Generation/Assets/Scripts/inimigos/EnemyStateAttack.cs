@@ -26,8 +26,9 @@ public class EnemyStateAttack : IState
         dir.y = agent.transform.position.y;
         Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up);
         animator = agent.GetComponent<Animator>();
+        animator.SetBool("atacar", true);
         chace = Random.Range(0, 100);
-        time = 2;
+        time = 1;
     }
 
     public void Execute(float delta)
@@ -35,7 +36,7 @@ public class EnemyStateAttack : IState
         //Debug.Log("atack executando");
         
         time -= delta;
-        if (time < 0)
+        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && !animator.IsInTransition(0) && time<=0)
         {
             if (chace < 50 || agent.player == null)
             {
@@ -54,8 +55,9 @@ public class EnemyStateAttack : IState
 
     public void Exit()
     {
-        animator.SetBool("IsMoving", false);
-        animator.SetFloat("Input Magnitude", 0, 0, 0);
+        //animator.SetBool("IsMoving", false);
+        //animator.SetFloat("Input Magnitude", 0, 0, 0);
+        animator.SetBool("atacar", false);
         agent.GetNeighbours().Clear();
     }
 

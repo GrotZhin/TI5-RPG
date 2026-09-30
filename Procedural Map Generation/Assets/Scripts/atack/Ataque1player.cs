@@ -14,7 +14,6 @@ public class Ataque1player : IState
     }
     public void Enter()
     {
-        
         InputInfo.OnAttackEvent -= agente.bater;
         time = 10;
         mudar = true;

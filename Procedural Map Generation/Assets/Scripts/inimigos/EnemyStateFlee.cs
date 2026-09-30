@@ -18,7 +18,7 @@ public class EnemyStateFlee : IState
 
     public void Enter()
     {
-        //Debug.Log("foge entrou");
+        Debug.Log("foge entrou");
         renderer.material.color = Color.purple;
         agent.control.seek = 0.0f;
         agent.control.separate = 0.5f;
@@ -31,7 +31,7 @@ public class EnemyStateFlee : IState
         target.z = -Mathf.Abs(target.z);
         target.y = agent.transform.position.y;*/
         animator = agent.GetComponent<Animator>();
-        animator.SetBool("IsMoving", true);
+        //animator.SetBool("IsMoving", true);
     }
 
     public void Execute(float delta)
@@ -39,10 +39,10 @@ public class EnemyStateFlee : IState
         //Debug.Log("foge executando");
         Vector3 dir = agent.control.Move(2, 0);
         target = dir;
-        animator.SetFloat("Input Magnitude", target.magnitude, 0.05f, delta);
+        //animator.SetFloat("Input Magnitude", target.magnitude, 0.05f, delta);
         Quaternion toRotation = Quaternion.LookRotation(target, Vector3.up);
         agent.transform.rotation = Quaternion.RotateTowards(agent.transform.rotation, toRotation, rotationSpeed);
-        //Debug.Log(agent.player + "   " + agent);
+        Debug.Log(agent.player + "   " + agent);
         if (agent.player)
         {
             if ((agent.transform.position-agent.player.transform.position).magnitude > 5 || agent.player == null)
@@ -55,8 +55,8 @@ public class EnemyStateFlee : IState
     public void Exit()
     {
         //Debug.Log("foge saiu");
-        animator.SetBool("IsMoving", false);
-        animator.SetFloat("Input Magnitude", 0, 0f, 0);
+        //animator.SetBool("IsMoving", false);
+        //animator.SetFloat("Input Magnitude", 0, 0f, 0);
         agent.GetNeighbours().Clear();
     }
 

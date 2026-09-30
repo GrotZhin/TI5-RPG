@@ -35,13 +35,13 @@ public class EnemyStateMove: IState
         time = Random.Range(5, 10);
         dirtmp = (Random.insideUnitSphere * 2);
         animator = agent.GetComponent<Animator>();
-        animator.SetBool("IsMoving", true);
+        //animator.SetBool("IsMoving", true);
+        animator.SetBool("andar", true);
     }
 
     public void Execute(float delta)
     {
         //Debug.Log("move executando");
-        
         Vector3 dir = agent.control.Move();
         //Debug.Log((agent.player.transform.position - agent.transform.position).magnitude);
         if (agent.player)
@@ -68,18 +68,19 @@ public class EnemyStateMove: IState
             }
             time -= delta;
         }
-        animator.SetFloat("Input Magnitude", dir.magnitude, 0.05f, delta);
+        //animator.SetFloat("Input Magnitude", dir.magnitude, 0.05f, delta);
         Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up);
         agent.transform.rotation = Quaternion.RotateTowards(agent.transform.rotation, toRotation, rotationSpeed);
-        
-        agent.cc.Move(animator.deltaPosition);
+
+        //agent.cc.Move(animator.deltaPosition);
+        agent.cc.SimpleMove(dir * 0.5f * Time.timeScale);
     }
 
     public void Exit()
     {
         //Debug.Log("move saiu");
-        animator.SetBool("IsMoving", false);
-        animator.SetFloat("Input Magnitude", 0, 0f, 0);
+        //animator.SetBool("IsMoving", false);
+        //animator.SetFloat("Input Magnitude", 0, 0f, 0);
         agent.GetNeighbours().Clear();
     }
     
