@@ -81,6 +81,7 @@ public class EnemyStateMove: IState
         //Debug.Log("move saiu");
         //animator.SetBool("IsMoving", false);
         //animator.SetFloat("Input Magnitude", 0, 0f, 0);
+        animator.SetBool("andar", false);
         agent.GetNeighbours().Clear();
     }
     

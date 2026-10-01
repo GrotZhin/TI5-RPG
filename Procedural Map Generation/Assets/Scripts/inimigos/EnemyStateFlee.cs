@@ -45,7 +45,6 @@ public class EnemyStateFlee : IState
             //animator.SetFloat("Input Magnitude", target.magnitude, 0.05f, delta);
             Quaternion toRotation = Quaternion.LookRotation(target, Vector3.up);
             agent.transform.rotation = Quaternion.RotateTowards(agent.transform.rotation, toRotation, rotationSpeed);
-            Debug.Log(dir + "   " + target);
             agent.cc.SimpleMove(target * 1f * Time.timeScale);
             animator.SetFloat("velocidadeanimaçao", 2);
             //Debug.Log(agent.player + "   " + agent);
@@ -62,7 +61,7 @@ public class EnemyStateFlee : IState
         //Debug.Log("foge saiu");
         //animator.SetBool("IsMoving", false);
         //animator.SetFloat("Input Magnitude", 0, 0f, 0);
-        animator.SetFloat("velocidadeanimaçao", 2);
+        animator.SetFloat("velocidadeanimaçao", 1);
         agent.GetNeighbours().Clear();
     }
 
