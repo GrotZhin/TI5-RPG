@@ -14,7 +14,7 @@ public class EnemyStateIdle : IState
 
     public void Enter()
     {
-        //Debug.Log("IDLE entrou");
+        Debug.Log("IDLE entrou");
         time = 3;
         renderer.material.color = Color.gray;
         animator = agent.GetComponent<Animator>();

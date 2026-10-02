@@ -52,7 +52,7 @@ public class EnemyStateFlee : IState
         }
         else
         {
-            agent.ChangeState(new EnemyStateIdle(agent, renderer));
+            agent.ChangeState(new EnemyStateTransformar(agent, renderer));
         }
     }
 

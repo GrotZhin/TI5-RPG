@@ -24,10 +24,9 @@ public class EnemyStateAttack : IState
             agent.player.dano(10);
             Debug.Log("atack saiu  " + agent.player.vida);
         }
-        dir = agent.player.transform.position - agent.transform.position;
+        dir = GameObject.FindGameObjectWithTag("Player").transform.position - agent.transform.position;
         dir.y = 0;
         Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up);
-        
         animator = agent.GetComponent<Animator>();
         animator.SetBool("atacar", true);
         chace = Random.Range(0, 100);
@@ -42,28 +41,18 @@ public class EnemyStateAttack : IState
         {
             if (animator.GetBool("atacar"))
             {
-                agent.cc.Move(dir.normalized * 0.5f * Time.timeScale);
-                
+                agent.cc.Move(dir.normalized * 0.3f * Time.timeScale);
                 if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && !animator.IsInTransition(0) && animator.GetBool("atacar"))
                 {
-                    animator.SetBool("atacar", false);
-                    ani1 = animator.GetCurrentAnimatorStateInfo(0).shortNameHash.ToString();
-                }
-            }
-            else
-            {
-                Debug.Log("cole");
-                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && !animator.IsInTransition(0) && animator.GetBool("transformar") && animator.GetCurrentAnimatorStateInfo(0).shortNameHash.ToString() != ani1)
-                {
-                    animator.SetBool("transformar", false);
+                    agent.ChangeState(new EnemyStateTransformar(agent, renderer));
                     ani1 = animator.GetCurrentAnimatorStateInfo(0).shortNameHash.ToString();
                 }
             }
         }
         else
         {
-            time -= delta;
-            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f && !animator.IsInTransition(0) && !animator.GetBool("transformar"))
+            
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f && !animator.IsInTransition(0) && animator.GetCurrentAnimatorStateInfo(0).shortNameHash.ToString() != ani1)
             {
                 if (chace < 50 || agent.player == null)
                 {
@@ -86,7 +75,6 @@ public class EnemyStateAttack : IState
         //animator.SetBool("IsMoving", false);
         //animator.SetFloat("Input Magnitude", 0, 0, 0);
         animator.SetBool("atacar", false);
-        animator.SetBool("transformar", false);
         agent.GetNeighbours().Clear();
     }
 

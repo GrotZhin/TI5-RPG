@@ -36,7 +36,7 @@ ModelImporter:
       takeName: esqueletocortola|andar
       internalID: -2529764174193644041
       firstFrame: 0
-      lastFrame: 120
+      lastFrame: 121
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -123,7 +123,7 @@ ModelImporter:
       takeName: esqueletocortola|dano
       internalID: 2147175605584878313
       firstFrame: 0
-      lastFrame: 15
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -177,9 +177,38 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: esqueletocortola|IDE
-      takeName: esqueletocortola|IDE
-      internalID: 1326835644755770795
+      name: esqueletocortola|IDLE
+      takeName: esqueletocortola|IDLE
+      internalID: -2735205848945826103
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: esqueletocortola|IDLE-quebra
+      takeName: esqueletocortola|IDLE-quebra
+      internalID: -3869096532426410352
       firstFrame: 0
       lastFrame: 120
       wrapMode: 0
@@ -210,7 +239,7 @@ ModelImporter:
       takeName: esqueletocortola|morte
       internalID: 5316734754247693514
       firstFrame: 0
-      lastFrame: 60
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
