@@ -460,6 +460,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6616832624151855324, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &38724054 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -7286171641672439540, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 171862858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &40492846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3079215505331465279, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -485,58 +490,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1272528473005558315, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &62410044
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 62410045}
-  - component: {fileID: 62410046}
-  m_Layer: 0
-  m_Name: Magica Capsule Collider (LowerArm.L)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &62410045
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62410044}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.010000024, y: 0.009999994, z: 0.0100000035}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 171862859}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &62410046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62410044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
-  center: {x: 0, y: 0.12, z: 0}
-  size: {x: 0.021, y: 0.039, z: 0.25}
-  symmetryMode: 2
-  symmetryTarget: {fileID: 0}
-  direction: 1
-  reverseDirection: 0
-  radiusSeparation: 1
-  alignedOnCenter: 1
 --- !u!1 &71830932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,6 +1479,58 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3692148813305863681, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &104994985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 104994986}
+  - component: {fileID: 104994987}
+  m_Layer: 0
+  m_Name: Magica Capsule Collider (Head)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &104994986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104994985}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.010000002, z: 0.010000014}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1558689564}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &104994987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104994985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
+  center: {x: 0, y: 0.06, z: 0}
+  size: {x: 0.08, y: 0.077, z: 0.21}
+  symmetryMode: 0
+  symmetryTarget: {fileID: 0}
+  direction: 1
+  reverseDirection: 0
+  radiusSeparation: 1
+  alignedOnCenter: 1
 --- !u!43 &106297246
 Mesh:
   m_ObjectHideFlags: 0
@@ -7116,42 +7121,33 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1643943182}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 7244259696827933518, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1270164331}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      addedObject: {fileID: 596651659}
+    - targetCorrespondingSourceObject: {fileID: -2430157549252176607, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1975839912}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      addedObject: {fileID: 1880594650}
+    - targetCorrespondingSourceObject: {fileID: -7280669412297177866, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1345236615}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      addedObject: {fileID: 1485554270}
+    - targetCorrespondingSourceObject: {fileID: 5317944745055236448, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2133386419}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      addedObject: {fileID: 1140013115}
+    - targetCorrespondingSourceObject: {fileID: 1759207687720642457, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1997034478}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      addedObject: {fileID: 215226113}
+    - targetCorrespondingSourceObject: {fileID: 1759207687720642457, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 311411828}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 196012922}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 62410045}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 554173485}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1037939576}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 806386728}
+      addedObject: {fileID: 104994986}
     - targetCorrespondingSourceObject: {fileID: -8864064297909111850, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 93480460}
+    - targetCorrespondingSourceObject: {fileID: 408354967109882135, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 1887857605}
+    - targetCorrespondingSourceObject: {fileID: 5328394549834155482, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1209320975}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
@@ -7524,58 +7520,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1234354947588310225, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &196012921
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 196012922}
-  - component: {fileID: 196012923}
-  m_Layer: 0
-  m_Name: Magica Capsule Collider (UpperArm.L)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &196012922
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196012921}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0100000175, y: 0.009999989, z: 0.0100000035}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 171862859}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &196012923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196012921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
-  center: {x: 0, y: 0.18, z: 0}
-  size: {x: 0.034, y: 0.05, z: 0.3}
-  symmetryMode: 2
-  symmetryTarget: {fileID: 0}
-  direction: 1
-  reverseDirection: 0
-  radiusSeparation: 1
-  alignedOnCenter: 1
 --- !u!1 &204347225
 GameObject:
   m_ObjectHideFlags: 0
@@ -7859,6 +7803,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214718408}
   m_CullTransparentMesh: 1
+--- !u!1 &215226112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 215226113}
+  - component: {fileID: 215226114}
+  m_Layer: 0
+  m_Name: Magica Capsule Collider (Head)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &215226113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215226112}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.121869266, y: 0.00033779643, z: 0.000041476163, w: 0.9925461}
+  m_LocalPosition: {x: 0.0004, y: 0.00123, z: 0.00002}
+  m_LocalScale: {x: 0.01, y: 0.010000002, z: 0.010000014}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1558689564}
+  m_LocalEulerAnglesHint: {x: -14, y: 0.039, z: 0}
+--- !u!114 &215226114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215226112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
+  center: {x: 0, y: 0, z: 0}
+  size: {x: 0.12, y: 0.05, z: 0.3}
+  symmetryMode: 0
+  symmetryTarget: {fileID: 0}
+  direction: 1
+  reverseDirection: 0
+  radiusSeparation: 1
+  alignedOnCenter: 1
 --- !u!43 &216720554
 Mesh:
   m_ObjectHideFlags: 0
@@ -8611,58 +8607,6 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
---- !u!1 &311411827
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 311411828}
-  - component: {fileID: 311411829}
-  m_Layer: 0
-  m_Name: HeadCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &311411828
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311411827}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.11405719, y: 0.0007298503, z: 0.007913675, w: 0.9934424}
-  m_LocalPosition: {x: 0.00001, y: -0, z: -0.00011}
-  m_LocalScale: {x: 0.009999995, y: 0.010000001, z: 0.01000003}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 171862859}
-  m_LocalEulerAnglesHint: {x: 13.097, y: 0.191, z: 0.935}
---- !u!114 &311411829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311411827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
-  center: {x: 0, y: 0.06, z: 0}
-  size: {x: 0.08, y: 0.077, z: 0.21}
-  symmetryMode: 0
-  symmetryTarget: {fileID: 0}
-  direction: 1
-  reverseDirection: 0
-  radiusSeparation: 1
-  alignedOnCenter: 1
 --- !u!1 &321136490
 GameObject:
   m_ObjectHideFlags: 0
@@ -9692,6 +9636,11 @@ Transform:
 --- !u!4 &355649486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1185584671431325080, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 171862858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &356772224 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5317944745055236448, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &363456122 stripped
@@ -13065,54 +13014,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549987801}
   m_CullTransparentMesh: 1
---- !u!1 &554173484
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 554173485}
-  - component: {fileID: 554173486}
-  m_Layer: 0
-  m_Name: Magica Sphere Collider (Wrist.L)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &554173485
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554173484}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.010000011, y: 0.009999999, z: 0.009999999}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 171862859}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &554173486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554173484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2b68b2c7953ebb479b78627f19a6ccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaSphereCollider
-  center: {x: 0, y: 0, z: 0}
-  size: {x: 0.1, y: 0.1, z: 0.1}
-  symmetryMode: 2
-  symmetryTarget: {fileID: 0}
 --- !u!4 &555139354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2252338352467669930, guid: 3bb6faf240ccab943ac5514b3638e6f3, type: 3}
@@ -13637,6 +13538,58 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4991961213364085834, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &596651658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 596651659}
+  - component: {fileID: 596651660}
+  m_Layer: 0
+  m_Name: Magica Capsule Collider (rotation)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &596651659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596651658}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.27803493, y: -0.000000103156665, z: -1.6877652e-13, w: 0.960571}
+  m_LocalPosition: {x: -0, y: -0.00104, z: -0.00527}
+  m_LocalScale: {x: 0.01, y: 0.010000002, z: 0.010000002}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1552064402}
+  m_LocalEulerAnglesHint: {x: 32.286, y: 0, z: 0}
+--- !u!114 &596651660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596651658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
+  center: {x: 0, y: 0.06, z: -0.04}
+  size: {x: 0.057, y: 0.22, z: 0.65}
+  symmetryMode: 0
+  symmetryTarget: {fileID: 0}
+  direction: 1
+  reverseDirection: 0
+  radiusSeparation: 1
+  alignedOnCenter: 1
 --- !u!4 &597185866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8864064297909111850, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -29496,58 +29449,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!1 &806386727
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 806386728}
-  - component: {fileID: 806386729}
-  m_Layer: 0
-  m_Name: ShinCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &806386728
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806386727}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.009999999, y: 0.009999999, z: 0.009999998}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 171862859}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &806386729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806386727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
-  center: {x: 0, y: 0.23, z: 0}
-  size: {x: 0.05, y: 0.066, z: 0.52}
-  symmetryMode: 2
-  symmetryTarget: {fileID: 0}
-  direction: 1
-  reverseDirection: 0
-  radiusSeparation: 1
-  alignedOnCenter: 1
 --- !u!4 &814457018 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1405572120847353271, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -31634,11 +31535,11 @@ MonoBehaviour:
       mode: 2
       friction: 0.05
       colliderList:
-      - {fileID: 2133386420}
-      - {fileID: 62410046}
-      - {fileID: 196012923}
+      - {fileID: 104994987}
+      - {fileID: 1140013116}
+      - {fileID: 1485554271}
+      - {fileID: 1880594649}
       - {fileID: 0}
-      - {fileID: 311411829}
       collisionBones: []
       limitDistance:
         value: 0.05
@@ -34551,58 +34452,11 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
---- !u!1 &1037939574
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1037939576}
-  - component: {fileID: 1037939575}
-  m_Layer: 0
-  m_Name: ThigsCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1037939575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037939574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
-  center: {x: 0, y: 0, z: 0}
-  size: {x: 0.08, y: 0.05, z: 0.5}
-  symmetryMode: 100
-  symmetryTarget: {fileID: 0}
-  direction: 1
-  reverseDirection: 0
-  radiusSeparation: 1
-  alignedOnCenter: 0
---- !u!4 &1037939576
+--- !u!4 &1038714924 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 408354967109882135, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037939574}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.98953193, y: -0.020900767, z: -0.13222498, w: 0.053910185}
-  m_LocalPosition: {x: -0.00005463147, y: 0.00064669293, z: 0.00034385562}
-  m_LocalScale: {x: 0.010000001, y: 0.009999997, z: 0.009999998}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 171862859}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1047875197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2129739338356470895, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -34928,6 +34782,11 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!4 &1070048856 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -7280669412297177866, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 171862858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1074060334 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8405558093511124167, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -35879,15 +35738,10 @@ MonoBehaviour:
       mode: 1
       friction: 0.05
       colliderList:
-      - {fileID: 62410046}
-      - {fileID: 196012923}
-      - {fileID: 0}
-      - {fileID: 311411829}
-      - {fileID: 1345236616}
-      - {fileID: 1975839913}
-      - {fileID: 1270164330}
-      - {fileID: 2133386420}
-      - {fileID: 554173486}
+      - {fileID: 1140013116}
+      - {fileID: 1485554271}
+      - {fileID: 1880594649}
+      - {fileID: 104994987}
       collisionBones: []
       limitDistance:
         value: 0.05
@@ -38826,6 +38680,58 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -6407407101958935644, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1140013114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1140013115}
+  - component: {fileID: 1140013116}
+  m_Layer: 0
+  m_Name: Magica Capsule Collider (Chest)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1140013115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140013114}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.010000012}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 356772224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1140013116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140013114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
+  center: {x: 0, y: 0.08, z: 0}
+  size: {x: 0.094, y: 0.072, z: 0.23}
+  symmetryMode: 0
+  symmetryTarget: {fileID: 0}
+  direction: 1
+  reverseDirection: 0
+  radiusSeparation: 1
+  alignedOnCenter: 1
 --- !u!4 &1148746806 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1206294072109066369, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -39009,6 +38915,11 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!4 &1150231965 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3986322718050896439, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 171862858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1153370102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6004319804696087116, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -39698,6 +39609,58 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -2442307221819660339, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1209320974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1209320975}
+  - component: {fileID: 1209320976}
+  m_Layer: 0
+  m_Name: Magica Capsule Collider (LowerLeg.L)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1209320975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209320974}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.009999999, y: 0.009999999, z: 0.009999993}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1619737827}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1209320976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209320974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
+  center: {x: 0, y: 0.23, z: 0}
+  size: {x: 0.05, y: 0.066, z: 0.52}
+  symmetryMode: 2
+  symmetryTarget: {fileID: 38724054}
+  direction: 1
+  reverseDirection: 0
+  radiusSeparation: 1
+  alignedOnCenter: 1
 --- !u!4 &1209785964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8383352148863418383, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -40896,58 +40859,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -5274039548502933221, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1270164329
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1270164331}
-  - component: {fileID: 1270164330}
-  m_Layer: 0
-  m_Name: Spine2Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1270164330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270164329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
-  center: {x: 0, y: 0, z: 0}
-  size: {x: 0.05, y: 0.05, z: 0.1}
-  symmetryMode: 0
-  symmetryTarget: {fileID: 0}
-  direction: 1
-  reverseDirection: 0
-  radiusSeparation: 0
-  alignedOnCenter: 1
---- !u!4 &1270164331
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270164329}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.347, z: 0}
-  m_LocalScale: {x: 0.009999995, y: 0.009999998, z: 0.010000029}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 171862859}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1271933520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6745481341243374006, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -42610,58 +42521,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339273569}
   m_CullTransparentMesh: 1
---- !u!1 &1345236614
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1345236615}
-  - component: {fileID: 1345236616}
-  m_Layer: 0
-  m_Name: ChestCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1345236615
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345236614}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00001, y: -0.0003, z: 0.00008}
-  m_LocalScale: {x: 0.009999992, y: 0.010000007, z: 0.010000018}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 171862859}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1345236616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345236614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
-  center: {x: 0, y: 0.08, z: 0}
-  size: {x: 0.094, y: 0.072, z: 0.23}
-  symmetryMode: 0
-  symmetryTarget: {fileID: 0}
-  direction: 1
-  reverseDirection: 0
-  radiusSeparation: 1
-  alignedOnCenter: 1
 --- !u!4 &1348068687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3067034445520086134, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -45168,6 +45027,58 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6618921587563148507, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1485554269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1485554270}
+  - component: {fileID: 1485554271}
+  m_Layer: 0
+  m_Name: Magica Capsule Collider (Spine3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1485554270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485554269}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.010000001, z: 0.010000013}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1070048856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1485554271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485554269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
+  center: {x: 0, y: 0.05, z: 0}
+  size: {x: 0.076, y: 0.055, z: 0.17}
+  symmetryMode: 0
+  symmetryTarget: {fileID: 0}
+  direction: 1
+  reverseDirection: 0
+  radiusSeparation: 1
+  alignedOnCenter: 1
 --- !u!1 &1485729057
 GameObject:
   m_ObjectHideFlags: 0
@@ -45526,6 +45437,16 @@ Transform:
 --- !u!4 &1551772144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3822577845189230010, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 171862858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1552064402 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7244259696827933518, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 171862858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1558689564 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1759207687720642457, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1562690855 stripped
@@ -47014,11 +46935,11 @@ MonoBehaviour:
       mode: 2
       friction: 0.05
       colliderList:
-      - {fileID: 2133386420}
-      - {fileID: 62410046}
-      - {fileID: 196012923}
+      - {fileID: 104994987}
+      - {fileID: 1140013116}
+      - {fileID: 1485554271}
+      - {fileID: 1880594649}
       - {fileID: 0}
-      - {fileID: 311411829}
       collisionBones: []
       limitDistance:
         value: 0.05
@@ -48093,6 +48014,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8536775999822662923, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1619737827 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5328394549834155482, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 171862858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1625721218
 GameObject:
   m_ObjectHideFlags: 0
@@ -48273,7 +48199,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     radius:
-      value: 0.06
+      value: 0.067
       useCurve: 0
       curve:
         serializedVersion: 2
@@ -48481,10 +48407,9 @@ MonoBehaviour:
       mode: 2
       friction: 0.05
       colliderList:
-      - {fileID: 1037939575}
-      - {fileID: 806386729}
-      - {fileID: 62410046}
-      - {fileID: 196012923}
+      - {fileID: 596651660}
+      - {fileID: 1887857606}
+      - {fileID: 1209320976}
       collisionBones: []
       limitDistance:
         value: 0.05
@@ -64731,11 +64656,11 @@ MonoBehaviour:
       mode: 2
       friction: 0.05
       colliderList:
-      - {fileID: 1037939575}
       - {fileID: 0}
-      - {fileID: 806386729}
-      - {fileID: 62410046}
-      - {fileID: 196012923}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
       collisionBones: []
       limitDistance:
         value: 0.05
@@ -67690,6 +67615,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758836681}
   m_CullTransparentMesh: 1
+--- !u!4 &1764365471 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2430157549252176607, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 171862858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1779234121
 Mesh:
   m_ObjectHideFlags: 0
@@ -68943,6 +68873,58 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3778913414915280908, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1880594648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1880594650}
+  - component: {fileID: 1880594649}
+  m_Layer: 0
+  m_Name: Magica Capsule Collider (Spine2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1880594649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880594648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
+  center: {x: 0, y: 0, z: 0}
+  size: {x: 0.05, y: 0.05, z: 0.1}
+  symmetryMode: 0
+  symmetryTarget: {fileID: 0}
+  direction: 1
+  reverseDirection: 0
+  radiusSeparation: 0
+  alignedOnCenter: 1
+--- !u!4 &1880594650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880594648}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.010000013}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1764365471}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1882945446
 GameObject:
   m_ObjectHideFlags: 0
@@ -69082,6 +69064,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882945446}
   m_CullTransparentMesh: 1
+--- !u!1 &1887857604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1887857605}
+  - component: {fileID: 1887857606}
+  m_Layer: 0
+  m_Name: Magica Capsule Collider (UpperLeg.L)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1887857605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887857604}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0046334025, y: -0.0057066414, z: -0.99944115, w: -0.032610044}
+  m_LocalPosition: {x: -0.000020000076, y: 0.0020500051, z: 0.00020000072}
+  m_LocalScale: {x: 0.010000001, y: 0.009999995, z: 0.009999994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1038714924}
+  m_LocalEulerAnglesHint: {x: -0.636, y: 0.552, z: -183.741}
+--- !u!114 &1887857606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887857604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
+  center: {x: 0, y: 0, z: 0}
+  size: {x: 0.067, y: 0.05, z: 0.5}
+  symmetryMode: 2
+  symmetryTarget: {fileID: 1150231965}
+  direction: 1
+  reverseDirection: 0
+  radiusSeparation: 1
+  alignedOnCenter: 1
 --- !u!1 &1890568792
 GameObject:
   m_ObjectHideFlags: 0
@@ -69410,7 +69444,7 @@ MonoBehaviour:
       mode: 2
       friction: 0.05
       colliderList:
-      - {fileID: 1997034477}
+      - {fileID: 215226114}
       collisionBones: []
       limitDistance:
         value: 0.05
@@ -71656,58 +71690,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -2814630810699467137, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1975839911
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1975839912}
-  - component: {fileID: 1975839913}
-  m_Layer: 0
-  m_Name: Spine3Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1975839912
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975839911}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.0100000035, z: 0.010000028}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 171862859}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1975839913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975839911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
-  center: {x: 0, y: 0.05, z: 0}
-  size: {x: 0.076, y: 0.055, z: 0.17}
-  symmetryMode: 0
-  symmetryTarget: {fileID: 0}
-  direction: 1
-  reverseDirection: 0
-  radiusSeparation: 1
-  alignedOnCenter: 1
 --- !u!4 &1976515439 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2870579067918554500, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -71718,58 +71700,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3371084765808230535, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1997034476
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1997034478}
-  - component: {fileID: 1997034477}
-  m_Layer: 0
-  m_Name: BowCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1997034477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997034476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
-  center: {x: 0, y: 0.06, z: 0}
-  size: {x: 0.12, y: 0.05, z: 0.3}
-  symmetryMode: 0
-  symmetryTarget: {fileID: 0}
-  direction: 1
-  reverseDirection: 0
-  radiusSeparation: 1
-  alignedOnCenter: 1
---- !u!4 &1997034478
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997034476}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.12869187, y: -0.00082345825, z: -0.008929203, w: 0.99164414}
-  m_LocalPosition: {x: 0.00016, y: 0.00018, z: 0.00038}
-  m_LocalScale: {x: 0.009999995, y: 0.010000001, z: 0.01000003}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 171862859}
-  m_LocalEulerAnglesHint: {x: -14.788, y: 0.039, z: -1.037}
 --- !u!1 &2003297914
 GameObject:
   m_ObjectHideFlags: 0
@@ -74324,58 +74254,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 536272832533590762, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2133386418
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2133386419}
-  - component: {fileID: 2133386420}
-  m_Layer: 0
-  m_Name: HoodCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2133386419
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2133386418}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.65960443, y: 0.07107312, z: -0.020364154, w: 0.74796784}
-  m_LocalPosition: {x: -0.00008, y: 0.00055, z: -0.00082}
-  m_LocalScale: {x: 0.009999995, y: 0.010000028, z: 0.010000002}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 171862859}
-  m_LocalEulerAnglesHint: {x: 81.738, y: 33.567, z: 26.133}
---- !u!114 &2133386420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2133386418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
-  center: {x: 0, y: 0, z: 0}
-  size: {x: 0.1, y: 0.05, z: 0.29}
-  symmetryMode: 0
-  symmetryTarget: {fileID: 0}
-  direction: 1
-  reverseDirection: 0
-  radiusSeparation: 1
-  alignedOnCenter: 1
 --- !u!4 &2141004607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9069005916423434645, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
