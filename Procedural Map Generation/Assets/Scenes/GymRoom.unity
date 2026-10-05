@@ -1479,6 +1479,58 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3692148813305863681, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &99449304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 99449305}
+  - component: {fileID: 99449306}
+  m_Layer: 0
+  m_Name: Magica Capsule Collider (UpperArm.L)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &99449305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99449304}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01000001, y: 0.009999995, z: 0.009999997}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 376708977}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &99449306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99449304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
+  center: {x: 0, y: 0.18, z: 0}
+  size: {x: 0.034, y: 0.05, z: 0.3}
+  symmetryMode: 2
+  symmetryTarget: {fileID: 1545415362}
+  direction: 1
+  reverseDirection: 0
+  radiusSeparation: 1
+  alignedOnCenter: 1
 --- !u!1 &104994985
 GameObject:
   m_ObjectHideFlags: 0
@@ -7133,6 +7185,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5317944745055236448, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1140013115}
+    - targetCorrespondingSourceObject: {fileID: -4312731971750423786, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1385067335}
     - targetCorrespondingSourceObject: {fileID: 1759207687720642457, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 215226113}
@@ -7142,6 +7197,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8864064297909111850, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 93480460}
+    - targetCorrespondingSourceObject: {fileID: 5475982367823208184, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 99449305}
+    - targetCorrespondingSourceObject: {fileID: 6671899359948910118, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1882264525}
     - targetCorrespondingSourceObject: {fileID: 408354967109882135, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: 0
       addedObject: {fileID: 1887857605}
@@ -10492,6 +10553,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372366399}
   m_CullTransparentMesh: 1
+--- !u!4 &376708977 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5475982367823208184, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 171862858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &376762676
 Mesh:
   m_ObjectHideFlags: 0
@@ -28365,8 +28431,8 @@ MonoBehaviour:
   serializeData2:
     initData:
       initVersion: 2
-      localHash: 83970
-      globalHash: -1159504414
+      localHash: 85226
+      globalHash: -1639457690
       clothType: 10
       clothTransformRecord:
         transform: {fileID: 785877182}
@@ -28457,11 +28523,11 @@ MonoBehaviour:
         hasSkinnedMesh: 0
         hasBoneWeight: 0
         skinRootBoneIndex: 0
-        renderTransformIndex: 6
-        skinBoneCount: 6
-        transformCount: 7
-        useTransformCount: 7
-        useTransformIndexArray: 00000000010000000200000003000000040000000500000006000000
+        renderTransformIndex: 7
+        skinBoneCount: 7
+        transformCount: 8
+        useTransformCount: 8
+        useTransformIndexArray: 0000000001000000020000000300000004000000050000000600000007000000
         transformArray:
         - {fileID: 2021014664}
         - {fileID: 728766523}
@@ -28469,6 +28535,7 @@ MonoBehaviour:
         - {fileID: 799543151}
         - {fileID: 78803818}
         - {fileID: 1298789757}
+        - {fileID: 1385067335}
         - {fileID: 785877182}
         transformPositions:
         - x: 0.027611628
@@ -28486,6 +28553,9 @@ MonoBehaviour:
         - x: 0.027611628
           y: 4.7120423
           z: -2.9791107
+        - x: 0.027611628
+          y: 4.7129726
+          z: -2.9052558
         - x: 0.027611628
           y: 4.7129726
           z: -2.9052558
@@ -28524,6 +28594,11 @@ MonoBehaviour:
             z: -0.00000008482309
             w: 0.70263785
         - value:
+            x: -0.7115479
+            y: 0.00000008376106
+            z: -0.00000008482309
+            w: 0.70263785
+        - value:
             x: -0
             y: -0
             z: -0
@@ -28547,6 +28622,9 @@ MonoBehaviour:
         - x: 6.012103e-11
           y: 0.0015973055
           z: -0.0002521704
+        - x: 0
+          y: 0
+          z: 0
         - x: 0
           y: 0
           z: 0
@@ -28586,6 +28664,11 @@ MonoBehaviour:
             y: 0
             z: 0
             w: 1
+        - value:
+            x: 0
+            y: 0
+            z: 0
+            w: 1
         transformScales:
         - x: 99.999985
           y: 99.99986
@@ -28605,6 +28688,9 @@ MonoBehaviour:
         - x: 100
           y: 99.999855
           z: 99.99996
+        - x: 1
+          y: 0.99999917
+          z: 0.99999934
         - x: 1
           y: 1
           z: 1
@@ -35742,6 +35828,9 @@ MonoBehaviour:
       - {fileID: 1485554271}
       - {fileID: 1880594649}
       - {fileID: 104994987}
+      - {fileID: 1385067334}
+      - {fileID: 99449306}
+      - {fileID: 1882264526}
       collisionBones: []
       limitDistance:
         value: 0.05
@@ -43401,6 +43490,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380986176}
   m_CullTransparentMesh: 1
+--- !u!1 &1385067333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1385067335}
+  - component: {fileID: 1385067334}
+  m_Layer: 0
+  m_Name: Magica Capsule Collider (Hood1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1385067334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385067333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
+  center: {x: 0, y: 0, z: 0}
+  size: {x: 0.1, y: 0.05, z: 0.29}
+  symmetryMode: 0
+  symmetryTarget: {fileID: 0}
+  direction: 1
+  reverseDirection: 0
+  radiusSeparation: 1
+  alignedOnCenter: 1
+--- !u!4 &1385067335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385067333}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.6087607, y: -4.176724e-13, z: 0.00000014513975, w: 0.793354}
+  m_LocalPosition: {x: 0, y: 0.00042, z: -0.00073}
+  m_LocalScale: {x: 0.01, y: 0.010000008, z: 0.009999998}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1298789757}
+  m_LocalEulerAnglesHint: {x: 75, y: 0, z: 0}
 --- !u!1 &1387432503
 GameObject:
   m_ObjectHideFlags: 0
@@ -45429,6 +45570,11 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!4 &1545415362 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1712317989552484782, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 171862858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1547586695 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6211393756890435331, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -46939,7 +47085,8 @@ MonoBehaviour:
       - {fileID: 1140013116}
       - {fileID: 1485554271}
       - {fileID: 1880594649}
-      - {fileID: 0}
+      - {fileID: 93480461}
+      - {fileID: 1385067334}
       collisionBones: []
       limitDistance:
         value: 0.05
@@ -52870,6 +53017,11 @@ Transform:
 --- !u!4 &1691238682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -937039496482536992, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 171862858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1706165115 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4442577547672217583, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1711649419 stripped
@@ -68299,6 +68451,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -2831370129746898975, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 171862858}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1826977668 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6671899359948910118, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 171862858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1829881708 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3919980235399996556, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -68925,6 +69082,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1764365471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1882264524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1882264525}
+  - component: {fileID: 1882264526}
+  m_Layer: 0
+  m_Name: Magica Capsule Collider (LowerArm.L)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1882264525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882264524}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.010000011, y: 0.009999997, z: 0.009999999}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1826977668}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1882264526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882264524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MagicaClothV2::MagicaCloth2.MagicaCapsuleCollider
+  center: {x: 0, y: 0.12, z: 0}
+  size: {x: 0.021, y: 0.039, z: 0.25}
+  symmetryMode: 2
+  symmetryTarget: {fileID: 1706165115}
+  direction: 1
+  reverseDirection: 0
+  radiusSeparation: 1
+  alignedOnCenter: 1
 --- !u!1 &1882945446
 GameObject:
   m_ObjectHideFlags: 0
