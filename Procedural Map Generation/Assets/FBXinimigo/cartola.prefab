@@ -1972,7 +1972,7 @@ GameObject:
   - component: {fileID: 2418171806886026759}
   m_Layer: 0
   m_Name: cartola
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2069,7 +2069,6 @@ MonoBehaviour:
   renderer: {fileID: 105086251474356180}
   control:
     self: {fileID: 2624226651308800869}
-    maxSpeed: 0
     radius: 0
     vida: 0
     separate: 0

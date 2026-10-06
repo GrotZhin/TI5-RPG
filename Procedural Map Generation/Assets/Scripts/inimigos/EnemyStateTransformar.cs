@@ -20,13 +20,20 @@ public class EnemyStateTransformar :IState
     {
         Debug.Log("transformar");
         animator = agent.GetComponent<Animator>();
+        if (animator.GetBool("transformar"))
+        {
+            animator.SetBool("transformar", true);
+        }
+        else
+        {
+            animator.SetBool("transformar", false);
+        }
     }
 
     public void Execute(float delta)
     {
-        if (!animator.GetBool("transformar"))
+        if (animator.GetBool("transformar"))
         {
-            animator.SetBool("transformar", true);
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime == 0f && !animator.IsInTransition(0))
             {
                 agent.ChangeState(new EnemyStateAttack(agent, renderer));
@@ -34,10 +41,8 @@ public class EnemyStateTransformar :IState
         }
         else
         {
-            animator.SetBool("transformar", false);
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime == 0f && !animator.IsInTransition(0))
             {
-                
                 agent.ChangeState(new EnemyStateIdle(agent, renderer));
             }
         }

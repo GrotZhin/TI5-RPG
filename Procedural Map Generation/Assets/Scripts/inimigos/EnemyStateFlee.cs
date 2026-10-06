@@ -1,15 +1,20 @@
 using System;
+using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 
 public class EnemyStateFlee : IState
 {
     EnemyAgent agent;
+    int chace;
+    float time;
     Animator animator;
-    Vector3 target;
+    Vector3 dir;
     SkinnedMeshRenderer renderer;
-    float rotationSpeed = 10;
+    float rotationSpeed = 5f;
     public EnemyStateFlee(EnemyAgent agent, SkinnedMeshRenderer renderer)
     {
         this.agent = agent;
@@ -18,51 +23,60 @@ public class EnemyStateFlee : IState
 
     public void Enter()
     {
-        Debug.Log("foge entrou");
+        //Debug.Log("Move entrou");
+        agent.control.seek = 1f;
+        agent.control.separate = 0.85f;
+        agent.control.align = 0f;
+        agent.control.cohesion = 0f;
+        agent.control.avoid = 1f;
+
         renderer.material.color = Color.purple;
-        agent.control.seek = 0.01f;
-        agent.control.separate = 0.9f;
-        agent.control.align = 0.08f;
-        agent.control.cohesion = 0.12f;
-        agent.control.avoid = 0.8f;
-
-
-        /*target = (Random.insideUnitSphere * 5) + agent.transform.position;
-        target.z = -Mathf.Abs(target.z);
-        target.y = agent.transform.position.y;*/
+        chace = Random.Range(0, 100);
+        time = Random.Range(5, 10);
         animator = agent.GetComponent<Animator>();
         //animator.SetBool("IsMoving", true);
+        animator.SetBool("andar", true);
     }
 
     public void Execute(float delta)
     {
-        
+        //Debug.Log("move executando");
+
         if (agent.player)
         {
-            //Debug.Log("foge executando");
-            Vector3 dir = agent.control.Move() + (2 * (agent.transform.position - agent.player.transform.position).normalized);
-            target = dir.normalized;
-            //animator.SetFloat("Input Magnitude", target.magnitude, 0.05f, delta);
-            Quaternion toRotation = Quaternion.LookRotation(target, Vector3.up);
-            agent.transform.rotation = Quaternion.RotateTowards(agent.transform.rotation, toRotation, rotationSpeed);
-            agent.cc.SimpleMove(target * 1f * Time.timeScale);
-            animator.SetFloat("velocidadeanimaçao", 2);
-            //Debug.Log(agent.player + "   " + agent);
-            
-        }
-        else
-        {
-            agent.ChangeState(new EnemyStateTransformar(agent, renderer));
+            if ((agent.player.transform.position - agent.transform.position).magnitude > 5f)
+            {
+                if (chace < 20)
+                {
+                    agent.ChangeState(new EnemyStateIdle(agent, renderer));
+                }
+                else if(chace < 80)
+                {
+                    agent.ChangeState(new EnemyStateTransformar(agent, renderer));
+                }
+                else
+                {
+                    agent.ChangeState(new EnemyStateMove(agent, renderer));
+                }
+                return;
+            }
+            dir = this.agent.control.Move(-1);
+            dir.y = 0;
+            Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up);
+            agent.transform.rotation = Quaternion.Slerp(
+                agent.transform.rotation,
+                toRotation,
+                rotationSpeed * Time.deltaTime
+            );
+            agent.cc.SimpleMove(dir * 1.5f * Time.timeScale);
+            animator.SetFloat("velocidadeanimaçao", 3);
         }
     }
 
     public void Exit()
     {
-        //Debug.Log("foge saiu");
-        //animator.SetBool("IsMoving", false);
-        //animator.SetFloat("Input Magnitude", 0, 0f, 0);
-        animator.SetFloat("velocidadeanimaçao", 1);
         agent.GetNeighbours().Clear();
+        animator.SetFloat("velocidadeanimaçao", 1);
     }
 
 }

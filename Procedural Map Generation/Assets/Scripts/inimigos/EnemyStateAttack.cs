@@ -42,7 +42,7 @@ public class EnemyStateAttack : IState
             if (animator.GetBool("atacar"))
             {
                 agent.cc.Move(dir.normalized * 0.3f * Time.timeScale);
-                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && !animator.IsInTransition(0) && animator.GetBool("atacar"))
+                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && !animator.IsInTransition(0))
                 {
                     agent.ChangeState(new EnemyStateTransformar(agent, renderer));
                     ani1 = animator.GetCurrentAnimatorStateInfo(0).shortNameHash.ToString();

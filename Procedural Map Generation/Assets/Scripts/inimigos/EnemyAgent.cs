@@ -27,6 +27,7 @@ public class EnemyAgent : MonoBehaviour
     void Update()
     {
         state?.Execute(Time.deltaTime);
+        //Debug.Log(state.ToString());
         if(collider.radius != control.radius)
             collider.radius = control.radius;
         /*if (Input.GetKeyDown(KeyCode.Space))
@@ -37,12 +38,12 @@ public class EnemyAgent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Enemy") && (this.state is EnemyStateMove or EnemyStateFlee) && other.gameObject != gameObject)
+        if(other.CompareTag("Enemy") && (this.state is EnemyStateMove or EnemyStateFlee))
         {
             if(!neighbours.Contains(other.GetComponent<EnemyAgent>()))
                 neighbours.Add(other.GetComponent<EnemyAgent>());
         }
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") &&  player == null)
         {
             player = other.GetComponent<PlayerAgent>();
         }
@@ -53,27 +54,30 @@ public class EnemyAgent : MonoBehaviour
         {
             neighbours.Remove(other.GetComponent<EnemyAgent>());
         }
-        if (other.CompareTag("Player"))
-        {
-            player = null;
-        }
+        
     }
     private void OnTriggerStay(Collider other)
     {
+        
         if (other != null)
         {
-            if (player != null)
+            if (player == null)
             {
                 if (other.CompareTag("Player"))
                 {
                     player = other.GetComponent<PlayerAgent>();
                 }
             }
+            if (other.CompareTag("Enemy") && (this.state is EnemyStateMove or EnemyStateFlee))
+            {
+                if (!neighbours.Contains(other.GetComponent<EnemyAgent>()))
+                {
+                    neighbours.Add(other.GetComponent<EnemyAgent>());
+                }
+                
+            }
         }
-        else
-        {
-            player = null;
-        }
+        
     }
 
     public void ChangeState(IState state)
