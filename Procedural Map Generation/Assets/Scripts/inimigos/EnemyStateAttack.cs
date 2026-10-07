@@ -51,7 +51,6 @@ public class EnemyStateAttack : IState
         }
         else
         {
-            
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f && !animator.IsInTransition(0) && animator.GetCurrentAnimatorStateInfo(0).shortNameHash.ToString() != ani1)
             {
                 if (chace < 50 || agent.player == null)

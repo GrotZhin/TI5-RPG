@@ -32,7 +32,7 @@ public class EnemyAgentControl
         }
         else
         {
-            dir = self.transform.forward;
+            dir = dire ?? self.transform.forward;
 
         }
         

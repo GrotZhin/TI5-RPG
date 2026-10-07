@@ -61,7 +61,8 @@ public class EnemyStateMove: IState
             Vector3 arc = agent.player.transform.position;
             arc.x = agent.player.transform.position.x + Mathf.Cos(Time.time) * 10f;
             arc.z = agent.player.transform.position.z + Mathf.Sin(Time.time) * 10f;
-            dir += (arc - agent.transform.position).normalized;
+            //Debug.Log((arc - agent.transform.position).normalized);
+            dir += this.agent.control.Move(1,(arc - agent.transform.position).normalized);
         }
         else
         {
