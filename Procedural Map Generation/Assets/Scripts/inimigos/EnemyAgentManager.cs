@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 public class EnemyAgentManager : MonoBehaviour
 {
         public GameObject enemyPrefab;
@@ -36,7 +36,7 @@ public class EnemyAgentManager : MonoBehaviour
             {
                 Transform spawnPoint = spawnPoints[i % spawnPoints.Length];
 
-                GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+                GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position + Random.insideUnitSphere, spawnPoint.rotation);
 
                 EnemyAgent agent = enemy.GetComponent<EnemyAgent>();
 

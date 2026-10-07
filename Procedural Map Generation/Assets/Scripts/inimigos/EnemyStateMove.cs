@@ -12,7 +12,7 @@ public class EnemyStateMove: IState
     int chace;
     float time;
     Animator animator;
-    Vector3 target, dirtmp;
+    Vector3 dir;
     SkinnedMeshRenderer renderer;
     float rotationSpeed = 5f;
     public EnemyStateMove(EnemyAgent agent, SkinnedMeshRenderer renderer)
@@ -33,20 +33,19 @@ public class EnemyStateMove: IState
         renderer.material.color = Color.blue;
         chace = Random.Range(0, 100);
         time = Random.Range(5, 10);
-        dirtmp = (Random.insideUnitSphere * 2);
         animator = agent.GetComponent<Animator>();
-        animator.SetBool("IsMoving", true);
+        //animator.SetBool("IsMoving", true);
+        animator.SetBool("andar", true);
     }
 
     public void Execute(float delta)
     {
         //Debug.Log("move executando");
-        
-        Vector3 dir = agent.control.Move();
-        //Debug.Log((agent.player.transform.position - agent.transform.position).magnitude);
+        dir = this.agent.control.Move();
+        dir.y = 0;
         if (agent.player)
         {
-            if((agent.player.transform.position - agent.transform.position).magnitude < 1.5)
+            if((agent.player.transform.position - agent.transform.position).magnitude < 1.5f)
             {
                 if (chace > 80)
                 {
@@ -59,6 +58,11 @@ public class EnemyStateMove: IState
                 return;
             }
             time = Random.Range(5, 10);
+            Vector3 arc = agent.player.transform.position;
+            arc.x = agent.player.transform.position.x + Mathf.Cos(Time.time) * 10f;
+            arc.z = agent.player.transform.position.z + Mathf.Sin(Time.time) * 10f;
+            //Debug.Log((arc - agent.transform.position).normalized);
+            dir += this.agent.control.Move(1,(arc - agent.transform.position).normalized);
         }
         else
         {
@@ -67,19 +71,19 @@ public class EnemyStateMove: IState
                 agent.ChangeState(new EnemyStateIdle(agent, renderer));
             }
             time -= delta;
+            
         }
-        animator.SetFloat("Input Magnitude", dir.magnitude, 0.05f, delta);
         Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up);
-        agent.transform.rotation = Quaternion.RotateTowards(agent.transform.rotation, toRotation, rotationSpeed);
-        
-        agent.cc.Move(animator.deltaPosition);
+        agent.transform.rotation = Quaternion.Slerp(
+            agent.transform.rotation,
+            toRotation,
+            rotationSpeed * Time.deltaTime
+        );
+        agent.cc.SimpleMove(dir * 0.5f * Time.timeScale);
     }
 
     public void Exit()
     {
-        //Debug.Log("move saiu");
-        animator.SetBool("IsMoving", false);
-        animator.SetFloat("Input Magnitude", 0, 0f, 0);
         agent.GetNeighbours().Clear();
     }
     

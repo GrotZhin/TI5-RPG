@@ -1,49 +1,53 @@
 using System;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Video;
+using Random = UnityEngine.Random;
 
 [Serializable]
 public class EnemyAgentControl
 {
     public EnemyAgent self;
-    public float maxSpeed = 3;
     public float radius = 4.8f;
     public float vida = 0f;
     [Range(0,1)]
     public float separate = 0.9f, seek = 0.6f, align = 0.03f, avoid = 1f, cohesion = 0.05f;
-
+    Vector3 dir;
     public LayerMask obstacle;
 
     public EnemyAgentControl (EnemyAgent agent) {  self = agent; obstacle = LayerMask.GetMask("Obstacle"); }
 
-    public Vector3 Move(int fleeMod = 1, int seekMod = 1)
+    public Vector3 Move(int fleeMod = 1, Vector3? dire = null)
     {
-        Vector3 dir = self.transform.forward;
         if (self.player != null)
-            dir = (self.player.transform.position - self.transform.position) * seek * seekMod;
-
-        //dir.y = menosagent.transform.position.y;
-
-        if (dir.sqrMagnitude > 0.000001f)
         {
-            dir.Normalize();
-            dir.y = 0;
+            dir = self.player.transform.position - self.transform.position;
+            dir.y = 0f;
+            if (dir.sqrMagnitude > 0.000001f)
+            {
+                dir.Normalize();
+                dir *= seek;
+            }
         }
+        else
+        {
+            dir = dire ?? self.transform.forward;
+
+        }
+        
+        Vector3 result =
+        dir * fleeMod +
+        separate * Separate() +
+        align * Align() +
+        cohesion * Cohesion() +
+        avoid * Avoid();
+        Debug.DrawRay(self.transform.position, result, Color.black);
         Debug.DrawRay(self.transform.position, Separate(), Color.red);
         Debug.DrawRay(self.transform.position, Align(), Color.green);
         Debug.DrawRay(self.transform.position, Cohesion(), Color.yellow);
         Debug.DrawRay(self.transform.position, Avoid(), Color.blue);
-
-        Vector3 result = dir + 
-                         separate * fleeMod * Separate() + 
-                         align * seekMod * Align() + 
-                         cohesion * Cohesion() + 
-                         avoid * Avoid();
-
-        result = Vector3.ClampMagnitude(result, maxSpeed);
-        Debug.DrawRay(self.transform.position, result, Color.black);
-       return result;
+        return result;
     }
 
 
@@ -51,29 +55,37 @@ public class EnemyAgentControl
     {
         Vector3 separation = Vector3.zero;
         int count = 0;
-
         foreach (EnemyAgent other in self.GetNeighbours())
         {
             Vector3 direction = self.transform.position - other.transform.position;
             direction.y = 0f;
+            float distanceSqr = direction.sqrMagnitude;
+            if (distanceSqr < 0.0001f)
+                continue;
 
-            Vector3 dot = other.transform.position - self.transform.position;
-
-            float distance = direction.magnitude;
-            if (distance < 3f && Vector3.Dot(self.transform.forward, dot.normalized)>0)
+            float distance = Mathf.Sqrt(distanceSqr);
+            // Distância máxima em que queremos separar
+            if (distance < 5f)
             {
-                // Quanto mais próximo, maior a repulsão
-                separation += direction.normalized / distance;
-                count++;
+                Vector3 toOther = other.transform.position - self.transform.position;
+                toOther.y = 0f;
+                // Só separa quem está à frente
+                if (Vector3.Dot(self.transform.forward, toOther.normalized) > 0f)
+                {
+                    // Quanto mais perto, maior a força
+                    float strength = 1f - (distance / 3f);
+
+                    separation += direction.normalized * strength;
+                    count++;
+                }
             }
         }
-            if (count > 0)
-        {
+        if (count > 0)
             separation /= count;
-        }
-        //Debug.Log(menosagent.passavizinho().Count + "  " + separation);
+
         return separation;
     }
+
 
 
     Vector3 Align()
@@ -93,7 +105,7 @@ public class EnemyAgentControl
         if (count == 0) return Vector3.zero;
         align /= count;
 
-        return align.normalized * maxSpeed;
+        return align.normalized;
     }
 
     Vector3 Cohesion()
@@ -123,7 +135,7 @@ public class EnemyAgentControl
         if (Physics.Raycast(origem, self.transform.forward, out hit, radius, obstacle)) 
         {
             Debug.DrawRay(hit.point, hit.normal, Color.hotPink);
-            result = ((hit.normal + self.cc.velocity.normalized) * 0.5f) * maxSpeed;
+            result = ((hit.normal + self.cc.velocity.normalized) * 0.5f);
         }
         Debug.DrawRay(origem, self.transform.forward * radius, Color.pink);
         return result;
