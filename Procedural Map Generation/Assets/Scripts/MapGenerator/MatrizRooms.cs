@@ -1,15 +1,19 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO.Compression;
+using System.Reflection;
 using JetBrains.Annotations;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.ProBuilder.Shapes;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class MatrizRooms : AbstractMapGenerator
 {
+    public static MatrizRooms matriz;
     [SerializeField]
     private int height;
     [SerializeField]
@@ -21,137 +25,103 @@ public class MatrizRooms : AbstractMapGenerator
     LayerMask layerMask;
     public GameObject floor;
     [SerializeField]
-    List<Vector3Int> list = new List<Vector3Int>();
+    private PathFind path;
+    [SerializeField]
+    private GridManager grid;
+    public List<Door> doors = new List<Door>();
+    public List<Vector3> positions = new List<Vector3>();
 
+    public void Awake()
+    {
+        matriz = this;
+    }
     protected override void RunProceduralGeneration()
     {
-        CreateRooms();
+        //CreateRooms();
     }
-
-    private void CreateRooms()
+    void Start()
     {
-        var roomsSorted = ProceduralGeneration.SortRooms(roomCount, island);
 
-        var map = ProceduralGeneration.CreateMatrizRooms(height, witdth, roomCount, roomsSorted, ref list);
-        var centers = ProceduralGeneration.ConnectRooms(list);
-
-
-        var i = 0;
-
-        foreach (var pos in map)
-        {
-
-            var obj = Instantiate(roomsSorted[i].gameObject, pos, Quaternion.identity);
-
-            i++;
-        }
-        //var doors = GameObject.FindGameObjectsWithTag("Door");
-        //Metodo com portas
-        // foreach (var item in doors)
-        // {
-        //     list.Add(Vector3Int.RoundToInt(item.transform.position));
-        // }
-
-       // var centers = ProceduralGeneration.ConnectRooms(list);
-        foreach (var pos in centers)
-        {
-            Instantiate(floor, pos, Quaternion.identity);
-        }
-        // prefabVisualizer.CreateFloorPrefabs(corridors);
-
+        //CreateRooms();
     }
 
-    private HashSet<Vector3Int> ConnectRooms(List<Vector3Int> doors)
-    {
-        HashSet<Vector3Int> corridors = new HashSet<Vector3Int>();
-        var currentDoor = doors[Random.Range(0, doors.Count)];
-
-        doors.Remove(currentDoor);
-
-        while (doors.Count > 0)
-        {
-            Vector3Int closest = FindClosestPointTo(currentDoor, doors);
-            doors.Remove(closest);
-
-            HashSet<Vector3Int> newCorridor = CreateCorridor(currentDoor, closest);
-
-            currentDoor = closest;
-            corridors.UnionWith(newCorridor);
-        }
-        return corridors;
-    }
-
-    // private HashSet<Vector3Int> CreateCorridor(Vector3Int currentDoor, Vector3Int destination)
+    // private void CreateRooms()
     // {
-    //     HashSet<Vector3Int> corridor = new HashSet<Vector3Int>();
-    //     var position = currentDoor;
-    //     while (destination.x + destination.z != currentDoor.x + currentDoor.z)
+    //     //var roomsSorted = ProceduralGeneration.SortRooms(roomCount, island);
+
+    //     var map = ProceduralGeneration.CreateMatrizRooms(height, witdth, roomCount, roomsSorted);
+    //     // var centers = ProceduralGeneration.ConnectRooms(list);
+    //     var i = 0;
+    //     foreach (var pos in map)
     //     {
-    //         if (Random.value > 0.5f)
-    //         {
-    //             if (currentDoor.z > destination.z)
-    //                 position += Vector3Int.back;
-    //             else if (currentDoor.z < destination.z)
-    //                 position += Vector3Int.forward;
-    //         }
-    //         else
-    //         {
-    //             if (currentDoor.x > destination.x)
-    //                 position += Vector3Int.left;
-    //             else if (currentDoor.x < destination.x)
-    //                 position += Vector3Int.right;
-    //         }
-    //         corridor.Add(position);
+
+    //         var obj = Instantiate(roomsSorted[i].gameObject, pos, Quaternion.identity);
+    //         i++;
     //     }
-    //     return corridor;
+    //     grid.InstantiateGrid();
+    //     Invoke("CreateCorridors", 1f);
+
+
+
+
+    //     //var doors = GameObject.FindGameObjectsWithTag("Door");
+    //     //Metodo com portas
+    //     // foreach (var item in doors)
+    //     // {
+    //     //     list.Add(Vector3Int.RoundToInt(item.transform.position));
+    //     // }
+
+    //     // var centers = ProceduralGeneration.ConnectRooms(list);
+    //     // foreach (var pos in centers)
+    //     // {
+    //     //     Instantiate(floor, pos, Quaternion.identity);
+    //     // }
+    //     // prefabVisualizer.CreateFloorPrefabs(corridors);
 
     // }
-    private HashSet<Vector3Int> CreateCorridor(Vector3Int currentRoomCenter, Vector3Int destination)
+    private void CreateCorridors()
     {
-        HashSet<Vector3Int> corridor = new HashSet<Vector3Int>();
+        HashSet<Vector3> paths = new HashSet<Vector3>();
+       
+        while (doors.Count > 0)
+        {
+            
+            var currentDoor = doors[Random.Range(0, doors.Count)];
+            Door closest = FindClosestPointTo(currentDoor, doors);
 
-        var position = currentRoomCenter;
-        corridor.Add(position);
-        while (position.z != destination.z)
-        {
-            if (destination.z > position.z)
+            path.FindPath(currentDoor.transform.position, closest.transform.position);
+            Debug.Log(grid.path);   
+            foreach(var pos in grid.path)
             {
-                position += Vector3Int.forward;
+                paths.Add(grid.GetVector3FromNodePosition(pos));
+                
             }
-            else if (destination.z < position.z)
-            {
-                position += Vector3Int.back;
-            }
-            corridor.Add(position);
         }
-        while (position.x != destination.x)
+        foreach (var item in paths)
         {
-            if (destination.x > position.x)
-            {
-                position += Vector3Int.right;
-            }
-            else if (destination.x < position.x)
-            {
-                position += Vector3Int.left;
-            }
-            corridor.Add(position);
+            Instantiate(floor,item,Quaternion.identity);
         }
-        return corridor;
+       
     }
-    private Vector3Int FindClosestPointTo(Vector3Int currentRoomCenter, List<Vector3Int> roomCenters)
-    {
-        Vector3Int closest = Vector3Int.zero;
-        float distance = float.MaxValue;
 
-        foreach (var position in roomCenters)
+
+    private Door FindClosestPointTo(Door door, List<Door> doors)
+    {
+        Door closest = door;
+        float distance = float.MaxValue;
+        doors.Remove(closest);
+        foreach (var position in doors)
         {
-            float currentDistance = Vector3Int.Distance(position, currentRoomCenter);
-            if (currentDistance < distance)
+            float currentDistance = Vector3.Distance(position.transform.position, door.transform.position);
+            if (currentDistance < distance && position.id != door.id)
             {
                 distance = currentDistance;
+
                 closest = position;
+
             }
         }
+        doors.Remove(closest);
         return closest;
     }
 

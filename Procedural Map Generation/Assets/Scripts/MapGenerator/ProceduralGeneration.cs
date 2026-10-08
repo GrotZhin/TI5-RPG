@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public static class ProceduralGeneration
 {
-    public static HashSet<Vector3Int> CreateMatrizRooms(int x, int z, int roomCount, List<RoomStats> islands, ref List<Vector3Int> centers)
+    public static HashSet<Vector3Int> CreateMatrizRooms(int x, int z, int roomCount, List<RoomStats> islands)
     {
         int[,] map = new int[x, z];
         HashSet<Vector3Int> positions = new HashSet<Vector3Int>();
@@ -31,10 +31,10 @@ public static class ProceduralGeneration
                 var positionZ = Random.Range(0, map.GetLength(1));
 
 
-                distance.x = Random.Range(islands[i].size.min.x, islands[i].size.max.x) * Random.Range(2, 5);
-                distance.z = Random.Range(islands[i].size.min.z, islands[i].size.max.z) * Random.Range(2, 5);
+                distance.x =   Random.Range(2, 3);
+                distance.z =   Random.Range(2, 3);
 
-                pos = new Vector3Int(positionX, 0, positionZ) + distance;
+                pos = new Vector3Int(positionX, 0, positionZ) * distance;
                 var newRoom = new Bounds(pos, islands[i].size.size);
                 bool dontCollide = false;
 
@@ -51,7 +51,7 @@ public static class ProceduralGeneration
                     positionFound = true;
                     rooms.Add(newRoom);
                     
-                    centers.Add(Vector3Int.RoundToInt(newRoom.center));
+                    //centers.Add(Vector3Int.RoundToInt(newRoom.center));
                 }
                 trys++;
             }
@@ -70,10 +70,10 @@ public static class ProceduralGeneration
 
     }
 
-    public static List<RoomStats> SortRooms(int roomCount, List<RoomStats> island)
+    public static List<RoomStats> SortRooms(int roomCount, List<RoomStats> island, RoomStats first)
     {
         List<RoomStats> rooms = new List<RoomStats>();
-
+        rooms.Add(first);
         while (roomCount > 0)
         {
             var porcent = Random.value * 100;
@@ -95,7 +95,7 @@ public static class ProceduralGeneration
         }
         return rooms;
     }
-    public static HashSet<Vector3Int> ConnectRooms(List<Vector3Int> roomCenters)
+    public static HashSet<Vector3Int> ConnectRooms(List<Vector3> roomCenters, PathFind pathFind)
     {
         HashSet<Vector3Int> corridors = new HashSet<Vector3Int>();
         var currentRoomCenter = roomCenters[Random.Range(0, roomCenters.Count)];
@@ -104,13 +104,13 @@ public static class ProceduralGeneration
 
         while (roomCenters.Count > 0)
         {
-            Vector3Int closest = FindClosestPointTo(currentRoomCenter, roomCenters);
-            roomCenters.Remove(closest);
+            //Vector3 closest = FindClosestPointTo(currentRoomCenter, roomCenters);
+           // roomCenters.Remove(closest);
+            //var path = pathFind.FindPath(currentRoomCenter, roomCenters);
+            //HashSet<Vector3Int> newCorridor = CreateCorridor(currentRoomCenter, closest);
 
-            HashSet<Vector3Int> newCorridor = CreateCorridor(currentRoomCenter, closest);
-
-            currentRoomCenter = closest;
-            corridors.UnionWith(newCorridor);
+           // currentRoomCenter = closest;
+            //corridors.UnionWith(newCorridor);
         }
         return corridors;
     }
