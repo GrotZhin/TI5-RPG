@@ -164,12 +164,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f574b66c7e3da0418170b70c71d7092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridManager
-  playerTransform: {fileID: 568605743}
+  playerTransform: {fileID: 0}
   ObstacleMask:
-    serializedVersion: 2
-    m_Bits: 512
-  gridWorldSize: {x: 140, y: 140}
-  nodeRadius: 10
+    m_Bits: 0
+  gridWorldSize: {x: 0, y: 0}
+  nodeRadius: 0
+  nodeDiamenter: 0
+  gridSizeX: 0
+  gridSizeY: 0
 --- !u!114 &5170793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9eab9b12cee3447a7f6b90b0cb5c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PathFind
+  gridManager: {fileID: 0}
   seeker: {fileID: 0}
   target: {fileID: 0}
 --- !u!1 &166534578
@@ -214,14 +217,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomGenerator
   startPosition: {x: 0, y: 0, z: 0}
-  prefabVisualizer: {fileID: 742537792}
-  randomWalkData: {fileID: 11400000, guid: a1bdf636a41a8c44194439f89129e17b, type: 2}
-  minRoomWidth: 10
-  minRoomHeight: 10
-  dungeonWidth: 70
-  dungeonHeight: 70
+  prefabVisualizer: {fileID: 0}
+  randomWalkData: {fileID: 0}
+  minRoomWidth: 4
+  minRoomHeight: 4
+  dungeonWidth: 20
+  dungeonHeight: 20
   offset: 1
-  randomWalkRooms: 1
+  randomWalkRooms: 0
 --- !u!4 &166534580
 Transform:
   m_ObjectHideFlags: 0
@@ -615,17 +618,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!114 &414733028 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -4886462899509217098, guid: 940589f069f40334286875d4c4e57ed0, type: 3}
-  m_PrefabInstance: {fileID: 1856987289}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08aa818290ac4e041829f305d66f0fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RoomStats
 --- !u!1 &568605739
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,13 +765,10 @@ MonoBehaviour:
   prefabVisualizer: {fileID: 0}
   height: 0
   witdth: 0
-  roomCount: 5
-  island:
-  - {fileID: -4886462899509217098, guid: 940589f069f40334286875d4c4e57ed0, type: 3}
-  - {fileID: -4886462899509217098, guid: 940589f069f40334286875d4c4e57ed0, type: 3}
-  - {fileID: -4886462899509217098, guid: 940589f069f40334286875d4c4e57ed0, type: 3}
+  roomCount: 0
+  island: []
   actualDoor: []
-  firtsIsle: {fileID: 414733028}
+  firtsIsle: {fileID: 0}
 --- !u!4 &666818856
 Transform:
   m_ObjectHideFlags: 0
@@ -824,8 +813,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e916cda99edc0774ab7e6d07672a167f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrefabVisualizer
-  floorPrefab: {fileID: 3646005755913151362, guid: 2015c963d9e293142af200b086ed7b69, type: 3}
-  wallTop: {fileID: 3646005755913151362, guid: 994ec61cf09c2654eaab19fa1ffc3001, type: 3}
+  floorPrefab: {fileID: 0}
+  wallTop: {fileID: 0}
+  path: []
 --- !u!4 &742537793
 Transform:
   m_ObjectHideFlags: 0
@@ -925,6 +915,7 @@ MonoBehaviour:
   roomPrefab: {fileID: 2597286928049192619, guid: 940589f069f40334286875d4c4e57ed0, type: 3}
   corridorPrefab: {fileID: 3646005755913151362, guid: 994ec61cf09c2654eaab19fa1ffc3001, type: 3}
   roomBossPrefab: {fileID: 8896724605799911398, guid: bb51de9edc8f8fd498d4878261634188, type: 3}
+  firstRoomPrefab: {fileID: 2597286928049192619, guid: 58a759be8a3067c4aafc1c49cee25ac3, type: 3}
   roomTreasurePrefab: {fileID: 7501521439093925480, guid: 4ca264e31e5dee748bcbbd81e5c4e3f4, type: 3}
   doorPrefab: {fileID: 8497503561418040719, guid: 160028cf4eabeb14b994a2d74ced63cd, type: 3}
   doorsPositions: []
@@ -973,19 +964,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MatrizRooms
   startPosition: {x: 0, y: 0, z: 0}
-  prefabVisualizer: {fileID: 742537792}
-  height: 50
-  witdth: 50
-  roomCount: 15
-  island:
-  - {fileID: -4886462899509217098, guid: 940589f069f40334286875d4c4e57ed0, type: 3}
-  - {fileID: -7009407215719009836, guid: 4ca264e31e5dee748bcbbd81e5c4e3f4, type: 3}
-  - {fileID: -4707209638117666382, guid: bb51de9edc8f8fd498d4878261634188, type: 3}
+  prefabVisualizer: {fileID: 0}
+  height: 0
+  witdth: 0
+  roomCount: 0
+  island: []
   layerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  floor: {fileID: 3646005755913151362, guid: 2015c963d9e293142af200b086ed7b69, type: 3}
-  path: {fileID: 5170793}
+    m_Bits: 0
+  floor: {fileID: 0}
+  path: {fileID: 0}
   grid: {fileID: 0}
   doors: []
   positions: []
