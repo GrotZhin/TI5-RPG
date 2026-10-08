@@ -23,6 +23,8 @@ public class Map : MonoBehaviour
     [SerializeField]
     private GameObject roomBossPrefab;
     [SerializeField]
+    private GameObject firstRoomPrefab;
+    [SerializeField]
     private GameObject roomTreasurePrefab;
     [SerializeField]
     private DoorPos doorPrefab;
@@ -130,9 +132,23 @@ public class Map : MonoBehaviour
     private void PlaceRooms()
     {
         PlaceNormalRooms();
+        PlaceFirstRoom();
         PlaceBossRoom();
         PlaceTreasureRooms();
         CreateCorridors();
+    }
+    private void PlaceFirstRoom()
+    {
+        Room start = map[witdh / 2, height / 2];
+        InstantiateRoom(firstRoomPrefab, start);
+    }
+     private void PlaceNormalRooms()
+    {
+        foreach (var room in map)
+        {
+            if (room.IsSelected && !deadEndRooms.Contains(room))
+                InstantiateRoom(roomPrefab, room);
+        }
     }
     private GameObject InstantiateRoom(GameObject roomPrefab, Room room)
     {
@@ -185,7 +201,7 @@ public class Map : MonoBehaviour
 
     private void CreateCorridors()
     {
-        var currentDoor = doorsPositions[0];
+        //var currentDoor = doorsPositions[0];
         
         HashSet<Vector3Int> corridors = new HashSet<Vector3Int>();
         HashSet<DoorPos> done = new HashSet<DoorPos>();
@@ -202,23 +218,7 @@ public class Map : MonoBehaviour
         }
         InstantiateCorridor(corridors);
 
-        // doorsPositions.Remove(currentDoor);
-        // Debug.Log(doorsPositions.Count);
-        // while(doorsPositions.Count > 0)
-        // {
-            
-        //     var closest = FindClosestPointTo(currentDoor, doorsPositions);
-            
-        //     if (closest == null) break;
-        //     var positions = PositionCorridor(currentDoor, closest);
-        //     foreach (var pos in positions)
-        //     {
-        //         corridors.Add(pos);
-        //     }
-        //     currentDoor = closest;
-        //     doorsPositions.Remove(closest);
-        // }
-        //     InstantiateCorridor(corridors);
+       
 
     }
 
@@ -236,9 +236,8 @@ public class Map : MonoBehaviour
         HashSet<Vector3Int> corridor = new HashSet<Vector3Int>();
         Vector3Int doorPosition = Vector3Int.RoundToInt(currentDoor.transform.position);
         Vector3Int destination = Vector3Int.RoundToInt(closest.transform.position);
-        bool side = doorPosition.z != destination.z; 
-        // if(side)
-        // {
+       
+        
             while(doorPosition.x != destination.x)
             {
                 if (destination.x > doorPosition.x)
@@ -251,9 +250,7 @@ public class Map : MonoBehaviour
             }
             corridor.Add(doorPosition);
             }
-       // }
-        // else if(!side)
-        // {
+      
               while(doorPosition.z != destination.z)
             {
                 if (destination.z > doorPosition.z)
@@ -266,28 +263,11 @@ public class Map : MonoBehaviour
             }
             corridor.Add(doorPosition);
             }
-        //}
+       
         return corridor;
     }
 
-    private  DoorPos FindClosestPointTo(DoorPos currentDoor , List<DoorPos> roomCenters)
-    {
-        //Vector3Int closest = Vector3Int.zero;
-        DoorPos closest = null;
-        float distance = float.MaxValue;
-
-        foreach (var door in roomCenters)
-        {
-            float currentDistance = Vector3Int.Distance(Vector3Int.RoundToInt(door.transform.position), Vector3Int.RoundToInt(currentDoor.transform.position));
-            if (currentDistance < distance && currentDoor.id != door.id)            
-            {
-                distance = currentDistance;
-                closest = door;
-            }
-        }
-       
-        return closest;
-    }
+   
     private void AddDoorsToRoom( Room room)
     {
         var cur = new Vector3Int(room.Position.x, 0, room.Position.z);
@@ -325,13 +305,6 @@ public class Map : MonoBehaviour
         islandId++;
 
     }
-    private void PlaceNormalRooms()
-    {
-        foreach (var room in map)
-        {
-            if (room.IsSelected && !deadEndRooms.Contains(room))
-                InstantiateRoom(roomPrefab, room);
-        }
-    }
+   
 }
 
