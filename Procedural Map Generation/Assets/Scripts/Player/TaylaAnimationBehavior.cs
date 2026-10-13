@@ -7,6 +7,8 @@ public class TaylaAnimationBehavior : StateMachineBehaviour
     int inputLockTag = Animator.StringToHash("Input Lock");
     int inputX = Animator.StringToHash("XInput");
     int inputY = Animator.StringToHash("YInput");
+    int inputCharged = Animator.StringToHash("ChargedInput");
+    int inputCharging = Animator.StringToHash("Charging");
 
     public bool canAttack = true;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -31,6 +33,8 @@ public class TaylaAnimationBehavior : StateMachineBehaviour
             canAttack = false;
             animator.ResetTrigger(inputX);
             animator.ResetTrigger(inputY);
+            animator.SetBool(inputCharging, false);
+            animator.SetInteger(inputCharged, 0);
         }
 
 

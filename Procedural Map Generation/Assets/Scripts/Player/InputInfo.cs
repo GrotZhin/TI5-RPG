@@ -23,7 +23,7 @@ public class InputInfo : ScriptableObject, Inputs.IPlayerActions
     public static event Action<bool> OnSprintEvent;
 
     public static event Action OnAttackEvent;
-    public static event Action OnAttackHeavyEvent;
+    public static event Action<bool> OnAttackHeavyEvent;
     public static event Action OnAimEvent;
 
     public static event Action OnMenuEvent;
@@ -54,7 +54,7 @@ public class InputInfo : ScriptableObject, Inputs.IPlayerActions
         OnJumpEvent = () => { };
         OnDashEvent = () => { };
         OnAttackEvent = () => { };
-        OnAttackHeavyEvent = () => { };
+        OnAttackHeavyEvent = (v) => { };
         OnAimEvent = () => { };
         OnMenuEvent = () => { };
         OnCrouchReleaseEvent = () => { };
@@ -133,8 +133,7 @@ public class InputInfo : ScriptableObject, Inputs.IPlayerActions
 
     public void OnAttackHeavy(InputAction.CallbackContext context)
     {
-        if (context.started)
-            OnAttackHeavyEvent();
+        OnAttackHeavyEvent(context.performed);
     }
 
     #endregion
