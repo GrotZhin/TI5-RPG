@@ -139,6 +139,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8497228441926375609}
+  - component: {fileID: 2205940327441683496}
+  - component: {fileID: 3556997537060215193}
   m_Layer: 0
   m_Name: carreteuMao.L
   m_TagString: Untagged
@@ -166,6 +168,39 @@ Transform:
   - {fileID: 8448958584538547085}
   m_Father: {fileID: 636829978035896618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2205940327441683496
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504724345823345946}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.002490448, y: 0.0050191707, z: 0.00094634946}
+  m_Center: {x: 0.00018567157, y: 0.0020796428, z: 0.00012774201}
+--- !u!114 &3556997537060215193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504724345823345946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fca958322b65124a8aa676b1400bce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::triggeratackinimigo
 --- !u!1 &615557367314504337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2078,7 +2113,7 @@ MonoBehaviour:
     cohesion: 0
     obstacle:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 512
   cc: {fileID: 4573963147093644207}
   neighbours: []
   collider: {fileID: 2418171806886026759}
@@ -3899,6 +3934,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6122420472250714616}
+  - component: {fileID: 8150001563442576034}
+  - component: {fileID: 2136502951341643041}
   m_Layer: 0
   m_Name: carreteuMao.R
   m_TagString: Untagged
@@ -3926,6 +3963,39 @@ Transform:
   - {fileID: 3004430296660847791}
   m_Father: {fileID: 6993570441416169242}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8150001563442576034
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7251871883234326301}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.002490448, y: 0.0050191707, z: 0.00094634946}
+  m_Center: {x: 0.00018567157, y: 0.0020796428, z: 0.00012774201}
+--- !u!114 &2136502951341643041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7251871883234326301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fca958322b65124a8aa676b1400bce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::triggeratackinimigo
 --- !u!1 &7283021107068730064
 GameObject:
   m_ObjectHideFlags: 0

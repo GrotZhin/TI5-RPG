@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 21090507}
   - component: {fileID: 21090506}
   - component: {fileID: 21090505}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: criarinimigos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ Transform:
   m_GameObject: {fileID: 21090504}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.364733, z: -0, w: 0.9311122}
-  m_LocalPosition: {x: 0.38005644, y: -0.052585233, z: 0.15994804}
+  m_LocalPosition: {x: 0.38005644, y: -0.015, z: 0.15994804}
   m_LocalScale: {x: 0.43666592, y: 0.08347259, z: 0.43666592}
   m_ConstrainProportionsScale: 0
   m_Children: []

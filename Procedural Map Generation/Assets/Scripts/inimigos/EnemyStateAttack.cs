@@ -19,11 +19,6 @@ public class EnemyStateAttack : IState
     {
         //Debug.Log("Atack entrou");
         renderer.material.color = Color.red;
-        if (agent.player != null)
-        {
-            agent.player.dano(10);
-            Debug.Log("atack saiu  " + agent.player.vida);
-        }
         dir = GameObject.FindGameObjectWithTag("Player").transform.position - agent.transform.position;
         dir.y = 0;
         Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up);
@@ -41,7 +36,7 @@ public class EnemyStateAttack : IState
         {
             if (animator.GetBool("atacar"))
             {
-                agent.cc.Move(dir.normalized * 0.3f * Time.timeScale);
+                agent.cc.Move(dir.normalized * 8f * delta);
                 if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && !animator.IsInTransition(0))
                 {
                     agent.ChangeState(new EnemyStateTransformar(agent, renderer));
