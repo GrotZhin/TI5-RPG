@@ -141,11 +141,15 @@ public class Map : MonoBehaviour
     {
         Room start = map[witdh / 2, height / 2];
         InstantiateRoom(firstRoomPrefab, start);
+       
     }
      private void PlaceNormalRooms()
     {
+        Room start = map[witdh / 2, height / 2];
+
         foreach (var room in map)
         {
+            if(room == start) continue;
             if (room.IsSelected && !deadEndRooms.Contains(room))
                 InstantiateRoom(roomPrefab, room);
         }
