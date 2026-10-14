@@ -18,16 +18,19 @@ public class Ataque2player : IState
         time = 1;
         InputInfo.OnAttackEvent -= aterior;
         mudar = true;
+        // [SAVE-INTEGRATION] dano escala com o bônus de ataque dos itens da loja.
+        float mult = PlayerStats.Instance != null ? PlayerStats.Instance.AttackMultiplier : 1f;
+        int dmg = Mathf.Max(1, Mathf.RoundToInt(5 * mult));
+
         foreach (EnemyAgent agen in agente.agents)
         {
             agen.ChangeState(new EnemyStateDano(agen, agen.renderer));
-            agen.control.dano(5);
+            agen.control.dano(dmg);
             if (agen.control.vida <= 0)
             {
                 agen.gameObject.SetActive(false);
             }
         }
-        
     }
 
     public void Execute(float delta)

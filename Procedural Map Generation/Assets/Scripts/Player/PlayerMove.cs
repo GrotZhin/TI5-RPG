@@ -21,6 +21,14 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float faceTargetRotationSpeed = 18f;
     private Transform lockedTarget;
 
+    // [SAVE-INTEGRATION] custos de estamina (PlayerStats)
+    [Header("Estamina (PlayerStats)")]
+    [SerializeField] private float jumpStaminaCost = 15f;
+    [SerializeField] private float dashStaminaCost = 20f;
+    [SerializeField] private float sprintStaminaCostPerSecond = 20f;
+    private bool sprintHeld;
+    //------------------------------------------------------------
+
     public Vector3 targetVelocity;
     public float ySpeed, rotationSpeed = 14, airSpeed = 3.75f;
     public bool airAction = true;
@@ -72,25 +80,50 @@ public class PlayerMove : MonoBehaviour
         lockedTarget = null;
     }
 
+    // [SAVE-INTEGRATION] devolve false se não houver estamina (ou se não existir PlayerStats, libera).
+    bool TrySpend(float amount)
+    {
+        return PlayerStats.Instance == null || PlayerStats.Instance.TrySpendStamina(amount);
+    }
+
+    // [SAVE-INTEGRATION] corrida gasta estamina continuamente; sem estamina, volta a andar.
+    void Update()
+    {
+        if (animator == null) return;
+
+        var stats = PlayerStats.Instance;
+        bool running = sprintHeld;
+
+        if (sprintHeld && moveInput.sqrMagnitude > 0.01f && stats != null)
+        {
+            running = !stats.IsExhausted && stats.TrySpendStamina(sprintStaminaCostPerSecond * Time.deltaTime);
+        }
+
+        animator.SetBool("IsRunning", running);
+    }
+    //-----------------------------------------------------------------------
     public void OnMoveInput(Vector2 v2)
     {
         moveInput.x = v2.x;
         moveInput.z = v2.y;
     }
 
+    // [SAVE-INTEGRATION] só guarda o estado do botão; o Update() decide se corre.
     public void OnSprint(bool context)
     {
-        animator.SetBool("IsRunning", context);
+        sprintHeld = context;
     }
-
+    //---------------------------------------------------------------------------
     public void OnJump()
     {
         if (cc.isGrounded)
         {
+            if (!TrySpend(jumpStaminaCost)) return;
             animator.SetTrigger("Jump");
         }
         else if (airAction)
         {
+            if (!TrySpend(jumpStaminaCost)) return;
             animator.SetTrigger("Jump");
             airAction = false;
         }
@@ -100,10 +133,12 @@ public class PlayerMove : MonoBehaviour
     {
         if (cc.isGrounded && dashCooldown <= 0)
         {
+            if (!TrySpend(dashStaminaCost)) return;
             animator.SetTrigger("Dash");
         }
         else if (airAction)
         {
+            if (!TrySpend(dashStaminaCost)) return;
             animator.SetTrigger("Dash");
             airAction = false;
         }
@@ -111,7 +146,7 @@ public class PlayerMove : MonoBehaviour
 
     public void OnLockTarget(InputAction.CallbackContext context)
     {
-        Move = context.performed? MoveLocked : MoveUnlocked;
+        Move = context.performed ? MoveLocked : MoveUnlocked;
     }
 
     void MoveUnlocked(float deltaTime)
@@ -128,21 +163,11 @@ public class PlayerMove : MonoBehaviour
             animator.SetBool("IsMoving", true);
 
             Quaternion toRotation = Quaternion.LookRotation(moveDir.normalized, Vector3.up);
-            
+
             float angle = Vector3.SignedAngle(transform.forward, moveDir.normalized, Vector3.up);
 
             if (animator.deltaRotation.eulerAngles.y < 1)
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * rotationMultiplier);
-            //if (Mathf.Abs(angle) < 45)
-            //{
-            //    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
-            //    animator.SetFloat("Turn Magnitude", 0);
-            //}
-            //else
-            //{
-            //    angle = angle/140;
-            //    animator.SetFloat("Turn Magnitude", angle, 0.035f, deltaTime);
-            //}
         }
         else
         {
@@ -172,7 +197,6 @@ public class PlayerMove : MonoBehaviour
         {
             animator.SetBool("IsMoving", false);
             animator.SetBool("IsStrafing", false);
-
         }
     }
 
@@ -186,8 +210,7 @@ public class PlayerMove : MonoBehaviour
             }
             else if (ySpeed < 1.5f && ySpeed > -0.2f)
             {
-                ySpeed += Physics.gravity.y/1.85f * deltaTime * gravityMultiplier;
-
+                ySpeed += Physics.gravity.y / 1.85f * deltaTime * gravityMultiplier;
             }
             else
                 ySpeed += Physics.gravity.y * deltaTime * gravityMultiplier;
@@ -198,12 +221,11 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-
     void FixedUpdate()
     {
-        if(dashCooldown > 0)
+        if (dashCooldown > 0)
             dashCooldown -= Time.fixedDeltaTime;
-        
+
         Move(Time.fixedDeltaTime);
         Gravity(Time.fixedDeltaTime);
 
@@ -212,16 +234,14 @@ public class PlayerMove : MonoBehaviour
 
     private void OnAnimatorMove()
     {
-        if(cc.isGrounded)
+        if (cc.isGrounded)
             targetVelocity = animator.deltaPosition * velocityMultiplier;
         else
         {
             var horizontal = animator.deltaPosition;
             horizontal.y = 0;
-            if(horizontal.sqrMagnitude > 0.001)
-                targetVelocity = animator.deltaPosition * velocityMultiplier;
-            else
-                targetVelocity = moveDir * Time.deltaTime * airSpeed * velocityMultiplier;
+            if (horizontal.sqrMagnitude > 0.001)targetVelocity = animator.deltaPosition * velocityMultiplier;
+            else targetVelocity = moveDir * Time.deltaTime * airSpeed * velocityMultiplier;
         }
         targetVelocity.y = ySpeed * Time.deltaTime;
 
@@ -245,27 +265,16 @@ public class PlayerMove : MonoBehaviour
     [ContextMenu("Testa Calculo")]
     public void CalculateJump(float jumpHeight, float jumpTime)
     {
-        //v² = vo² + 2ad
-        //0 = initialVelocity² + 2 * gravity * jumpHeight
-
-        //float initialVelocity;
-        //float distante = jumpHeight;
-        //float acceleration = Physics.gravity.y;
-        //initialVelocity = math.sqrt(-(2 * distante * acceleration));
-        //Debug.Log(initialVelocity);
-
-        //s = so + vt - at²/2
-        //jumpHeight = 0 + initialVelocity * jumpTime - gravity * jumpTime²/2
-
+        // s = so + vt - at²/2  ->  jumpHeight = initialVelocity * jumpTime - gravity * jumpTime²/2
         gravity = (2 * jumpHeight) / (jumpTime * jumpTime);
         InitialVelocity = gravity * jumpTime;
     }
     public void Jump(bool airJump = false)
     {
-        if(!airJump)
+        if (!airJump)
             CalculateJump(jumpHeight, jumpTime);
         else
-            CalculateJump(jumpHeight*4/5, jumpTime);
+            CalculateJump(jumpHeight * 4 / 5, jumpTime);
 
         ySpeed = InitialVelocity;
     }

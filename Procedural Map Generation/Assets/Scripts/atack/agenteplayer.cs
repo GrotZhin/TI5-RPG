@@ -48,8 +48,18 @@ public class PlayerAgent : MonoBehaviour
         }
     }
 
+    // [SAVE-INTEGRATION] O dano dos inimigos agora vai para o PlayerStats
+    // (HUD, save e morte/respawn dependem dele).
     public void dano(int dano)
     {
-        vida -= dano;
+        if (PlayerStats.Instance != null)
+        {
+            PlayerStats.Instance.TakeDamage(dano);
+            vida = PlayerStats.Instance.currentHealth;
+        }
+        else
+        {
+            vida -= dano;
+        }
     }
 }
