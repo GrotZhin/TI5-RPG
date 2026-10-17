@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
+using MagicaCloth2;
 using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
@@ -10,6 +11,8 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
+    [SerializeField]
+    private int gridSize = 20;
     [SerializeField]
     private int witdh = 20;
     [SerializeField]
@@ -141,26 +144,26 @@ public class Map : MonoBehaviour
     {
         Room start = map[witdh / 2, height / 2];
         InstantiateRoom(firstRoomPrefab, start);
-       
+
     }
-     private void PlaceNormalRooms()
+    private void PlaceNormalRooms()
     {
         Room start = map[witdh / 2, height / 2];
 
         foreach (var room in map)
         {
-            if(room == start) continue;
+            if (room == start) continue;
             if (room.IsSelected && !deadEndRooms.Contains(room))
                 InstantiateRoom(roomPrefab, room);
         }
     }
     private GameObject InstantiateRoom(GameObject roomPrefab, Room room)
     {
-        Vector3 roomPosition = new Vector3(room.Position.x * 20, 0, room.Position.z * 20);
-        
+        Vector3 roomPosition = new Vector3(room.Position.x * gridSize, 0, room.Position.z * gridSize);
+
         GameObject obj = Instantiate(roomPrefab, roomPosition, Quaternion.identity, transform);
 
-        AddDoorsToRoom( room);
+        AddDoorsToRoom(room);
         return obj;
     }
     private void PlaceBossRoom()
@@ -182,37 +185,45 @@ public class Map : MonoBehaviour
     }
     int islandId = 0;
     private Dictionary<(Vector3Int, Vector3Int), DoorPos> doorsByEdge = new();
-    private void GetDoorPosition( string doorDirection, DoorPos doorPrefab, Vector3Int from, Vector3Int to)
+    private void GetDoorPosition(string doorDirection, DoorPos doorPrefab, Vector3Int from, Vector3Int to)
     {
         Vector3 pos = actualDoors[doorDirection].transform.position;
-      
-        
+
+
         var door = Instantiate(doorPrefab, pos, Quaternion.identity);
+
         door.id = islandId;
+        MapGM.mapGM.islandId = islandId;
+       
+           
+        
+        
         doorsPositions.Add(door);
 
         bool fromFirst = from.x < to.x || (from.x == to.x && from.z < to.z);
-        var key = fromFirst ? (from,to): (to,from);
+        var key = fromFirst ? (from, to) : (to, from);
 
-        if(doorsByEdge.TryGetValue(key, out var other))
+        if (doorsByEdge.TryGetValue(key, out var other))
         {
             door.pair = other;
             other.pair = door;
         }
         else doorsByEdge[key] = door;
-
+       
+        // MapGM.mapGM.doors.Add(door.gameObject);
+        // MapGM.mapGM.doors.Add(door.pair.gameObject);
     }
 
     private void CreateCorridors()
     {
         //var currentDoor = doorsPositions[0];
-        
+
         HashSet<Vector3Int> corridors = new HashSet<Vector3Int>();
         HashSet<DoorPos> done = new HashSet<DoorPos>();
 
         foreach (var door in doorsPositions)
         {
-            if(door.pair == null || done.Contains(door)) continue;
+            if (door.pair == null || done.Contains(door)) continue;
             foreach (var pos in PositionCorridor(door, door.pair))
             {
                 corridors.Add(pos);
@@ -222,13 +233,13 @@ public class Map : MonoBehaviour
         }
         InstantiateCorridor(corridors);
 
-       
+
 
     }
 
     private void InstantiateCorridor(HashSet<Vector3Int> positions)
     {
-        
+
         foreach (var pos in positions)
         {
             Instantiate(corridorPrefab, pos, Quaternion.identity);
@@ -240,11 +251,11 @@ public class Map : MonoBehaviour
         HashSet<Vector3Int> corridor = new HashSet<Vector3Int>();
         Vector3Int doorPosition = Vector3Int.RoundToInt(currentDoor.transform.position);
         Vector3Int destination = Vector3Int.RoundToInt(closest.transform.position);
-       
-        
-            while(doorPosition.x != destination.x)
-            {
-                if (destination.x > doorPosition.x)
+
+
+        while (doorPosition.x != destination.x)
+        {
+            if (destination.x > doorPosition.x)
             {
                 doorPosition += Vector3Int.right;
             }
@@ -253,11 +264,11 @@ public class Map : MonoBehaviour
                 doorPosition += Vector3Int.left;
             }
             corridor.Add(doorPosition);
-            }
-      
-              while(doorPosition.z != destination.z)
-            {
-                if (destination.z > doorPosition.z)
+        }
+
+        while (doorPosition.z != destination.z)
+        {
+            if (destination.z > doorPosition.z)
             {
                 doorPosition += Vector3Int.forward;
             }
@@ -266,49 +277,49 @@ public class Map : MonoBehaviour
                 doorPosition += Vector3Int.back;
             }
             corridor.Add(doorPosition);
-            }
-       
+        }
+
         return corridor;
     }
 
-   
-    private void AddDoorsToRoom( Room room)
+
+    private void AddDoorsToRoom(Room room)
     {
         var cur = new Vector3Int(room.Position.x, 0, room.Position.z);
         int up = room.Position.z + 1;
         if (IsRoomPositionValid(new Vector3Int(room.Position.x, 0, up)))
         {
-          
+
             if (map[room.Position.x, up].IsSelected)
-                GetDoorPosition( "Up", doorPrefab, cur, new Vector3Int(room.Position.x,0,up));
+                GetDoorPosition("Up", doorPrefab, cur, new Vector3Int(room.Position.x, 0, up));
         }
         int down = room.Position.z - 1;
         if (IsRoomPositionValid(new Vector3Int(room.Position.x, 0, down)))
         {
-             
+
             if (map[room.Position.x, down].IsSelected)
-                GetDoorPosition( "Down", doorPrefab,cur, new Vector3Int(room.Position.x,0,down));
+                GetDoorPosition("Down", doorPrefab, cur, new Vector3Int(room.Position.x, 0, down));
         }
 
         int right = room.Position.x + 1;
         if (IsRoomPositionValid(new Vector3Int(right, 0, room.Position.z)))
         {
             if (map[right, room.Position.z].IsSelected)
-                GetDoorPosition( "Right", doorPrefab,cur, new Vector3Int(right,0,room.Position.z));
+                GetDoorPosition("Right", doorPrefab, cur, new Vector3Int(right, 0, room.Position.z));
         }
 
         int left = room.Position.x - 1;
         if (IsRoomPositionValid(new Vector3Int(left, 0, room.Position.z)))
         {
             if (map[left, room.Position.z].IsSelected)
-                GetDoorPosition( "Left", doorPrefab,cur, new Vector3Int(left,0,room.Position.z));
+                GetDoorPosition("Left", doorPrefab, cur, new Vector3Int(left, 0, room.Position.z));
 
-                
+
         }
         actualDoors.Clear();
         islandId++;
 
     }
-   
+
 }
 
