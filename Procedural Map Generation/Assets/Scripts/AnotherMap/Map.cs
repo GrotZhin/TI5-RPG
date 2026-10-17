@@ -207,11 +207,16 @@ public class Map : MonoBehaviour
         {
             door.pair = other;
             other.pair = door;
+            
         }
-        else doorsByEdge[key] = door;
+        else
+        {
+        doorsByEdge[key] = door;
+            
+            
+        } 
        
-        // MapGM.mapGM.doors.Add(door.gameObject);
-        // MapGM.mapGM.doors.Add(door.pair.gameObject);
+         MapGM.mapGM.doors.Add(door);
     }
 
     private void CreateCorridors()
@@ -252,6 +257,7 @@ public class Map : MonoBehaviour
         Vector3Int doorPosition = Vector3Int.RoundToInt(currentDoor.transform.position);
         Vector3Int destination = Vector3Int.RoundToInt(closest.transform.position);
 
+        
 
         while (doorPosition.x != destination.x)
         {

@@ -18695,6 +18695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8756245925049931989}
   - component: {fileID: 2709625976963397346}
+  - component: {fileID: 5020904322370026842}
   m_Layer: 0
   m_Name: MapGM
   m_TagString: Untagged
@@ -18711,7 +18712,7 @@ Transform:
   m_GameObject: {fileID: 3001251271171323431}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.38343, y: 0.06354, z: 3.65825}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18730,9 +18731,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGM
   enemySpawn: {fileID: 3388758725423508997}
-  doorOpen: {fileID: 0}
+  col: {fileID: 0}
+  enemies: []
   doors: []
   islandId: 0
+  firstIsle: 0
+--- !u!65 &5020904322370026842
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3001251271171323431}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 25, y: 3, z: 25}
+  m_Center: {x: -6, y: 1, z: 4}
 --- !u!1 &3013230755485064217
 GameObject:
   m_ObjectHideFlags: 0
@@ -20571,6 +20595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAgentManager
   enemyPrefab: {fileID: 3278888379952990936, guid: f93ca8d2e24c4ad4085d3d92d5ebd136, type: 3}
   quantidade: 10
+  map: {fileID: 2709625976963397346}
   spawnPoints:
   - {fileID: 5882234588592334144}
   - {fileID: 5842126732474581331}

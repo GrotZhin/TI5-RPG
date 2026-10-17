@@ -1501,9 +1501,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGM
   enemySpawn: {fileID: 0}
-  doorOpen: {fileID: 0}
   doors: []
   islandId: 0
+  firstIsle: 0
 --- !u!1 &1106300962518520647
 GameObject:
   m_ObjectHideFlags: 0
@@ -15830,11 +15830,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2183449040642662839, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2183449040642662839, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2183449040642662839, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15896,11 +15896,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2183449040642662839, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2183449040642662839, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2183449040642662839, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15970,7 +15970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2183449040642662839, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2183449040642662839, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16040,11 +16040,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2183449040642662839, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2183449040642662839, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2183449040642662839, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
       propertyPath: m_LocalRotation.w

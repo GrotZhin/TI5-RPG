@@ -6579,7 +6579,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGM
   enemySpawn: {fileID: 0}
-  doorOpen: {fileID: 0}
+  col: {fileID: 0}
+  enemies: []
   doors: []
   islandId: 0
   firstIsle: 1
@@ -12644,7 +12645,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7184769421940752819, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 9007832021546411031, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 202128541004385014, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 8474279082332038529, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 4445514311566248435, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 6922737925190538424, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 138319626397526730, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 4847681590349516901, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 7894312771164798690, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 5694820942968411555, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 4025907610682842306, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 7615533583159602113, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 6457938938628591398, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 1632739143815311703, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 885905956052193449, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 898902056953299705, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 3566050567954113311, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
+    - {fileID: 8549582978847366319, guid: 37f4a66579a472f469c5640a0dc1640f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

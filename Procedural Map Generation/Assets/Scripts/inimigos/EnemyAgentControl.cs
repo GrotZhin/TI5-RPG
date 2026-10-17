@@ -143,5 +143,9 @@ public class EnemyAgentControl
     public void dano(int dano)
     {
         vida -= dano;
+        if(vida<= 0)
+        {
+            MapGM.mapGM.enemies.Remove(self.gameObject);
+        }
     }
 }
