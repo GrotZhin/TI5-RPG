@@ -562,7 +562,7 @@ MonoBehaviour:
   numberOfRooms: 10
   roomPrefab: {fileID: 8896724605799911398, guid: 2a6c65995e693974ab9f17a0076ce9c6, type: 3}
   corridorPrefab: {fileID: 3646005755913151362, guid: 994ec61cf09c2654eaab19fa1ffc3001, type: 3}
-  roomBossPrefab: {fileID: 8896724605799911398, guid: bb51de9edc8f8fd498d4878261634188, type: 3}
+  roomBossPrefab: {fileID: 8896724605799911398, guid: 2a6c65995e693974ab9f17a0076ce9c6, type: 3}
   firstRoomPrefab: {fileID: 2597286928049192619, guid: c327d5a1567652c4eaea3d6108645da0, type: 3}
   roomTreasurePrefab: {fileID: 7501521439093925480, guid: 4ca264e31e5dee748bcbbd81e5c4e3f4, type: 3}
   doorPrefab: {fileID: 8497503561418040719, guid: 160028cf4eabeb14b994a2d74ced63cd, type: 3}
