@@ -10366,6 +10366,75 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1737773106421208122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7367595402505985451}
+  - component: {fileID: 5312932128201951702}
+  - component: {fileID: 2088355098600208024}
+  m_Layer: 0
+  m_Name: IslandActive
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7367595402505985451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737773106421208122}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1354877671824236374}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5312932128201951702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737773106421208122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ceee5fd1d07b240b2080b1eed3a82d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IslandActive
+  enemySpawn: {fileID: 6298486154632123320}
+  islandManager: {fileID: 3745403935087295772}
+  col: {fileID: 2088355098600208024}
+--- !u!65 &2088355098600208024
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737773106421208122}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 25, y: 3, z: 25}
+  m_Center: {x: -6, y: 1, z: 4}
 --- !u!1 &1768124216068460438
 GameObject:
   m_ObjectHideFlags: 0
@@ -22248,14 +22317,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2258841692153911373}
   - component: {fileID: 8790516614258520311}
-  - component: {fileID: 8106503695029040759}
   m_Layer: 0
-  m_Name: MapGM
+  m_Name: IslandManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2258841692153911373
 Transform:
   m_ObjectHideFlags: 0
@@ -22283,33 +22351,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2277a2206f121224cb39db535d073e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGM
-  enemySpawn: {fileID: 6298486154632123320}
-  col: {fileID: 8106503695029040759}
   enemies: []
-  doors: []
   islandId: 0
+  island: {fileID: 5965499080368553449}
   firstIsle: 0
---- !u!65 &8106503695029040759
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3745403935087295772}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 25, y: 3, z: 25}
-  m_Center: {x: -6, y: 1, z: 4}
 --- !u!1 &3773343195393076404
 GameObject:
   m_ObjectHideFlags: 0
@@ -34182,6 +34227,51 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5780004026951414263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4257847168049805004}
+  - component: {fileID: 5965499080368553449}
+  m_Layer: 0
+  m_Name: DoorsInScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4257847168049805004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5780004026951414263}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.00304, y: 0.5, z: 0.99154}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1354877671824236374}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5965499080368553449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5780004026951414263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f68ecf12edb36a4e98a724af78ac660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorsInScene
+  doors: []
 --- !u!1 &5788175035006084540
 GameObject:
   m_ObjectHideFlags: 0
@@ -55941,6 +56031,8 @@ Transform:
   - {fileID: 572723010585122298}
   - {fileID: 6758751124715082492}
   - {fileID: 2258841692153911373}
+  - {fileID: 7367595402505985451}
+  - {fileID: 4257847168049805004}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-4707209638117666382

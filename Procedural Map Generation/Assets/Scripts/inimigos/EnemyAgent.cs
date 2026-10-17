@@ -23,8 +23,10 @@ public class EnemyAgent : MonoBehaviour
         collider = GetComponent<SphereCollider>();
         state?.Enter();
     }
-
-
+    void Start()
+    {
+        IslandManager.islandManager.enemies.Add(gameObject);
+    }
     void Update()
     {
         state?.Execute(Time.deltaTime);

@@ -193,10 +193,8 @@ public class Map : MonoBehaviour
         var door = Instantiate(doorPrefab, pos, Quaternion.identity);
 
         door.id = islandId;
-        MapGM.mapGM.islandId = islandId;
+   
        
-           
-        
         
         doorsPositions.Add(door);
 
@@ -216,7 +214,8 @@ public class Map : MonoBehaviour
             
         } 
        
-         MapGM.mapGM.doors.Add(door);
+        DoorsInScene.doorsInScene.doors.Add(door);
+       
     }
 
     private void CreateCorridors()
@@ -322,6 +321,7 @@ public class Map : MonoBehaviour
 
 
         }
+         
         actualDoors.Clear();
         islandId++;
 

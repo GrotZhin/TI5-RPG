@@ -145,7 +145,7 @@ public class EnemyAgentControl
         vida -= dano;
         if(vida<= 0)
         {
-            MapGM.mapGM.enemies.Remove(self.gameObject);
+            IslandManager.islandManager.enemies.Remove(self.gameObject);
         }
     }
 }

@@ -5,7 +5,7 @@ public class EnemyAgentManager : MonoBehaviour
     public GameObject enemyPrefab;
     public int quantidade = 5;
     [SerializeField]
-    public MapGM map;
+    public IslandManager map;
 
     public Transform[] spawnPoints;
 
@@ -39,7 +39,7 @@ public class EnemyAgentManager : MonoBehaviour
             Transform spawnPoint = spawnPoints[i % spawnPoints.Length];
 
             GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position + Random.insideUnitSphere, spawnPoint.rotation);
-            map.enemies.Add(enemy);
+          
 
             EnemyAgent agent = enemy.GetComponent<EnemyAgent>();
 
@@ -52,6 +52,7 @@ public class EnemyAgentManager : MonoBehaviour
                 Debug.LogError("O prefab n�o possui EnemyAgent!");
             }
         }
+        map.combatStarted = true;
     }
 
     public void Config(EnemyAgent enemy)
