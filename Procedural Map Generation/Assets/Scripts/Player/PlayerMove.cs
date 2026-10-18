@@ -187,13 +187,13 @@ public class PlayerMove : MonoBehaviour
             {
                 ySpeed += -gravity * deltaTime * gravityMultiplier;
             }
-            else if (ySpeed < 1.5f && ySpeed > -0.2f)
+            else if (ySpeed < 1.3f && ySpeed > -0.08f)
             {
-                ySpeed += Physics.gravity.y / 1.85f * deltaTime * gravityMultiplier;
+                ySpeed += Physics.gravity.y/2f * deltaTime * gravityMultiplier;
 
             }
             else
-                ySpeed += Physics.gravity.y * deltaTime * gravityMultiplier;
+                ySpeed += Physics.gravity.y * 1.9f * deltaTime * gravityMultiplier;
         }
         else if (ySpeed < -2)
         {
@@ -245,7 +245,6 @@ public class PlayerMove : MonoBehaviour
     float gravity;
     public float InitialVelocity { get; private set; }
 
-    [ContextMenu("Testa Calculo")]
     public void CalculateJump(float jumpHeight, float jumpTime)
     {
         //v² = vo² + 2ad
