@@ -51,5 +51,6 @@ public class PlayerAgent : MonoBehaviour
     public void dano(int dano)
     {
         vida -= dano;
+        
     }
 }

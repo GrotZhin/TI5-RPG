@@ -10,7 +10,7 @@ public class EnemyAgent : MonoBehaviour
     public CharacterController cc;
     public List<EnemyAgent> neighbours = new List<EnemyAgent>();
     public SphereCollider collider;
-    
+
     void OnEnable()
     {
         //if (Geralageteinimigo.Geralinimigo != null)
@@ -23,12 +23,15 @@ public class EnemyAgent : MonoBehaviour
         collider = GetComponent<SphereCollider>();
         state?.Enter();
     }
-
+    void Start()
+    {
+        IslandManager.islandManager.enemies.Add(gameObject);
+    }
     void Update()
     {
         state?.Execute(Time.deltaTime);
         //Debug.Log(state.ToString());
-        if(collider.radius != control.radius)
+        if (collider.radius != control.radius)
             collider.radius = control.radius;
         /*if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -38,12 +41,12 @@ public class EnemyAgent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Enemy") && (this.state is EnemyStateMove or EnemyStateFlee))
+        if (other.CompareTag("Enemy") && (this.state is EnemyStateMove or EnemyStateFlee))
         {
-            if(!neighbours.Contains(other.GetComponent<EnemyAgent>()))
+            if (!neighbours.Contains(other.GetComponent<EnemyAgent>()))
                 neighbours.Add(other.GetComponent<EnemyAgent>());
         }
-        if (other.CompareTag("Player") &&  player == null)
+        if (other.CompareTag("Player") && player == null)
         {
             player = other.GetComponent<PlayerAgent>();
         }
@@ -54,11 +57,11 @@ public class EnemyAgent : MonoBehaviour
         {
             neighbours.Remove(other.GetComponent<EnemyAgent>());
         }
-        
+
     }
     private void OnTriggerStay(Collider other)
     {
-        
+
         if (other != null)
         {
             if (player == null)
@@ -74,10 +77,10 @@ public class EnemyAgent : MonoBehaviour
                 {
                     neighbours.Add(other.GetComponent<EnemyAgent>());
                 }
-                
+
             }
         }
-        
+
     }
 
     public void ChangeState(IState state)

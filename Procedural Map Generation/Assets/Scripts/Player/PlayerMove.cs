@@ -33,12 +33,15 @@ public class PlayerMove : MonoBehaviour
     void Awake()
     {
         input.Initialize();
+        if(AssignCam.atribute != null)
+        AssignCam.atribute.trackingTarget = transform;
     }
     void Start()
     {
         cc = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         Move = MoveUnlocked;
+
         InputInfo.OnMoveEvent += OnMoveInput;
         InputInfo.OnSprintEvent += OnSprint;
         InputInfo.OnJumpEvent += OnJump;
@@ -111,7 +114,7 @@ public class PlayerMove : MonoBehaviour
 
     public void OnLockTarget(InputAction.CallbackContext context)
     {
-        Move = context.performed? MoveLocked : MoveUnlocked;
+        Move = context.performed ? MoveLocked : MoveUnlocked;
     }
 
     void MoveUnlocked(float deltaTime)
@@ -128,7 +131,7 @@ public class PlayerMove : MonoBehaviour
             animator.SetBool("IsMoving", true);
 
             Quaternion toRotation = Quaternion.LookRotation(moveDir.normalized, Vector3.up);
-            
+
             float angle = Vector3.SignedAngle(transform.forward, moveDir.normalized, Vector3.up);
 
             if (animator.deltaRotation.eulerAngles.y < 1)
@@ -186,7 +189,7 @@ public class PlayerMove : MonoBehaviour
             }
             else if (ySpeed < 1.5f && ySpeed > -0.2f)
             {
-                ySpeed += Physics.gravity.y/1.85f * deltaTime * gravityMultiplier;
+                ySpeed += Physics.gravity.y / 1.85f * deltaTime * gravityMultiplier;
 
             }
             else
@@ -201,9 +204,9 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(dashCooldown > 0)
+        if (dashCooldown > 0)
             dashCooldown -= Time.fixedDeltaTime;
-        
+
         Move(Time.fixedDeltaTime);
         Gravity(Time.fixedDeltaTime);
 
@@ -212,13 +215,13 @@ public class PlayerMove : MonoBehaviour
 
     private void OnAnimatorMove()
     {
-        if(cc.isGrounded)
+        if (cc.isGrounded)
             targetVelocity = animator.deltaPosition * velocityMultiplier;
         else
         {
             var horizontal = animator.deltaPosition;
             horizontal.y = 0;
-            if(horizontal.sqrMagnitude > 0.001)
+            if (horizontal.sqrMagnitude > 0.001)
                 targetVelocity = animator.deltaPosition * velocityMultiplier;
             else
                 targetVelocity = moveDir * Time.deltaTime * airSpeed * velocityMultiplier;
@@ -262,10 +265,10 @@ public class PlayerMove : MonoBehaviour
     }
     public void Jump(bool airJump = false)
     {
-        if(!airJump)
+        if (!airJump)
             CalculateJump(jumpHeight, jumpTime);
         else
-            CalculateJump(jumpHeight*4/5, jumpTime);
+            CalculateJump(jumpHeight * 4 / 5, jumpTime);
 
         ySpeed = InitialVelocity;
     }

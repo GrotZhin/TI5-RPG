@@ -16,6 +16,7 @@ public class Ataque2player : IState
     {
         //agente.GetComponent<MeshRenderer>().material.color = Color.white;
         time = 1;
+       
         InputInfo.OnAttackEvent -= aterior;
         mudar = true;
         foreach (EnemyAgent agen in agente.agents)
@@ -25,6 +26,8 @@ public class Ataque2player : IState
             if (agen.control.vida <= 0)
             {
                 agen.gameObject.SetActive(false);
+                
+
             }
         }
         
