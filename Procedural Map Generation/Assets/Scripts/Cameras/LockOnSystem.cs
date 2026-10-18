@@ -31,10 +31,21 @@ public class LockOnSystem : MonoBehaviour
 
     public Transform CurrentTarget { get; private set; }
     public bool IsLockedOn => CurrentTarget != null;
+    public Transform PlayerRoot => playerRoot != null ? playerRoot : transform;
+
+    private Camera Cam
+    {
+        get
+        {
+            if (referenceCamera == null) referenceCamera = Camera.main;
+            return referenceCamera;
+        }
+    }
 
     public event System.Action<Transform> OnTargetLocked;
     public event System.Action OnTargetUnlocked;
     public event System.Action<Transform> OnTargetChanged;
+    public event System.Action OnLockFailed;
 
     private float switchCooldownTimer;
     private readonly Collider[] overlapBuffer = new Collider[32];
@@ -64,7 +75,7 @@ public class LockOnSystem : MonoBehaviour
     {
         if (!IsLockedOn) return;
 
-        if (CurrentTarget == null || !CurrentTarget.gameObject.activeInHierarchy ||Vector3.Distance(playerRoot.position, CurrentTarget.position) > lockRadius * 1.5f)
+        if (CurrentTarget == null || !CurrentTarget.gameObject.activeInHierarchy || Vector3.Distance(playerRoot.position, CurrentTarget.position) > lockRadius * 1.5f)
         {
             Unlock();
             return;
@@ -94,6 +105,10 @@ public class LockOnSystem : MonoBehaviour
             OnTargetLocked?.Invoke(CurrentTarget);
             OnTargetChanged?.Invoke(CurrentTarget);
         }
+        else
+        {
+            OnLockFailed?.Invoke();
+        }
     }
 
     public void Unlock()
@@ -106,7 +121,6 @@ public class LockOnSystem : MonoBehaviour
     private void HandleTargetSwitch()
     {
         if (switchTargetAction == null) return;
-
         switchCooldownTimer -= Time.deltaTime;
         if (switchCooldownTimer > 0f) return;
         float axis = switchTargetAction.action.ReadValue<float>();
@@ -134,7 +148,8 @@ public class LockOnSystem : MonoBehaviour
             if (preferFrontOnly)
             {
                 Vector3 toCandidate = (candidate.position - playerRoot.position).normalized;
-                float angle = Vector3.Angle(playerRoot.forward, toCandidate);
+                Vector3 viewForward = Cam != null ? Cam.transform.forward : playerRoot.forward;
+                float angle = Vector3.Angle(viewForward, toCandidate);
                 if (angle > maxLockAngle) continue;
             }
 
@@ -152,8 +167,9 @@ public class LockOnSystem : MonoBehaviour
     private Transform FindTargetInDirection(float dir)
     {
         if (CurrentTarget == null) return FindBestTarget(false);
+        if (Cam == null) return null;
 
-        Vector3 currentScreenPos = referenceCamera.WorldToScreenPoint(CurrentTarget.position);
+        Vector3 currentScreenPos = Cam.WorldToScreenPoint(CurrentTarget.position);
         int count = Physics.OverlapSphereNonAlloc(playerRoot.position, lockRadius, overlapBuffer, enemyLayer);
         Transform best = null;
         float bestScore = float.MaxValue;
@@ -163,7 +179,7 @@ public class LockOnSystem : MonoBehaviour
             Transform candidate = overlapBuffer[i].transform;
             if (candidate == CurrentTarget || !IsValidTarget(candidate)) continue;
 
-            Vector3 candidateScreenPos = referenceCamera.WorldToScreenPoint(candidate.position);
+            Vector3 candidateScreenPos = Cam.WorldToScreenPoint(candidate.position);
             float deltaX = candidateScreenPos.x - currentScreenPos.x;
 
             if (Mathf.Sign(deltaX) != Mathf.Sign(dir)) continue;
@@ -191,12 +207,18 @@ public class LockOnSystem : MonoBehaviour
 
     private float ScreenDistanceScore(Transform candidate)
     {
-        Vector3 screenPos = referenceCamera.WorldToScreenPoint(candidate.position);
+        float worldDist = Vector3.Distance(playerRoot.position, candidate.position) / lockRadius;
+
+        Camera cam = Cam;
+        if (cam == null) return worldDist;
+
+        Vector3 screenPos = cam.WorldToScreenPoint(candidate.position);
         if (screenPos.z < 0f) return float.MaxValue;
 
-        Vector2 screenCenter = new Vector2(referenceCamera.pixelWidth * 0.5f, referenceCamera.pixelHeight * 0.5f);
-        Vector2 delta = (Vector2)screenPos - screenCenter;
-        return delta.sqrMagnitude;
+        Vector2 screenCenter = new Vector2(cam.pixelWidth * 0.5f, cam.pixelHeight * 0.5f);
+        float screenDist = ((Vector2)screenPos - screenCenter).magnitude / cam.pixelHeight;
+
+        return screenDist + worldDist * 0.5f;
     }
 
     private void OnDrawGizmosSelected()
