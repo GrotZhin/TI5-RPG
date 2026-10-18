@@ -582,6 +582,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1824355774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3279580873268212439, guid: 21decfba43de1a94db64cd18ef359abc, type: 3}
+  m_PrefabInstance: {fileID: 7806242357068836079}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1824355780 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8355534292299387144, guid: 21decfba43de1a94db64cd18ef359abc, type: 3}
+  m_PrefabInstance: {fileID: 7806242357068836079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824355774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1824355781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824355774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59d7c6a019045040aa53273b05f0882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SetCameraTarget
+  cam: {fileID: 1824355780}
 --- !u!1 &1977289986
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +747,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3237480618588263262, guid: 21decfba43de1a94db64cd18ef359abc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 159352818}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3279580873268212439, guid: 21decfba43de1a94db64cd18ef359abc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1824355781}
   m_SourcePrefab: {fileID: 100100000, guid: 21decfba43de1a94db64cd18ef359abc, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
