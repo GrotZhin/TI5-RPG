@@ -25,6 +25,7 @@ public class EnemyAgent : MonoBehaviour
     }
     void Start()
     {
+        if(IslandManager.islandManager!= null)
         IslandManager.islandManager.enemies.Add(gameObject);
     }
     void Update()
