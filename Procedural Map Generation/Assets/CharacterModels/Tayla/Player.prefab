@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Animation.Rigging::UnityEngine.Animations.Rigging.MultiRotationConstraint
   m_Weight: 1
   m_Data:
-    m_ConstrainedObject: {fileID: 0}
+    m_ConstrainedObject: {fileID: 5297973149777941477}
     m_SourceObjects:
       m_Length: 1
       m_Item0:
@@ -9828,6 +9828,7 @@ MonoBehaviour:
   activePriority: 20
   inactivePriority: 10
   lockOnScreenOffset: {x: 0, y: 0.15}
+  orbitFollowSpeed: 10
 --- !u!114 &6390802849445022999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18290,6 +18291,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   input: {fileID: 11400000, guid: ee353bc991b1ad64093f7671fac5b94b, type: 2}
+  lockOnSystem: {fileID: 0}
+  faceTargetRotationSpeed: 18
+  jumpStaminaCost: 15
+  dashStaminaCost: 20
+  sprintStaminaCostPerSecond: 20
   targetVelocity: {x: 0, y: 0, z: 0}
   ySpeed: 0
   rotationSpeed: 16
@@ -18991,6 +18997,11 @@ Transform:
 --- !u!4 &5291790534439833117 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3079215505331465279, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 2032349094392389084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5297973149777941477 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3048246208527462855, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 2032349094392389084}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5309567622936942228 stripped
