@@ -50,6 +50,12 @@ public class PlayerAgent : MonoBehaviour
 
     public void Damage(float value)
     {
-        lifePoints -= value;
+        if (PlayerStats.Instance != null)
+        {
+            PlayerStats.Instance.TakeDamage(value);
+            lifePoints = PlayerStats.Instance.currentHealth;
+        }
+        else
+            lifePoints -= value;
     }
 }
