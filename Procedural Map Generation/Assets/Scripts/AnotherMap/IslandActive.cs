@@ -23,6 +23,7 @@ public class IslandActive : MonoBehaviour
             enemySpawn.SetActive(true);
             islandManager.SetActive(true);
             col.enabled = false;
+            PlayerStats.Instance.islandPosition = transform;
         }
     }
 }

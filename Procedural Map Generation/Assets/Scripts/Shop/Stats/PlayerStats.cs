@@ -1,4 +1,5 @@
 using System;
+
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -11,7 +12,7 @@ public class PlayerStats : MonoBehaviour
     public float baseMaxShield = 0f;
     public float baseAttackMultiplier = 1f;
 
-    [Header("Estamina - regeneração")]
+    [Header("Estamina - regeneraï¿½ï¿½o")]
     public float staminaRegenPerSecond = 15f;
     public float exhaustedStaminaRegenPerSecond = 5f;
     [Range(0f, 1f)]
@@ -21,6 +22,7 @@ public class PlayerStats : MonoBehaviour
     public float currentHealth;
     public float currentStamina;
     public float currentShield;
+    
 
     public float MaxHealth { get; private set; }
     public float MaxStamina { get; private set; }
@@ -31,10 +33,13 @@ public class PlayerStats : MonoBehaviour
 
     public event Action OnStatsChanged;
     public event Action OnDied;
+    public Transform islandPosition;
 
     private bool staminaSpentThisFrame = false;
     private bool subscribedToInventory = false;
 
+    [SerializeField]
+    private CharacterController cc;
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -64,6 +69,8 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
+        
+       
         TrySubscribeInventory();
         RecalculateStats();
     }
@@ -194,5 +201,12 @@ public class PlayerStats : MonoBehaviour
 
         OnStatsChanged?.Invoke();
         return true;
+    }
+    public void Respawn()
+    {
+      
+        transform.position = islandPosition.position;
+        Physics.SyncTransforms();
+        Debug.Log("Rodei aq");
     }
 }
