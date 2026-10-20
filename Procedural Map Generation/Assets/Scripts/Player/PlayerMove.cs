@@ -31,7 +31,9 @@ public class PlayerMove : MonoBehaviour
 
     public Vector3 targetVelocity;
     public float ySpeed, rotationSpeed = 14, airSpeed = 3.75f;
-    public bool airAction = true;
+    public bool jumpAir = true;
+    public bool dashAir = true;
+
     public float jumpHeight = 4.4f, jumpTime = 0.4f;
     float velocityMultiplier = 1;
     float gravityMultiplier = 1;
@@ -97,9 +99,12 @@ public class PlayerMove : MonoBehaviour
         var stats = PlayerStats.Instance;
         bool running = sprintHeld;
 
-        if (sprintHeld && moveInput.sqrMagnitude > 0.01f && stats != null)
+        bool onRunningState = animator.GetCurrentAnimatorStateInfo(0).tagHash == Animator.StringToHash("Run");
+        if (onRunningState && moveInput.sqrMagnitude > 0.01f) 
         {
-            running = !stats.IsExhausted && stats.TrySpendStamina(sprintStaminaCostPerSecond * Time.deltaTime);
+            if( stats != null)
+                running = !stats.IsExhausted && stats.TrySpendStamina(sprintStaminaCostPerSecond * Time.deltaTime);
+            else running = true;
         }
 
         animator.SetBool("IsRunning", running);
@@ -124,11 +129,11 @@ public class PlayerMove : MonoBehaviour
             if (!TrySpend(jumpStaminaCost)) return;
             animator.SetTrigger("Jump");
         }
-        else if (airAction)
+        else if (jumpAir)
         {
             if (!TrySpend(jumpStaminaCost)) return;
             animator.SetTrigger("Jump");
-            airAction = false;
+            jumpAir = false;
         }
     }
 
@@ -139,11 +144,11 @@ public class PlayerMove : MonoBehaviour
             if (!TrySpend(dashStaminaCost)) return;
             animator.SetTrigger("Dash");
         }
-        else if (airAction)
+        else if (dashAir)
         {
             if (!TrySpend(dashStaminaCost)) return;
             animator.SetTrigger("Dash");
-            airAction = false;
+            dashAir = false;
         }
     }
 

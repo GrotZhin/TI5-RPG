@@ -24,7 +24,10 @@ public class TaylaAnimationBehavior : StateMachineBehaviour
             player.Dash();
 
         if (stateInfo.IsName("Fall"))
-            player.airAction = true;
+        {
+            player.jumpAir = true;
+            player.dashAir = true;
+        }
 
         if (stateInfo.tagHash == inputWindowTag)
             canAttack = true;
