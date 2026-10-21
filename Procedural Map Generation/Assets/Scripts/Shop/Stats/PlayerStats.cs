@@ -16,13 +16,17 @@ public class PlayerStats : MonoBehaviour
     public float staminaRegenPerSecond = 15f;
     public float exhaustedStaminaRegenPerSecond = 5f;
     [Range(0f, 1f)]
-    public float exhaustedRecoverThreshold = 0.4f;
+    public float exhaustedRecoverThreshold = 0.3f;
+
+    [Header("Sistema de estamina")]
+    [Tooltip("Desligado: pulo, dash e corrida não gastam estamina.")]
+    public bool staminaEnabled = false;
 
     [Header("Valores atuais")]
     public float currentHealth;
     public float currentStamina;
     public float currentShield;
-    
+
 
     public float MaxHealth { get; private set; }
     public float MaxStamina { get; private set; }
@@ -69,8 +73,8 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        
-       
+
+
         TrySubscribeInventory();
         RecalculateStats();
     }
@@ -189,7 +193,9 @@ public class PlayerStats : MonoBehaviour
 
     public bool TrySpendStamina(float amount)
     {
-        if (currentStamina - amount <= -5) return false;
+        if (!staminaEnabled) return true;
+
+        if (currentStamina < amount) return false;
         currentStamina -= amount;
         staminaSpentThisFrame = true;
 
@@ -204,7 +210,7 @@ public class PlayerStats : MonoBehaviour
     }
     public void Respawn()
     {
-      
+
         transform.position = islandPosition.position;
         Physics.SyncTransforms();
         Debug.Log("Rodei aq");
