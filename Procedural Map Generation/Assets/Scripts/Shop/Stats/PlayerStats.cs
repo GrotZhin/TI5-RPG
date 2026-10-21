@@ -16,7 +16,7 @@ public class PlayerStats : MonoBehaviour
     public float staminaRegenPerSecond = 15f;
     public float exhaustedStaminaRegenPerSecond = 5f;
     [Range(0f, 1f)]
-    public float exhaustedRecoverThreshold = 0.3f;
+    public float exhaustedRecoverThreshold = 0.4f;
 
     [Header("Valores atuais")]
     public float currentHealth;
@@ -189,7 +189,7 @@ public class PlayerStats : MonoBehaviour
 
     public bool TrySpendStamina(float amount)
     {
-        if (currentStamina < amount) return false;
+        if (currentStamina - amount <= -5) return false;
         currentStamina -= amount;
         staminaSpentThisFrame = true;
 

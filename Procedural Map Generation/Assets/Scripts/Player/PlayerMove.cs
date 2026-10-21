@@ -25,7 +25,7 @@ public class PlayerMove : MonoBehaviour
     [Header("Estamina (PlayerStats)")]
     [SerializeField] private float jumpStaminaCost = 15f;
     [SerializeField] private float dashStaminaCost = 20f;
-    [SerializeField] private float sprintStaminaCostPerSecond = 20f;
+    [SerializeField] private float sprintStaminaCostPerSecond = 15f;
     private bool sprintHeld;
     //------------------------------------------------------------
 
@@ -222,7 +222,7 @@ public class PlayerMove : MonoBehaviour
 
             }
             else
-                ySpeed += Physics.gravity.y * 1.9f * deltaTime * gravityMultiplier;
+                ySpeed += Physics.gravity.y * 2.1f * deltaTime * gravityMultiplier;
         }
         else if (ySpeed < -2)
         {
@@ -239,6 +239,7 @@ public class PlayerMove : MonoBehaviour
         Gravity(Time.fixedDeltaTime);
 
         animator.SetBool("IsGrounded", cc.isGrounded);
+        animator.SetFloat("Fall Magnitude", ySpeed);
     }
 
     private void OnAnimatorMove()
@@ -290,9 +291,10 @@ public class PlayerMove : MonoBehaviour
     }
     public void Dash()
     {
-        dashCooldown = 1.35f;
+        dashCooldown = 0.35f;
         velocityMultiplier = 1.85f;
         gravityMultiplier = 0;
+        ySpeed = 0;
         rotationMultiplier = 0;
         if (moveDir.magnitude > 0)
         {
