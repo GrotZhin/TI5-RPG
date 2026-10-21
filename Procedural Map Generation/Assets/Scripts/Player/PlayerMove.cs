@@ -100,12 +100,13 @@ public class PlayerMove : MonoBehaviour
         bool running = sprintHeld;
 
         bool onRunningState = animator.GetCurrentAnimatorStateInfo(0).tagHash == Animator.StringToHash("Run");
-        if (onRunningState && moveInput.sqrMagnitude > 0.01f) 
+        if ((onRunningState || sprintHeld) && moveInput.sqrMagnitude > 0.01f) 
         {
             if( stats != null)
                 running = !stats.IsExhausted && stats.TrySpendStamina(sprintStaminaCostPerSecond * Time.deltaTime);
             else running = true;
         }
+
 
         animator.SetBool("IsRunning", running);
     }
