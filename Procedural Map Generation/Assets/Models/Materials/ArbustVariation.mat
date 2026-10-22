@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Green
+  m_Name: ArbustVariation
   m_Shader: {fileID: 4800000, guid: be891319084e9d147b09d89e80ce60e0, type: 3}
   m_Parent: {fileID: 2100000, guid: 0ddc4ade29fd65145bdcb1b112e2e548, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -35,9 +35,9 @@ Material:
     - _1st_ShadeColor_Step: 0.696
     - _BaseColor_Step: 0.696
     m_Colors:
-    - _1st_ShadeColor: {r: 0.1401384, g: 0.2830189, b: 0.06274475, a: 1}
-    - _BaseColor: {r: 0.062477753, g: 0.33962262, b: 0.19065727, a: 1}
-    - _Color: {r: 0.06247773, g: 0.3396226, b: 0.19065723, a: 1}
+    - _1st_ShadeColor: {r: 0.014876982, g: 0.01886791, b: 0.01254894, a: 1}
+    - _BaseColor: {r: 0.1530794, g: 0.2264151, b: 0.11641154, a: 1}
+    - _Color: {r: 0.15307936, g: 0.22641507, b: 0.116411515, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &8666622638923304660
