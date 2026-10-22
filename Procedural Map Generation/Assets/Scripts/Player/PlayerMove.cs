@@ -184,7 +184,6 @@ public class PlayerMove : MonoBehaviour
             if (animator.deltaRotation.eulerAngles.y < 1)
             {
                 bool attackTurnWindow = TaylaAttackSSMBehavior.attacking && TaylaAttackSSMBehavior.canTurn && turnWindow > 0.0f;
-                Debug.Log(!TaylaAttackSSMBehavior.attacking + " " +  attackTurnWindow);
                 if (attackTurnWindow || !TaylaAttackSSMBehavior.attacking)
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * rotationMultiplier);
             }
