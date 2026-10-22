@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     public Animator animator;
+    PlayerMove move;
+    TaylaAnimationBehavior animBehaviour;
     int inputXHash = Animator.StringToHash("XInput");
     int inputYHash = Animator.StringToHash("YInput");
     int inputCharging = Animator.StringToHash("Charging");
@@ -23,6 +25,7 @@ public class PlayerCombat : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        move = GetComponent<PlayerMove>();
         InputInfo.OnAttackEvent += OnAttack;
         InputInfo.OnAttackHeavyEvent += OnAttackHeavy;
 
@@ -44,6 +47,7 @@ public class PlayerCombat : MonoBehaviour
                 if (chargeTime < tickCharge)
                 {
                     animator.SetTrigger(inputYHash);
+                    move.turnWindow = 0.2f;
                 }
                 else
                 {
@@ -55,7 +59,7 @@ public class PlayerCombat : MonoBehaviour
 
         if (chargeTime > 0.166f) //10 frames para começar a carregar (60 fps)
         {
-            if (animator.GetBehaviour<TaylaAnimationBehavior>().canAttack)
+            if (TaylaAttackSSMBehavior.canAttack)
             {
                 animator.SetBool(inputCharging, charge);
                 animator.SetInteger(inputCharged, (int)(chargeTime / tickCharge));
@@ -67,12 +71,15 @@ public class PlayerCombat : MonoBehaviour
 
     void OnAttack()
     {
-        if(animator.GetBehaviour<TaylaAnimationBehavior>().canAttack)
+        if (TaylaAttackSSMBehavior.canAttack)
+        {
             animator.SetTrigger(inputXHash);
+            move.turnWindow = 0.2f;
+        }
     }
     void OnAttackHeavy(bool holding)
     {
-        if (animator.GetBehaviour<TaylaAnimationBehavior>().canAttack)
+        if (TaylaAttackSSMBehavior.canAttack)
             charge = holding;
 
         else

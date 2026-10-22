@@ -31,6 +31,7 @@ public class PlayerMove : MonoBehaviour
 
     public Vector3 targetVelocity;
     public float ySpeed, rotationSpeed = 14, airSpeed = 3.75f;
+    public float turnWindow = 0;
     public bool jumpAir = true;
     public bool dashAir = true;
 
@@ -51,6 +52,12 @@ public class PlayerMove : MonoBehaviour
         cc = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         Move = MoveUnlocked;
+
+
+        TaylaAnimationBehavior.Jump += Jump;
+        TaylaAnimationBehavior.Dash += Dash;
+        TaylaAnimationBehavior.ResetDash += ResetDash;
+        TaylaAnimationBehavior.ResetAirActions = SetAirActions;
 
         InputInfo.OnMoveEvent += OnMoveInput;
         InputInfo.OnSprintEvent += OnSprint;
@@ -174,9 +181,13 @@ public class PlayerMove : MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(moveDir.normalized, Vector3.up);
 
             float angle = Vector3.SignedAngle(transform.forward, moveDir.normalized, Vector3.up);
-
             if (animator.deltaRotation.eulerAngles.y < 1)
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * rotationMultiplier);
+            {
+                bool attackTurnWindow = TaylaAttackSSMBehavior.attacking && TaylaAttackSSMBehavior.canTurn && turnWindow > 0.0f;
+                Debug.Log(!TaylaAttackSSMBehavior.attacking + " " +  attackTurnWindow);
+                if (attackTurnWindow || !TaylaAttackSSMBehavior.attacking)
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * rotationMultiplier);
+            }
         }
         else
         {
@@ -235,6 +246,8 @@ public class PlayerMove : MonoBehaviour
     {
         if (dashCooldown > 0)
             dashCooldown -= Time.fixedDeltaTime;
+        if (turnWindow > 0)
+            turnWindow -= Time.fixedDeltaTime;
 
         Move(Time.fixedDeltaTime);
         Gravity(Time.fixedDeltaTime);
@@ -309,5 +322,11 @@ public class PlayerMove : MonoBehaviour
         velocityMultiplier = 1;
         gravityMultiplier = 1;
         rotationMultiplier = 1;
+    }
+
+    public void SetAirActions(bool val)
+    {
+        jumpAir = val;
+        dashAir = val;
     }
 }
