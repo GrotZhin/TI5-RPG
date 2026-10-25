@@ -1,65 +1,68 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
-using UnityEngine.Assertions.Must;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
+
 public class UiControl : MonoBehaviour
 {
-    PlayerInput Input;
-    Inputs inputs;
-    [SerializeField] private InputInfo inputInfo;
+    [Header("Input System")]
+    [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private InputActionReference menuActionReference;
 
-    [SerializeField] InputActionReference Menu;
-    public bool MenuUi;
-    public GameObject MenuCanvas;
-    [SerializeField] GameObject CurrentButton;
-    public UiAni MenuAni;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-   
+    [Header("UI Elements")]
+    [SerializeField] private GameObject menuCanvas;
+    [SerializeField] private GameObject currentButton;
+    [SerializeField] private UiAni menuAni;
+
+    private bool isMenuOpen;
 
     void Start()
     {
-        MenuCanvas.SetActive(false);
-
-        InputInfo.OnMenuEvent += OpenMenu;
+        if (menuCanvas != null) menuCanvas.SetActive(false);
     }
+
+    void OnEnable()
+    {
+        if (menuActionReference != null && menuActionReference.action != null)
+        {
+            menuActionReference.action.performed += OnMenuPerformed;
+        }
+    }
+
+    void OnDisable()
+    {
+        if (menuActionReference != null && menuActionReference.action != null)
+        {
+            menuActionReference.action.performed -= OnMenuPerformed;
+        }
+    }
+
+    private void OnMenuPerformed(InputAction.CallbackContext context)
+    {
+        ToggleMenu();
+    }
+
+    public void ToggleMenu()
+    {
+        isMenuOpen = !isMenuOpen;
+
+        if (isMenuOpen)
+        {
+           
+            playerInput.SwitchCurrentActionMap("UI");
+            menuCanvas.SetActive(true); 
+            menuAni.UIIntro();
+        }
+        else
+        {
+  
+            menuAni.UIOutro();
+            playerInput.SwitchCurrentActionMap("Player");
+        }
+    }
+
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
-
-
-    public void OpenMenu()
-    {
-        Debug.Log("pause");
-        //if(PlayerStats.IsDead) return;
-        MenuUi = !MenuCanvas.activeSelf;
-
-        if (MenuUi)
-        {
-            
-            inputInfo.SetUi();
-            MenuCanvas.SetActive(true);
-            MenuAni.UIIntro();
-          //  Time.timeScale = 0;
-      
-        
-            EventSystem.current.SetSelectedGameObject(CurrentButton);
-        }
-        else
-        {
-            inputInfo.SetGameplay();
-            MenuAni.UIOutro();
-          //  Time.timeScale = 1;
-            EventSystem.current.SetSelectedGameObject(null);
-        }
-    }
-
-public void ActiveMove(bool tf)
-    {
-     //   PlayerStats.cutScene = tf;
-    }
-    
 }

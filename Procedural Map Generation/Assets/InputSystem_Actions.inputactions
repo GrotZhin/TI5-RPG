@@ -1086,7 +1086,7 @@
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1097,7 +1097,7 @@
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad",
                     "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false

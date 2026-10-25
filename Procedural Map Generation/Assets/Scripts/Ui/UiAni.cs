@@ -85,10 +85,12 @@ public class UiAni : MonoBehaviour
         if (Input != null) Input.SwitchCurrentActionMap("UI");
         
         UiCG.alpha = 0;
-
+        
         // Sequência de Entrada
         Sequence intro = DOTween.Sequence().SetUpdate(true);
         intro.Join(UiCG.DOFade(1, 1f));
+        //.OnComplete(() => inputInfo.SetUi());
+        
     }
 
     public void UIOutro()
@@ -106,7 +108,7 @@ public class UiAni : MonoBehaviour
         outro.OnComplete(() => 
         { 
             if (UI != null) UI.SetActive(false);
-          
+            //inputInfo.SetGameplay();
             if (Input != null) Input.SwitchCurrentActionMap("Player");
         });
     }
