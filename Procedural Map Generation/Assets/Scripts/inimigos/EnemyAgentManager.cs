@@ -14,6 +14,8 @@ public class EnemyAgentManager : MonoBehaviour
     public bool Align = true;
     public bool Cohesion = true;
     public bool Avoid = true;
+    public float life = 30f;
+    public float stance = 100f;
 
     void Start()
     {
@@ -42,7 +44,7 @@ public class EnemyAgentManager : MonoBehaviour
 
 
             EnemyAgent agent = enemy.GetComponent<EnemyAgent>();
-
+            
             if (agent != null)
             {
                 Config(agent);
@@ -63,7 +65,9 @@ public class EnemyAgentManager : MonoBehaviour
         enemy.control.align = Align ? 0.01f : 0f;
         enemy.control.cohesion = Cohesion ? 0.03f : 0f;
         enemy.control.avoid = Avoid ? 1f : 0f;
-        enemy.control.vida = 30f;
+        enemy.control.vida = life;
+        enemy.control.stance = stance ;
+        
         Vector3 dirI = Random.insideUnitSphere;
         dirI.y = 0;
         enemy.transform.forward = dirI;

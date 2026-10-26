@@ -163,7 +163,8 @@ public class PlayerStats : MonoBehaviour
         IsDead = false;
         OnStatsChanged?.Invoke();
     }
-
+    
+  
     public void TakeDamage(float amount)
     {
         if (IsDead || amount <= 0f) return;
@@ -178,8 +179,9 @@ public class PlayerStats : MonoBehaviour
         }
 
         currentHealth = Mathf.Clamp(currentHealth - remaining, 0, MaxHealth);
+           Debug.Log("Vida atual da tayla: " + currentHealth);
         OnStatsChanged?.Invoke();
-
+     
         if (currentHealth <= 0f)
         {
             IsDead = true;

@@ -10,6 +10,8 @@ public class EnemyAgent : MonoBehaviour
     public CharacterController cc;
     public List<EnemyAgent> neighbours = new List<EnemyAgent>();
     public SphereCollider collider;
+    public Animator animator;
+    public EnemyAttackCheck attackCheck;
 
     void OnEnable()
     {
@@ -83,7 +85,10 @@ public class EnemyAgent : MonoBehaviour
         }
 
     }
-
+   public void Destroy()
+    {
+        Destroy(gameObject);
+    }
     public void ChangeState(IState state)
     {
         this.state?.Exit();

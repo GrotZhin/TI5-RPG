@@ -21,37 +21,41 @@ public class EnemyStateAttack : IState
         renderer.material.color = Color.red;
         if (agent.player != null)
         {
-            agent.player.Damage(10);
+            
+            //agent.player.Damage(10);
             Debug.Log("atack saiu  " + agent.player.lifePoints);
         }
         Vector3 dir = agent.player.transform.position - agent.transform.position;
         dir.y = agent.transform.position.y;
         Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up);
-        animator = agent.GetComponent<Animator>();
-        animator.SetBool("atacar", true);
+       
+        agent.animator.SetBool("atacar", true);
         chace = Random.Range(0, 100);
         time = 1;
     }
 
     public void Execute(float delta)
-    {
+    {   agent.attackCheck.CheckCollision();
         //Debug.Log("atack executando");
         
-        if (animator.GetBool("transformar"))
+        if (agent.animator.GetBool("transformar"))
         {
-            if (animator.GetBool("atacar"))
+            if (agent.animator.GetBool("atacar"))
             {
                 agent.cc.Move(dir.normalized * 8f * delta);
+                
+             
                 if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && !animator.IsInTransition(0))
                 {
-                    agent.ChangeState(new EnemyStateTransformar(agent, renderer));
-                    ani1 = animator.GetCurrentAnimatorStateInfo(0).shortNameHash.ToString();
+                    //agent.ChangeState(new EnemyStateTransformar(agent, renderer));
+                    
+                    ani1 = agent.animator.GetCurrentAnimatorStateInfo(0).shortNameHash.ToString();
                 }
             }
         }
         else
         {
-            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f && !animator.IsInTransition(0) && animator.GetCurrentAnimatorStateInfo(0).shortNameHash.ToString() != ani1)
+            if (agent.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f && !agent.animator.IsInTransition(0) && agent.animator.GetCurrentAnimatorStateInfo(0).shortNameHash.ToString() != ani1)
             {
                 if (chace < 50 || agent.player == null)
                 {
@@ -73,8 +77,9 @@ public class EnemyStateAttack : IState
     {
         //animator.SetBool("IsMoving", false);
         //animator.SetFloat("Input Magnitude", 0, 0, 0);
-        animator.SetBool("atacar", false);
+        agent.animator.SetBool("atacar", false);
         agent.GetNeighbours().Clear();
+        agent.attackCheck.alreadyHit.Clear();
     }
 
 }

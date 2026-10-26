@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a08f628249ef14bb7d4c1c96da2f58, type: 3}
   m_Name: SkillTree
   m_EditorClassIdentifier: Assembly-CSharp::SkillTree
-  lightCut: {fileID: 0}
+  actualHit: {fileID: 0}
+  firstLightHit: {fileID: 11400000, guid: 3307c7f0d7a7a2d489253536f7d5a0a3, type: 2}
+  secondLightHit: {fileID: 0}
+  thirdLightHit: {fileID: 0}
   HeavyCut: {fileID: 0}

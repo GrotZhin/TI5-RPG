@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.Interactions;
@@ -6,43 +7,66 @@ public class Combat : MonoBehaviour
 {
     public Animator anim;
     public Transform scissorLeft, scissorRight;
-    public SkillTree skill;
+    public SkillData skill;
+    public readonly HashSet<EnemyAgent> alreadyHit = new HashSet<EnemyAgent>();
+   
 
     void FixedUpdate()
     {
         AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(1);
-        
-        if(state.IsTag("X"))
+        bool inAttack = state.IsTag("Input Lock");
+
+
+        if (!inAttack || skill == null) return;
         {
-            if(skill.firstLightHit.left)
-            CheckCollision(scissorLeft, skill.firstLightHit);
+
+            if (skill.both)
+            {
+                CheckCollision(scissorLeft, skill);
+                CheckCollision(scissorRight, skill);
+            }
             else
-            CheckCollision(scissorRight, skill.firstLightHit);
-        }else if(state.IsTag("HeavyAttack"))
-        {
-            CheckCollision(scissorLeft, skill.HeavyCut);
+            {
+                if (skill.left)
+                    CheckCollision(scissorLeft, skill);
+                else
+                    CheckCollision(scissorRight, skill);
+
+            }
+
         }
 
     }
     void CheckCollision(Transform point, SkillData data)
     {
         Collider[] colliders = Physics.OverlapSphere(point.position, data.hitBox);
+      
         for (int i = 0; i < colliders.Length; i++)
         {
-            if(colliders[i].TryGetComponent<Rigidbody>(out Rigidbody rb))
+            if (colliders[i].TryGetComponent<EnemyAgent>(out EnemyAgent enemy))
             {
-                rb.AddForceAtPosition(transform.forward * data.force, point.position);
+                if(!alreadyHit.Add(enemy)) continue;
+                enemy.ChangeState(new EnemyStateDano(enemy, enemy.renderer, data.force));
             }
         }
     }
     void OnDrawGizmos()
     {
-        if (skill.firstLightHit.left)
-        Gizmos.DrawWireSphere(scissorLeft.position, skill.firstLightHit.hitBox);
+        if (skill == null) return;
+        if (skill.both)
+        {
+            Gizmos.DrawWireSphere(scissorLeft.position, skill.hitBox);
+            Gizmos.DrawWireSphere(scissorRight.position, skill.hitBox);
+        }
         else
-        Gizmos.DrawWireSphere(scissorRight.position, skill.firstLightHit.hitBox);
-        
-            
-        
+        {
+            if (skill.left)
+                Gizmos.DrawWireSphere(scissorLeft.position, skill.hitBox);
+            else
+                Gizmos.DrawWireSphere(scissorRight.position, skill.hitBox);
+        }
+
+
+
     }
 }

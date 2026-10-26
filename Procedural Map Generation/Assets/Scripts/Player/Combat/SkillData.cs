@@ -7,5 +7,7 @@ public class SkillData : ScriptableObject
     public float force;
     public float hitBox;
     public bool left;
+    public bool both;
+
 
 }

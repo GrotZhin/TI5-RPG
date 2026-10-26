@@ -11,7 +11,7 @@ public class EnemyStateMove: IState
     EnemyAgent agent;
     int chace;
     float time;
-    Animator animator;
+   
     Vector3 dir;
     SkinnedMeshRenderer renderer;
     float rotationSpeed = 5f;
@@ -33,9 +33,9 @@ public class EnemyStateMove: IState
         renderer.material.color = Color.blue;
         chace = Random.Range(0, 100);
         time = Random.Range(5, 10);
-        animator = agent.GetComponent<Animator>();
+        
         //animator.SetBool("IsMoving", true);
-        animator.SetBool("andar", true);
+        agent.animator.SetBool("andar", true);
     }
 
     public void Execute(float delta)
