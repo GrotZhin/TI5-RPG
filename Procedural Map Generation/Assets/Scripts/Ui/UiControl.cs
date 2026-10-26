@@ -8,7 +8,6 @@ public class UiControl : MonoBehaviour
     [Header("Input System")]
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private InputActionReference menuActionReference;
-
     [Header("UI Elements")]
     [SerializeField] private GameObject menuCanvas;
     [SerializeField] private GameObject currentButton;
