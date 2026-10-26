@@ -1,42 +1,29 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TaylaAnimationBehavior : StateMachineBehaviour
 {
-    PlayerMove player;
-    int inputWindowTag = Animator.StringToHash("Input Window");
-    int inputLockTag = Animator.StringToHash("Input Lock");
-    int inputX = Animator.StringToHash("XInput");
-    int inputY = Animator.StringToHash("YInput");
-    int inputCharged = Animator.StringToHash("ChargedInput");
-    int inputCharging = Animator.StringToHash("Charging");
-
-    public bool canAttack = true;
+    public static UnityAction Dash, ResetDash;
+    public static UnityAction<bool> Jump, ResetAirActions;
+    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(player == null) 
-            player = animator.GetComponent<PlayerMove>();
+        TaylaAttackSSMBehavior.attacking = false;
+        TaylaAttackSSMBehavior.canTurn = true;
+        TaylaAttackSSMBehavior.canAttack = true;
+
         if (stateInfo.IsName("Jump"))
-            player.Jump();
+            Jump(false);
         if (stateInfo.IsName("DoubleJump"))
-            player.Jump(true);
+            Jump(true);
         if (stateInfo.IsName("DashA") || stateInfo.IsName("DashB") || stateInfo.IsName("ArialDash"))
-            player.Dash();
+            Dash();
 
         if (stateInfo.IsName("Fall"))
-            player.airAction = true;
-
-        if (stateInfo.tagHash == inputWindowTag)
-            canAttack = true;
-        if (stateInfo.tagHash == inputLockTag)
         {
-            canAttack = false;
-            animator.ResetTrigger(inputX);
-            animator.ResetTrigger(inputY);
-            animator.SetBool(inputCharging, false);
-            animator.SetInteger(inputCharged, 0);
+            ResetAirActions(true);
         }
-
 
     }
 
@@ -50,12 +37,7 @@ public class TaylaAnimationBehavior : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (stateInfo.IsName("DashA") || stateInfo.IsName("DashB") || stateInfo.IsName("ArialDash"))
-            player.ResetDash();
-
-        if(stateInfo.tagHash == inputLockTag)
-        {
-            canAttack = true;
-        }
+            ResetDash();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

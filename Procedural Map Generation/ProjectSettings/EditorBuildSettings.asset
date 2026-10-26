@@ -15,5 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GymRoom.unity
     guid: 0365c531e9d2aac498dccc70cecaaab1
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 7cf1d6f8e7fc33749a1eac19d2f538e7, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: 0b6109bdea185b04ca727498204ead79, type: 2}
   m_UseUCBPForAssetBundles: 0

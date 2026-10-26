@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: LocalizationTable Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: LocalizationTable
+  m_TableCollectionNameGuidString: a9002cd0bea6df44783a80e2aeba595d
+  m_Entries:
+  - m_Id: 23260301570048
+    m_Key: MenuPauseTxT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30646558994432
+    m_Key: OptionsLanguageText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30804591980544
+    m_Key: LanguageToggleTxT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39797632741376
+    m_Key: ResumeTxT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39986011516928
+    m_Key: OptionsTxT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40043821608960
+    m_Key: MusicTxT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40137367171072
+    m_Key: SFXTxT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40272574754816
+    m_Key: ExitTxT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40873064869888
+    m_Key: SaveTxT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61103518461952
+    m_Key: RumbleTxT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61165615132672
+    m_Key: CameraShakeTxT
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1266182780597043418
+  references:
+    version: 2
+    RefIds:
+    - rid: 1266182780597043418
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1792951555091

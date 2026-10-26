@@ -25,13 +25,16 @@ public class PlayerMove : MonoBehaviour
     [Header("Estamina (PlayerStats)")]
     [SerializeField] private float jumpStaminaCost = 15f;
     [SerializeField] private float dashStaminaCost = 20f;
-    [SerializeField] private float sprintStaminaCostPerSecond = 20f;
+    [SerializeField] private float sprintStaminaCostPerSecond = 15f;
     private bool sprintHeld;
     //------------------------------------------------------------
 
     public Vector3 targetVelocity;
     public float ySpeed, rotationSpeed = 14, airSpeed = 3.75f;
-    public bool airAction = true;
+    public float turnWindow = 0;
+    public bool jumpAir = true;
+    public bool dashAir = true;
+
     public float jumpHeight = 4.4f, jumpTime = 0.4f;
     float velocityMultiplier = 1;
     float gravityMultiplier = 1;
@@ -49,6 +52,12 @@ public class PlayerMove : MonoBehaviour
         cc = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         Move = MoveUnlocked;
+
+
+        TaylaAnimationBehavior.Jump += Jump;
+        TaylaAnimationBehavior.Dash += Dash;
+        TaylaAnimationBehavior.ResetDash += ResetDash;
+        TaylaAnimationBehavior.ResetAirActions = SetAirActions;
 
         InputInfo.OnMoveEvent += OnMoveInput;
         InputInfo.OnSprintEvent += OnSprint;
@@ -97,10 +106,14 @@ public class PlayerMove : MonoBehaviour
         var stats = PlayerStats.Instance;
         bool running = sprintHeld;
 
-        if (sprintHeld && moveInput.sqrMagnitude > 0.01f && stats != null)
+        bool onRunningState = animator.GetCurrentAnimatorStateInfo(0).tagHash == Animator.StringToHash("Run");
+        if ((onRunningState || sprintHeld) && moveInput.sqrMagnitude > 0.01f) 
         {
-            running = !stats.IsExhausted && stats.TrySpendStamina(sprintStaminaCostPerSecond * Time.deltaTime);
+            if( stats != null)
+                running = !stats.IsExhausted && stats.TrySpendStamina(sprintStaminaCostPerSecond * Time.deltaTime);
+            else running = true;
         }
+
 
         animator.SetBool("IsRunning", running);
     }
@@ -124,11 +137,11 @@ public class PlayerMove : MonoBehaviour
             if (!TrySpend(jumpStaminaCost)) return;
             animator.SetTrigger("Jump");
         }
-        else if (airAction)
+        else if (jumpAir)
         {
             if (!TrySpend(jumpStaminaCost)) return;
             animator.SetTrigger("Jump");
-            airAction = false;
+            jumpAir = false;
         }
     }
 
@@ -139,11 +152,11 @@ public class PlayerMove : MonoBehaviour
             if (!TrySpend(dashStaminaCost)) return;
             animator.SetTrigger("Dash");
         }
-        else if (airAction)
+        else if (dashAir)
         {
             if (!TrySpend(dashStaminaCost)) return;
             animator.SetTrigger("Dash");
-            airAction = false;
+            dashAir = false;
         }
     }
 
@@ -168,9 +181,12 @@ public class PlayerMove : MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(moveDir.normalized, Vector3.up);
 
             float angle = Vector3.SignedAngle(transform.forward, moveDir.normalized, Vector3.up);
-
             if (animator.deltaRotation.eulerAngles.y < 1)
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * rotationMultiplier);
+            {
+                bool attackTurnWindow = TaylaAttackSSMBehavior.attacking && TaylaAttackSSMBehavior.canTurn && turnWindow > 0.0f;
+                if (attackTurnWindow || !TaylaAttackSSMBehavior.attacking)
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * rotationMultiplier);
+            }
         }
         else
         {
@@ -217,7 +233,7 @@ public class PlayerMove : MonoBehaviour
 
             }
             else
-                ySpeed += Physics.gravity.y * 1.9f * deltaTime * gravityMultiplier;
+                ySpeed += Physics.gravity.y * 2.1f * deltaTime * gravityMultiplier;
         }
         else if (ySpeed < -2)
         {
@@ -229,11 +245,14 @@ public class PlayerMove : MonoBehaviour
     {
         if (dashCooldown > 0)
             dashCooldown -= Time.fixedDeltaTime;
+        if (turnWindow > 0)
+            turnWindow -= Time.fixedDeltaTime;
 
         Move(Time.fixedDeltaTime);
         Gravity(Time.fixedDeltaTime);
 
         animator.SetBool("IsGrounded", cc.isGrounded);
+        animator.SetFloat("Fall Magnitude", ySpeed);
     }
 
     private void OnAnimatorMove()
@@ -285,9 +304,10 @@ public class PlayerMove : MonoBehaviour
     }
     public void Dash()
     {
-        dashCooldown = 1.35f;
+        dashCooldown = 0.35f;
         velocityMultiplier = 1.85f;
         gravityMultiplier = 0;
+        ySpeed = 0;
         rotationMultiplier = 0;
         if (moveDir.magnitude > 0)
         {
@@ -301,5 +321,11 @@ public class PlayerMove : MonoBehaviour
         velocityMultiplier = 1;
         gravityMultiplier = 1;
         rotationMultiplier = 1;
+    }
+
+    public void SetAirActions(bool val)
+    {
+        jumpAir = val;
+        dashAir = val;
     }
 }
