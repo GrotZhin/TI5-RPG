@@ -9861,34 +9861,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LockOnTargetMarkerUI
   referenceCamera: {fileID: 0}
   markerRect: {fileID: 0}
+  LettersRect: {fileID: 0}
   markerCanvasGroup: {fileID: 0}
   worldOffset: {x: 0, y: 1.6, z: 0}
   popInDuration: 0.12
-  popScaleStart: 1.6
-  popCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  FadeDur: 0
+  ROtDur: 0
+  popSizeStart: 0
+  popLettersStart: 0
+  popEase: 4
 --- !u!1 &3793690587815899080
 GameObject:
   m_ObjectHideFlags: 0
@@ -10476,45 +10457,45 @@ MonoBehaviour:
     initData:
       initVersion: 2
       localHash: 36734
-      globalHash: 22529224
+      globalHash: 742836083
       clothType: 1
       clothTransformRecord:
         transform: {fileID: 6500294842959380244}
         localPosition: {x: 0, y: 0, z: 0}
         localRotation: {x: 0, y: 0, z: 0, w: 1}
-        position: {x: 0.027611628, y: 3.33, z: -7.8353457}
-        rotation: {x: -0, y: -1, z: -0, w: -0.00000016391276}
+        position: {x: -0.15, y: -0.01739628, z: -8.63}
+        rotation: {x: -0, y: -0, z: -0, w: 1}
         scale: {x: 1, y: 1, z: 1}
         localToWorldMatrix:
-          e00: -1
+          e00: 1
           e01: 0
-          e02: 0.00000032782552
-          e03: 0.027611628
+          e02: 0
+          e03: -0.15
           e10: 0
           e11: 1
           e12: 0
-          e13: 3.33
-          e20: -0.00000032782552
+          e13: -0.01739628
+          e20: 0
           e21: 0
-          e22: -1
-          e23: -7.8353457
+          e22: 1
+          e23: -8.63
           e30: 0
           e31: 0
           e32: 0
           e33: 1
         worldToLocalMatrix:
-          e00: -1
+          e00: 1
           e01: 0
-          e02: -0.00000032782552
-          e03: 0.02760906
+          e02: 0
+          e03: 0.15
           e10: 0
           e11: 1
           e12: 0
-          e13: -3.33
-          e20: 0.00000032782552
+          e13: 0.01739628
+          e20: 0
           e21: 0
-          e22: -1
-          e23: -7.8353457
+          e22: 1
+          e23: 8.63
           e30: 0
           e31: 0
           e32: 0
@@ -10523,39 +10504,39 @@ MonoBehaviour:
         transform: {fileID: 6500294842959380244}
         localPosition: {x: 0, y: 0, z: 0}
         localRotation: {x: 0, y: 0, z: 0, w: 1}
-        position: {x: 0.027611628, y: 3.33, z: -7.8353457}
-        rotation: {x: -0, y: -1, z: -0, w: -0.00000016391276}
+        position: {x: -0.15, y: -0.01739628, z: -8.63}
+        rotation: {x: -0, y: -0, z: -0, w: 1}
         scale: {x: 1, y: 1, z: 1}
         localToWorldMatrix:
-          e00: -1
+          e00: 1
           e01: 0
-          e02: 0.00000032782552
-          e03: 0.027611628
+          e02: 0
+          e03: -0.15
           e10: 0
           e11: 1
           e12: 0
-          e13: 3.33
-          e20: -0.00000032782552
+          e13: -0.01739628
+          e20: 0
           e21: 0
-          e22: -1
-          e23: -7.8353457
+          e22: 1
+          e23: -8.63
           e30: 0
           e31: 0
           e32: 0
           e33: 1
         worldToLocalMatrix:
-          e00: -1
+          e00: 1
           e01: 0
-          e02: -0.00000032782552
-          e03: 0.02760906
+          e02: 0
+          e03: 0.15
           e10: 0
           e11: 1
           e12: 0
-          e13: -3.33
-          e20: 0.00000032782552
+          e13: 0.01739628
+          e20: 0
           e21: 0
-          e22: -1
-          e23: -7.8353457
+          e22: 1
+          e23: 8.63
           e30: 0
           e31: 0
           e32: 0
@@ -10573,216 +10554,216 @@ MonoBehaviour:
         useTransformCount: 10
         useTransformIndexArray: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
         transformArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
+        - {fileID: 4585784805372151317}
+        - {fileID: 5564953069672690189}
+        - {fileID: 942683831354726669}
+        - {fileID: 8615699750049007999}
+        - {fileID: 6031815972363929622}
+        - {fileID: 2625667236524276946}
+        - {fileID: 2800018039432626586}
+        - {fileID: 2727751850739028213}
+        - {fileID: 6685517361439716170}
         - {fileID: 6500294842959380244}
         transformPositions:
-        - x: 0.11190826
-          y: 4.9406905
-          z: -7.76213
-        - x: 0.123258464
-          y: 4.9424295
-          z: -7.7468033
-        - x: 0.12971662
-          y: 4.9505224
-          z: -7.7074795
-        - x: 0.14035925
-          y: 4.981448
-          z: -7.646419
-        - x: 0.14525624
-          y: 5.0568843
-          z: -7.5796447
-        - x: 0.1202821
-          y: 4.9605618
-          z: -7.7579007
-        - x: 0.11668441
-          y: 4.9942136
-          z: -7.7353578
-        - x: 0.11042601
-          y: 5.0595527
-          z: -7.7132287
-        - x: 0.09417471
-          y: 5.1589193
-          z: -7.7191906
-        - x: 0.027611628
-          y: 3.33
-          z: -7.8353457
+        - x: -0.20220579
+          y: 1.6469699
+          z: -8.846548
+        - x: -0.20272003
+          y: 1.7259023
+          z: -8.90934
+        - x: -0.19622745
+          y: 1.6128602
+          z: -8.786558
+        - x: -0.19296846
+          y: 1.6026939
+          z: -8.74732
+        - x: -0.17930731
+          y: 1.7216336
+          z: -8.773331
+        - x: -0.16527231
+          y: 1.8207098
+          z: -8.76067
+        - x: -0.18631744
+          y: 1.6551049
+          z: -8.7553625
+        - x: -0.19123912
+          y: 1.6202227
+          z: -8.73505
+        - x: -0.18292129
+          y: 1.6002512
+          z: -8.731201
+        - x: -0.15
+          y: -0.01739628
+          z: -8.63
         transformRotations:
         - value:
-            x: -0.7043911
-            y: -0.7074441
-            z: 0.057343487
-            w: -0.008257833
+            x: -0.30321527
+            y: 0.37795573
+            z: -0.12952274
+            w: 0.8651209
         - value:
-            x: 0.24337642
-            y: -0.657028
-            z: -0.584177
-            w: 0.40965772
+            x: -0.30321527
+            y: 0.37795573
+            z: -0.12952274
+            w: 0.8651209
         - value:
-            x: 0.1501086
-            y: -0.76130855
-            z: -0.50421536
-            w: 0.37900382
+            x: -0.47918257
+            y: 0.34675157
+            z: -0.15546653
+            w: 0.7911877
         - value:
-            x: 0.13302945
-            y: -0.83880633
-            z: -0.32916847
-            w: 0.4127412
+            x: -0.55815417
+            y: 0.38374808
+            z: -0.2519126
+            w: 0.69118863
         - value:
-            x: 0.13302945
-            y: -0.83880633
-            z: -0.32916847
-            w: 0.4127412
+            x: -0.08337712
+            y: -0.34555957
+            z: 0.043659136
+            w: -0.9336655
         - value:
-            x: -0.1674958
-            y: 0.86127067
-            z: 0.24118415
-            w: -0.41471514
+            x: -0.08337712
+            y: -0.34555957
+            z: 0.043659136
+            w: -0.9336655
         - value:
-            x: -0.10239863
-            y: 0.91613525
-            z: 0.13369481
-            w: -0.36378083
+            x: 0.10683271
+            y: -0.3263539
+            z: 0.09143461
+            w: -0.9347298
         - value:
-            x: -0.06325377
-            y: 0.91978574
-            z: -0.058458786
-            w: -0.38285264
+            x: 0.21328771
+            y: -0.38054636
+            z: 0.1600041
+            w: -0.8854895
         - value:
-            x: -0.06325377
-            y: 0.91978574
-            z: -0.058458786
-            w: -0.38285264
+            x: 0.04678473
+            y: -0.05698222
+            z: 0.710762
+            w: 0.6995584
         - value:
             x: -0
-            y: -1
+            y: -0
             z: -0
-            w: -0.00000016391276
+            w: 1
         transformLocalPositions:
-        - x: -0.00084514753
-          y: 0.00009674902
-          z: -0.00008562339
-        - x: 0.0000022854033
-          y: 0.00010259414
-          z: -0.00016169544
-        - x: -0.0000000022724271
-          y: 0.00040664265
-          z: 6.91507e-10
-        - x: -0.00000000230968
-          y: 0.0006926815
-          z: -6.3329936e-10
+        - x: 4.4703483e-10
+          y: 0.0006926805
+          z: -2.6077032e-10
         - x: -0
           y: 0.0010086325
           z: 0
-        - x: 0.00019331371
-          y: 0.000080813115
-          z: -0.000066229775
-        - x: -5.2154064e-10
-          y: 0.0004066425
-          z: 3.72529e-10
-        - x: -1.4901161e-10
-          y: 0.00069267914
-          z: 0
+        - x: -2.0489097e-10
+          y: 0.00040664178
+          z: -5.7742e-10
+        - x: 0.0000022832792
+          y: 0.00010259414
+          z: -0.00016169477
+        - x: 7.4505804e-11
+          y: 0.00069267926
+          z: 3.352761e-10
         - x: -0
           y: 0.001008633
           z: 0
+        - x: -4.0978193e-10
+          y: 0.00040664102
+          z: 2.2351741e-10
+        - x: 0.00019331105
+          y: 0.000080813006
+          z: -0.00006622902
+        - x: -0.0008451474
+          y: 0.000096746786
+          z: -0.000085623375
         - x: 0
           y: 0
           z: 0
         transformLocalRotations:
         - value:
-            x: -0.000000010786244
-            y: -0.00000012722516
+            x: 0.16080303
+            y: 0.013977197
+            z: 0.10798997
+            w: 0.9809614
+        - value:
+            x: 0
+            y: -0
+            z: -0
+            w: 1
+        - value:
+            x: 0.082708105
+            y: -0.09788388
+            z: 0.10150883
+            w: 0.9865465
+        - value:
+            x: -0.1643993
+            y: 0.6927685
+            z: -0.6536468
+            w: 0.25649685
+        - value:
+            x: 0.16033328
+            y: 0.030587245
+            z: 0.10868734
+            w: 0.9805839
+        - value:
+            x: 0
+            y: -0
+            z: -0
+            w: 1
+        - value:
+            x: 0.087344214
+            y: -0.064316936
+            z: 0.097548686
+            w: 0.9893021
+        - value:
+            x: -0.070726
+            y: -0.46078244
+            z: 0.7469545
+            w: -0.47406363
+        - value:
+            x: -0.00000007498663
+            y: -0.000000062757245
             z: 0.7071068
             w: 0.7071067
-        - value:
-            x: -0.16439936
-            y: 0.6927684
-            z: -0.6536469
-            w: 0.25649673
-        - value:
-            x: 0.08270798
-            y: -0.09788384
-            z: 0.10150861
-            w: 0.9865466
-        - value:
-            x: 0.16080287
-            y: 0.013977051
-            z: 0.10798981
-            w: 0.98096144
-        - value:
-            x: 0
-            y: -0
-            z: -0
-            w: 1
-        - value:
-            x: -0.07072592
-            y: -0.46078297
-            z: 0.74695456
-            w: -0.4740631
-        - value:
-            x: 0.08734433
-            y: -0.06431778
-            z: 0.09754875
-            w: 0.989302
-        - value:
-            x: 0.16033362
-            y: 0.030587172
-            z: 0.10868736
-            w: 0.98058385
-        - value:
-            x: 0
-            y: -0
-            z: -0
-            w: 1
         - value:
             x: 0
             y: 0
             z: 0
             w: 1
         transformScales:
-        - x: 99.99992
-          y: 99.99992
-          z: 99.99952
-        - x: 99.99997
-          y: 99.99963
-          z: 99.99996
-        - x: 99.999855
-          y: 99.999664
-          z: 99.9999
-        - x: 99.99985
-          y: 99.99981
-          z: 99.99987
-        - x: 99.99985
-          y: 99.99981
-          z: 99.99987
-        - x: 99.99982
-          y: 99.99988
-          z: 99.99982
-        - x: 99.99989
-          y: 99.99994
-          z: 99.99983
-        - x: 99.999756
-          y: 99.99999
-          z: 99.999756
-        - x: 99.999756
-          y: 99.99999
-          z: 99.999756
+        - x: 100
+          y: 99.99998
+          z: 99.99994
+        - x: 100
+          y: 99.99998
+          z: 99.99994
+        - x: 99.99998
+          y: 99.99989
+          z: 99.99995
+        - x: 99.99999
+          y: 99.99986
+          z: 100.000015
+        - x: 99.99994
+          y: 99.99998
+          z: 99.99991
+        - x: 99.99994
+          y: 99.99998
+          z: 99.99991
+        - x: 99.999954
+          y: 99.99996
+          z: 99.99992
+        - x: 99.99994
+          y: 99.999954
+          z: 99.99992
+        - x: 99.99996
+          y: 99.99996
+          z: 99.999855
         - x: 1
           y: 1
           z: 1
         initRenderLocalToWorld:
           c0:
-            x: -1
+            x: 1
             y: 0
-            z: -0.00000032782552
+            z: 0
             w: 0
           c1:
             x: 0
@@ -10790,20 +10771,20 @@ MonoBehaviour:
             z: 0
             w: 0
           c2:
-            x: 0.00000032782552
+            x: 0
             y: 0
-            z: -1
+            z: 1
             w: 0
           c3:
-            x: 0.027611628
-            y: 3.33
-            z: -7.8353457
+            x: -0.15
+            y: -0.01739628
+            z: -8.63
             w: 1
         initRenderWorldtoLocal:
           c0:
-            x: -1
+            x: 1
             y: 0
-            z: 0.00000032782552
+            z: -0
             w: -0
           c1:
             x: 0
@@ -10811,21 +10792,21 @@ MonoBehaviour:
             z: -0
             w: -0
           c2:
-            x: -0.00000032782552
+            x: 0
             y: 0
-            z: -1
-            w: 0
+            z: 1
+            w: -0
           c3:
-            x: 0.02760906
-            y: -3.33
-            z: -7.8353457
+            x: 0.15
+            y: 0.01739628
+            z: 8.63
             w: 1
         initRenderRotation:
           value:
             x: -0
-            y: -1
+            y: -0
             z: -0
-            w: -0.00000016391276
+            w: 1
         initRenderScale:
           x: 1
           y: 1
@@ -10833,33 +10814,33 @@ MonoBehaviour:
         originalMesh: {fileID: 0}
     selectionData:
       positions:
-      - x: -0.10489894
-        y: 1.6879537
-        z: -0.16844416
-      - x: -0.10522542
-        y: 1.7568529
-        z: -0.24210668
-      - x: -0.09849241
-        y: 1.6628869
-        z: -0.104189396
-      - x: -0.09477416
-        y: 1.6585138
-        z: -0.06393242
-      - x: -0.07976698
-        y: 1.772124
-        z: -0.10725999
-      - x: -0.06407769
-        y: 1.8717363
-        z: -0.10943341
-      - x: -0.08747698
-        y: 1.7090662
-        z: -0.07965088
-      - x: -0.09259604
-        y: 1.6776168
-        z: -0.0543859
-      - x: -0.084514745
-        y: 1.6582859
-        z: -0.04776311
+      - x: -0.052205786
+        y: 1.6643662
+        z: -0.21654797
+      - x: -0.052720025
+        y: 1.7432986
+        z: -0.2793398
+      - x: -0.04622744
+        y: 1.6302565
+        z: -0.15655804
+      - x: -0.042968452
+        y: 1.6200902
+        z: -0.11732006
+      - x: -0.029307306
+        y: 1.7390299
+        z: -0.14333057
+      - x: -0.015272304
+        y: 1.8381062
+        z: -0.1306696
+      - x: -0.036317438
+        y: 1.6725012
+        z: -0.1253624
+      - x: -0.041239113
+        y: 1.637619
+        z: -0.10505009
+      - x: -0.032921284
+        y: 1.6176475
+        z: -0.10120106
       attributes:
       - Value: 2
       - Value: 2
@@ -10870,7 +10851,7 @@ MonoBehaviour:
       - Value: 2
       - Value: 1
       - Value: 1
-      maxConnectionDistance: 0.10086365
+      maxConnectionDistance: 0.100863285
       userEdit: 1
     preBuildData:
       enabled: 0
@@ -18109,6 +18090,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4978943548597566855}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2854288309940289742}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3609553940693275100}
   m_SourcePrefab: {fileID: 100100000, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
 --- !u!4 &37605083987626008 stripped
 Transform:
@@ -18324,7 +18311,9 @@ MonoBehaviour:
   ySpeed: 0
   rotationSpeed: 16
   airSpeed: 3.87
-  airAction: 1
+  turnWindow: 0
+  jumpAir: 1
+  dashAir: 1
   jumpHeight: 3.9
   jumpTime: 0.6
 --- !u!143 &8919949567253215178
@@ -18433,11 +18422,59 @@ MonoBehaviour:
   staminaRegenPerSecond: 15
   exhaustedStaminaRegenPerSecond: 5
   exhaustedRecoverThreshold: 0.3
+  staminaEnabled: 0
   currentHealth: 0
   currentStamina: 0
   currentShield: 0
   islandPosition: {fileID: 0}
   cc: {fileID: 0}
+--- !u!114 &2854288309940289742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221939404844916877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &3609553940693275100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221939404844916877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee887d3921fa56541a4db8c3bf191a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UiControl
+  playerInput: {fileID: 2854288309940289742}
+  menuActionReference: {fileID: 0}
+  menuCanvas: {fileID: 0}
+  currentButton: {fileID: 0}
+  menuAni: {fileID: 0}
 --- !u!4 &1235730827740214771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8281442279077697489, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -18696,6 +18733,11 @@ Transform:
 --- !u!4 &2608769107520291517 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -5188024631724155039, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 2032349094392389084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2625667236524276946 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4054476389555986702, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 2032349094392389084}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2664972788627361807 stripped
@@ -19091,6 +19133,11 @@ Transform:
 --- !u!4 &5520887047082712063 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5812593781479032355, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 2032349094392389084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5564953069672690189 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3382495863877718063, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 2032349094392389084}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5682040771176122712 stripped

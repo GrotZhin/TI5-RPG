@@ -14,6 +14,7 @@ public class UiControl : MonoBehaviour
     [SerializeField] private UiAni menuAni;
 
     private bool isMenuOpen;
+    
 
     void Start()
     {
@@ -60,8 +61,8 @@ public class UiControl : MonoBehaviour
         }
     }
 
-    public void MainMenu()
+    public void Lobby()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Lobby");
     }
 }
