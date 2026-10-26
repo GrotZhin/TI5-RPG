@@ -1,6 +1,8 @@
 using System;
 using Unity.Mathematics;
 using Unity.VisualScripting;
+using UnityEditor.Build;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Video;
 using Random = UnityEngine.Random;
@@ -10,11 +12,13 @@ public class EnemyAgentControl
 {
     public EnemyAgent self;
     public float radius = 4.8f;
-    public float vida = 0f;
+    public float vida = 30f;
+    public float stance = 0f;
     [Range(0,1)]
     public float separate = 0.9f, seek = 0.6f, align = 0.03f, avoid = 1f, cohesion = 0.05f;
     Vector3 dir;
     public LayerMask obstacle;
+    public Animator anim;
 
     public EnemyAgentControl (EnemyAgent agent) {  self = agent; obstacle = LayerMask.GetMask("Obstacle"); }
 
@@ -140,12 +144,19 @@ public class EnemyAgentControl
         Debug.DrawRay(origem, self.transform.forward * radius, Color.pink);
         return result;
     }
-    public void dano(int dano)
+    public bool dano(float dano)
     {
+        
         vida -= dano;
+        Debug.Log("vida: " + vida);
         if(vida<= 0)
         {
+          
+          
+           Debug.Log("morreu");
+            if(IslandManager.islandManager != null)
             IslandManager.islandManager.enemies.Remove(self.gameObject);
-        }
+           return true;
+        }else return false;
     }
 }

@@ -18799,9 +18799,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGM
   enemies: []
-  doors: []
   islandId: 0
+  island: {fileID: 0}
   firstIsle: 0
+  combatStarted: 0
 --- !u!1 &3013230755485064217
 GameObject:
   m_ObjectHideFlags: 0
@@ -20638,7 +20639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb9e81dc420a154bab7db6b49bab698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAgentManager
-  enemyPrefab: {fileID: 3278888379952990936, guid: f93ca8d2e24c4ad4085d3d92d5ebd136, type: 3}
+  enemyPrefab: {fileID: 6018943636525869859, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
   quantidade: 10
   map: {fileID: 2709625976963397346}
   spawnPoints:
@@ -20651,6 +20652,8 @@ MonoBehaviour:
   Align: 1
   Cohesion: 1
   Avoid: 1
+  life: 30
+  stance: 100
 --- !u!1 &3389465409874273831
 GameObject:
   m_ObjectHideFlags: 0

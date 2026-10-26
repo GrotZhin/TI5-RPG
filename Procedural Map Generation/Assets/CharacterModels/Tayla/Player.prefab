@@ -9805,7 +9805,7 @@ MonoBehaviour:
     m_Bits: 8
   obstructionLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576
   maxLockAngle: 100
   switchTargetCooldown: 0.25
   switchStickThreshold: 0.6
@@ -9823,12 +9823,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334a9850194f44f418364196ce54b09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LockOnCameraController
-  freeCamera: {fileID: 0}
-  lockOnCamera: {fileID: 0}
+  gameplayCamera: {fileID: 0}
   activePriority: 20
-  inactivePriority: 10
-  lockOnScreenOffset: {x: 0, y: 0.15}
-  orbitFollowSpeed: 10
+  disableLegacyCameras: 1
+  applyFreeSettings: 1
+  fieldOfView: 50
+  freeRadius: 6.5
+  freePositionDamping: {x: 0.25, y: 0.5, z: 0.25}
+  freeComposerDamping: {x: 0.2, y: 0.35}
+  lockPitch: 16
+  shoulderYaw: 8
+  lockRadiusBase: 6.5
+  lockRadiusPerMeter: 0.35
+  lockRadiusMax: 11
+  framingBias: 0.4
+  playerFocusOffset: {x: 0, y: 1.4, z: 0}
+  enemyFocusOffset: {x: 0, y: 1.2, z: 0}
+  lockComposerDamping: {x: 0.1, y: 0.25}
+  yawSharpness: 7
+  pitchSharpness: 5
+  radiusSharpness: 4
+  framingSharpness: 8
+  recenterWhenNoTarget: 1
+  recenterDuration: 0.35
+  recenterSharpness: 12
 --- !u!114 &6390802849445022999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13887,15 +13905,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.28084
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.71744
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18085,6 +18103,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6634196138821106679}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4797325369519888358}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4978943548597566855}
   m_SourcePrefab: {fileID: 100100000, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
 --- !u!4 &37605083987626008 stripped
 Transform:
@@ -18374,6 +18398,46 @@ MonoBehaviour:
   pauseBufferTimer:
     minTime: 0
     maxTime: 0
+--- !u!114 &4797325369519888358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221939404844916877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbbfa1d9e8df5ff49b41c77e601527cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Combat
+  anim: {fileID: 2240998246895074095}
+  scissorLeft: {fileID: 5000129267783472863}
+  scissorRight: {fileID: 8857379001655679089}
+  skill: {fileID: 0}
+--- !u!114 &4978943548597566855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221939404844916877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496e275fb7b55804f8ffa54a6439ddc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  baseMaxHealth: 100
+  baseMaxStamina: 100
+  baseMaxShield: 0
+  baseAttackMultiplier: 1
+  staminaRegenPerSecond: 15
+  exhaustedStaminaRegenPerSecond: 5
+  exhaustedRecoverThreshold: 0.3
+  currentHealth: 0
+  currentStamina: 0
+  currentShield: 0
+  islandPosition: {fileID: 0}
+  cc: {fileID: 0}
 --- !u!4 &1235730827740214771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8281442279077697489, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -18954,6 +19018,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -2814630810699467137, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 2032349094392389084}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &5000129267783472863 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2787625193145840893, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 2032349094392389084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5020568794138730138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6456189393862689606, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
@@ -19492,6 +19561,11 @@ Transform:
 --- !u!4 &8856664657286322252 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7412198411574085008, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 2032349094392389084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8857379001655679089 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1810480045007272531, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 2032349094392389084}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8937169450789962435 stripped

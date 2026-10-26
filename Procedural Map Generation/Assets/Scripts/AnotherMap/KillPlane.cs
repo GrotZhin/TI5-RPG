@@ -6,8 +6,8 @@ public class KillPlane : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 
-        // if(other.CompareTag("Enemy"))
-        // IslandManager.islandManager.enemies.Remove(other.gameObject);
+        if(other.CompareTag("Enemy"))
+        IslandManager.islandManager.enemies.Remove(other.gameObject);
         if (other.CompareTag("Player"))
         {
             other.gameObject.SetActive(false);

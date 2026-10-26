@@ -7,20 +7,26 @@ public class EnemyStateDano : IState
     float time;
     SkinnedMeshRenderer renderer;
     Animator animator;
-    public EnemyStateDano(EnemyAgent agent, SkinnedMeshRenderer renderer)
+    float damage;
+    public EnemyStateDano(EnemyAgent agent, SkinnedMeshRenderer renderer, float damage)
     {
         this.agent = agent;
         this.renderer = renderer;
+        this.damage = damage;
     }
 
     public void Enter()
     {
+
         //Debug.Log("Move entrou");
         renderer.material.color = Color.black;
-        agent.control.dano(5);
+
+
         chace = Random.Range(0, 100);
-        animator = agent.GetComponent<Animator>();
-        animator.SetBool("Dano", true);
+
+        agent.animator.SetBool("Dano", true);
+        bool isDead = agent.control.dano(damage);
+        if(isDead) agent.ChangeState(new EnemyStateDeath(agent, renderer)) ;
         time = 1;
     }
 
@@ -28,7 +34,7 @@ public class EnemyStateDano : IState
     {
         time -= delta;
         //Debug.Log("move executando");
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && !animator.IsInTransition(0) && time <= 0)
+        if (agent.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && !agent.animator.IsInTransition(0) && time <= 0)
         {
             if (chace > 20 || agent.player == null)
             {
@@ -43,8 +49,9 @@ public class EnemyStateDano : IState
 
     public void Exit()
     {
-        Debug.Log("dano saiu  " + agent.control.vida);
-        animator.SetBool("Dano", false);
+
+        agent.animator.SetBool("Dano", false);
     }
-    
+
+
 }
