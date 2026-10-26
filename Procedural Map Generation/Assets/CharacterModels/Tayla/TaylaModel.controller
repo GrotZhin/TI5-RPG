@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9186783309290124438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b1f1d207e90d34e86288f9196ad4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefineSkill
+  skill: {fileID: 11400000, guid: 030684e3dd840494bb9b688f43708017, type: 2}
 --- !u!1101 &-9083123673003511175
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -72,6 +85,19 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-8810352394575274279
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b1f1d207e90d34e86288f9196ad4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefineSkill
+  skill: {fileID: 11400000, guid: 3307c7f0d7a7a2d489253536f7d5a0a3, type: 2}
 --- !u!1102 &-8764329471616864429
 AnimatorState:
   serializedVersion: 6
@@ -509,7 +535,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -4480250863300909815}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 2702583261426708606}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -990,7 +1017,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7262438057095298321}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -1020537803293552765}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1017,7 +1045,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7591015315274340748}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 6896817840056047848}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1222,7 +1251,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -392933079686501804}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 7757914624568286865}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1249,7 +1279,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 96297369522053097}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -2706965100879096237}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1403,7 +1434,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -6567491429629251579}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 5567746619047691803}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -2210,6 +2242,19 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-2706965100879096237
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b1f1d207e90d34e86288f9196ad4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefineSkill
+  skill: {fileID: 11400000, guid: 9051ab98d373aa444ae80d8a87de20fa, type: 2}
 --- !u!1102 &-2629560966586072403
 AnimatorState:
   serializedVersion: 6
@@ -2567,6 +2612,19 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-1143433650508493393
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b1f1d207e90d34e86288f9196ad4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefineSkill
+  skill: {fileID: 11400000, guid: ff4569adb6ab8284f83fb2d4cf70f984, type: 2}
 --- !u!1102 &-1035070615401789984
 AnimatorState:
   serializedVersion: 6
@@ -2579,7 +2637,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8851460519924903455}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -8810352394575274279}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -2594,6 +2653,19 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-1020537803293552765
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b1f1d207e90d34e86288f9196ad4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefineSkill
+  skill: {fileID: 11400000, guid: 3ddf72ad7a5aa69429c9fe768aa48707, type: 2}
 --- !u!1101 &-868733868773624918
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2863,7 +2935,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5070112226360006993}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 8293335431264291295}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -4006,6 +4079,19 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &2702583261426708606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b1f1d207e90d34e86288f9196ad4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefineSkill
+  skill: {fileID: 11400000, guid: 8b7863a0a1232e54891f66ee930bc701, type: 2}
 --- !u!1101 &2816433533606045292
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -4397,6 +4483,19 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &4330835649981881860
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b1f1d207e90d34e86288f9196ad4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefineSkill
+  skill: {fileID: 11400000, guid: 0af41f3bf4efb96478705daac02fbd2a, type: 2}
 --- !u!1102 &4513294321241586104
 AnimatorState:
   serializedVersion: 6
@@ -4409,7 +4508,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3309143007949373524}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -9186783309290124438}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -4512,7 +4612,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 5243620736571691864}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 8938790785426448914}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -4685,7 +4786,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -8703009302770988466}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 4330835649981881860}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -4802,6 +4904,19 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &5567746619047691803
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b1f1d207e90d34e86288f9196ad4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefineSkill
+  skill: {fileID: 11400000, guid: 2f39e93beef55d64f86729893c8ac702, type: 2}
 --- !u!1101 &5713680704140421847
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -4839,7 +4954,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 3435079799387494699}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -1143433650508493393}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -5221,6 +5337,19 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &6896817840056047848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b1f1d207e90d34e86288f9196ad4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefineSkill
+  skill: {fileID: 11400000, guid: 3973b43b9460084438f4dc5f0ccd0276, type: 2}
 --- !u!1102 &7003533096684228037
 AnimatorState:
   serializedVersion: 6
@@ -5447,6 +5576,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d002d0fe7cbc774baf7d84df99d1585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaylaAnimationBehavior
+--- !u!114 &7757914624568286865
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b1f1d207e90d34e86288f9196ad4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefineSkill
+  skill: {fileID: 11400000, guid: 37d1909d090fb9d4e82b288524aa914b, type: 2}
 --- !u!114 &7795854270309741220
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5566,6 +5708,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb487ac40778cde4fa60bbe6f9db6e98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaylaAttackSSMBehavior
+--- !u!114 &8293335431264291295
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b1f1d207e90d34e86288f9196ad4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefineSkill
+  skill: {fileID: 11400000, guid: 233a75cbc437b394b9ed84a64d44cfce, type: 2}
 --- !u!1101 &8382861794881804159
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -5711,6 +5866,19 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &8938790785426448914
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b1f1d207e90d34e86288f9196ad4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefineSkill
+  skill: {fileID: 11400000, guid: daca084c88ad4b44ab48b770cd7856f1, type: 2}
 --- !u!1101 &9055394611302361244
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
