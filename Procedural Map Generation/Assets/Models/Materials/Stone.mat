@@ -234,10 +234,10 @@ Material:
     - _ToonMaterialVersion: 0
     m_Floats:
     - _1st2nd_Shades_Feather: 0.0001
-    - _1st_ShadeColor_Feather: 0.328
-    - _1st_ShadeColor_Step: 0.612
+    - _1st_ShadeColor_Feather: 0.256
+    - _1st_ShadeColor_Step: 0.694
     - _2nd_ShadeColor_Feather: 0.0001
-    - _2nd_ShadeColor_Step: 0.24
+    - _2nd_ShadeColor_Step: 0.223
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ARSampler_AlphaOn: 0
@@ -266,8 +266,8 @@ Material:
     - _AutoRenderQueue: 1
     - _BaseColorOverridden: 0
     - _BaseColorVisible: 1
-    - _BaseColor_Step: 0.612
-    - _BaseShade_Feather: 0.328
+    - _BaseColor_Step: 0.694
+    - _BaseShade_Feather: 0.256
     - _Base_Speed: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
@@ -403,7 +403,7 @@ Material:
     - _SecondShadeOverridden: 0
     - _SecondShadeVisible: 1
     - _Set_SystemShadowsToBase: 1
-    - _ShadeColor_Step: 0.24
+    - _ShadeColor_Step: 0.223
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
@@ -428,7 +428,7 @@ Material:
     - _StencilWriteMaskDepth: 32
     - _StencilWriteMaskGBuffer: 3
     - _StencilWriteMaskMV: 128
-    - _StepOffset: 0
+    - _StepOffset: -0.044
     - _SubsurfaceMask: 1
     - _Surface: 0
     - _TexWorldScale: 1
