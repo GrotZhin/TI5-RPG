@@ -82,7 +82,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _WallsTex:
-        m_Texture: {fileID: 2800000, guid: 2c391b9f6abde054a95dfb470726e103, type: 3}
+        m_Texture: {fileID: 2800000, guid: eb6248e4d55345041a1156a2f5c4901f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -125,7 +125,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RoomOffsetY: 0
-    - _ShadeMin: 0
+    - _ShadeMin: -4.38
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -141,9 +141,9 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FogColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FogColor: {r: 2.4458592, g: 2.3847806, b: 1.6382642, a: 1}
     - _LightDir: {r: 0.3, g: 0.8, b: 3.8, a: 0}
-    - _RoomSize: {r: 1, g: 1, b: 10, a: 0}
+    - _RoomSize: {r: 2.88, g: 2.88, b: 10, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
