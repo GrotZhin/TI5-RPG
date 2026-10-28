@@ -53,7 +53,8 @@ public class UiControl : MonoBehaviour
             inputInfo.SetUi();
             menuCanvas.SetActive(true); 
             menuAni.UIIntro();
-
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(currentButton);
         }
         else
         {
