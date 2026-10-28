@@ -99,7 +99,6 @@ public class UiAni : MonoBehaviour
        
        
         UiCG.DOKill();
-
         options = false;
         OptionsAni();
 

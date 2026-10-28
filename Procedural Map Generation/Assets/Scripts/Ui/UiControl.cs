@@ -5,27 +5,42 @@ using UnityEngine.SceneManagement;
 
 public class UiControl : MonoBehaviour
 {
-    [Header("Input System")]
+     [Header("Input System")]
     [SerializeField] private PlayerInput playerInput;
-
+    [SerializeField] private InputInfo inputInfo;
+    [SerializeField] private InputActionReference menuActionReference;
     [Header("UI Elements")]
     [SerializeField] private GameObject menuCanvas;
     [SerializeField] private GameObject currentButton;
     [SerializeField] private UiAni menuAni;
 
     private bool isMenuOpen;
+    
 
     void Start()
     {
         if (menuCanvas != null) menuCanvas.SetActive(false);
     }
-    public void OnMenu(InputValue value)
-    {
 
-        if (value.isPressed)
+    void OnEnable()
+    {
+        if (menuActionReference != null && menuActionReference.action != null)
         {
-            ToggleMenu();
+            menuActionReference.action.performed += OnMenuPerformed;
         }
+    }
+
+    void OnDisable()
+    {
+        if (menuActionReference != null && menuActionReference.action != null)
+        {
+            menuActionReference.action.performed -= OnMenuPerformed;
+        }
+    }
+
+    private void OnMenuPerformed(InputAction.CallbackContext context)
+    {
+        ToggleMenu();
     }
 
     public void ToggleMenu()
@@ -34,25 +49,17 @@ public class UiControl : MonoBehaviour
 
         if (isMenuOpen)
         {
-            if (playerInput != null) playerInput.SwitchCurrentActionMap("UI");
-            if (menuCanvas != null) menuCanvas.SetActive(true); 
-            if (menuAni != null) menuAni.UIIntro();
-            
-            if (currentButton != null && EventSystem.current != null)
-            {
-                EventSystem.current.SetSelectedGameObject(currentButton);
-            }
+            playerInput.SwitchCurrentActionMap("UI");
+            inputInfo.SetUi();
+            menuCanvas.SetActive(true); 
+            menuAni.UIIntro();
+
         }
         else
         {
-            if (menuAni != null) menuAni.UIOutro();
-            if (playerInput != null) playerInput.SwitchCurrentActionMap("Player");
-            
+            menuAni.UIOutro();
+            inputInfo.SetGameplay();
+            playerInput.SwitchCurrentActionMap("Player");
         }
-    }
-
-    public void Lobby()
-    {
-        SceneManager.LoadScene("Lobby");
     }
 }
