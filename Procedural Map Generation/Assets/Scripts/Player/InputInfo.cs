@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
 
 [CreateAssetMenu(menuName = "ScriptableObject/inputReader")]
-public class InputInfo : ScriptableObject, Inputs.IPlayerActions
+public class InputInfo : ScriptableObject, Inputs.IPlayerActions, Inputs.IGlobalActions
 {
     public static InputInfo inputInfo { get; set; }
 

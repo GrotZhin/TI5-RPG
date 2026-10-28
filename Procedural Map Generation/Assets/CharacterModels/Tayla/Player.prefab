@@ -9864,12 +9864,12 @@ MonoBehaviour:
   LettersRect: {fileID: 0}
   markerCanvasGroup: {fileID: 0}
   worldOffset: {x: 0, y: 1.6, z: 0}
-  popInDuration: 0.12
-  FadeDur: 0
-  ROtDur: 0
-  popSizeStart: 0
-  popLettersStart: 0
-  popEase: 4
+  popInDuration: 0.2
+  FadeDur: 0.5
+  ROtDur: 20
+  popSizeStart: 5
+  popLettersStart: 8
+  popEase: 34
 --- !u!1 &3793690587815899080
 GameObject:
   m_ObjectHideFlags: 0
@@ -10814,33 +10814,33 @@ MonoBehaviour:
         originalMesh: {fileID: 0}
     selectionData:
       positions:
-      - x: -0.052205786
-        y: 1.6643662
-        z: -0.21654797
-      - x: -0.052720025
-        y: 1.7432986
-        z: -0.2793398
+      - x: -0.052205782
+        y: 1.6643665
+        z: -0.2165482
+      - x: -0.05272002
+        y: 1.7432988
+        z: -0.27934003
       - x: -0.04622744
-        y: 1.6302565
-        z: -0.15655804
-      - x: -0.042968452
+        y: 1.6302564
+        z: -0.1565578
+      - x: -0.04296846
         y: 1.6200902
-        z: -0.11732006
-      - x: -0.029307306
-        y: 1.7390299
-        z: -0.14333057
-      - x: -0.015272304
-        y: 1.8381062
-        z: -0.1306696
-      - x: -0.036317438
-        y: 1.6725012
-        z: -0.1253624
-      - x: -0.041239113
-        y: 1.637619
-        z: -0.10505009
-      - x: -0.032921284
-        y: 1.6176475
-        z: -0.10120106
+        z: -0.1173203
+      - x: -0.02930731
+        y: 1.7390296
+        z: -0.1433301
+      - x: -0.015272298
+        y: 1.8381059
+        z: -0.13066983
+      - x: -0.036317445
+        y: 1.6725013
+        z: -0.12536216
+      - x: -0.041239116
+        y: 1.6376188
+        z: -0.105050325
+      - x: -0.03292129
+        y: 1.6176474
+        z: -0.10120058
       attributes:
       - Value: 2
       - Value: 2
@@ -10851,7 +10851,7 @@ MonoBehaviour:
       - Value: 2
       - Value: 1
       - Value: 1
-      maxConnectionDistance: 0.100863285
+      maxConnectionDistance: 0.100863196
       userEdit: 1
     preBuildData:
       enabled: 0
@@ -13886,15 +13886,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.28084
+      value: 0.027611628
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 3.261
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.71744
+      value: -2.84
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18092,10 +18092,13 @@ PrefabInstance:
       addedObject: {fileID: 4978943548597566855}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2854288309940289742}
+      addedObject: {fileID: 3609553940693275100}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3609553940693275100}
+      addedObject: {fileID: 5267764883608897496}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5090013479425878641}
   m_SourcePrefab: {fileID: 100100000, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
 --- !u!4 &37605083987626008 stripped
 Transform:
@@ -18302,7 +18305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   input: {fileID: 11400000, guid: ee353bc991b1ad64093f7671fac5b94b, type: 2}
-  lockOnSystem: {fileID: 0}
+  lockOnSystem: {fileID: 8561409139756316741}
   faceTargetRotationSpeed: 18
   jumpStaminaCost: 15
   dashStaminaCost: 20
@@ -18428,7 +18431,41 @@ MonoBehaviour:
   currentShield: 0
   islandPosition: {fileID: 0}
   cc: {fileID: 0}
---- !u!114 &2854288309940289742
+--- !u!114 &3609553940693275100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221939404844916877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee887d3921fa56541a4db8c3bf191a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UiControl
+  playerInput: {fileID: 5090013479425878641}
+  menuActionReference: {fileID: 0}
+  menuCanvas: {fileID: 0}
+  currentButton: {fileID: 0}
+  menuAni: {fileID: 0}
+--- !u!114 &5267764883608897496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221939404844916877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee887d3921fa56541a4db8c3bf191a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UiControl
+  playerInput: {fileID: 5090013479425878641}
+  menuActionReference: {fileID: -4401109088168939356, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  menuCanvas: {fileID: 0}
+  currentButton: {fileID: 0}
+  menuAni: {fileID: 0}
+--- !u!114 &5090013479425878641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18458,23 +18495,6 @@ MonoBehaviour:
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &3609553940693275100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1221939404844916877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee887d3921fa56541a4db8c3bf191a97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UiControl
-  playerInput: {fileID: 2854288309940289742}
-  menuActionReference: {fileID: 0}
-  menuCanvas: {fileID: 0}
-  currentButton: {fileID: 0}
-  menuAni: {fileID: 0}
 --- !u!4 &1235730827740214771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8281442279077697489, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}

@@ -7,39 +7,25 @@ public class UiControl : MonoBehaviour
 {
     [Header("Input System")]
     [SerializeField] private PlayerInput playerInput;
-    [SerializeField] private InputActionReference menuActionReference;
+
     [Header("UI Elements")]
     [SerializeField] private GameObject menuCanvas;
     [SerializeField] private GameObject currentButton;
     [SerializeField] private UiAni menuAni;
 
     private bool isMenuOpen;
-    
 
     void Start()
     {
         if (menuCanvas != null) menuCanvas.SetActive(false);
     }
-
-    void OnEnable()
+    public void OnMenu(InputValue value)
     {
-        if (menuActionReference != null && menuActionReference.action != null)
+
+        if (value.isPressed)
         {
-            menuActionReference.action.performed += OnMenuPerformed;
+            ToggleMenu();
         }
-    }
-
-    void OnDisable()
-    {
-        if (menuActionReference != null && menuActionReference.action != null)
-        {
-            menuActionReference.action.performed -= OnMenuPerformed;
-        }
-    }
-
-    private void OnMenuPerformed(InputAction.CallbackContext context)
-    {
-        ToggleMenu();
     }
 
     public void ToggleMenu()
@@ -48,16 +34,20 @@ public class UiControl : MonoBehaviour
 
         if (isMenuOpen)
         {
-           
-            playerInput.SwitchCurrentActionMap("UI");
-            menuCanvas.SetActive(true); 
-            menuAni.UIIntro();
+            if (playerInput != null) playerInput.SwitchCurrentActionMap("UI");
+            if (menuCanvas != null) menuCanvas.SetActive(true); 
+            if (menuAni != null) menuAni.UIIntro();
+            
+            if (currentButton != null && EventSystem.current != null)
+            {
+                EventSystem.current.SetSelectedGameObject(currentButton);
+            }
         }
         else
         {
-  
-            menuAni.UIOutro();
-            playerInput.SwitchCurrentActionMap("Player");
+            if (menuAni != null) menuAni.UIOutro();
+            if (playerInput != null) playerInput.SwitchCurrentActionMap("Player");
+            
         }
     }
 
