@@ -184,7 +184,7 @@ public class PlayerMove : MonoBehaviour
             if (animator.deltaRotation.eulerAngles.y < 1)
             {
                 bool attackTurnWindow = TaylaAttackSSMBehavior.attacking && TaylaAttackSSMBehavior.canTurn && turnWindow > 0.0f;
-                if (attackTurnWindow || !TaylaAttackSSMBehavior.attacking)
+                if (attackTurnWindow || !TaylaAttackSSMBehavior.attacking || animator.GetLayerWeight(1) < 0.5)
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * rotationMultiplier);
             }
         }
@@ -233,11 +233,11 @@ public class PlayerMove : MonoBehaviour
 
             }
             else
-                ySpeed += Physics.gravity.y * 2.1f * deltaTime * gravityMultiplier;
+                ySpeed += Physics.gravity.y * 2.3f * deltaTime * gravityMultiplier;
         }
-        else if (ySpeed < -2)
+        else if (ySpeed < -0.1f)
         {
-            ySpeed = -2;
+            ySpeed = -0.1f;
         }
     }
 
