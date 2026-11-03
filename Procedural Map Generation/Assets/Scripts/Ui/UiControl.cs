@@ -1,21 +1,21 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class UiControl : MonoBehaviour
 {
-     [Header("Input System")]
+    [Header("Input System")]
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private InputInfo inputInfo;
     [SerializeField] private InputActionReference menuActionReference;
+
     [Header("UI Elements")]
     [SerializeField] private GameObject menuCanvas;
     [SerializeField] private GameObject currentButton;
     [SerializeField] private UiAni menuAni;
+    [SerializeField] private UiButtonManager buttonManager; 
 
     private bool isMenuOpen;
-    
 
     void Start()
     {
@@ -52,15 +52,23 @@ public class UiControl : MonoBehaviour
             playerInput.SwitchCurrentActionMap("UI");
             inputInfo.SetUi();
             menuCanvas.SetActive(true); 
+            
             menuAni.UIIntro();
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(currentButton);
+
+            if (buttonManager != null)
+            {
+                buttonManager.InitializeManager(menuCanvas, currentButton);
+            }
         }
         else
         {
             menuAni.UIOutro();
             inputInfo.SetGameplay();
             playerInput.SwitchCurrentActionMap("Player");
+            if (buttonManager != null)
+            {
+                buttonManager.DeactivateManager();
+            }
         }
     }
 }
