@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class UiAni : MonoBehaviour
@@ -22,11 +24,28 @@ public class UiAni : MonoBehaviour
     [Header("Options Settings & Tweens")]
     public bool options;
     [SerializeField] private RectTransform OptionsGroup;
+    public Vector2 OptionsGroupIntroPos;
+    public Vector2 OptionsGroupOutroPos;
+    public float OptionsGroupTweendur;
+    public Ease OptionEaseIntro;
+    public Ease OptionEaseOutro;
+    public Ease OptionEaseRotIntro;
+    public Ease OptionEaseRotOutro;
+    [SerializeField] private RectTransform Tape;
+    public Vector2 TapeIntroPos;
+    public Vector2 TapeOutroPos;
+    public float TapeTweendur;
+    public Ease TapeEase;
     [SerializeField] private RectTransform OptionsBg;
-  
-    [SerializeField] private CanvasGroup OptionsiconCG;
+    [SerializeField] private CanvasGroup Pointer;
+    
+    [SerializeField] private CanvasGroup OptionsCG;
     public GameObject Settings;
-  
+    [SerializeField] private GameObject FirstOptnButton;
+    [SerializeField] private GameObject MenuOptnButton;
+    
+    private UiButtonManager buttonManager;
+
     [Header("Control Schemes")]
     [SerializeField] private CanvasGroup SchemesGroup;
     public GameObject KBCtrlscheme;
@@ -38,6 +57,7 @@ public class UiAni : MonoBehaviour
     void Start()
     {
         if (Settings != null) Settings.SetActive(false);
+        buttonManager = GetComponent<UiButtonManager>();
     }
 
     void OnEnable()
@@ -73,31 +93,27 @@ public class UiAni : MonoBehaviour
     
     public void Update()
     {
-
+        if (options && EventSystem.current != null && EventSystem.current.currentSelectedGameObject != null)
+        {
+            if (!EventSystem.current.currentSelectedGameObject.transform.IsChildOf(Settings.transform))
+            {
+                EventSystem.current.SetSelectedGameObject(FirstOptnButton);
+            }
+        }
     }
 
     public void UIIntro()
     {
-        // UiSfXManager.soundManager.PlaySound(UiSfXManager.SoundType.OpenMenu);
-       
         UiCG.DOKill();
-        
         if (Input != null) Input.SwitchCurrentActionMap("UI");
-        
         UiCG.alpha = 0;
         
-        // Sequência de Entrada
         Sequence intro = DOTween.Sequence().SetUpdate(true);
         intro.Join(UiCG.DOFade(1, 1f));
-        //.OnComplete(() => inputInfo.SetUi());
-        
     }
 
     public void UIOutro()
     {
-        // UiSfXManager.soundManager.PlaySound(UiSfXManager.SoundType.CloseMenu);
-       
-       
         UiCG.DOKill();
         options = false;
         OptionsAni();
@@ -107,7 +123,6 @@ public class UiAni : MonoBehaviour
         outro.OnComplete(() => 
         { 
             if (UI != null) UI.SetActive(false);
-            //inputInfo.SetGameplay();
             if (Input != null) Input.SwitchCurrentActionMap("Player");
         });
     }
@@ -123,38 +138,74 @@ public class UiAni : MonoBehaviour
     {
         OptionsGroup.DOKill();
         OptionsBg.DOKill();
-       
-        OptionsiconCG.DOKill();
+        OptionsCG.DOKill();
+        Tape.DOKill();
 
         OptionsisAni = true;
         Sequence animSeq = DOTween.Sequence().SetUpdate(true);
 
         if (options)
         {
-
             if (Settings != null && !Settings.activeSelf)
             {
-                // UiSfXManager.soundManager.PlaySound(UiSfXManager.SoundType.OpenSettings);
                 Settings.SetActive(true);
             }
 
+            // --- TURBO SPIN INTRO ---
+            OptionsGroup.localScale = Vector3.zero;
+            // Começa girado em -180 graus (meia volta completa) para dar o efeito de twist
+            OptionsGroup.localRotation = Quaternion.Euler(0, 0, -180f); 
+            animSeq.Join(SchemesGroup.DOFade(0f, 0.2f));        
+            animSeq.Join(OptionsCG.DOFade(1f, 0.4f));
+            animSeq.Join(Pointer.DOFade(0f, 0));
+            animSeq.Join(SchemesGroup.DOFade(0f, 0.2f));
+            animSeq.Join(OptionsGroup.DOAnchorPos(OptionsGroupIntroPos, OptionsGroupTweendur).SetEase(OptionEaseIntro).SetUpdate(true));
+            animSeq.Join(OptionsGroup.DOScale(Vector3.one, OptionsGroupTweendur).SetEase(Ease.OutBack).SetUpdate(true));
+            animSeq.Join(OptionsGroup.DOLocalRotate(Vector3.zero, OptionsGroupTweendur, RotateMode.FastBeyond360).SetEase(OptionEaseRotIntro).SetUpdate(true));
+            
+            animSeq.Join(Tape.DOAnchorPos(TapeIntroPos, TapeTweendur).SetEase(TapeEase).SetUpdate(true));
 
+            animSeq.OnComplete(() => 
+            {
+                OptionsisAni = false;
 
-            animSeq.Join(SchemesGroup.DOFade(0f, 0.5f));
-            animSeq.OnComplete(() => OptionsisAni = false);
+                if (buttonManager != null && Settings != null && FirstOptnButton != null)
+                {
+                    buttonManager.InitializeManager(Settings, FirstOptnButton);
+                }
+                else if (EventSystem.current != null && FirstOptnButton != null)
+                {
+                    EventSystem.current.SetSelectedGameObject(null);
+                    EventSystem.current.SetSelectedGameObject(FirstOptnButton);
+                }
+            });
         }
         else
         {
-            if (Settings != null && Settings.activeSelf)
-            {
-                // UiSfXManager.soundManager.PlaySound(UiSfXManager.SoundType.CloseSettings);
-            }
-
-
+            animSeq.Join(SchemesGroup.DOFade(1f, 0.2f));
+            
+           animSeq.Join(OptionsCG.DOFade(0f, 0.4f));
+            animSeq.Join(OptionsGroup.DOAnchorPos(OptionsGroupOutroPos, OptionsGroupTweendur).SetEase(OptionEaseOutro).SetUpdate(true));
+            animSeq.Join(OptionsGroup.DOScale(Vector3.zero, OptionsGroupTweendur * 0.8f).SetEase(Ease.InBack).SetUpdate(true));
+            animSeq.Join(OptionsGroup.DOLocalRotate(new Vector3(0, 0, 180f), OptionsGroupTweendur, RotateMode.FastBeyond360).SetEase(OptionEaseRotOutro).SetUpdate(true));
+            
+            animSeq.Join(Tape.DOAnchorPos(TapeOutroPos, TapeTweendur).SetEase(Ease.InBack).SetUpdate(true));
+            
             animSeq.OnComplete(() =>
             {
+                Pointer.DOFade(1f, 0.1f).SetUpdate(true);
                 OptionsisAni = false;
                 if (Settings != null) Settings.SetActive(false);
+
+                if (buttonManager != null && UI != null && MenuOptnButton != null)
+                {
+                    buttonManager.InitializeManager(UI, MenuOptnButton);
+                }
+                else if (EventSystem.current != null && MenuOptnButton != null)
+                {
+                    EventSystem.current.SetSelectedGameObject(null);
+                    EventSystem.current.SetSelectedGameObject(MenuOptnButton);
+                }
             });
         }
     }
@@ -182,13 +233,6 @@ public class UiAni : MonoBehaviour
         audioSource.Stop();
     }
 
-    public void BoolOnSound()
-    {
-        // UiSfXManager.soundManager.PlaySound(UiSfXManager.SoundType.BoolOn);
-    }
-
-    public void BoolOffSound()
-    {
-        // UiSfXManager.soundManager.PlaySound(UiSfXManager.SoundType.BoolOff);
-    }
+    public void BoolOnSound() { }
+    public void BoolOffSound() { }
 }
