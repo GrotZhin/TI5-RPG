@@ -20,6 +20,13 @@ public class UiAni : MonoBehaviour
     public float TweenDur;
     public bool MenuActive;
     public float IntroOverlapTime;
+    [Header("Ui Intro & Outro Tweens")]
+    [SerializeField] private RectTransform TopPart;
+    [SerializeField] private CanvasGroup TopPartCG;
+    public float TopPartIntroPos;
+    public float TopPartOutroPos;
+    public float TopPartTweenDur;
+    public Ease TopPartEase;
 
     [Header("Options Settings & Tweens")]
     public bool options;
@@ -53,6 +60,7 @@ public class UiAni : MonoBehaviour
     public GameObject GPCtrlscheme;
 
     private bool OptionsisAni = false;
+     private bool isOutroPlaying = false; 
 
     void Start()
     {
@@ -104,26 +112,43 @@ public class UiAni : MonoBehaviour
 
     public void UIIntro()
     {
+        if (isOutroPlaying) return; 
+        
         UiCG.DOKill();
         if (Input != null) Input.SwitchCurrentActionMap("UI");
         UiCG.alpha = 0;
         
         Sequence intro = DOTween.Sequence().SetUpdate(true);
         intro.Join(UiCG.DOFade(1, 1f));
+        intro.Join(TopPart.DOAnchorPosY(TopPartIntroPos,TopPartTweenDur).SetEase(TopPartEase));
+        intro.Join(TopPartCG.DOFade(1, 0.4f));
     }
 
     public void UIOutro()
     {
+        if (isOutroPlaying) return; 
+        isOutroPlaying = true;
+
         UiCG.DOKill();
         options = false;
         OptionsAni();
 
+        if (Input != null) 
+        {
+            Input.currentActionMap?.Disable(); 
+        }
+
         Sequence outro = DOTween.Sequence().SetUpdate(true);
+        outro.Join(TopPart.DOAnchorPosY(TopPartOutroPos,TopPartTweenDur).SetEase(TopPartEase));
+        outro.Join(TopPartCG.DOFade(0, 0.4f));
         outro.Join(UiCG.DOFade(0, 1f).SetEase(Ease.InFlash));
+        
         outro.OnComplete(() => 
         { 
             if (UI != null) UI.SetActive(false);
-            if (Input != null) Input.SwitchCurrentActionMap("Player");
+            if (Input != null) Input.SwitchCurrentActionMap("Player"); 
+            
+            isOutroPlaying = false;
         });
     }
     

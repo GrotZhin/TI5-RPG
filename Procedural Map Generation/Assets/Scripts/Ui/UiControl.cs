@@ -60,9 +60,10 @@ public class UiControl : MonoBehaviour
                 buttonManager.InitializeManager(menuCanvas, currentButton);
             }
         }
-        else
+        else 
         {
             menuAni.UIOutro();
+            
             inputInfo.SetGameplay();
             playerInput.SwitchCurrentActionMap("Player");
             if (buttonManager != null)
