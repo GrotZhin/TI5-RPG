@@ -22,7 +22,7 @@ public class EnemyAgent : MonoBehaviour
         control = new EnemyAgentControl(this);
         state = new EnemyStateIdle(this, renderer);
         cc = GetComponent<CharacterController>();
-        collider = GetComponent<SphereCollider>();
+        //collider = GetComponent<SphereCollider>();
         state?.Enter();
     }
     void Start()

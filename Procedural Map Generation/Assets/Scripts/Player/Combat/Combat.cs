@@ -8,6 +8,7 @@ public class Combat : MonoBehaviour
     public Animator anim;
     public Transform scissorLeft, scissorRight;
     public SkillData skill;
+    public LayerMask layer;
     public readonly HashSet<EnemyAgent> alreadyHit = new HashSet<EnemyAgent>();
    
 
@@ -39,7 +40,7 @@ public class Combat : MonoBehaviour
     }
     void CheckCollision(Transform point, SkillData data)
     {
-        Collider[] colliders = Physics.OverlapSphere(point.position, data.hitBox);
+        Collider[] colliders = Physics.OverlapSphere(point.position, data.hitBox,layer);
       
         for (int i = 0; i < colliders.Length; i++)
         {
