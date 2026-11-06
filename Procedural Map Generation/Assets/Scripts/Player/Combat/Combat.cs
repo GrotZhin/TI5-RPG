@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -47,10 +48,12 @@ public class Combat : MonoBehaviour
             if (colliders[i].TryGetComponent<EnemyAgent>(out EnemyAgent enemy))
             {
                 if(!alreadyHit.Add(enemy)) continue;
+                GameFeel.gameFeel.Stop(data.hitStop);
                 enemy.ChangeState(new EnemyStateDano(enemy, enemy.renderer, data.force));
             }
         }
     }
+  
     void OnDrawGizmos()
     {
         if (skill == null) return;

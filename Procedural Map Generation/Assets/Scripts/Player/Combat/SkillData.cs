@@ -8,6 +8,7 @@ public class SkillData : ScriptableObject
     public float hitBox;
     public bool left;
     public bool both;
+    public float hitStop = 0.1f;
 
 
 }
