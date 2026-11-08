@@ -7467,6 +7467,67 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2957387996226294193, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
   m_PrefabInstance: {fileID: 2849205198210558428}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &292418155
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3800318559839504812, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e8899c5788f6d041b13114c51a2adfc, type: 2}
+    - target: {fileID: 6018943636525869859, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+      propertyPath: m_Name
+      value: Clochette
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398566091715031449, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.88146
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398566091715031449, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.2500296
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398566091715031449, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.6694827
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398566091715031449, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398566091715031449, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398566091715031449, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398566091715031449, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398566091715031449, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398566091715031449, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398566091715031449, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
 --- !u!1 &303731599
 GameObject:
   m_ObjectHideFlags: 0
@@ -54107,7 +54168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e906ac887cff7c44285f2064c8a8a132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameFeel
-  durantion: 0.05
+  durantion: 0.001
 --- !u!1 &1882945446
 GameObject:
   m_ObjectHideFlags: 0
@@ -59248,3 +59309,4 @@ SceneRoots:
   - {fileID: 1780696512}
   - {fileID: 719652065}
   - {fileID: 1560408518}
+  - {fileID: 292418155}
