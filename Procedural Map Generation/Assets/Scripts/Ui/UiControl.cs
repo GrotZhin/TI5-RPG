@@ -72,4 +72,13 @@ public class UiControl : MonoBehaviour
             }
         }
     }
+        public void CutsceneInput()
+        {
+        inputInfo.SetUi();
+        }
+        public void CutsceneMov()
+        {
+        inputInfo.SetGameplay();
+        }
+        
 }
