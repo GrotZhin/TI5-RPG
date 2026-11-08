@@ -49,6 +49,7 @@ public class Combat : MonoBehaviour
             {
                 if(!alreadyHit.Add(enemy)) continue;
                 GameFeel.gameFeel.Stop(data.hitStop);
+                CameraShakeManager.Shaker.ShakePulse(5,1,.1f);
                 enemy.ChangeState(new EnemyStateDano(enemy, enemy.renderer, data.force));
             }
         }

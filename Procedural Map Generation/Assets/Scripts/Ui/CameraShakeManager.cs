@@ -14,8 +14,8 @@ public class CameraShakeManager : MonoBehaviour
 
     public void Start()
     {
-        Cam1Shake = Cam1.GetComponent<CinemachineBasicMultiChannelPerlin>();
-        Cam2Shake = Cam2.GetComponent<CinemachineBasicMultiChannelPerlin>();
+        CamShake = Cam1.GetComponent<CinemachineBasicMultiChannelPerlin>();
+       
 
     }
     void Awake()
@@ -25,24 +25,23 @@ public class CameraShakeManager : MonoBehaviour
         else Destroy(gameObject);
         
     }
-    void Update()
-    {
-        
-    }
+    
     public void ShakePulseCutscene()
     {
         ShakePulse(10,10,4);
     }
     public void ShakePulse(float CamShakeAmp, float CamShakeFreq, float Dur)
     {
-        // if (OnOffOptions.Instance.CameraShake)
-        // {
-        //     if (CamShake != null)
-        //     {
-        //         if (shakeCoroutine != null) StopCoroutine(shakeCoroutine);    
-        //         shakeCoroutine = StartCoroutine(ShakeNature(CamShakeAmp, CamShakeFreq, Dur));
-        //     }
-        // }
+     
+        if (OnOffOptions.Instance.CameraShake)
+        {
+       
+            if (CamShake != null)
+            {
+                if (shakeCoroutine != null) StopCoroutine(shakeCoroutine);    
+                shakeCoroutine = StartCoroutine(ShakeNature(CamShakeAmp, CamShakeFreq, Dur));
+            }
+        }
     }
 
     private IEnumerator ShakeNature(float startAmp, float startFreq, float Dur)

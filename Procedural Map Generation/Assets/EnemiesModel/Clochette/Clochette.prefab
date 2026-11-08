@@ -63,15 +63,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 57092b8af97722649a9714161469b235, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 42.885075
+      value: 16.88146
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 57092b8af97722649a9714161469b235, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.2500298
+      value: 3.2500296
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 57092b8af97722649a9714161469b235, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.99221
+      value: -5.6694827
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 57092b8af97722649a9714161469b235, type: 3}
       propertyPath: m_LocalRotation.w
@@ -101,6 +101,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1442404153522708514, guid: 57092b8af97722649a9714161469b235, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e8899c5788f6d041b13114c51a2adfc, type: 2}
     - target: {fileID: 919132149155446097, guid: 57092b8af97722649a9714161469b235, type: 3}
       propertyPath: m_Name
       value: Clochette
@@ -203,6 +207,7 @@ MonoBehaviour:
   collider: {fileID: 1810835825027366520}
   animator: {fileID: 3592947347788518574}
   attackCheck: {fileID: -8860366101360557601}
+  stats: {fileID: 11400000, guid: 63aa8b84e8bb3c64dbb1e49d704857e7, type: 2}
 --- !u!143 &6492111870007163155
 CharacterController:
   m_ObjectHideFlags: 0

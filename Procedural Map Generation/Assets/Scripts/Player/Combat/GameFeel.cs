@@ -25,18 +25,8 @@ public class GameFeel : MonoBehaviour
         StartCoroutine(ReturnTime(duration));
 
     }
-    // public void Pause()
-    // {
-    //     var time = 0.0f;
-    //     var progress = 0.0f;
-    //     while (progress < 1)
-    //     {
-    //         progress = Mathf.Clamp01(time / durantion);
-    //         time += Time.deltaTime;
-
-    //     }
-    // }
-
+    
+ 
     IEnumerator ReturnTime(float durantion)
     {
         Debug.Log("to no aguardo");

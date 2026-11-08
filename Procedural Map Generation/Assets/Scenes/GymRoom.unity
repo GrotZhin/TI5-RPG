@@ -7475,10 +7475,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3800318559839504812, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 7e8899c5788f6d041b13114c51a2adfc, type: 2}
     - target: {fileID: 6018943636525869859, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
       propertyPath: m_Name
       value: Clochette
@@ -12448,6 +12444,11 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &598301749 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9075750302664076325, guid: 36a7f1cd34d65cb49b87720f70f9b1b5, type: 3}
+  m_PrefabInstance: {fileID: 2536391091138591926}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &605287581
 Mesh:
   m_ObjectHideFlags: 0
@@ -12806,12 +12807,57 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3990985188871851951, guid: 36a7f1cd34d65cb49b87720f70f9b1b5, type: 3}
   m_PrefabInstance: {fileID: 2536391091138591926}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 598301749}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &636414737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598301749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBasicMultiChannelPerlin
+  NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 0
+  FrequencyGain: 0
+  m_NoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!114 &636414743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598301749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d4368b14b01e74382e844f7ab5a37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OnOffOptions
+  Rumble: 0
+  CameraShake: 1
+--- !u!114 &636414744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598301749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a2f979fb8238e04e91b16b063905a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShakeManager
+  Cam1: {fileID: 636414736}
+  Cam2: {fileID: 0}
 --- !u!95 &655379586 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2240998246895074095, guid: f58fab68e14aca541bd59f3a3e2f1347, type: 3}
@@ -58718,7 +58764,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9075750302664076325, guid: 36a7f1cd34d65cb49b87720f70f9b1b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 636414737}
+    - targetCorrespondingSourceObject: {fileID: 9075750302664076325, guid: 36a7f1cd34d65cb49b87720f70f9b1b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 636414744}
+    - targetCorrespondingSourceObject: {fileID: 9075750302664076325, guid: 36a7f1cd34d65cb49b87720f70f9b1b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 636414743}
   m_SourcePrefab: {fileID: 100100000, guid: 36a7f1cd34d65cb49b87720f70f9b1b5, type: 3}
 --- !u!1001 &2849205198210558428
 PrefabInstance:
