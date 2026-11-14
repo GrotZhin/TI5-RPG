@@ -22,14 +22,14 @@ public class Combat : MonoBehaviour
         if (!inAttack || skill == null) return;
         {
 
-            if (skill.both)
+            if (skill.Both)
             {
                 CheckCollision(scissorLeft, skill);
                 CheckCollision(scissorRight, skill);
             }
             else
             {
-                if (skill.left)
+                if (skill.Left)
                     CheckCollision(scissorLeft, skill);
                 else
                     CheckCollision(scissorRight, skill);
@@ -41,16 +41,16 @@ public class Combat : MonoBehaviour
     }
     void CheckCollision(Transform point, SkillData data)
     {
-        Collider[] colliders = Physics.OverlapSphere(point.position, data.hitBox,layer);
+        Collider[] colliders = Physics.OverlapSphere(point.position, data.HitBox,layer);
       
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].TryGetComponent<EnemyAgent>(out EnemyAgent enemy))
             {
                 if(!alreadyHit.Add(enemy)) continue;
-                GameFeel.gameFeel.Stop(data.hitStop);
+                //GameFeel.gameFeel.Stop(data.hitStop);
                 CameraShakeManager.Shaker.ShakePulse(5,1,.1f);
-                enemy.ChangeState(new EnemyStateDano(enemy, enemy.renderer, data.force));
+                enemy.ChangeState(new EnemyStateDano(enemy, enemy.renderer, data.Force));
             }
         }
     }
@@ -58,17 +58,17 @@ public class Combat : MonoBehaviour
     void OnDrawGizmos()
     {
         if (skill == null) return;
-        if (skill.both)
+        if (skill.Both)
         {
-            Gizmos.DrawWireSphere(scissorLeft.position, skill.hitBox);
-            Gizmos.DrawWireSphere(scissorRight.position, skill.hitBox);
+            Gizmos.DrawWireSphere(scissorLeft.position, skill.HitBox);
+            Gizmos.DrawWireSphere(scissorRight.position, skill.HitBox);
         }
         else
         {
-            if (skill.left)
-                Gizmos.DrawWireSphere(scissorLeft.position, skill.hitBox);
+            if (skill.Left)
+                Gizmos.DrawWireSphere(scissorLeft.position, skill.HitBox);
             else
-                Gizmos.DrawWireSphere(scissorRight.position, skill.hitBox);
+                Gizmos.DrawWireSphere(scissorRight.position, skill.HitBox);
         }
 
 

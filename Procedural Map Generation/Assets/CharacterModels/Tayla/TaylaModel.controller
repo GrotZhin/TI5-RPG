@@ -5226,6 +5226,7 @@ AnimatorState:
   - {fileID: 4997252803613483164}
   m_StateMachineBehaviours:
   - {fileID: 3181315319983202448}
+  - {fileID: 8242057708788190970}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -5666,6 +5667,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d002d0fe7cbc774baf7d84df99d1585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaylaAnimationBehavior
+--- !u!114 &8242057708788190970
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b1f1d207e90d34e86288f9196ad4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefineSkill
+  skill: {fileID: 11400000, guid: f50817ab627fc724aa4eff00c2462663, type: 2}
 --- !u!1102 &8266536633261208786
 AnimatorState:
   serializedVersion: 6
