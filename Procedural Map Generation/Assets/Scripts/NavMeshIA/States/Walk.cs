@@ -1,5 +1,6 @@
 
 using System.Collections;
+using System.IO;
 using Unity.VisualScripting;
 using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class Walk : IState
     Agent agent;
     private Vector2 velocity;
     private Vector2 smoothDeltaPosition;
+    private Coroutine coroutine;
 
     public Walk(Agent agent)
     {
@@ -23,8 +25,8 @@ public class Walk : IState
         agent.agent.updatePosition = false;
         agent.agent.updateRotation = true;
 
-       // agent.Invoke("Move", 1);
-        agent.StartCoroutine(Move());
+        // agent.Invoke("Move", 1);
+        coroutine = agent.StartCoroutine(Move());
 
 
         //agent.StartCoroutine(SortState(2));
@@ -55,7 +57,7 @@ public class Walk : IState
 
         float deltaMagnitude = worldDeltaPosition.magnitude;
 
-        if (deltaMagnitude > agent.agent.radius )
+        if (deltaMagnitude > agent.agent.radius)
         {
             agent.transform.position = Vector3.Lerp(agent.animator.rootPosition, agent.agent.nextPosition, smooth);
         }
@@ -63,32 +65,37 @@ public class Walk : IState
     IEnumerator Move()
     {
 
+
         agent.agent.SetDestination(agent.group.formation.GetPosition(agent));
-        
-        float delay = agent.agent.remainingDistance / agent.agent.speed;
-        yield return new WaitForSeconds(delay);
+
+
+        yield return new WaitUntil(() => !agent.agent.pathPending && agent.agent.remainingDistance <= 0.7f);
+
+
+
         agent.StartCoroutine(Move());
 
     }
+
     IEnumerator SortState(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         if (Random.value > 0.9f) agent.ChangeState(new Walk(agent));
         else
         {
-            Debug.Log("Nao entrei no state");
+
             agent.StartCoroutine(SortState(2));
         }
 
     }
     public void Execute(float delta)
     {
-       
+
         SyncronizeAnimator();
     }
 
     public void Exit()
     {
-
+        if (coroutine != null) agent.StopAllCoroutines();
     }
 }

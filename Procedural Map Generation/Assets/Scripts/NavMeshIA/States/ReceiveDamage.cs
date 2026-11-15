@@ -20,7 +20,7 @@ public class ReceiveDamage : IState
         Debug.Log("Entrei no state dnv");
          
         AnimatorStateInfo state = agent.animator.GetCurrentAnimatorStateInfo(0);
-        if(!state.IsName("damage"))
+       // if(!state.IsName("damage"))
             agent.animator.SetTrigger("damage");
         
         GameFeel.gameFeel.FlashEffect(0.2f, renderer);

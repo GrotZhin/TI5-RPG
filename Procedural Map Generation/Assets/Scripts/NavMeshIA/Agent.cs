@@ -64,7 +64,7 @@ public class Agent : MonoBehaviour
 
   public void Remove()
   {
-    Destroy(this);
+    Destroy(gameObject);
   }
   void OnDestroy()
   {
