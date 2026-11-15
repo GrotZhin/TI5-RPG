@@ -14,17 +14,19 @@ public class Agent : MonoBehaviour
   [HideInInspector]
   public GroupFormation group;
   public UnityEvent done;
-  public EnemyStats stats;
+  public EnemyStatusManager stats;
   public Animator animator;
   public EnemyAttackCheck attackCheck;
+  public SkinnedMeshRenderer renderer;
   IState state;
   void Start()
   {
     agent = GetComponent<NavMeshAgent>();
+
     group = transform.parent.GetComponent<GroupFormation>();
     state = new Idle(this);
     state?.Enter();
-    
+
     if (isLeader)
     {
       group.leader = this;
@@ -34,25 +36,36 @@ public class Agent : MonoBehaviour
     else
       group.list.Add(this);
 
-   
+
+  }
+  public void Update()
+  {
+    state?.Execute(Time.deltaTime);
   }
 
-    private void OnAnimatorMove()
-    {
-        Vector3 rootPosition = animator.rootPosition;
-        rootPosition.y = agent.nextPosition.y;
-        transform.position = rootPosition;
-        agent.nextPosition = rootPosition;
-    }
-    
-   
+
+
+  private void OnAnimatorMove()
+  {
+
+    Vector3 rootPosition = animator.rootPosition;
+    rootPosition.y = agent.nextPosition.y;
+    agent.transform.position = rootPosition;
+    agent.nextPosition = rootPosition;
+  }
+
+
   public void ChangeState(IState state)
   {
     this.state?.Exit();
     this.state = state;
     state?.Enter();
   }
- 
+
+  public void Remove()
+  {
+    Destroy(this);
+  }
   void OnDestroy()
   {
     if (isLeader)
@@ -63,5 +76,7 @@ public class Agent : MonoBehaviour
 
       group.list.Remove(this);
 
+    if (IslandManager.islandManager != null)
+      IslandManager.islandManager.enemies.Remove(agent.gameObject);
   }
 }

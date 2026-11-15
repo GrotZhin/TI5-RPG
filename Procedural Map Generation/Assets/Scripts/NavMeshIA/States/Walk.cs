@@ -55,7 +55,7 @@ public class Walk : IState
 
         float deltaMagnitude = worldDeltaPosition.magnitude;
 
-        if (deltaMagnitude > agent.agent.radius / 2f)
+        if (deltaMagnitude > agent.agent.radius )
         {
             agent.transform.position = Vector3.Lerp(agent.animator.rootPosition, agent.agent.nextPosition, smooth);
         }
@@ -64,7 +64,7 @@ public class Walk : IState
     {
 
         agent.agent.SetDestination(agent.group.formation.GetPosition(agent));
-        SyncronizeAnimator();
+        
         float delay = agent.agent.remainingDistance / agent.agent.speed;
         yield return new WaitForSeconds(delay);
         agent.StartCoroutine(Move());
@@ -83,8 +83,8 @@ public class Walk : IState
     }
     public void Execute(float delta)
     {
-
-
+       
+        SyncronizeAnimator();
     }
 
     public void Exit()

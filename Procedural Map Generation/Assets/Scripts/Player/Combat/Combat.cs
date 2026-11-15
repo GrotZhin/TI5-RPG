@@ -10,7 +10,7 @@ public class Combat : MonoBehaviour
     public Transform scissorLeft, scissorRight;
     public SkillData skill;
     public LayerMask layer;
-    public readonly HashSet<EnemyAgent> alreadyHit = new HashSet<EnemyAgent>();
+    public readonly HashSet<Agent> alreadyHit = new HashSet<Agent>();
    
 
     void FixedUpdate()
@@ -45,12 +45,13 @@ public class Combat : MonoBehaviour
       
         for (int i = 0; i < colliders.Length; i++)
         {
-            if (colliders[i].TryGetComponent<EnemyAgent>(out EnemyAgent enemy))
+            if (colliders[i].TryGetComponent<Agent>(out Agent enemy))
             {
                 if(!alreadyHit.Add(enemy)) continue;
-                //GameFeel.gameFeel.Stop(data.hitStop);
+                GameFeel.gameFeel.Stop(data.HitStop);
                 CameraShakeManager.Shaker.ShakePulse(5,1,.1f);
-                enemy.ChangeState(new EnemyStateDano(enemy, enemy.renderer, data.Force));
+                enemy.ChangeState(new ReceiveDamage(enemy,data.Force,enemy.renderer));
+                //enemy.ChangeState(new EnemyStateDano(enemy, enemy.renderer, data.Force));
             }
         }
     }

@@ -10,5 +10,5 @@ public class EnemyStats : ScriptableObject
     public float Stance => stance;
     public float Life => life;
     
-
+ 
 }
