@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 public class TaylaAnimationBehavior : StateMachineBehaviour
 {
+    int dash = Animator.StringToHash("Dash");
     public static UnityAction Dash, ResetDash;
     public static UnityAction<bool> Jump, ResetAirActions;
     
@@ -17,7 +18,7 @@ public class TaylaAnimationBehavior : StateMachineBehaviour
             Jump(false);
         if (stateInfo.IsName("DoubleJump"))
             Jump(true);
-        if (stateInfo.IsName("DashA") || stateInfo.IsName("DashB") || stateInfo.IsName("ArialDash"))
+        if (stateInfo.tagHash == dash)
             Dash();
 
         if (stateInfo.IsName("Fall"))
@@ -36,7 +37,7 @@ public class TaylaAnimationBehavior : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (stateInfo.IsName("DashA") || stateInfo.IsName("DashB") || stateInfo.IsName("ArialDash"))
+        if (stateInfo.tagHash == dash)
             ResetDash();
     }
 
