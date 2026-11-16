@@ -19,12 +19,12 @@ public class EnemyStateDano : IState
     {
 
         //Debug.Log("Move entrou");
-        renderer.material.color = Color.black;
+        
 
 
         chace = Random.Range(0, 100);
-
-        agent.animator.SetBool("Dano", true);
+        GameFeel.gameFeel.FlashEffect(0.2f,renderer);
+        agent.animator.SetTrigger("Dano");
         bool isDead = agent.control.dano(damage);
         if(isDead) agent.ChangeState(new EnemyStateDeath(agent, renderer)) ;
         time = 1;
@@ -42,7 +42,7 @@ public class EnemyStateDano : IState
             }
             else
             {
-                agent.ChangeState(new EnemyStateAttack(agent, renderer));
+                agent.ChangeState(new EnemyStateMove(agent, renderer));
             }
         }
     }

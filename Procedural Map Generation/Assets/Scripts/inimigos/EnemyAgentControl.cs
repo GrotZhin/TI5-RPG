@@ -10,13 +10,19 @@ public class EnemyAgentControl
     public float radius = 4.8f;
     public float vida = 30f;
     public float stance = 0f;
-    [Range(0,1)]
+    [Range(0, 1)]
     public float separate = 0.9f, seek = 0.6f, align = 0.03f, avoid = 1f, cohesion = 0.05f;
     Vector3 dir;
     public LayerMask obstacle;
     public Animator anim;
 
-    public EnemyAgentControl (EnemyAgent agent) {  self = agent; obstacle = LayerMask.GetMask("Obstacle"); }
+    public EnemyAgentControl(EnemyAgent agent, EnemyStats stats)
+    {
+        self = agent; obstacle = LayerMask.GetMask("Obstacle");
+        vida = stats.Life;
+        stance = stats.Stance;
+
+    }
 
     public Vector3 Move(int fleeMod = 1, Vector3? dire = null)
     {
@@ -35,7 +41,7 @@ public class EnemyAgentControl
             dir = dire ?? self.transform.forward;
 
         }
-        
+
         Vector3 result =
         dir * fleeMod +
         separate * Separate() +
@@ -132,7 +138,7 @@ public class EnemyAgentControl
         RaycastHit hit;
         Vector3 result = Vector3.zero;
         Vector3 origem = self.transform.position + self.transform.up;
-        if (Physics.Raycast(origem, self.transform.forward, out hit, radius, obstacle)) 
+        if (Physics.Raycast(origem, self.transform.forward, out hit, radius, obstacle))
         {
             Debug.DrawRay(hit.point, hit.normal, Color.hotPink);
             result = ((hit.normal + self.cc.velocity.normalized) * 0.5f);
@@ -142,17 +148,15 @@ public class EnemyAgentControl
     }
     public bool dano(float dano)
     {
-        
         vida -= dano;
-        Debug.Log("vida: " + vida);
-        if(vida<= 0)
+
+        if (vida <= 0)
         {
-          
-          
-           Debug.Log("morreu");
-            if(IslandManager.islandManager != null)
-            IslandManager.islandManager.enemies.Remove(self.gameObject);
-           return true;
-        }else return false;
+
+            if (IslandManager.islandManager != null)
+                IslandManager.islandManager.enemies.Remove(self.gameObject);
+            return true;
+        }
+        else return false;
     }
 }

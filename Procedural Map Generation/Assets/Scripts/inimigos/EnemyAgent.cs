@@ -12,6 +12,7 @@ public class EnemyAgent : MonoBehaviour
     public SphereCollider collider;
     public Animator animator;
     public EnemyAttackCheck attackCheck;
+    public EnemyStats stats;
 
     void OnEnable()
     {
@@ -19,7 +20,7 @@ public class EnemyAgent : MonoBehaviour
         //{
         //    Geralageteinimigo.Geralinimigo.Addageteinimigo(this);
         //}
-        control = new EnemyAgentControl(this);
+        control = new EnemyAgentControl(this,stats);
         state = new EnemyStateIdle(this, renderer);
         cc = GetComponent<CharacterController>();
         //collider = GetComponent<SphereCollider>();

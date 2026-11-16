@@ -10,14 +10,14 @@ public class EnemyAttackCheck : MonoBehaviour
     public void CheckCollision()
     {
        
-        Collider[] colliders = Physics.OverlapSphere(attackPoint.position, skill.hitBox);
+        Collider[] colliders = Physics.OverlapSphere(attackPoint.position, skill.HitBox);
 
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].TryGetComponent<PlayerStats>(out PlayerStats stats))
             {
                 if (!alreadyHit.Add(stats)) continue;
-                stats.TakeDamage(skill.force);
+                stats.TakeDamage(skill.Force);
                 
             }
         }
@@ -25,7 +25,7 @@ public class EnemyAttackCheck : MonoBehaviour
      void OnDrawGizmos()
     {
        
-            Gizmos.DrawWireSphere(attackPoint.position, skill.hitBox);
+            Gizmos.DrawWireSphere(attackPoint.position, skill.HitBox);
            
         
 
