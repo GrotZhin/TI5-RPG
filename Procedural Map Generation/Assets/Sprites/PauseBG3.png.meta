@@ -149,7 +149,7 @@ TextureImporter:
         width: 756
         height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -171,7 +171,7 @@ TextureImporter:
         width: 114
         height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -180,6 +180,50 @@ TextureImporter:
       bones: []
       spriteID: d65c4fb1dc53c8b45875434e48606a49
       internalID: 474629817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseBG3_4
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 52
+        width: 263
+        height: 1979
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf87518a57af93d43b897e4fc0e6ca34
+      internalID: 1731923505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseBG3_5
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 47
+        width: 711
+        height: 892
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 345104b757c1dd44bb0e42c8d784aa89
+      internalID: 345418336
       vertices: []
       indices: 
       edges: []
@@ -204,6 +248,8 @@ TextureImporter:
       PauseBG3_1: -643396680
       PauseBG3_2: 724538251
       PauseBG3_3: 474629817
+      PauseBG3_4: 1731923505
+      PauseBG3_5: 345418336
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

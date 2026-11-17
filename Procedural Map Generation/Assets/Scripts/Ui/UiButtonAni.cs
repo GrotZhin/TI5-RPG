@@ -22,6 +22,7 @@ public class UiButtonManager : MonoBehaviour
     void Start()
     {
         if (Pointer != null) Pointer.gameObject.SetActive(false);
+        
     }
 
     void Update()
