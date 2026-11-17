@@ -54,7 +54,7 @@ MonoBehaviour:
     x: -2413
     y: 40
     width: 4656
-    height: 2526
+    height: 2602
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2955,7 +2955,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":0.7490196228027344,"g":0.060769449919462207,"b":0.13283750414848329,"a":1.0}'
+      m_SerializableObject: '{"r":1.0,"g":0.0,"b":0.0,"a":1.0}'
     m_Space: -1
   m_Property:
     name: _Color
@@ -3116,7 +3116,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615051}
   - {fileID: 8926484042661615052}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 0
+  m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 8926484042661615048}
   m_MasterData:
@@ -3125,7 +3125,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":1.60555899143219,"g":0.0,"b":0.11493881791830063,"a":1.0}'
+      m_SerializableObject: '{"r":1.4980388879776,"g":0.0,"b":0.1520538628101349,"a":1.0}'
     m_Space: -1
   m_Property:
     name: _ColorSub
@@ -5779,7 +5779,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":0.6394863128662109,"g":0.0,"b":1.0,"a":1.0}'
+      m_SerializableObject: '{"r":1.0,"g":0.0,"b":0.1902308464050293,"a":1.0}'
     m_Space: -1
   m_Property:
     name: _Color
