@@ -12688,6 +12688,73 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &607724949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 607724951}
+  - component: {fileID: 607724950}
+  m_Layer: 0
+  m_Name: MoneyOrbManeger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &607724950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607724949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31d3a1668aeea64f90adbb34370d478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoneyOrbManager
+  orbPrefab: {fileID: 1588349038653789761, guid: ae5e40035860b0c46aa2e869acdd1eae, type: 3}
+  fallbackScale: 0.25
+  coinsPerOrb: 5
+  maxOrbsPerDrop: 10
+  maxActiveOrbs: 150
+  prewarm: 40
+  burstSpeed: 5
+  burstUp: 6
+  gravity: 25
+  bounce: 0.45
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 512
+  groundOffset: 0.15
+  magnetDelay: {x: 0.45, y: 0.8}
+  startSpeed: 6
+  maxSpeed: 35
+  acceleration: 60
+  collectRadius: 0.6
+  targetHeight: 1
+  styleBonusPerRank: 0.1
+  showPopup: 1
+  popupDelay: 0.4
+--- !u!4 &607724951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607724949}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.10144, y: 3.25003, z: 45.90406}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &622321783
 GameObject:
   m_ObjectHideFlags: 0
@@ -13298,6 +13365,51 @@ MonoBehaviour:
   - {fileID: 1624325050}
   - {fileID: 811984360}
   taylaani: {fileID: 655379586}
+--- !u!1 &668726449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5094408308165768053, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
+  m_PrefabInstance: {fileID: 2849205198210558428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &668726451 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5291189025854919781, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
+  m_PrefabInstance: {fileID: 2849205198210558428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668726449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &668726453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668726449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3643ccc99d907074bbc0bc4e63b97391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWallet
+  coins: 100
+--- !u!114 &668726454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668726449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4282c08fa31118648991c2a984a8defc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoneyHUD
+  text: {fileID: 668726451}
+  format: '{0}'
+  countSpeed: 10
+  gainPunch: 0.12
 --- !u!1001 &678713945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30460,6 +30572,76 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &1042580710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1042580712}
+  - component: {fileID: 1042580711}
+  m_Layer: 0
+  m_Name: StyleSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1042580711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042580710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95592ce0f82305543978e0fa6f7db6eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StyleSystem
+  rankSize: 100
+  decayPerSecond:
+  - 4
+  - 6
+  - 9
+  - 13
+  - 18
+  - 24
+  decayDelay: 1.2
+  gainFalloffPerRank: 0.08
+  airHitMultiplier: 1.25
+  freshMoveMultiplier: 1.25
+  historySize: 8
+  repeatPenalty: 0.25
+  minRepeatMultiplier: 0.1
+  sameSwingWindow: 0.1
+  jumpPoints: 3
+  dashPoints: 4
+  combatWindow: 4
+  movementCooldown: 0.6
+  perfectDodgePoints: 25
+  perfectDodgeCooldown: 1
+  dodgeWindow: 0.4
+  hitPenaltyRanks: 1.5
+  hitLockout: 1
+  playerController: {fileID: 1877829079}
+--- !u!4 &1042580712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042580710}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.10144, y: 3.25003, z: 45.90406}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1044168067 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7513419052178517595, guid: 0ffbd2adeddbc7445a5bfa8dd0fbdc98, type: 3}
@@ -37067,6 +37249,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485729057}
   m_CullTransparentMesh: 1
+--- !u!1 &1495879659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8309480088042966851, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
+  m_PrefabInstance: {fileID: 2849205198210558428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1495879661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495879659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f60cada5f864a0247a99679442486bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StyleRankUI
+  materialFillEmpty: 0
+  materialFillFull: 1.25
+  materialFillProperty: _Fill
+  fillSmoothing: 14
+  rankUpPunch: 0.25
 --- !u!1 &1536287413
 GameObject:
   m_ObjectHideFlags: 0
@@ -54536,6 +54740,11 @@ MonoBehaviour:
   camShakeAmp: 10
   camShakeFreq: 1
   camShakeDurantion: 0.1
+--- !u!143 &1877829079 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 8919949567253215178, guid: f58fab68e14aca541bd59f3a3e2f1347, type: 3}
+  m_PrefabInstance: {fileID: 171862858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1882945446
 GameObject:
   m_ObjectHideFlags: 0
@@ -59599,6 +59808,15 @@ PrefabInstance:
       insertIndex: 0
       addedObject: {fileID: 1536287414}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8309480088042966851, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1495879661}
+    - targetCorrespondingSourceObject: {fileID: 5094408308165768053, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 668726453}
+    - targetCorrespondingSourceObject: {fileID: 5094408308165768053, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 668726454}
     - targetCorrespondingSourceObject: {fileID: 7063159683661008219, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1634235291}
@@ -59687,3 +59905,5 @@ SceneRoots:
   - {fileID: 1560408518}
   - {fileID: 1842810205}
   - {fileID: 1829012277}
+  - {fileID: 1042580712}
+  - {fileID: 607724951}

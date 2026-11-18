@@ -19,6 +19,11 @@ public class Death : IState
     {
         agent.animator.SetTrigger("isDead");
         time = 1;
+        if (!agent.droppedLoot)
+        {
+            agent.droppedLoot = true;
+            if (MoneyOrbManager.Instance != null && agent.stats != null && agent.stats.Stats != null) MoneyOrbManager.Instance.Spawn(agent.transform.position + Vector3.up, agent.stats.Stats.CoinDrop);
+        }
     }
 
 

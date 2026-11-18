@@ -18,7 +18,9 @@ public class Agent : MonoBehaviour
   public Animator animator;
   public EnemyAttackCheck attackCheck;
   public SkinnedMeshRenderer renderer;
-  IState state;
+  [HideInInspector] 
+  public bool droppedLoot;
+    IState state;
   void Start()
   {
     agent = GetComponent<NavMeshAgent>();
