@@ -11,7 +11,7 @@ public class Combat : MonoBehaviour
     public SkillData skill;
     public LayerMask layer;
     public readonly HashSet<Agent> alreadyHit = new HashSet<Agent>();
-   
+
 
     void FixedUpdate()
     {
@@ -41,21 +41,22 @@ public class Combat : MonoBehaviour
     }
     void CheckCollision(Transform point, SkillData data)
     {
-        Collider[] colliders = Physics.OverlapSphere(point.position, data.HitBox,layer);
-      
+        Collider[] colliders = Physics.OverlapSphere(point.position, data.HitBox, layer);
+
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].TryGetComponent<Agent>(out Agent enemy))
             {
-                if(!alreadyHit.Add(enemy)) continue;
+                if (!alreadyHit.Add(enemy)) continue;
                 GameFeel.gameFeel.Stop(data.HitStop);
-                CameraShakeManager.Shaker.ShakePulse(5,1,.1f);
-                enemy.ChangeState(new ReceiveDamage(enemy,data.Force,enemy.renderer));
+                GameFeel.gameFeel.CamaraShake();
+              
+                    enemy.ChangeState(new ReceiveDamage(enemy, data.Force, enemy.renderer));
                 //enemy.ChangeState(new EnemyStateDano(enemy, enemy.renderer, data.Force));
             }
         }
     }
-  
+
     void OnDrawGizmos()
     {
         if (skill == null) return;

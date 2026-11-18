@@ -54533,6 +54533,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameFeel
   durantion: 0.001
+  camShakeAmp: 10
+  camShakeFreq: 1
+  camShakeDurantion: 0.1
 --- !u!1 &1882945446
 GameObject:
   m_ObjectHideFlags: 0
