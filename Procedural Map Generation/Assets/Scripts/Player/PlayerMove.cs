@@ -59,6 +59,10 @@ public class PlayerMove : MonoBehaviour
         TaylaAnimationBehavior.ResetDash += ResetDash;
         TaylaAnimationBehavior.ResetAirActions = SetAirActions;
 
+        TaylaAttackSSMBehavior.AirFast += AirFastFall;
+        TaylaAttackSSMBehavior.AirSlow += AirSlowFall;
+        TaylaAttackSSMBehavior.ResetAir += ResetDash;
+
         InputInfo.OnMoveEvent += OnMoveInput;
         InputInfo.OnSprintEvent += OnSprint;
         InputInfo.OnJumpEvent += OnJump;
@@ -184,7 +188,7 @@ public class PlayerMove : MonoBehaviour
             if (animator.deltaRotation.eulerAngles.y < 1)
             {
                 bool attackTurnWindow = TaylaAttackSSMBehavior.attacking && TaylaAttackSSMBehavior.canTurn && turnWindow > 0.0f;
-                if (attackTurnWindow || !TaylaAttackSSMBehavior.attacking || animator.GetLayerWeight(1) < 0.5)
+                if (attackTurnWindow || !TaylaAttackSSMBehavior.attacking || animator.runtimeAnimatorController.name == "TaylaModel")
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * rotationMultiplier);
             }
         }
@@ -316,6 +320,18 @@ public class PlayerMove : MonoBehaviour
         }
 
     }
+
+    public void AirSlowFall()
+    {
+        gravityMultiplier = 0.2f;
+        ySpeed = 0;
+    }
+
+    public void AirFastFall()
+    {
+        gravityMultiplier = 3;
+    }
+
     public void ResetDash()
     {
         velocityMultiplier = 1;
