@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class UiControl : MonoBehaviour
 {
     [Header("Input System")]
-    [SerializeField] private PlayerInput playerInput;
+   // [SerializeField] private PlayerInput playerInput;
     [SerializeField] private InputInfo inputInfo;
     [SerializeField] private InputActionReference menuActionReference;
 
@@ -49,7 +49,7 @@ public class UiControl : MonoBehaviour
 
         if (isMenuOpen)
         {
-            playerInput.SwitchCurrentActionMap("UI");
+        //    playerInput.SwitchCurrentActionMap("UI");
             inputInfo.SetUi();
             menuCanvas.SetActive(true); 
             
@@ -65,7 +65,7 @@ public class UiControl : MonoBehaviour
             menuAni.UIOutro();
             
             inputInfo.SetGameplay();
-            playerInput.SwitchCurrentActionMap("Player");
+        //    playerInput.SwitchCurrentActionMap("Player");
             if (buttonManager != null)
             {
                 buttonManager.DeactivateManager();

@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
-
+using UnityEngine.SceneManagement;
 public class UiAni : MonoBehaviour
 {
     [Header("Input & Canvas")]
@@ -260,4 +260,12 @@ public class UiAni : MonoBehaviour
 
     public void BoolOnSound() { }
     public void BoolOffSound() { }
+    public void ExitToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void ExitToLobby()
+    {
+        SceneManager.LoadScene("Lobby");
+    }
 }
