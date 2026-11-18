@@ -20,7 +20,11 @@ public class ReceiveDamage : IState
     {
         Debug.Log("Entrei no state dnv");
         bool isDead = agent.stats.Damage(damage);
-        if (isDead) agent.ChangeState(new Death(agent));
+        if (isDead)
+        {
+        agent.ChangeState(new Death(agent));
+        return;    
+        } 
 
 
         agent.animator.Play("damage", 0, 0f);

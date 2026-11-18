@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: LocalizationTable_fr
+  m_Name: LocalizationTable_pt-BR 1
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
   m_LocaleId:
     m_Code: fr
@@ -19,51 +19,51 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 23260301570048
-    m_Localized: En Pause
+    m_Localized: Pausado
     m_Metadata:
       m_Items: []
   - m_Id: 30646558994432
-    m_Localized: Langues
+    m_Localized: Idiomas
     m_Metadata:
       m_Items: []
   - m_Id: 30804591980544
-    m_Localized: French
+    m_Localized: "Portugu\xEAs"
     m_Metadata:
       m_Items: []
   - m_Id: 39797632741376
-    m_Localized: Reprendre
+    m_Localized: Continuar
     m_Metadata:
       m_Items: []
   - m_Id: 39986011516928
-    m_Localized: Options
+    m_Localized: "Op\xE7\xF5es"
     m_Metadata:
       m_Items: []
   - m_Id: 40043821608960
-    m_Localized: Musique
+    m_Localized: "M\xFAsica"
     m_Metadata:
       m_Items: []
   - m_Id: 40137367171072
-    m_Localized: Effets Sonores
+    m_Localized: Efeitos Sonoros
     m_Metadata:
       m_Items: []
   - m_Id: 40272574754816
-    m_Localized: Sortie
+    m_Localized: Sair
     m_Metadata:
       m_Items: []
   - m_Id: 40873064869888
-    m_Localized: Enregistrer
+    m_Localized: Salvar
     m_Metadata:
       m_Items: []
   - m_Id: 61103518461952
-    m_Localized: Bourdonnement
+    m_Localized: "Vibra\xE7\xE3o"
     m_Metadata:
       m_Items: []
   - m_Id: 61165615132672
-    m_Localized: "Secousse de Cam\xE9ra"
+    m_Localized: "Vibra\xE7\xE3o da C\xE2mera"
     m_Metadata:
       m_Items: []
   - m_Id: 3294502806827008
-    m_Localized: Postuler
+    m_Localized: Aplicar
     m_Metadata:
       m_Items: []
   references:

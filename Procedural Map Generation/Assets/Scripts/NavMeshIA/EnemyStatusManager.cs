@@ -7,6 +7,7 @@ public class EnemyStatusManager : MonoBehaviour
     [SerializeField] private float stance;
     [SerializeField] EnemyStats stats;
     public EnemyStats Stats => stats;
+    public float Life => life;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,11 +17,9 @@ public class EnemyStatusManager : MonoBehaviour
     public bool Damage(float damage)
     {
         life -= damage;
-
+    
         if (life <= 0)
-
             return true;
-
         else return false;
     }
 }

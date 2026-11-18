@@ -75,7 +75,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
 
-
+        OnDied = Die;
         TrySubscribeInventory();
         RecalculateStats();
     }
@@ -192,6 +192,10 @@ public class PlayerStats : MonoBehaviour
             IsDead = true;
             OnDied?.Invoke();
         }
+    }
+    void Die()
+    {
+        //ChamarTela de morte
     }
 
     public bool TrySpendStamina(float amount)

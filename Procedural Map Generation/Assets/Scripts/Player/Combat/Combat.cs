@@ -49,11 +49,13 @@ public class Combat : MonoBehaviour
             if (colliders[i].TryGetComponent<Agent>(out Agent enemy))
             {
                 if (!alreadyHit.Add(enemy)) continue;
-                GameFeel.gameFeel.Stop(data.HitStop);
-                GameFeel.gameFeel.CamaraShake();
-                if (StyleSystem.Instance != null) StyleSystem.Instance.RegisterHit(data);
+                if (enemy.stats.Life > 0)
+                {
+                    GameFeel.gameFeel.Stop(data.HitStop);
+                    GameFeel.gameFeel.CamaraShake();
+                    if (StyleSystem.Instance != null) StyleSystem.Instance.RegisterHit(data);
                     enemy.ChangeState(new ReceiveDamage(enemy, data.Force, enemy.renderer));
-                //enemy.ChangeState(new EnemyStateDano(enemy, enemy.renderer, data.Force));
+                }//enemy.ChangeState(new EnemyStateDano(enemy, enemy.renderer, data.Force));
             }
         }
     }
