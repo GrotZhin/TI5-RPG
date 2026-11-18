@@ -40,6 +40,15 @@ public class Agent : MonoBehaviour
 
 
   }
+  public void AttackPlayer()
+  {
+    var rd = Random.Range(0, group.list.Count);
+    for(int i = 0; i< rd; i++)
+    {
+     var enemy = group.list[Random.Range(0, group.list.Count)];
+     enemy.ChangeState(new GiveDamage(enemy));
+    }
+  }
   public void Update()
   {
     state?.Execute(Time.deltaTime);

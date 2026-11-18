@@ -19,6 +19,7 @@ public class EnemyAttackCheck : MonoBehaviour
             {
                 if (!alreadyHit.Add(stats)) continue;
                 stats.TakeDamage(skill.Force);
+                Debug.Log("acertei o player");
                 
             }
         }

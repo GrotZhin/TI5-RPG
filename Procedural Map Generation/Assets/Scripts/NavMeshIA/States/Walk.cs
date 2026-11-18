@@ -20,7 +20,7 @@ public class Walk : IState
     }
     public void Enter()
     {
-        Debug.Log("Entrei no state dnv");
+        Debug.Log("Entrei no walk stae");
         agent.animator.applyRootMotion = true;
         agent.agent.updatePosition = false;
         agent.agent.updateRotation = true;
@@ -29,7 +29,7 @@ public class Walk : IState
         coroutine = agent.StartCoroutine(Move());
 
 
-        //agent.StartCoroutine(SortState(2));
+        agent.StartCoroutine(SortState(4));
     }
 
     private void SyncronizeAnimator()
@@ -80,11 +80,11 @@ public class Walk : IState
     IEnumerator SortState(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        if (Random.value > 0.9f) agent.ChangeState(new Walk(agent));
+        if (Random.value > 0.6f) agent.ChangeState(new GiveDamage(agent));
         else
         {
 
-            agent.StartCoroutine(SortState(2));
+            agent.StartCoroutine(SortState(4));
         }
 
     }
