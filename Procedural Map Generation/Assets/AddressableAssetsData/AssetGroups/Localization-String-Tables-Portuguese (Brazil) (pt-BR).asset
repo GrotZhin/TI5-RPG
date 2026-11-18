@@ -22,6 +22,12 @@ MonoBehaviour:
     - Locale-pt-BR
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb86c9c3342dc4f4b8bd9d80f5b621f2
+    m_Address: DeathTexts_pt-BR
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt-BR
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: d42cf4f18b0609b44ab5099808a20aaa, type: 2}
   m_SchemaSet:
