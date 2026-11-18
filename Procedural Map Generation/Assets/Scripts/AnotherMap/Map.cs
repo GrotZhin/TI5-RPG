@@ -16,7 +16,7 @@ public class Map : MonoBehaviour
     [SerializeField]
     private int numberOfRooms = 10;
     [SerializeField]
-    private GameObject roomPrefab;
+    private GameObject[] roomPrefab;
     [SerializeField]
     private GameObject corridorPrefab;
     [SerializeField]
@@ -150,7 +150,7 @@ public class Map : MonoBehaviour
         {
             if (room == start) continue;
             if (room.IsSelected && !deadEndRooms.Contains(room))
-                InstantiateRoom(roomPrefab, room);
+                InstantiateRoom(roomPrefab[Random.Range(0, roomPrefab.Length)], room);
         }
     }
     private GameObject InstantiateRoom(GameObject roomPrefab, Room room)
@@ -176,7 +176,7 @@ public class Map : MonoBehaviour
             bool hasTreasure = treasureChance > 0.7f;
 
             if (hasTreasure) InstantiateRoom(roomTreasurePrefab, room);
-            else InstantiateRoom(roomPrefab, room);
+            else InstantiateRoom(roomPrefab[Random.Range(0, roomPrefab.Length)], room);
         }
     }
     int islandId = 0;

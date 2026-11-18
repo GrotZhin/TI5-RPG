@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 2105642004157594112}
   - component: {fileID: 8964251436739705654}
   - component: {fileID: 4338700146558660919}
+  - component: {fileID: 527521745228171869}
+  - component: {fileID: 4842025449789659258}
+  - component: {fileID: 452791775519247694}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: Untagged
@@ -29,13 +32,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9075750302664076325}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14762178, y: -0.00005214719, z: 0.0000077833365, w: 0.9890439}
+  m_LocalRotation: {x: 0.14761949, y: -0.000051856554, z: 0.0000077398345, w: 0.9890442}
   m_LocalPosition: {x: 0.028098913, y: 6.171716, z: -7.460515}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 16.978, y: -0.006, z: 0}
 --- !u!114 &3990985188871851951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,3 +265,48 @@ MonoBehaviour:
         DecelTime: 0
   PlayerIndex: -1
   AutoEnableInputs: 1
+--- !u!114 &527521745228171869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075750302664076325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBasicMultiChannelPerlin
+  NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 0
+  FrequencyGain: 0
+  m_NoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!114 &4842025449789659258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075750302664076325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a2f979fb8238e04e91b16b063905a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShakeManager
+  Cam1: {fileID: 3990985188871851951}
+  Cam2: {fileID: 0}
+--- !u!114 &452791775519247694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075750302664076325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d4368b14b01e74382e844f7ab5a37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OnOffOptions
+  Rumble: 0
+  CameraShake: 1

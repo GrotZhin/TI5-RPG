@@ -19,19 +19,20 @@ public class ReceiveDamage : IState
     public void Enter()
     {
         Debug.Log("Entrei no state dnv");
-
-      
-       agent.animator.Play("damage", 0, 0f);
-     
-        GameFeel.gameFeel.FlashEffect(0.2f, renderer);
         bool isDead = agent.stats.Damage(damage);
         if (isDead) agent.ChangeState(new Death(agent));
+
+
+        agent.animator.Play("damage", 0, 0f);
+
+        GameFeel.gameFeel.FlashEffect(0.2f, renderer);
+
 
     }
 
     public void Execute(float delta)
     {
-        
+
         AnimatorStateInfo state = agent.animator.GetCurrentAnimatorStateInfo(0);
         if (state.IsTag("damage") && agent.animator.IsInTransition(0))
         {
