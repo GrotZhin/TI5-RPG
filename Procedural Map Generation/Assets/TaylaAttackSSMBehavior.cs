@@ -1,5 +1,6 @@
 using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Windows;
 
 public class TaylaAttackSSMBehavior : StateMachineBehaviour
@@ -11,6 +12,9 @@ public class TaylaAttackSSMBehavior : StateMachineBehaviour
     int inputY = Animator.StringToHash("YInput");
     int inputCharged = Animator.StringToHash("ChargedInput");
     int inputCharging = Animator.StringToHash("Charging");
+    int groundPound = Animator.StringToHash("Ground Pound");
+
+    public static UnityAction AirSlow, AirFast, ResetAir;
 
     public static bool attacking = false;
     public static bool canAttack = true;
@@ -23,13 +27,13 @@ public class TaylaAttackSSMBehavior : StateMachineBehaviour
             canAttack = true;
         }
 
-        if (stateInfo.tagHash == inputWindowAux)
+        else if (stateInfo.tagHash == inputWindowAux)
         {
             canTurn = false;
             canAttack = true;
         }
 
-        if (stateInfo.tagHash == inputLockTag)
+        else if (stateInfo.tagHash == inputLockTag)
         {
             canAttack = false;
             canTurn = true;
@@ -37,6 +41,20 @@ public class TaylaAttackSSMBehavior : StateMachineBehaviour
             animator.ResetTrigger(inputY);
             animator.SetBool(inputCharging, false);
             animator.SetInteger(inputCharged, 0);
+        }
+        if (stateInfo.tagHash == groundPound)
+        {
+            canAttack = false;
+            canTurn = true;
+            animator.ResetTrigger(inputX);
+            animator.ResetTrigger(inputY);
+            animator.SetBool(inputCharging, false);
+            animator.SetInteger(inputCharged, 0);
+            AirFast();
+        }
+        else if (animator.GetBool("IsGrounded") == false)
+        {
+            AirSlow();
         }
     }
 
@@ -53,6 +71,7 @@ public class TaylaAttackSSMBehavior : StateMachineBehaviour
         {
             canAttack = true;
         }
+        ResetAir();
     }
 
     // OnStateMove is called before OnStateMove is called on any state inside this state machine

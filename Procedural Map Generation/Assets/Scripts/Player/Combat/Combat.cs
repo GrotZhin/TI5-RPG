@@ -16,7 +16,7 @@ public class Combat : MonoBehaviour
 
     void FixedUpdate()
     {
-        AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(1);
+        AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
         bool inAttack = state.IsTag("Input Lock");
 
 
