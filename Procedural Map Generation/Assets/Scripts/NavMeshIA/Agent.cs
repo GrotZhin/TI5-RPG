@@ -18,7 +18,9 @@ public class Agent : MonoBehaviour
   public Animator animator;
   public EnemyAttackCheck attackCheck;
   public SkinnedMeshRenderer renderer;
-  IState state;
+  [HideInInspector] 
+  public bool droppedLoot;
+    IState state;
   void Start()
   {
     agent = GetComponent<NavMeshAgent>();
@@ -69,8 +71,10 @@ public class Agent : MonoBehaviour
   void OnDestroy()
   {
     if (isLeader)
-
+    {
       group.leader = group.list[Random.Range(0, group.list.Count)];
+      group.leader.isLeader = true;
+    }
 
     else
 

@@ -10,6 +10,12 @@ public class GameFeel : MonoBehaviour
     public static GameFeel gameFeel;
     [SerializeField]
     private float durantion = 1f;
+    [SerializeField]
+    float camShakeAmp = 5;
+    [SerializeField]
+    float camShakeFreq = 1;
+    [SerializeField]
+    float camShakeDurantion = .1f;
 
     void Awake()
     {
@@ -39,7 +45,7 @@ public class GameFeel : MonoBehaviour
     {
 
         if (waitingFlashEffect) return;
-        
+
         mat.material.EnableKeyword("_EMISSION");
         Color actualColor = mat.material.GetColor("_EmissionColor");
         mat.material.SetColor("_Emissive_Color", Color.white * 3f);
@@ -54,4 +60,8 @@ public class GameFeel : MonoBehaviour
         waitingFlashEffect = false;
     }
 
+    public void CamaraShake()
+    {
+        CameraShakeManager.Shaker.ShakePulse(camShakeAmp, camShakeFreq, camShakeDurantion);
+    }
 }

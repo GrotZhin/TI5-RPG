@@ -21,6 +21,7 @@ public class Formation : ScriptableObject
         }
         return finalPoint;
     }
+    //protected Vector3 FixPosition(Vector3 position, Vector3)
     public virtual Vector3 GetFormation(Agent agent)
     {
         return agent.transform.position;

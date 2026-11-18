@@ -1,3 +1,4 @@
+using Mono.Cecil;
 using System;
 
 using UnityEngine;
@@ -172,7 +173,7 @@ public class PlayerStats : MonoBehaviour
     public void TakeDamage(float amount)
     {
         if (IsDead || amount <= 0f) return;
-
+        if (StyleSystem.Instance != null) StyleSystem.Instance.OnPlayerHit(amount);
         float remaining = amount;
 
         if (currentShield > 0f)
