@@ -33,9 +33,9 @@ public class EnemyStateFlee : IState
         renderer.material.color = Color.purple;
         chace = Random.Range(0, 100);
         time = Random.Range(5, 10);
-        animator = agent.GetComponent<Animator>();
+       
         //animator.SetBool("IsMoving", true);
-        animator.SetBool("andar", true);
+        agent.animator.SetBool("andar", true);
     }
 
     public void Execute(float delta)
@@ -52,7 +52,7 @@ public class EnemyStateFlee : IState
                 }
                 else if(chace < 80)
                 {
-                    agent.ChangeState(new EnemyStateTransformar(agent, renderer));
+                    //agent.ChangeState(new EnemyStateTransformar(agent, renderer));
                 }
                 else
                 {
@@ -69,14 +69,14 @@ public class EnemyStateFlee : IState
                 rotationSpeed * Time.deltaTime
             );
             agent.cc.SimpleMove(dir * 1.5f * Time.timeScale);
-            animator.SetFloat("velocidadeanimaçao", 3);
+            agent.animator.SetFloat("velocidadeanimaçao", 3);
         }
     }
 
     public void Exit()
     {
         agent.GetNeighbours().Clear();
-        animator.SetFloat("velocidadeanimaçao", 1);
+        agent.animator.SetFloat("velocidadeanimaçao", 1);
     }
 
 }

@@ -5,12 +5,23 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: d46f6bba1e28e6e44a5ad2bba9c6b5dd
+  - enabled: 1
     path: Assets/Scenes/TestScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/GymRoom.unity
     guid: 0365c531e9d2aac498dccc70cecaaab1
+  - enabled: 1
+    path: Assets/Scenes/Zoo&MuseumRoom.unity
+    guid: e27bae44752165644b70bbb3cc7db6a1
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 4106d2d34170ff44d8ea3da57bf18ef8
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 7cf1d6f8e7fc33749a1eac19d2f538e7, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: 0b6109bdea185b04ca727498204ead79, type: 2}
   m_UseUCBPForAssetBundles: 0

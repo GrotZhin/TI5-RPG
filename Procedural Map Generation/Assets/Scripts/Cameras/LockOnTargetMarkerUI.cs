@@ -1,31 +1,39 @@
 using UnityEngine;
+using DG.Tweening; // ImportaÃ§Ã£o necessÃ¡ria para o DOTween
 
 [RequireComponent(typeof(LockOnSystem))]
 public class LockOnTargetMarkerUI : MonoBehaviour
 {
-    [Header("Referências")]
+
     [SerializeField] private Camera referenceCamera;
     [SerializeField] private RectTransform markerRect;
+    [SerializeField] private RectTransform LettersRect;
     [SerializeField] private CanvasGroup markerCanvasGroup;
 
-    [Header("Posicionamento")]
-    [Tooltip("Deslocamento do pivô do inimigo")]
     [SerializeField] private Vector3 worldOffset = new Vector3(0f, 1.6f, 0f);
 
-    [Header("Animação")]
-    [SerializeField] private float popInDuration = 0.12f;
-    [SerializeField] private float popScaleStart = 1.6f;
-    [SerializeField] private AnimationCurve popCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+    [SerializeField] private float popInDuration;
+    [SerializeField] private float FadeDur;
+    [SerializeField] private float ROtDur;
+    [SerializeField] private float popSizeStart ;
+    [SerializeField] private float popLettersStart ;
+    [SerializeField] private Ease popEase = Ease.InOutSine;
 
     private LockOnSystem lockOnSystem;
     private Transform trackedTarget;
-    private float popTimer;
-    private bool isVisible;
+    private Sequence ActiveSizeTween; 
+    private Tween activeAlphaTween;
 
     private void Awake()
     {
         lockOnSystem = GetComponent<LockOnSystem>();
         if (referenceCamera == null) referenceCamera = Camera.main;
+        if (markerCanvasGroup != null)
+        {
+            markerCanvasGroup.blocksRaycasts = false;
+            markerCanvasGroup.interactable = false;
+        }
+        
         SetVisible(false, instant: true);
     }
 
@@ -41,19 +49,20 @@ public class LockOnTargetMarkerUI : MonoBehaviour
         lockOnSystem.OnTargetLocked -= HandleTargetLocked;
         lockOnSystem.OnTargetChanged -= HandleTargetChanged;
         lockOnSystem.OnTargetUnlocked -= HandleTargetUnlocked;
+        KillActiveTweens();
     }
 
     private void HandleTargetLocked(Transform target)
     {
         trackedTarget = target;
-        popTimer = 0f;
+        TriggerPopInAnimation();
         SetVisible(true, instant: false);
     }
 
     private void HandleTargetChanged(Transform target)
     {
         trackedTarget = target;
-        popTimer = 0f;
+        TriggerPopInAnimation();
     }
 
     private void HandleTargetUnlocked()
@@ -66,41 +75,61 @@ public class LockOnTargetMarkerUI : MonoBehaviour
     {
         if (trackedTarget == null || markerRect == null) return;
 
-      
         Vector3 worldPos = trackedTarget.position + worldOffset;
         Vector3 screenPos = referenceCamera.WorldToScreenPoint(worldPos);
 
         bool behindCamera = screenPos.z < 0f;
         if (behindCamera)
         {
-            markerCanvasGroup.alpha = 0f;
+            if (markerCanvasGroup != null) markerCanvasGroup.alpha = 0f;
             return;
         }
 
         markerRect.position = screenPos;
-
-        
-        if (popTimer < popInDuration)
-        {
-            popTimer += Time.deltaTime;
-            float t = popCurve.Evaluate(Mathf.Clamp01(popTimer / popInDuration));
-            float scale = Mathf.Lerp(popScaleStart, 1f, t);
-            markerRect.localScale = Vector3.one * scale;
-        }
-
-        markerCanvasGroup.alpha = isVisible ? 1f : 0f;
     }
+
+     private void TriggerPopInAnimation()
+    {
+
+        ActiveSizeTween?.Kill();
+
+
+        if (markerRect != null) markerRect.localScale = Vector3.one * popSizeStart;
+        if (LettersRect != null) LettersRect.localScale = Vector3.one * popLettersStart;
+
+
+        ActiveSizeTween = DOTween.Sequence().SetUpdate(UpdateType.Late);
+
+
+        ActiveSizeTween.Join(markerRect.DOScale(Vector3.one, popInDuration).SetEase(popEase));
+        ActiveSizeTween.Join(LettersRect.DOScale(Vector3.one, popInDuration).SetEase(popEase));
+        ActiveSizeTween.Join(LettersRect.DORotate(new Vector3(0,0,-360), ROtDur,RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1, LoopType.Incremental));
+    }
+
+    
 
     private void SetVisible(bool visible, bool instant)
     {
-        isVisible = visible;
         if (markerCanvasGroup == null) return;
 
-        if (instant || !visible)
+        activeAlphaTween?.Kill();
+
+        float targetAlpha = visible ? 1f : 0f;
+
+        if (instant)
         {
-            markerCanvasGroup.alpha = visible ? 1f : 0f;
+            markerCanvasGroup.alpha = targetAlpha;
         }
-        markerCanvasGroup.blocksRaycasts = false;
-        markerCanvasGroup.interactable = false;
+        else
+        {
+            activeAlphaTween = markerCanvasGroup.DOFade(targetAlpha, FadeDur)
+                .SetUpdate(UpdateType.Late);
+        }
+    }
+
+    private void KillActiveTweens()
+    {
+        ActiveSizeTween?.Kill();
+        activeAlphaTween?.Kill();
     }
 }

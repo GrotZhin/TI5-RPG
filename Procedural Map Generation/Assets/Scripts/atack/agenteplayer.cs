@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerAgent : MonoBehaviour
 {
     IState state;
-    public float vida = 100;
+    public float lifePoints = 100;
     public List<EnemyAgent> agents = new List<EnemyAgent>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,8 +48,14 @@ public class PlayerAgent : MonoBehaviour
         }
     }
 
-    public void dano(int dano)
+    public void Damage(float value)
     {
-        vida -= dano;
+        if (PlayerStats.Instance != null)
+        {
+            PlayerStats.Instance.TakeDamage(value);
+            lifePoints = PlayerStats.Instance.currentHealth;
+        }
+        else
+            lifePoints -= value;
     }
 }

@@ -17,14 +17,14 @@ public class Ataque1player : IState
         InputInfo.OnAttackEvent -= agente.bater;
         time = 10;
         mudar = true;
-        foreach (EnemyAgent agen in agente.agents)
-        {
-            agen.ChangeState(new EnemyStateDano(agen, agen.renderer));
-            if (agen.control.vida <= 0)
-            {
-                agen.gameObject.SetActive(false);
-            }
-        }
+        // foreach (EnemyAgent agen in agente.agents)
+        // {
+        //     agen.ChangeState(new EnemyStateDano(agen, agen.renderer));
+        //     if (agen.control.vida <= 0)
+        //     {
+        //         agen.gameObject.SetActive(false);
+        //     }
+        //}
     }
 
     public void Execute(float delta)

@@ -1,22 +1,30 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TaylaAnimationBehavior : StateMachineBehaviour
 {
-    PlayerMove player;
+    int dash = Animator.StringToHash("Dash");
+    public static UnityAction Dash, ResetDash;
+    public static UnityAction<bool> Jump, ResetAirActions;
+    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(player == null) 
-            player = animator.GetComponent<PlayerMove>();
+        TaylaAttackSSMBehavior.attacking = false;
+        TaylaAttackSSMBehavior.canTurn = true;
+        TaylaAttackSSMBehavior.canAttack = true;
+
         if (stateInfo.IsName("Jump"))
-            player.Jump();
+            Jump(false);
         if (stateInfo.IsName("DoubleJump"))
-            player.Jump(true);
-        if (stateInfo.IsName("DashA") || stateInfo.IsName("DashB") || stateInfo.IsName("ArialDash"))
-            player.Dash();
+            Jump(true);
+        if (stateInfo.tagHash == dash)
+            Dash();
 
         if (stateInfo.IsName("Fall"))
-            player.airAction = true;
+        {
+            ResetAirActions(true);
+        }
 
     }
 
@@ -29,8 +37,8 @@ public class TaylaAnimationBehavior : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (stateInfo.IsName("DashA") || stateInfo.IsName("DashB") || stateInfo.IsName("ArialDash"))
-            player.ResetDash();
+        if (stateInfo.tagHash == dash)
+            ResetDash();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
