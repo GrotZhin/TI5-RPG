@@ -11,6 +11,8 @@ public class EnemyAgentCa : MonoBehaviour
     public List<EnemyAgentCa> neighbours = new List<EnemyAgentCa>();
     public SphereCollider collider;
     public NavMeshAgent nav;
+    public EnemyAttackCheck check;
+    public SkillData s1, s2;
     void OnEnable()
     {
         //if (Geralageteinimigo.Geralinimigo != null)

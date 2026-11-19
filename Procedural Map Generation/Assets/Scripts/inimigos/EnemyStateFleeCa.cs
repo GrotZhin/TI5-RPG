@@ -34,7 +34,6 @@ public class EnemyStateFleeCa : IState
         chace = Random.Range(0, 100);
         time = Random.Range(5, 10);
         animator = agent.GetComponent<Animator>();
-        //animator.SetBool("IsMoving", true);
         animator.SetBool("andar", true);
     }
 
@@ -60,18 +59,10 @@ public class EnemyStateFleeCa : IState
                 }
                 return;
             }
-            dir = this.agent.control.Move(-1);
-            dir.y = 0;
-            Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up);
-            agent.transform.rotation = Quaternion.Slerp(
-                agent.transform.rotation,
-                toRotation,
-                rotationSpeed * Time.deltaTime
-            );
-            //agent.cc.SimpleMove(dir * 1.5f * Time.timeScale);
-            agent.nav.SetDestination(agent.transform.position + (Random.insideUnitSphere * 15));
-            agent.nav.speed = 1.5f;
+            agent.nav.speed = 3f;
             animator.SetFloat("velocidadeanimaçao", 3);
+            agent.nav.SetDestination(agent.transform.position + (agent.player.transform.position - agent.transform.position).normalized * -1);
+            
         }
     }
 
@@ -79,6 +70,7 @@ public class EnemyStateFleeCa : IState
     {
         agent.GetNeighbours().Clear();
         animator.SetFloat("velocidadeanimaçao", 1);
+        agent.nav.speed = 0.5f;
     }
 
 }

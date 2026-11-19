@@ -18,6 +18,7 @@ public class EnemyStateAttackCa : IState
 
     public void Enter()
     {
+        agent.check.CheckCollision();
         //Debug.Log("Atack entrou");
         renderer.material.color = Color.red;
         agent.nav.updateRotation = false;
@@ -44,6 +45,7 @@ public class EnemyStateAttackCa : IState
         {
             agent.nav.speed = 10;
             agent.nav.acceleration = 10;
+            agent.check.skill = agent.s2;
             if (animator.GetBool("atacar"))
             {
                 //agent.cc.Move(dir.normalized * 0.3f * Time.timeScale);
@@ -59,6 +61,7 @@ public class EnemyStateAttackCa : IState
         else
         {
             agent.nav.speed = 0;
+            agent.check.skill = agent.s1;
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f && !animator.IsInTransition(0) && animator.GetCurrentAnimatorStateInfo(0).shortNameHash.ToString() != ani1)
             {
                 if (chace < 50 || agent.player == null)

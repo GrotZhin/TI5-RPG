@@ -30313,6 +30313,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 926470368513648489, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
   m_PrefabInstance: {fileID: 2849205198210558428}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1327557301 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6122420472250714616, guid: f93ca8d2e24c4ad4085d3d92d5ebd136, type: 3}
+  m_PrefabInstance: {fileID: 1280005505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1329167853
 GameObject:
   m_ObjectHideFlags: 0
@@ -33453,6 +33458,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 431612163900879488, guid: f93ca8d2e24c4ad4085d3d92d5ebd136, type: 3}
+      propertyPath: bone2
+      value: 
+      objectReference: {fileID: 1327557301}
     - target: {fileID: 2398444183487865198, guid: f93ca8d2e24c4ad4085d3d92d5ebd136, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.6744905
@@ -33497,6 +33506,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cartola
       objectReference: {fileID: 0}
+    - target: {fileID: 6845322106645098860, guid: f93ca8d2e24c4ad4085d3d92d5ebd136, type: 3}
+      propertyPath: skill
+      value: 
+      objectReference: {fileID: 11400000, guid: b5501b9dad19a414bb2f633b1cd70657, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -53671,10 +53684,6 @@ PrefabInstance:
     - target: {fileID: 3278888379952990936, guid: f93ca8d2e24c4ad4085d3d92d5ebd136, type: 3}
       propertyPath: m_Name
       value: cartola (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3278888379952990936, guid: f93ca8d2e24c4ad4085d3d92d5ebd136, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
