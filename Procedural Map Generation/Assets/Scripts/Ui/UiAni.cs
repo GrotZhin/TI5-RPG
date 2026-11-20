@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEditor.XR;
+using NUnit.Framework;
 public class UiAni : MonoBehaviour
 {
     [Header("Input & Canvas")]
@@ -13,6 +15,7 @@ public class UiAni : MonoBehaviour
     [SerializeField] private InputInfo inputInfo;
     [SerializeField] private CanvasGroup UiCG;
     public GameObject UI;
+    public GameObject DeathScreen;
 
     [Header("Timing Config")]
     public float BRotationime;
@@ -60,12 +63,14 @@ public class UiAni : MonoBehaviour
     public GameObject GPCtrlscheme;
 
     private bool OptionsisAni = false;
-     private bool isOutroPlaying = false; 
+    private bool isOutroPlaying = false; 
+    private bool isDead;
 
     void Start()
     {
         if (Settings != null) Settings.SetActive(false);
         buttonManager = GetComponent<UiButtonManager>();
+        isDead = false;
     }
 
     void OnEnable()
@@ -267,5 +272,20 @@ public class UiAni : MonoBehaviour
     public void ExitToLobby()
     {
         SceneManager.LoadScene("Lobby");
+    }
+
+    public void DeathUi()
+    {
+        isDead= true;
+        if(isDead== true)
+        {
+            deathAni();
+            UI.SetActive(false);
+        }       
+        
+    }
+    public void deathAni()
+    {
+        DeathScreen.SetActive(true);
     }
 }
