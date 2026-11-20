@@ -23,7 +23,7 @@ public class ReceiveDamage : IState
         if (isDead)
         {
         agent.ChangeState(new Death(agent));
-            
+      
         } 
 
 

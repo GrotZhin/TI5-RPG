@@ -14,7 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Localization-String-Tables-French (fr)
   m_GUID: 84422a3b2510f354f898f0c611282c93
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 1dd87f86870df374181ea760eeab7d3f
+    m_Address: DeathTexts_fr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db49283eb817ba64da22df3c4f97ba3a
+    m_Address: LocalizationTable_fr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: d42cf4f18b0609b44ab5099808a20aaa, type: 2}
   m_SchemaSet:
