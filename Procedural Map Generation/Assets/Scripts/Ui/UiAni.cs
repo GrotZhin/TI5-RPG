@@ -78,7 +78,7 @@ public class UiAni : MonoBehaviour
     [SerializeField] private float IntensityStart;
     [SerializeField] private float IntensityEnd;
     [SerializeField] private float BorderTweenDur;
-    
+    [SerializeField] private GameObject FirstDeathButton;
 
     void Start()
     {
@@ -124,13 +124,22 @@ public class UiAni : MonoBehaviour
     
     public void Update()
     {
-        if (options && EventSystem.current != null && EventSystem.current.currentSelectedGameObject != null)
-        {
-            if (!EventSystem.current.currentSelectedGameObject.transform.IsChildOf(Settings.transform))
-            {
-                EventSystem.current.SetSelectedGameObject(FirstOptnButton);
-            }
-        }
+        if (EventSystem.current == null) return;
+    var selected = EventSystem.current.currentSelectedGameObject;
+
+    if (isDead)
+    {
+        if (selected == null || !selected.transform.IsChildOf(DeathButtonsScreen.transform))
+            EventSystem.current.SetSelectedGameObject(FirstDeathButton);
+        return;
+    }
+
+    if (options && selected != null)
+    {
+        if (!selected.transform.IsChildOf(Settings.transform))
+            EventSystem.current.SetSelectedGameObject(FirstOptnButton);
+    }
+
     }
 
     public void UIIntro()
@@ -293,13 +302,23 @@ public class UiAni : MonoBehaviour
     }
 
     public void DeathAni()
-    {
-        UI.SetActive(false);
-        DeathBGScreen.SetActive(true);
-        DeathButtonsScreen.SetActive(true);
-        DeathScreenCG.DOFade(1f,DeathScreenTween).SetUpdate(true);
-        DeathScreenBGCG.DOFade(1f,DeathScreenTween).SetUpdate(true);
-    }
+{
+    isDead = true;
+    options = false;
+    OptionsGroup.DOKill(); OptionsBg.DOKill(); OptionsCG.DOKill(); Tape.DOKill();
+    if (Settings != null) Settings.SetActive(false);
+
+    UI.SetActive(false);
+    DeathBGScreen.SetActive(true);
+    DeathButtonsScreen.SetActive(true);
+    if (Input != null) Input.SwitchCurrentActionMap("UI");
+    Pointer.alpha = 1f;
+    if (buttonManager != null)
+        buttonManager.InitializeManager(DeathButtonsScreen, FirstDeathButton);
+
+    DeathScreenCG.DOFade(1f, DeathScreenTween).SetUpdate(true);
+    DeathScreenBGCG.DOFade(1f, DeathScreenTween).SetUpdate(true);
+}
     public void DeathBorderAni()
     {
         DeathBorderScreen.SetActive(true);
