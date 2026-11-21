@@ -2,13 +2,12 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 public class EnemyAgentManager : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefab;
     public int quantidade = 5;
     [SerializeField]
     public IslandManager map;
 
     public Transform[] spawnPoints;
-
     public bool Seek = true;
     public bool Separate = true;
     public bool Align = true;
@@ -16,7 +15,6 @@ public class EnemyAgentManager : MonoBehaviour
     public bool Avoid = true;
     public float life = 30f;
     public float stance = 100f;
-
     void Start()
     {
         SpawnEnemy();
@@ -38,9 +36,10 @@ public class EnemyAgentManager : MonoBehaviour
 
         for (int i = 0; i < quantidade; i++)
         {
+            int R = Random.Range(0, enemyPrefab.Length);
             Transform spawnPoint = spawnPoints[i % spawnPoints.Length];
 
-            GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position + Random.insideUnitSphere, spawnPoint.rotation);
+            GameObject enemy = Instantiate(enemyPrefab[R], spawnPoint.position + Random.insideUnitSphere, spawnPoint.rotation);
 
 
             EnemyAgent agent = enemy.GetComponent<EnemyAgent>();
