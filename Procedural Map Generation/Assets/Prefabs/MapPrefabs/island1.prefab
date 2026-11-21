@@ -117,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7978864641316765662}
   m_Layer: 9
-  m_Name: Island1
+  m_Name: island1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,6 +150,7 @@ Transform:
   - {fileID: 734173986564102319}
   - {fileID: 905269964754361234}
   - {fileID: 3486981659532272530}
+  - {fileID: 4832823022037065467}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4634707274978965453
@@ -274,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71c8d7169a860b43a10924ce1218099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemies
-  enemy: {fileID: 6018943636525869859, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+  enemy: {fileID: 7123845721141206334, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
   min: 4
   max: 10
   radius: 2
@@ -283,6 +284,7 @@ MonoBehaviour:
   - {fileID: 2721283484212887875}
   - {fileID: 6380040204152490248}
   - {fileID: 5962042330634129087}
+  islandManager: {fileID: 198637711230191672}
 --- !u!114 &6412243015760066968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,6 +364,37 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 9a2a36e963e00984fa9a3bb7fc1a04fe, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1 &5932375601061463985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4832823022037065467}
+  m_Layer: 9
+  m_Name: CheckPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4832823022037065467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5932375601061463985}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.19, y: 1.34, z: 0.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7978864641316765662}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6313308924697190964
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IslandActive
   enemySpawn: {fileID: 4681184247181065123}
   islandManager: {fileID: 4634707274978965453}
+  checkPoint: {fileID: 4832823022037065467}
   col: {fileID: 6947709534574525568}
 --- !u!65 &6947709534574525568
 BoxCollider:

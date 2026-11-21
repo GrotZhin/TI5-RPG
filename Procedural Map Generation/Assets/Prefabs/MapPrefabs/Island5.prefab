@@ -217,7 +217,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 6ab1b1653822d7b498753e984297df17, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 895d60831cf04f34f86d6a810c1e958d, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &5207812907809009070
 GameObject:
@@ -308,7 +308,39 @@ Transform:
   - {fileID: 6530362875147593141}
   - {fileID: 8943288643002562489}
   - {fileID: 5159040520199506505}
+  - {fileID: 383313318127402375}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6988685904872318385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 383313318127402375}
+  m_Layer: 9
+  m_Name: CheckPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &383313318127402375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6988685904872318385}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.19, y: -0.11, z: 0.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5483819961052278721}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8581164672944988229
 GameObject:
@@ -433,7 +465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GroupFormation
   list: []
-  leader: {fileID: 0}
+  leader: {fileID: 7123845721141206334, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
   formation: {fileID: 11400000, guid: 1849cb6541a1c984d96dd80ce51ce0a8, type: 2}
 --- !u!114 &7802222206432515682
 MonoBehaviour:
@@ -447,7 +479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71c8d7169a860b43a10924ce1218099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemies
-  enemy: {fileID: 6018943636525869859, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+  enemy: {fileID: 7123845721141206334, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
   min: 4
   max: 10
   radius: 5
@@ -457,6 +489,7 @@ MonoBehaviour:
   - {fileID: 8078479341033816634}
   - {fileID: 3672911951454908226}
   - {fileID: 5565747047521754153}
+  islandManager: {fileID: 7543050271464693593}
 --- !u!1 &8951015830854173300
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IslandActive
   enemySpawn: {fileID: 8829429770802729922}
   islandManager: {fileID: 8581164672944988229}
+  checkPoint: {fileID: 383313318127402375}
   col: {fileID: 1316910717557517090}
 --- !u!65 &1316910717557517090
 BoxCollider:

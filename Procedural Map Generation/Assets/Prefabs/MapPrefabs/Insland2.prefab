@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IslandActive
   enemySpawn: {fileID: 6058829261878006427}
   islandManager: {fileID: 7895594891820842019}
+  checkPoint: {fileID: 4311321215982721172}
   col: {fileID: 1798410533869697739}
 --- !u!65 &1798410533869697739
 BoxCollider:
@@ -174,6 +175,7 @@ Transform:
   - {fileID: 8131596091957655631}
   - {fileID: 7146332014608611414}
   - {fileID: 184386894534699135}
+  - {fileID: 4311321215982721172}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4583701799609707117
@@ -316,6 +318,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3070503899130231041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5470694632454792670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4311321215982721172}
+  m_Layer: 9
+  m_Name: CheckPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4311321215982721172
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5470694632454792670}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.19, y: 5.6, z: 0.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3070503899130231041}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6058829261878006427
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GroupFormation
   list: []
-  leader: {fileID: 0}
+  leader: {fileID: 7123845721141206334, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
   formation: {fileID: 11400000, guid: 1849cb6541a1c984d96dd80ce51ce0a8, type: 2}
 --- !u!114 &27352940555267293
 MonoBehaviour:
@@ -404,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71c8d7169a860b43a10924ce1218099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemies
-  enemy: {fileID: 6018943636525869859, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+  enemy: {fileID: 7123845721141206334, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
   min: 4
   max: 10
   radius: 5
@@ -413,6 +446,7 @@ MonoBehaviour:
   - {fileID: 907775726999740334}
   - {fileID: 1023835180560411947}
   - {fileID: 4551273394540338546}
+  islandManager: {fileID: 841107786486459873}
 --- !u!1 &6834816315964541154
 GameObject:
   m_ObjectHideFlags: 0

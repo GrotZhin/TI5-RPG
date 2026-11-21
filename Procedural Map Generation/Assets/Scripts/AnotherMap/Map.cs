@@ -189,9 +189,9 @@ public class Map : MonoBehaviour
         var door = Instantiate(doorPrefab, pos, Quaternion.identity);
 
         door.id = islandId;
-   
-       
-        
+
+
+
         doorsPositions.Add(door);
 
         bool fromFirst = from.x < to.x || (from.x == to.x && from.z < to.z);
@@ -201,17 +201,17 @@ public class Map : MonoBehaviour
         {
             door.pair = other;
             other.pair = door;
-            
+
         }
         else
         {
-        doorsByEdge[key] = door;
-            
-            
-        } 
-       
+            doorsByEdge[key] = door;
+
+
+        }
+
         DoorsInScene.doorsInScene.doors.Add(door);
-       
+
     }
 
     private void CreateCorridors()
@@ -252,7 +252,7 @@ public class Map : MonoBehaviour
         Vector3Int doorPosition = Vector3Int.RoundToInt(currentDoor.transform.position);
         Vector3Int destination = Vector3Int.RoundToInt(closest.transform.position);
 
-        
+
 
         while (doorPosition.x != destination.x)
         {
@@ -282,6 +282,42 @@ public class Map : MonoBehaviour
 
         return corridor;
     }
+    public List<Vector3Int> Convert(HashSet<Vector3Int> corridor)
+    {
+        List<Vector3Int> newCorridor = new List<Vector3Int>();
+        foreach (var item in corridor)
+        {
+            newCorridor.Add(item);
+        }
+        return newCorridor;
+    }
+    // public List<Vector3Int> IncreaseCorridorSizeByOne(HashSet<Vector3Int> set)
+    // {
+    //     List<Vector3Int> newCorridor = new List<Vector3Int>();
+    //     List<Vector3Int> corridor = Convert(set);
+        
+    //     Vector3Int previewDirection = Vector3Int.zero;
+
+    //     for (int i = 1; i < corridor.Count; i++)
+    //     {
+    //         Vector3Int directionFromCell = corridor[i] - corridor[i - 1];
+    //         if(previewDirection != Vector3Int.zero && directionFromCell != previewDirection)
+    //         {
+    //             for(int x = -1; x<2;x++)
+    //             {
+    //                 for(int y = -1;y<2;y++)
+    //                 {
+    //                     newCorridor.Add(corridor[i-1]+ new Vector3Int(x,0,y));
+    //                 }
+    //             }
+    //             previewDirection = directionFromCell;
+    //         }
+    //         else
+    //         {
+                
+    //         }
+    //     }
+    // }
 
 
     private void AddDoorsToRoom(Room room)
@@ -317,7 +353,7 @@ public class Map : MonoBehaviour
 
 
         }
-         
+
         actualDoors.Clear();
         islandId++;
 

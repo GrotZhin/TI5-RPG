@@ -1849,6 +1849,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchModes
   scissorsMode: 0
+  controllerList:
+  - {fileID: 9100000, guid: 665f343c0a4a63d43bb536922a9179d2, type: 2}
+  - {fileID: 9100000, guid: a01ec2f2d1f29a441a9d49a86e4d931f, type: 2}
   scissors:
   - {fileID: 7301586374380885815}
   - {fileID: 1815892982850926939}
@@ -4134,6 +4137,7 @@ Transform:
   - {fileID: 6387867387233685977}
   - {fileID: 3356825959073631242}
   - {fileID: 4145165075184167029}
+  - {fileID: 5487562637164797093}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-4886462899509217098
@@ -5576,6 +5580,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &3740566291696021393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5487562637164797093}
+  m_Layer: 0
+  m_Name: CheckPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5487562637164797093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3740566291696021393}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.417, z: -1.944}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8116655762900058524}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3778930439786681047
 GameObject:
   m_ObjectHideFlags: 0
@@ -12557,6 +12592,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4978943548597566855, guid: f58fab68e14aca541bd59f3a3e2f1347, type: 3}
+      propertyPath: islandPosition
+      value: 
+      objectReference: {fileID: 5487562637164797093}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

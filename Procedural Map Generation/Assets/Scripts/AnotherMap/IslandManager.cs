@@ -32,6 +32,15 @@ public class IslandManager : MonoBehaviour
             OpenDoor();
         }
     }
+    public void CloseDoors()
+    {
+        foreach (var item in island.doors)
+        {
+            if(item == null) continue;
+            item.gameObject.SetActive(true);
+         
+        }
+    }
 
     private void OpenDoor()
     {

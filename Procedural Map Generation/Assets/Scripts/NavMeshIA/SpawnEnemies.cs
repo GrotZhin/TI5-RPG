@@ -3,26 +3,33 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour
 {
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private Agent enemy;
     [SerializeField] private int min;
     [SerializeField] private int max;
     [SerializeField] private float radius;
     [SerializeField] private Transform[] spawnPoints;
+    [SerializeField]IslandManager islandManager;
     void Start()
     {
         SpawnEnemy();
     }
     void SpawnEnemy()
     {
+        
         var count = Random.Range(min , max);
+        enemy.isLeader = true;
         for(int i = 0; i<count; i++)
         {
             var circle = Random.insideUnitSphere * radius;
             circle.y = 0;
 
             var pos =  spawnPoints[Random.Range(0,spawnPoints.Length)].position + circle;
-            Instantiate(enemy, pos,Quaternion.identity, transform);
+            if(i == 1) enemy.isLeader = false;
+            islandManager.enemies.Add(Instantiate(enemy.gameObject, pos,Quaternion.identity, transform));
+            
         }
+        islandManager.CloseDoors();
+        islandManager.combatStarted = true;
     }
 
  

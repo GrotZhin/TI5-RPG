@@ -1,6 +1,6 @@
 using Mono.Cecil;
 using System;
-
+using System.Collections;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -217,9 +217,16 @@ public class PlayerStats : MonoBehaviour
     }
     public void Respawn()
     {
-
+        cc.enabled = false;
         transform.position = islandPosition.position;
         Physics.SyncTransforms();
         Debug.Log("Rodei aq");
+        cc.enabled = true;
+        //StartCoroutine(ccActive());
+    }
+    IEnumerator ccActive()
+    {
+        yield return new WaitForSeconds(0.1f);
+        cc.enabled = true;
     }
 }

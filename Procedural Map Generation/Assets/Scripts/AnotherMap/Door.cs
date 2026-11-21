@@ -6,8 +6,7 @@ public class Door : MonoBehaviour
     
     public Vector3 direction;
     public bool isWay;
-    [SerializeField]
-    RoomStats roomStats;
+    
     void Awake()
     {
      
