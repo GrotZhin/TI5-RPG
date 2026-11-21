@@ -12788,7 +12788,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3609553940693275100, guid: f58fab68e14aca541bd59f3a3e2f1347, type: 3}
+      propertyPath: menuAni
+      value: 
+      objectReference: {fileID: 1253068408308256847}
+    - target: {fileID: 3609553940693275100, guid: f58fab68e14aca541bd59f3a3e2f1347, type: 3}
+      propertyPath: menuCanvas
+      value: 
+      objectReference: {fileID: 5664433165414593467}
+    - target: {fileID: 3609553940693275100, guid: f58fab68e14aca541bd59f3a3e2f1347, type: 3}
+      propertyPath: buttonManager
+      value: 
+      objectReference: {fileID: 7303466400506679670}
+    - target: {fileID: 3609553940693275100, guid: f58fab68e14aca541bd59f3a3e2f1347, type: 3}
+      propertyPath: currentButton
+      value: 
+      objectReference: {fileID: 4819304662469176517}
+    - target: {fileID: 8829379959296213005, guid: f58fab68e14aca541bd59f3a3e2f1347, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5090013479425878641, guid: f58fab68e14aca541bd59f3a3e2f1347, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -13304,10 +13325,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6802225451825729112, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
-      propertyPath: Input
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6802225451825729112, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
       propertyPath: Border
       value: _VinhettePower
       objectReference: {fileID: 0}
@@ -13458,9 +13475,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3449642761700424191, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1328446736378478713}
-    - targetCorrespondingSourceObject: {fileID: 3449642761700424191, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5587578024388600354}
   m_SourcePrefab: {fileID: 100100000, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
 --- !u!1 &1068338329908226244 stripped
 GameObject:
@@ -13486,6 +13500,11 @@ RectTransform:
 --- !u!1 &4819304662469176517 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000937217852453586, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
+  m_PrefabInstance: {fileID: 5694123425535876631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5664433165414593467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 115278184411409836, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
   m_PrefabInstance: {fileID: 5694123425535876631}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6978891425709385704 stripped
@@ -13553,24 +13572,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 1
---- !u!114 &5587578024388600354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6978891425709385704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee887d3921fa56541a4db8c3bf191a97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UiControl
-  inputInfo: {fileID: 11400000, guid: ee353bc991b1ad64093f7671fac5b94b, type: 2}
-  menuActionReference: {fileID: -4401109088168939356, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  menuCanvas: {fileID: 6978891425709385704}
-  currentButton: {fileID: 4819304662469176517}
-  menuAni: {fileID: 1253068408308256847}
-  buttonManager: {fileID: 7303466400506679670}
 --- !u!114 &7303466400506679670 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3053028131066105697, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
