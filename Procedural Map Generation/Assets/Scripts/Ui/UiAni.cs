@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEditor.XR;
+using NUnit.Framework;
 public class UiAni : MonoBehaviour
 {
     [Header("Input & Canvas")]
@@ -13,6 +15,9 @@ public class UiAni : MonoBehaviour
     [SerializeField] private InputInfo inputInfo;
     [SerializeField] private CanvasGroup UiCG;
     public GameObject UI;
+    public GameObject DeathBorderScreen;
+    public GameObject DeathBGScreen;
+    public GameObject DeathButtonsScreen;
 
     [Header("Timing Config")]
     public float BRotationime;
@@ -60,12 +65,30 @@ public class UiAni : MonoBehaviour
     public GameObject GPCtrlscheme;
 
     private bool OptionsisAni = false;
-     private bool isOutroPlaying = false; 
+    private bool isOutroPlaying = false; 
+    private bool isDead;
+
+    [Header("Death")]
+    [SerializeField] private GameObject DeathBG;
+    [SerializeField] private CanvasGroup DeathScreenCG;
+    [SerializeField] private CanvasGroup DeathScreenBGCG;
+    [SerializeField] private float DeathScreenTween;
+    [SerializeField] private Material BorderMat;
+    [SerializeField] private string Border;
+    [SerializeField] private float IntensityStart;
+    [SerializeField] private float IntensityEnd;
+    [SerializeField] private float BorderTweenDur;
+    [SerializeField] private GameObject FirstDeathButton;
 
     void Start()
     {
         if (Settings != null) Settings.SetActive(false);
         buttonManager = GetComponent<UiButtonManager>();
+        isDead = false;
+        BorderMat.SetFloat(Border,IntensityStart);
+        DeathBGScreen.SetActive(false);
+        DeathBorderScreen.SetActive(false);
+        DeathButtonsScreen.SetActive(false);
     }
 
     void OnEnable()
@@ -101,13 +124,22 @@ public class UiAni : MonoBehaviour
     
     public void Update()
     {
-        if (options && EventSystem.current != null && EventSystem.current.currentSelectedGameObject != null)
-        {
-            if (!EventSystem.current.currentSelectedGameObject.transform.IsChildOf(Settings.transform))
-            {
-                EventSystem.current.SetSelectedGameObject(FirstOptnButton);
-            }
-        }
+        if (EventSystem.current == null) return;
+    var selected = EventSystem.current.currentSelectedGameObject;
+
+    if (isDead)
+    {
+        if (selected == null || !selected.transform.IsChildOf(DeathButtonsScreen.transform))
+            EventSystem.current.SetSelectedGameObject(FirstDeathButton);
+        return;
+    }
+
+    if (options && selected != null)
+    {
+        if (!selected.transform.IsChildOf(Settings.transform))
+            EventSystem.current.SetSelectedGameObject(FirstOptnButton);
+    }
+
     }
 
     public void UIIntro()
@@ -267,5 +299,29 @@ public class UiAni : MonoBehaviour
     public void ExitToLobby()
     {
         SceneManager.LoadScene("Lobby");
+    }
+
+    public void DeathAni()
+{
+    isDead = true;
+    options = false;
+    OptionsGroup.DOKill(); OptionsBg.DOKill(); OptionsCG.DOKill(); Tape.DOKill();
+    if (Settings != null) Settings.SetActive(false);
+
+    UI.SetActive(false);
+    DeathBGScreen.SetActive(true);
+    DeathButtonsScreen.SetActive(true);
+    if (Input != null) Input.SwitchCurrentActionMap("UI");
+    Pointer.alpha = 1f;
+    if (buttonManager != null)
+        buttonManager.InitializeManager(DeathButtonsScreen, FirstDeathButton);
+
+    DeathScreenCG.DOFade(1f, DeathScreenTween).SetUpdate(true);
+    DeathScreenBGCG.DOFade(1f, DeathScreenTween).SetUpdate(true);
+}
+    public void DeathBorderAni()
+    {
+        DeathBorderScreen.SetActive(true);
+        BorderMat.DOFloat(IntensityEnd, Border, BorderTweenDur).SetEase(Ease.InOutSine).SetUpdate(true);
     }
 }

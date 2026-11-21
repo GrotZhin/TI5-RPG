@@ -7198,6 +7198,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 583039975}
     - target: {fileID: 3609553940693275100, guid: f58fab68e14aca541bd59f3a3e2f1347, type: 3}
+      propertyPath: buttonManager
+      value: 
+      objectReference: {fileID: 1557469282}
+    - target: {fileID: 3609553940693275100, guid: f58fab68e14aca541bd59f3a3e2f1347, type: 3}
       propertyPath: currentButton
       value: 
       objectReference: {fileID: 920253502}
@@ -7225,7 +7229,8 @@ PrefabInstance:
       propertyPath: markerCanvasGroup
       value: 
       objectReference: {fileID: 222597396}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5090013479425878641, guid: f58fab68e14aca541bd59f3a3e2f1347, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -84040,6 +84045,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
+--- !u!114 &1557469282 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3053028131066105697, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
+  m_PrefabInstance: {fileID: 1557469281}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee022b38a708433499258d0b54eefa53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UiButtonManager
 --- !u!4 &1564370880 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 338572857353289267, guid: d8b83c26d766c1447972beb60501c7fb, type: 3}
