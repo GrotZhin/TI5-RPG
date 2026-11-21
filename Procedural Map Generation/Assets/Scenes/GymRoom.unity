@@ -2097,6 +2097,11 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &135528538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3449642761700424191, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
+  m_PrefabInstance: {fileID: 2849205198210558428}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &139354006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27715,7 +27720,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3035195410701006355, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
   m_PrefabInstance: {fileID: 2849205198210558428}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 135528538}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e333b8a3454ff6c46b1d2fa5119bdea0, type: 3}
@@ -27726,7 +27731,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6802225451825729112, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
   m_PrefabInstance: {fileID: 2849205198210558428}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 135528538}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b0d98b05d7a657489db431c4227abc5, type: 3}
@@ -27737,12 +27742,30 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3053028131066105697, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
   m_PrefabInstance: {fileID: 2849205198210558428}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 135528538}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee022b38a708433499258d0b54eefa53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UiButtonManager
+--- !u!114 &1134551848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135528538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee887d3921fa56541a4db8c3bf191a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UiControl
+  inputInfo: {fileID: 11400000, guid: ee353bc991b1ad64093f7671fac5b94b, type: 2}
+  menuActionReference: {fileID: -4401109088168939356, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  menuCanvas: {fileID: 1324203299}
+  currentButton: {fileID: 495723238}
+  menuAni: {fileID: 1134551842}
+  buttonManager: {fileID: 1134551847}
 --- !u!43 &1149040228
 Mesh:
   m_ObjectHideFlags: 0
@@ -55418,7 +55441,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3449642761700424191, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1134551848}
   m_SourcePrefab: {fileID: 100100000, guid: 168a83ee198533a4b938b2f89e93b245, type: 3}
 --- !u!1001 &5707996574375042947
 PrefabInstance:
