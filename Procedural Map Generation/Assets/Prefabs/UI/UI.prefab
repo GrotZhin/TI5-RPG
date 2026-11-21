@@ -2422,7 +2422,7 @@ GameObject:
   - component: {fileID: 8710467627454098880}
   - component: {fileID: 77560141385062225}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2684,6 +2684,7 @@ GameObject:
   - component: {fileID: 3035195410701006355}
   - component: {fileID: 6802225451825729112}
   - component: {fileID: 3053028131066105697}
+  - component: {fileID: 5025662202051146853}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -2808,7 +2809,9 @@ MonoBehaviour:
   inputInfo: {fileID: 11400000, guid: ee353bc991b1ad64093f7671fac5b94b, type: 2}
   UiCG: {fileID: 8619109502130365951}
   UI: {fileID: 115278184411409836}
-  DeathScreen: {fileID: 5172632106111373393}
+  DeathBorderScreen: {fileID: 3333906489149505050}
+  DeathBGScreen: {fileID: 3559309371595367782}
+  DeathButtonsScreen: {fileID: 4744004661279127251}
   BRotationime: 0
   BFadeTime: 0
   TweenDur: 0
@@ -2848,11 +2851,11 @@ MonoBehaviour:
   DeathScreenCG: {fileID: 7774952364721051646}
   DeathScreenBGCG: {fileID: 7153787504475074615}
   DeathScreenTween: 0
-  BorderMat: {fileID: 0}
-  Border: 
-  IntensityStart: 0
-  IntensityEnd: 0
-  BorderTweenDur: 0
+  BorderMat: {fileID: 2100000, guid: 73b0805fc89d16141b5d5a4837fe5176, type: 2}
+  Border: _VinhettePower
+  IntensityStart: 4
+  IntensityEnd: 5.93
+  BorderTweenDur: 2
 --- !u!114 &3053028131066105697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2870,6 +2873,66 @@ MonoBehaviour:
   arrowOffsetX: -260
   SelectScale: 1.15
   UnScale: 0.9
+--- !u!114 &5025662202051146853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3449642761700424191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 1d2073efdbbd729419b298048285cf9f, type: 2}
+    - {fileID: 11400000, guid: 68f02b11068d0cd4da718f6e30ceeda3, type: 2}
+    - {fileID: 11400000, guid: 14a2561c7bd79cf4dbd9b750f020f8a6, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6802225451825729112}
+          m_TargetAssemblyTypeName: UiAni, Assembly-CSharp
+          m_MethodName: DeathBorderAni
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6802225451825729112}
+          m_TargetAssemblyTypeName: UiAni, Assembly-CSharp
+          m_MethodName: DeathAni
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6802225451825729112}
+          m_TargetAssemblyTypeName: UiAni, Assembly-CSharp
+          m_MethodName: DeathBorderAni
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
 --- !u!1 &3559309371595367782
 GameObject:
   m_ObjectHideFlags: 0
@@ -2883,7 +2946,7 @@ GameObject:
   - component: {fileID: 1868221978499809360}
   - component: {fileID: 7153787504475074615}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4293,7 +4356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7497070056151904584
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7353,9 +7416,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6802225451825729112}
-        m_TargetAssemblyTypeName: UiAni, Assembly-CSharp
-        m_MethodName: ExitToMenu
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UiControl, Assembly-CSharp
+        m_MethodName: Lobby
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

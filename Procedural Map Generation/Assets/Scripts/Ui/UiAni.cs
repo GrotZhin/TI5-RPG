@@ -15,7 +15,9 @@ public class UiAni : MonoBehaviour
     [SerializeField] private InputInfo inputInfo;
     [SerializeField] private CanvasGroup UiCG;
     public GameObject UI;
-    public GameObject DeathScreen;
+    public GameObject DeathBorderScreen;
+    public GameObject DeathBGScreen;
+    public GameObject DeathButtonsScreen;
 
     [Header("Timing Config")]
     public float BRotationime;
@@ -84,6 +86,9 @@ public class UiAni : MonoBehaviour
         buttonManager = GetComponent<UiButtonManager>();
         isDead = false;
         BorderMat.SetFloat(Border,IntensityStart);
+        DeathBGScreen.SetActive(false);
+        DeathBorderScreen.SetActive(false);
+        DeathButtonsScreen.SetActive(false);
     }
 
     void OnEnable()
@@ -290,12 +295,14 @@ public class UiAni : MonoBehaviour
     public void DeathAni()
     {
         UI.SetActive(false);
+        DeathBGScreen.SetActive(true);
+        DeathButtonsScreen.SetActive(true);
         DeathScreenCG.DOFade(1f,DeathScreenTween).SetUpdate(true);
         DeathScreenBGCG.DOFade(1f,DeathScreenTween).SetUpdate(true);
     }
     public void DeathBorderAni()
     {
-        DeathScreen.SetActive(true);
+        DeathBorderScreen.SetActive(true);
         BorderMat.DOFloat(IntensityEnd, Border, BorderTweenDur).SetEase(Ease.InOutSine).SetUpdate(true);
     }
 }
