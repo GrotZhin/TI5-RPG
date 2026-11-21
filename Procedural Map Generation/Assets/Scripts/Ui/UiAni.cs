@@ -66,11 +66,24 @@ public class UiAni : MonoBehaviour
     private bool isOutroPlaying = false; 
     private bool isDead;
 
+    [Header("Death")]
+    [SerializeField] private GameObject DeathBG;
+    [SerializeField] private CanvasGroup DeathScreenCG;
+    [SerializeField] private CanvasGroup DeathScreenBGCG;
+    [SerializeField] private float DeathScreenTween;
+    [SerializeField] private Material BorderMat;
+    [SerializeField] private string Border;
+    [SerializeField] private float IntensityStart;
+    [SerializeField] private float IntensityEnd;
+    [SerializeField] private float BorderTweenDur;
+    
+
     void Start()
     {
         if (Settings != null) Settings.SetActive(false);
         buttonManager = GetComponent<UiButtonManager>();
         isDead = false;
+        BorderMat.SetFloat(Border,IntensityStart);
     }
 
     void OnEnable()
@@ -274,18 +287,15 @@ public class UiAni : MonoBehaviour
         SceneManager.LoadScene("Lobby");
     }
 
-    public void DeathUi()
+    public void DeathAni()
     {
-        isDead= true;
-        if(isDead== true)
-        {
-            deathAni();
-            UI.SetActive(false);
-        }       
-        
+        UI.SetActive(false);
+        DeathScreenCG.DOFade(1f,DeathScreenTween).SetUpdate(true);
+        DeathScreenBGCG.DOFade(1f,DeathScreenTween).SetUpdate(true);
     }
-    public void deathAni()
+    public void DeathBorderAni()
     {
         DeathScreen.SetActive(true);
+        BorderMat.DOFloat(IntensityEnd, Border, BorderTweenDur).SetEase(Ease.InOutSine).SetUpdate(true);
     }
 }
