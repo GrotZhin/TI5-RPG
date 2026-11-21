@@ -6,6 +6,7 @@ public class DoorPos : MonoBehaviour
    public int id;
   
    public DoorPos pair;
+   public GameObject mesh;
    
   
 

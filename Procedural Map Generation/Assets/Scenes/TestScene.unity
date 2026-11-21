@@ -637,11 +637,11 @@ MonoBehaviour:
   - {fileID: 5955459116306691319, guid: 0b8993db8504df44cb9cab87e44e0e36, type: 3}
   - {fileID: 3942396737730283573, guid: 940589f069f40334286875d4c4e57ed0, type: 3}
   - {fileID: 6882041388213453990, guid: b73402940978aae4e8ce5e18fcebd63e, type: 3}
-  corridorPrefab: {fileID: 3646005755913151362, guid: 994ec61cf09c2654eaab19fa1ffc3001, type: 3}
+  corridorPrefab: {fileID: 3722334914518653573, guid: 4df43f90a5c73164a90a730f0de107d3, type: 3}
   roomBossPrefab: {fileID: 6882041388213453990, guid: b73402940978aae4e8ce5e18fcebd63e, type: 3}
   firstRoomPrefab: {fileID: 2597286928049192619, guid: c327d5a1567652c4eaea3d6108645da0, type: 3}
   roomTreasurePrefab: {fileID: 7501521439093925480, guid: 4ca264e31e5dee748bcbbd81e5c4e3f4, type: 3}
-  doorPrefab: {fileID: 8497503561418040719, guid: 160028cf4eabeb14b994a2d74ced63cd, type: 3}
+  doorPrefab: {fileID: -8780289457774885126, guid: 5be444daadec0c74bb12de76d4ceb857, type: 3}
   doorsPositions: []
 --- !u!4 &953951092
 Transform:

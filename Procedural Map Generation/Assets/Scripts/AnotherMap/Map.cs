@@ -186,7 +186,7 @@ public class Map : MonoBehaviour
         Vector3 pos = actualDoors[doorDirection].transform.position;
 
 
-        var door = Instantiate(doorPrefab, pos, Quaternion.identity);
+        var door = Instantiate(doorPrefab, pos,actualDoors[doorDirection].transform.rotation);
 
         door.id = islandId;
 
@@ -220,6 +220,9 @@ public class Map : MonoBehaviour
 
         HashSet<Vector3Int> corridors = new HashSet<Vector3Int>();
         HashSet<DoorPos> done = new HashSet<DoorPos>();
+          List<Quaternion> rotations = new List<Quaternion>();
+          List<Quaternion> rotation = new List<Quaternion>();
+          
 
         foreach (var door in doorsPositions)
         {
@@ -227,6 +230,7 @@ public class Map : MonoBehaviour
             foreach (var pos in PositionCorridor(door, door.pair))
             {
                 corridors.Add(pos);
+             
             }
             done.Add(door);
             done.Add(door.pair);
@@ -236,22 +240,23 @@ public class Map : MonoBehaviour
 
 
     }
-
     private void InstantiateCorridor(HashSet<Vector3Int> positions)
     {
-
+        int i = 0;
         foreach (var pos in positions)
         {
-            Instantiate(corridorPrefab, pos, Quaternion.identity);
+          
+            Instantiate(corridorPrefab, pos,rotation[i]);
+            i++;
         }
     }
-
+    List<Quaternion> rotation = new List<Quaternion>();
     private HashSet<Vector3Int> PositionCorridor(DoorPos currentDoor, DoorPos closest)
     {
         HashSet<Vector3Int> corridor = new HashSet<Vector3Int>();
         Vector3Int doorPosition = Vector3Int.RoundToInt(currentDoor.transform.position);
         Vector3Int destination = Vector3Int.RoundToInt(closest.transform.position);
-
+        
 
 
         while (doorPosition.x != destination.x)
@@ -259,10 +264,13 @@ public class Map : MonoBehaviour
             if (destination.x > doorPosition.x)
             {
                 doorPosition += Vector3Int.right;
+                rotation.Add(Quaternion.Euler(0,90,0));
+                
             }
             else if (destination.x < doorPosition.x)
             {
                 doorPosition += Vector3Int.left;
+                rotation.Add(Quaternion.Euler(0,-90,0));
             }
             corridor.Add(doorPosition);
         }
@@ -272,14 +280,16 @@ public class Map : MonoBehaviour
             if (destination.z > doorPosition.z)
             {
                 doorPosition += Vector3Int.forward;
+                rotation.Add(Quaternion.Euler(0,0,0));
             }
             else if (destination.z < doorPosition.z)
             {
                 doorPosition += Vector3Int.back;
+                rotation.Add(Quaternion.Euler(0,180,0));
             }
             corridor.Add(doorPosition);
         }
-
+       
         return corridor;
     }
     public List<Vector3Int> Convert(HashSet<Vector3Int> corridor)

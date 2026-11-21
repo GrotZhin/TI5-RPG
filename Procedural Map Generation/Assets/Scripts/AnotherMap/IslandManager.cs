@@ -47,8 +47,8 @@ public class IslandManager : MonoBehaviour
         foreach (var item in island.doors)
         {
             if(item == null) continue;
-            item.gameObject.SetActive(false);
-            item.pair.gameObject.SetActive(false);
+            item.mesh.SetActive(false);
+            item.pair.mesh.SetActive(false);
         }
     }
 
