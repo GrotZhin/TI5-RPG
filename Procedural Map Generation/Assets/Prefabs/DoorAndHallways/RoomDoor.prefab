@@ -269,6 +269,8 @@ MonoBehaviour:
   id: 0
   pair: {fileID: 0}
   mesh: {fileID: 3355024960916330763}
+  animator: {fileID: 6596207601128412451}
+  isOpen: 0
 --- !u!4 &4362127933325610624 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 859264ce096553f48b32adc30bec6861, type: 3}
