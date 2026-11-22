@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3140392392025036680
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8994999992966727565, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e8837f27fe77b8049833ac6e16a0ce6e, type: 2}
+    - target: {fileID: -8994999992966727565, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 59042e36fa59ad44caea8852478df4a1, type: 2}
+    - target: {fileID: -8679921383154817045, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -94
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 59042e36fa59ad44caea8852478df4a1, type: 2}
+    - target: {fileID: -6414186734731381376, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -1880768502005183849, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a3bc8eb0a418f24f812b00b797234a0, type: 2}
+    - target: {fileID: 919132149155446097, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: m_Name
+      value: Level.Esquadro
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937092226363630777, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7937092226363630777, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8470369388385753064}
+    - targetCorrespondingSourceObject: {fileID: -6414186734731381376, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4459174278366859639}
+  m_SourcePrefab: {fileID: 100100000, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+--- !u!1 &966252038204547592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6414186734731381376, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+  m_PrefabInstance: {fileID: 3140392392025036680}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &4459174278366859639
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966252038204547592}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6766430848978330548, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+--- !u!1 &5022319999928693553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7937092226363630777, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
+  m_PrefabInstance: {fileID: 3140392392025036680}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &8470369388385753064
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5022319999928693553}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4923627710252822181, guid: e8bd7c0006cec4342b7fd3b60b3a6cfe, type: 3}
