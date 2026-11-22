@@ -8,10 +8,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MatInterior
-  m_Shader: {fileID: 4800000, guid: 9eae6f0ef0b0b5146a089322b857f47a, type: 3}
-  m_Parent: {fileID: 0}
+  m_Shader: {fileID: 4800000, guid: be891319084e9d147b09d89e80ce60e0, type: 3}
+  m_Parent: {fileID: 2100000, guid: 59042e36fa59ad44caea8852478df4a1, type: 2}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _EMISSIVE_SIMPLE
+  - _OUTLINE_NML
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -22,15 +24,19 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+    m_TexEnvs: []
     m_Ints: []
     m_Floats:
+    - _1st_ShadeColor_Feather: 0.0001
+    - _1st_ShadeColor_Step: 0.5
+    - _BaseColor_Step: 0.5
+    - _BaseShade_Feather: 0.0001
+    - _CullMode: 2
     - _StencilComp: 3
+    - _Tweak_SystemShadowsLevel: 0
     m_Colors:
+    - _1st_ShadeColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.56078434, g: 0.75020194, b: 0.7830189, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
