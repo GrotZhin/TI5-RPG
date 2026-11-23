@@ -4,9 +4,11 @@ using UnityEngine.Rendering;
 public class DoorPos : MonoBehaviour
 {
    public int id;
-  
    public DoorPos pair;
-   
+   public GameObject mesh;
+   public Animator animator;
+   public bool isOpen = false;
+  
   
 
 }

@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 4106d2d34170ff44d8ea3da57bf18ef8
+  - enabled: 1
+    path: Assets/Scenes/TrainningMap.unity
+    guid: a5bb8623be12c5948999e8e0211d3f70
+  - enabled: 1
+    path: Assets/Scenes/TestLevels.unity
+    guid: 9c725c98f20de7d489d8085bfb6f90a8
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 7cf1d6f8e7fc33749a1eac19d2f538e7, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

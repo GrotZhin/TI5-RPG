@@ -18,11 +18,11 @@ public class GiveDamage : IState
         Debug.Log("Vou bater");
         agent.agent.SetDestination(PlayerStats.Instance.transform.position);
 
+        agent.animator.SetFloat("RandomHit",Random.value);
     }
 
     public void Execute(float delta)
     {
-
 
         AnimatorStateInfo state = agent.animator.GetCurrentAnimatorStateInfo(0);
         if (agent.agent.remainingDistance >= 0.1f)

@@ -18,9 +18,11 @@ public class Agent : MonoBehaviour
   public Animator animator;
   public EnemyAttackCheck attackCheck;
   public SkinnedMeshRenderer renderer;
-  [HideInInspector] 
+  [HideInInspector]
   public bool droppedLoot;
-    IState state;
+  bool waitingFlashEffect;
+  
+  IState state;
   void Start()
   {
     agent = GetComponent<NavMeshAgent>();
@@ -43,10 +45,10 @@ public class Agent : MonoBehaviour
   public void AttackPlayer()
   {
     var rd = Random.Range(0, group.list.Count);
-    for(int i = 0; i< rd; i++)
+    for (int i = 0; i < rd; i++)
     {
-     var enemy = group.list[Random.Range(0, group.list.Count)];
-     enemy.ChangeState(new GiveDamage(enemy));
+      var enemy = group.list[Random.Range(0, group.list.Count)];
+      enemy.ChangeState(new GiveDamage(enemy));
     }
   }
   public void Update()
@@ -66,6 +68,24 @@ public class Agent : MonoBehaviour
   }
 
 
+  public void FlashEffect(float duration, SkinnedMeshRenderer mat)
+  {
+
+    if (waitingFlashEffect) return;
+
+    mat.material.EnableKeyword("_EMISSION");
+    Color actualColor = mat.material.GetColor("_EmissionColor");
+    mat.material.SetColor("_Emissive_Color", Color.white * 3f);
+
+    StartCoroutine(ReturnColor(duration, mat, actualColor));
+  }
+  IEnumerator ReturnColor(float duration, SkinnedMeshRenderer mat, Color color)
+  {
+    waitingFlashEffect = true;
+    yield return new WaitForSecondsRealtime(duration);
+    mat.material.SetColor("_Emissive_Color", color);
+    waitingFlashEffect = false;
+  }
   public void ChangeState(IState state)
   {
     this.state?.Exit();
@@ -75,19 +95,26 @@ public class Agent : MonoBehaviour
 
   public void Remove()
   {
+    if (IslandManager.islandManager != null)
+      IslandManager.islandManager.enemies.Remove(gameObject);
     Destroy(gameObject);
   }
   void OnDestroy()
   {
-    if (isLeader)
+    if (!isLeader)
     {
-      group.leader = group.list[Random.Range(0, group.list.Count)];
-      group.leader.isLeader = true;
+      group.list.Remove(this);
     }
 
     else
+    {
+      if(group.list.Count<= 0) return;
+      group.leader = group.list[Random.Range(0, group.list.Count)];
+      group.leader.isLeader = true;
 
-      group.list.Remove(this);
+    }
+
+
 
     if (IslandManager.islandManager != null)
       IslandManager.islandManager.enemies.Remove(agent.gameObject);
