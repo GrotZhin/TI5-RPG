@@ -19,15 +19,19 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 47000936448
-    m_Localized: Fique o tempo que quiser
+    m_Localized: "Prends tout le temps qu'il te faut dans cette pi\xE8ce."
     m_Metadata:
       m_Items: []
   - m_Id: 165456470016
-    m_Localized: "Voc\xEA quer um tempo a s\xF3s?"
+    m_Localized: Tu veux un peu de temps seul ?
     m_Metadata:
       m_Items: []
   - m_Id: 369148649472
-    m_Localized: 
+    m_Localized: "Elle va \xEAtre comme \xE7a pour toujours ?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 423245131636736
+    m_Localized: "Pourquoi tu ne te r\xE9veilles pas ?"
     m_Metadata:
       m_Items: []
   references:
