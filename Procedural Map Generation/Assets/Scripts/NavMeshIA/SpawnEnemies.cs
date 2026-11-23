@@ -17,18 +17,20 @@ public class SpawnEnemies : MonoBehaviour
     {
         
         var count = Random.Range(min , max);
-        var rd = Random.Range(0, enemy.Length);
-        enemy[rd].isLeader = true;
+      
+        
         for(int i = 0; i<count; i++)
         {
             var circle = Random.insideUnitSphere * radius;
             circle.y = 0;
-
+            var rd = Random.Range(0, enemy.Length); 
             var pos =  spawnPoints[Random.Range(0,spawnPoints.Length)].position + circle;
-            if(i == 1) enemy[rd].isLeader = false;
-            islandManager.enemies.Add(Instantiate(enemy[rd].gameObject, pos,Quaternion.identity, transform));
+           
+            islandManager.enemies.Add(Instantiate(enemy[rd], pos,Quaternion.identity, transform));
             
         }
+        var rdLeader = Random.Range(0, islandManager.enemies.Count); 
+        islandManager.enemies[rdLeader].isLeader = true;
         islandManager.CloseDoors();
         islandManager.combatStarted = true;
     }

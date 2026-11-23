@@ -9,7 +9,7 @@ public class KillPlane : MonoBehaviour
     {
 
         if(other.CompareTag("Enemy"))
-        IslandManager.islandManager.enemies.Remove(other.gameObject);
+        IslandManager.islandManager.enemies.Remove(other.GetComponent<Agent>());
         if (other.CompareTag("Player"))
         {
            
