@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Agent
   agent: {fileID: 0}
-  isLeader: 1
+  isLeader: 0
   group: {fileID: 0}
   done:
     m_PersistentCalls:
@@ -216,6 +216,7 @@ MonoBehaviour:
   animator: {fileID: 3592947347788518574}
   attackCheck: {fileID: -8860366101360557601}
   renderer: {fileID: 3800318559839504812}
+  droppedLoot: 0
 --- !u!114 &5845333057602870082
 MonoBehaviour:
   m_ObjectHideFlags: 0

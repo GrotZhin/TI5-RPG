@@ -46,7 +46,7 @@ public class EnemyStateDano : IState
             }
         }
     }
-
+    
     public void Exit()
     {
 

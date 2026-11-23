@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d024a72a3713747a4a5e2fe97ad073, type: 3}
   m_Name: SecondY
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
-  animationName: 
-  force: 10
+  force: 20
   hitBox: 1
   left: 0
   both: 1
+  hitStop: 0.05
+  stylePoints: 20

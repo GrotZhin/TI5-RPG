@@ -37,6 +37,7 @@ public class PlayerMove : MonoBehaviour
 
     public float jumpHeight = 4.4f, jumpTime = 0.4f;
     float velocityMultiplier = 1;
+    float StatSpeedMult => PlayerStats.Instance != null ? PlayerStats.Instance.MoveSpeedMultiplier : 1f;
     float gravityMultiplier = 1;
     float rotationMultiplier = 1;
     float dashCooldown = 0;
@@ -44,8 +45,8 @@ public class PlayerMove : MonoBehaviour
     void Awake()
     {
         input.Initialize();
-        if(AssignCam.atribute != null)
-        AssignCam.atribute.trackingTarget = transform;
+        if (AssignCam.atribute != null)
+            AssignCam.atribute.trackingTarget = transform;
     }
     void Start()
     {
@@ -111,9 +112,9 @@ public class PlayerMove : MonoBehaviour
         bool running = sprintHeld;
 
         bool onRunningState = animator.GetCurrentAnimatorStateInfo(0).tagHash == Animator.StringToHash("Run");
-        if ((onRunningState || sprintHeld) && moveInput.sqrMagnitude > 0.01f) 
+        if ((onRunningState || sprintHeld) && moveInput.sqrMagnitude > 0.01f)
         {
-            if( stats != null)
+            if (stats != null)
                 running = !stats.IsExhausted && stats.TrySpendStamina(sprintStaminaCostPerSecond * Time.deltaTime);
             else running = true;
         }
@@ -188,8 +189,7 @@ public class PlayerMove : MonoBehaviour
             if (animator.deltaRotation.eulerAngles.y < 1)
             {
                 bool attackTurnWindow = TaylaAttackSSMBehavior.attacking && TaylaAttackSSMBehavior.canTurn && turnWindow > 0.0f;
-                if (attackTurnWindow || !TaylaAttackSSMBehavior.attacking || animator.runtimeAnimatorController.name == "TaylaModel")
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * rotationMultiplier);
+                if (attackTurnWindow || !TaylaAttackSSMBehavior.attacking || animator.runtimeAnimatorController.name == "TaylaModel") transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * rotationMultiplier);
             }
         }
         else
@@ -233,7 +233,7 @@ public class PlayerMove : MonoBehaviour
             }
             else if (ySpeed < 1.3f && ySpeed > -0.08f)
             {
-                ySpeed += Physics.gravity.y/2f * deltaTime * gravityMultiplier;
+                ySpeed += Physics.gravity.y / 2f * deltaTime * gravityMultiplier;
 
             }
             else
@@ -247,10 +247,8 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (dashCooldown > 0)
-            dashCooldown -= Time.fixedDeltaTime;
-        if (turnWindow > 0)
-            turnWindow -= Time.fixedDeltaTime;
+        if (dashCooldown > 0) dashCooldown -= Time.fixedDeltaTime;
+        if (turnWindow > 0) turnWindow -= Time.fixedDeltaTime;
 
         Move(Time.fixedDeltaTime);
         Gravity(Time.fixedDeltaTime);
@@ -261,16 +259,13 @@ public class PlayerMove : MonoBehaviour
 
     private void OnAnimatorMove()
     {
-        if (cc.isGrounded)
-            targetVelocity = animator.deltaPosition * velocityMultiplier;
+        if (cc.isGrounded) targetVelocity = animator.deltaPosition * velocityMultiplier * StatSpeedMult;
         else
         {
             var horizontal = animator.deltaPosition;
             horizontal.y = 0;
-            if (horizontal.sqrMagnitude > 0.001)
-                targetVelocity = animator.deltaPosition * velocityMultiplier;
-            else
-                targetVelocity = moveDir * Time.deltaTime * airSpeed * velocityMultiplier;
+            if (horizontal.sqrMagnitude > 0.001) targetVelocity = animator.deltaPosition * velocityMultiplier * StatSpeedMult;
+            else targetVelocity = moveDir * Time.deltaTime * airSpeed * velocityMultiplier * StatSpeedMult;
         }
         targetVelocity.y = ySpeed * Time.deltaTime;
 
@@ -299,10 +294,8 @@ public class PlayerMove : MonoBehaviour
     }
     public void Jump(bool airJump = false)
     {
-        if (!airJump)
-            CalculateJump(jumpHeight, jumpTime);
-        else
-            CalculateJump(jumpHeight * 4 / 5, jumpTime);
+        if (!airJump) CalculateJump(jumpHeight, jumpTime);
+        else CalculateJump(jumpHeight * 4 / 5, jumpTime);
 
         ySpeed = InitialVelocity;
     }

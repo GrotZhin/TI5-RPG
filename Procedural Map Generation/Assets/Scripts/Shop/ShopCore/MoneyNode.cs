@@ -19,7 +19,7 @@ public class MoneyNode : MonoBehaviour, IInteractable
         }
         lastHitTime = Time.time;
 
-        float multiplier = PlayerStats.Instance != null ? PlayerStats.Instance.AttackMultiplier : 1f;
+        float multiplier = PlayerStats.Instance != null ? PlayerStats.Instance.AttackMultiplier * PlayerStats.Instance.CoinGainMultiplier : 1f;
         int amount = Mathf.Max(1, Mathf.RoundToInt(baseCoins * multiplier));
 
         if (PlayerWallet.Instance != null) PlayerWallet.Instance.AddCoins(amount);

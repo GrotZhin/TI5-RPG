@@ -19,6 +19,7 @@ public class ReceiveDamage : IState
     public void Enter()
     {
         Debug.Log("Entrei no state dnv");
+        Debug.Log("damage: " + damage);
         bool isDead = agent.stats.Damage(damage);
         if (isDead)
         {
@@ -29,7 +30,7 @@ public class ReceiveDamage : IState
 
         agent.animator.Play("damage", 0, 0f);
 
-        GameFeel.gameFeel.FlashEffect(0.2f, renderer);
+        agent.FlashEffect(0.2f, renderer);
 
 
     }
@@ -50,4 +51,5 @@ public class ReceiveDamage : IState
 
         Debug.Log("Sai do state");
     }
+    
 }

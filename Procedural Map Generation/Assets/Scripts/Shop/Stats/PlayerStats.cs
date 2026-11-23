@@ -1,6 +1,5 @@
-using Mono.Cecil;
 using System;
-
+using System.Collections;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -33,6 +32,13 @@ public class PlayerStats : MonoBehaviour
     public float MaxStamina { get; private set; }
     public float MaxShield { get; private set; }
     public float AttackMultiplier { get; private set; }
+    public float MoveSpeedMultiplier { get; private set; } = 1f;
+    public float DamageTakenMultiplier { get; private set; } = 1f;
+    public float CoinGainMultiplier { get; private set; } = 1f;
+    public float DodgeChance { get; private set; }
+
+    private readonly float[] adornoBonus = new float[System.Enum.GetValues(typeof(AdornoStat)).Length];
+    public float AdornoBonus(AdornoStat stat) => adornoBonus[(int)stat];
     public bool IsExhausted { get; private set; }
     public bool IsDead { get; private set; }
 
@@ -67,8 +73,7 @@ public class PlayerStats : MonoBehaviour
 
     void OnDisable()
     {
-        if (subscribedToInventory && InventoryManager.Instance != null)
-            InventoryManager.Instance.OnInventoryChanged -= RecalculateStats;
+        if (subscribedToInventory && InventoryManager.Instance != null) InventoryManager.Instance.OnInventoryChanged -= RecalculateStats;
         subscribedToInventory = false;
     }
 
@@ -116,10 +121,17 @@ public class PlayerStats : MonoBehaviour
         if (InventoryManager.Instance == null) return;
 
         float bonusHealth = 0f, bonusStamina = 0f, bonusShield = 0f, bonusAttack = 0f;
+        System.Array.Clear(adornoBonus, 0, adornoBonus.Length); 
 
         foreach (var slot in InventoryManager.Instance.slots)
         {
             if (slot.item == null) continue;
+            if (slot.item is AdornoData adorno)
+            {
+                adornoBonus[(int)adorno.primary.stat] += adorno.primary.value * slot.quantity;
+                adornoBonus[(int)adorno.secondary.stat] += adorno.secondary.value * slot.quantity;
+                continue;
+            }
 
             switch (slot.item.type)
             {
@@ -130,14 +142,22 @@ public class PlayerStats : MonoBehaviour
             }
         }
 
+        bonusHealth += AdornoBonus(AdornoStat.VidaMax);
+        bonusShield += AdornoBonus(AdornoStat.EscudoMax);
+        bonusAttack += AdornoBonus(AdornoStat.Ataque);
+
         float oldMaxHealth = MaxHealth;
         float oldMaxStamina = MaxStamina;
         float oldMaxShield = MaxShield;
 
-        MaxHealth = baseMaxHealth + bonusHealth;
-        MaxStamina = baseMaxStamina + bonusStamina;
-        MaxShield = baseMaxShield + bonusShield;
-        AttackMultiplier = baseAttackMultiplier + bonusAttack;
+        MaxHealth = Mathf.Max(1f, baseMaxHealth + bonusHealth);
+        MaxStamina = Mathf.Max(1f, baseMaxStamina + bonusStamina);
+        MaxShield = Mathf.Max(0f, baseMaxShield + bonusShield);
+        AttackMultiplier = Mathf.Max(0.1f, baseAttackMultiplier + bonusAttack);
+        MoveSpeedMultiplier = Mathf.Max(0.3f, 1f + AdornoBonus(AdornoStat.Velocidade));
+        DamageTakenMultiplier = Mathf.Max(0.1f, 1f + AdornoBonus(AdornoStat.DanoRecebido));
+        CoinGainMultiplier = Mathf.Max(0.1f, 1f + AdornoBonus(AdornoStat.GanhoMoedas));
+        DodgeChance = Mathf.Clamp(AdornoBonus(AdornoStat.ChanceEsquiva), 0f, 0.75f);
 
         currentHealth = Mathf.Clamp(currentHealth + (MaxHealth - oldMaxHealth), 0, MaxHealth);
         currentStamina = Mathf.Clamp(currentStamina + (MaxStamina - oldMaxStamina), 0, MaxStamina);
@@ -168,11 +188,17 @@ public class PlayerStats : MonoBehaviour
         IsDead = false;
         OnStatsChanged?.Invoke();
     }
-    
-  
+
+
     public void TakeDamage(float amount)
     {
         if (IsDead || amount <= 0f) return;
+        if (DodgeChance > 0f && UnityEngine.Random.value < DodgeChance)
+        {
+            if (FeedbackPopup.Instance != null) FeedbackPopup.Instance.Show("Esquivou!", true);
+            return;
+        }
+        amount *= DamageTakenMultiplier;
         if (StyleSystem.Instance != null) StyleSystem.Instance.OnPlayerHit(amount);
         float remaining = amount;
 
@@ -184,9 +210,9 @@ public class PlayerStats : MonoBehaviour
         }
 
         currentHealth = Mathf.Clamp(currentHealth - remaining, 0, MaxHealth);
-           Debug.Log("Vida atual da tayla: " + currentHealth);
+        UiAni.Instance.ReduceHelthBar(amount);
         OnStatsChanged?.Invoke();
-     
+
         if (currentHealth <= 0f)
         {
             IsDead = true;
@@ -195,7 +221,8 @@ public class PlayerStats : MonoBehaviour
     }
     void Die()
     {
-        //ChamarTela de morte
+       UiAni.Instance.DeathScene();
+
     }
 
     public bool TrySpendStamina(float amount)
@@ -217,9 +244,16 @@ public class PlayerStats : MonoBehaviour
     }
     public void Respawn()
     {
-
+        cc.enabled = false;
         transform.position = islandPosition.position;
         Physics.SyncTransforms();
         Debug.Log("Rodei aq");
+        cc.enabled = true;
+        //StartCoroutine(ccActive());
+    }
+    IEnumerator ccActive()
+    {
+        yield return new WaitForSeconds(0.1f);
+        cc.enabled = true;
     }
 }
