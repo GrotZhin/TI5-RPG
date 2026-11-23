@@ -6,7 +6,7 @@ using UnityEngine;
 public class IslandManager : MonoBehaviour
 {
 
-    public List<GameObject> enemies;
+    public List<Agent> enemies;
 
     public int islandId = 0;
     public static IslandManager islandManager;

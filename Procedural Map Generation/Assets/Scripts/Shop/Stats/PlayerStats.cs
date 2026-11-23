@@ -210,7 +210,7 @@ public class PlayerStats : MonoBehaviour
         }
 
         currentHealth = Mathf.Clamp(currentHealth - remaining, 0, MaxHealth);
-        Debug.Log("Vida atual da tayla: " + currentHealth);
+        UiAni.Instance.ReduceHelthBar(amount);
         OnStatsChanged?.Invoke();
 
         if (currentHealth <= 0f)
@@ -221,7 +221,8 @@ public class PlayerStats : MonoBehaviour
     }
     void Die()
     {
-        //ChamarTela de morte
+       UiAni.Instance.DeathScene();
+
     }
 
     public bool TrySpendStamina(float amount)

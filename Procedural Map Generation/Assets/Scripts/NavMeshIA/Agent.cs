@@ -1,6 +1,5 @@
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
+
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -21,7 +20,7 @@ public class Agent : MonoBehaviour
   [HideInInspector]
   public bool droppedLoot;
   bool waitingFlashEffect;
-  
+
   IState state;
   void Start()
   {
@@ -96,7 +95,7 @@ public class Agent : MonoBehaviour
   public void Remove()
   {
     if (IslandManager.islandManager != null)
-      IslandManager.islandManager.enemies.Remove(gameObject);
+      IslandManager.islandManager.enemies.Remove(this);
     Destroy(gameObject);
   }
   void OnDestroy()
@@ -108,7 +107,7 @@ public class Agent : MonoBehaviour
 
     else
     {
-      if(group.list.Count<= 0) return;
+      if (group.list.Count <= 0) return;
       group.leader = group.list[Random.Range(0, group.list.Count)];
       group.leader.isLeader = true;
 
@@ -116,7 +115,5 @@ public class Agent : MonoBehaviour
 
 
 
-    if (IslandManager.islandManager != null)
-      IslandManager.islandManager.enemies.Remove(agent.gameObject);
   }
 }
