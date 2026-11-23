@@ -12,7 +12,7 @@ public class KillPlane : MonoBehaviour
         IslandManager.islandManager.enemies.Remove(other.GetComponent<Agent>());
         if (other.CompareTag("Player"))
         {
-           
+            PlayerStats.Instance.TakeDamage(10);
             PlayerStats.Instance.Respawn();
             
         }
