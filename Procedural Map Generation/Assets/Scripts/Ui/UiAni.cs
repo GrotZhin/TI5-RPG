@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
-using UnityEditor.XR;
+
 using NUnit.Framework;
 public class UiAni : MonoBehaviour
 {
