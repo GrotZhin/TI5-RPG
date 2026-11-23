@@ -9,5 +9,6 @@ public class DoorPos : MonoBehaviour
    public Animator animator;
    public bool isOpen = false;
   
+  
 
 }

@@ -29,7 +29,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DoorArmature_DoorLocked
+  m_Name: DoorLock
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -55,7 +55,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DoorArmature_DoorUnlock
+  m_Name: DoorUnlock
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -85,10 +85,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 122577264859017605}
-    m_Position: {x: 350, y: 30, z: 0}
+    m_Position: {x: 370, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2628842344103457059}
-    m_Position: {x: 390, y: 120, z: 0}
+    m_Position: {x: 370, y: 20, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

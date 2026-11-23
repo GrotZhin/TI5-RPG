@@ -1747,7 +1747,7 @@ GameObject:
   - component: {fileID: 6814931630365950568}
   - component: {fileID: 8922075858230633596}
   - component: {fileID: 1061802762772733505}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cartola-rootprefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1832,7 +1832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Agent
   agent: {fileID: 0}
-  isLeader: 1
+  isLeader: 0
   group: {fileID: 0}
   done:
     m_PersistentCalls:

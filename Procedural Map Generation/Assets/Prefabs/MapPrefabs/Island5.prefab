@@ -389,6 +389,7 @@ MonoBehaviour:
   enemies: []
   islandId: 0
   island: {fileID: 5161513982095503321}
+  wallCol: {fileID: 7025347876604880512}
   firstIsle: 0
   combatStarted: 0
 --- !u!1 &8829429770802729922
@@ -482,7 +483,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71c8d7169a860b43a10924ce1218099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemies
-  enemy: {fileID: 7123845721141206334, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+  enemy:
+  - {fileID: 3475534842119047670, guid: 1b275226572b1c548887ab21135629c8, type: 3}
+  - {fileID: 7123845721141206334, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
   min: 4
   max: 10
   radius: 5
@@ -561,8 +564,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 49.754322, y: 8.789308, z: 27.43213}
-  m_Center: {x: 1.0456066, y: 3.8946538, z: 4.053668}
+  m_Size: {x: 47.151894, y: 8.789308, z: 20.258621}
+  m_Center: {x: -0.25560665, y: 3.8946538, z: 0.46691322}
 --- !u!1001 &2825382013920131401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -631,6 +634,11 @@ PrefabInstance:
 --- !u!4 &4461622632805357268 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1936297003080773533, guid: 5f2b0a76c0929454788b3a3a91ffe631, type: 3}
+  m_PrefabInstance: {fileID: 2825382013920131401}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &7025347876604880512 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 5065082097285767113, guid: 5f2b0a76c0929454788b3a3a91ffe631, type: 3}
   m_PrefabInstance: {fileID: 2825382013920131401}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2916522079659967125

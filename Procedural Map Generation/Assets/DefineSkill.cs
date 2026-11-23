@@ -12,6 +12,7 @@ public class DefineSkill : StateMachineBehaviour
        if(player == null) player = animator.GetComponent<Combat>();
         player.skill = skill;
         player.alreadyHit.Clear();              
+                     
     }
 
    

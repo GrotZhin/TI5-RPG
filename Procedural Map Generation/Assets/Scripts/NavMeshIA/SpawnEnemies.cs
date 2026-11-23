@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour
 {
-    [SerializeField] private Agent enemy;
+    [SerializeField] private Agent[] enemy;
     [SerializeField] private int min;
     [SerializeField] private int max;
     [SerializeField] private float radius;
@@ -17,15 +17,16 @@ public class SpawnEnemies : MonoBehaviour
     {
         
         var count = Random.Range(min , max);
-        enemy.isLeader = true;
+        var rd = Random.Range(0, enemy.Length);
+        enemy[rd].isLeader = true;
         for(int i = 0; i<count; i++)
         {
             var circle = Random.insideUnitSphere * radius;
             circle.y = 0;
 
             var pos =  spawnPoints[Random.Range(0,spawnPoints.Length)].position + circle;
-            if(i == 1) enemy.isLeader = false;
-            islandManager.enemies.Add(Instantiate(enemy.gameObject, pos,Quaternion.identity, transform));
+            if(i == 1) enemy[rd].isLeader = false;
+            islandManager.enemies.Add(Instantiate(enemy[rd].gameObject, pos,Quaternion.identity, transform));
             
         }
         islandManager.CloseDoors();

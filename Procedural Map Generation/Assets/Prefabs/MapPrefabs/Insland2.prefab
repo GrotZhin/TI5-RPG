@@ -130,8 +130,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 35.933517, y: 8.789308, z: 35.216732}
-  m_Center: {x: -0.5332413, y: 3.8946538, z: 0.16136742}
+  m_Size: {x: 29.919872, y: 8.789308, z: 29.478386}
+  m_Center: {x: -0.014421463, y: 3.8946538, z: 0.0079135895}
 --- !u!1 &3353358098762216057
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +440,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71c8d7169a860b43a10924ce1218099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemies
-  enemy: {fileID: 7123845721141206334, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+  enemy:
+  - {fileID: 3475534842119047670, guid: 1b275226572b1c548887ab21135629c8, type: 3}
+  - {fileID: 7123845721141206334, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
   min: 4
   max: 10
   radius: 5
@@ -528,6 +530,7 @@ MonoBehaviour:
   enemies: []
   islandId: 0
   island: {fileID: 7123783621120540673}
+  wallCol: {fileID: 8534518253924494708}
   firstIsle: 0
   combatStarted: 0
 --- !u!1001 &1459246680964375776
@@ -808,6 +811,11 @@ PrefabInstance:
 --- !u!4 &6542396190893744688 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3759460300250967873, guid: 4f339ebb19249b145b85f1953117fe66, type: 3}
+  m_PrefabInstance: {fileID: 7991368799808081265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &8534518253924494708 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 1772088074578354181, guid: 4f339ebb19249b145b85f1953117fe66, type: 3}
   m_PrefabInstance: {fileID: 7991368799808081265}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9166390480346510728

@@ -4006,6 +4006,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3475534842119047670, guid: 1b275226572b1c548887ab21135629c8, type: 3}
+      propertyPath: isLeader
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4629596957865243919, guid: 1b275226572b1c548887ab21135629c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.7274103
@@ -4102,6 +4106,10 @@ PrefabInstance:
     - target: {fileID: 6398566091715031449, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123845721141206334, guid: 63d309c87111c9343ae5a961bb481366, type: 3}
+      propertyPath: isLeader
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36300,6 +36308,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: cartola-rootprefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3404173086997918558, guid: 1b275226572b1c548887ab21135629c8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475534842119047670, guid: 1b275226572b1c548887ab21135629c8, type: 3}
+      propertyPath: isLeader
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4629596957865243919, guid: 1b275226572b1c548887ab21135629c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.991679
@@ -51291,6 +51307,14 @@ PrefabInstance:
     - target: {fileID: 3404173086997918558, guid: 1b275226572b1c548887ab21135629c8, type: 3}
       propertyPath: m_Name
       value: cartola-rootprefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 3404173086997918558, guid: 1b275226572b1c548887ab21135629c8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475534842119047670, guid: 1b275226572b1c548887ab21135629c8, type: 3}
+      propertyPath: isLeader
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4629596957865243919, guid: 1b275226572b1c548887ab21135629c8, type: 3}
       propertyPath: m_LocalPosition.x

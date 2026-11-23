@@ -108,6 +108,7 @@ public class Agent : MonoBehaviour
 
     else
     {
+      if(group.list.Count<= 0) return;
       group.leader = group.list[Random.Range(0, group.list.Count)];
       group.leader.isLeader = true;
 
