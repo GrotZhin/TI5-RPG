@@ -190,7 +190,7 @@ public class PlayerStats : MonoBehaviour
     }
 
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float amount, Vector3? origin = null)
     {
         if (IsDead || amount <= 0f) return;
         if (DodgeChance > 0f && UnityEngine.Random.value < DodgeChance)
@@ -208,7 +208,17 @@ public class PlayerStats : MonoBehaviour
             currentShield -= absorbed;
             remaining -= absorbed;
         }
-
+        else
+        {
+            var animator = GetComponent<Animator>();
+            if (amount >= 15f)
+            {
+                animator.SetTrigger("DamageHigh");
+                transform.rotation = Quaternion.LookRotation(origin.Value); 
+            }
+            else 
+                animator.SetTrigger("DamageLight");
+        }
         currentHealth = Mathf.Clamp(currentHealth - remaining, 0, MaxHealth);
         UiAni.Instance.ReduceHelthBar(amount);
         OnStatsChanged?.Invoke();
