@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b2f38b200829b4f829d09df32c3250, type: 3}
+  m_Name: TesteAmarelo 1
+  m_EditorClassIdentifier: Assembly-CSharp::AdornoData
+  itemName: YellowL
+  description: Defense +_+
+  icon: {fileID: 21300000, guid: e0264e299e9f7b5449afd103be8cd224, type: 3}
+  price: 10
+  type: 0
+  statValue: 0
+  category: 1
+  tier: 4
+  primary:
+    stat: 4
+    value: 5
+  secondary:
+    stat: 13
+    value: 5

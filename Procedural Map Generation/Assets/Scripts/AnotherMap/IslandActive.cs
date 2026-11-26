@@ -7,7 +7,7 @@ public class IslandActive : MonoBehaviour
 {
     [SerializeField]
     private GameObject enemySpawn, islandManager;
-   
+    [SerializeField] Transform checkPoint;
     public static IslandActive islandActive;
     [SerializeField]
     private BoxCollider col;
@@ -23,7 +23,7 @@ public class IslandActive : MonoBehaviour
             enemySpawn.SetActive(true);
             islandManager.SetActive(true);
             col.enabled = false;
-            PlayerStats.Instance.islandPosition = transform;
+            PlayerStats.Instance.islandPosition = checkPoint;
         }
     }
 }

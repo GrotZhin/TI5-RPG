@@ -1,24 +1,22 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class KillPlane : MonoBehaviour
 {
+  
     void OnTriggerEnter(Collider other)
     {
 
         if(other.CompareTag("Enemy"))
-        IslandManager.islandManager.enemies.Remove(other.gameObject);
+        IslandManager.islandManager.enemies.Remove(other.GetComponent<Agent>());
         if (other.CompareTag("Player"))
         {
-            other.gameObject.SetActive(false);
+            PlayerStats.Instance.TakeDamage(10);
             PlayerStats.Instance.Respawn();
-            StartCoroutine(TurnOn(other.gameObject)); 
+            
         }
        
     }
-     IEnumerator TurnOn(GameObject obj)
-        {
-            yield return new WaitForSeconds(0.1f);
-            obj.SetActive(true);
-        }
+
 }

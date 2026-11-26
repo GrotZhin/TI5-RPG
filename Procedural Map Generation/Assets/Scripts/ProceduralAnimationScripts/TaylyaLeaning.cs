@@ -4,7 +4,7 @@ public class TaylaLeaning : MonoBehaviour
 {
     public Transform leanTarget; 
     public CharacterController characterController;
-
+    public InputInfo InputInfo;
     public float movementLeanIntensity; 
     public float cameraLeanIntensity;    
     public float maxLeanAngle;          

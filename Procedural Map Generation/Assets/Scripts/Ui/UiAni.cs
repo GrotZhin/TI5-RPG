@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
-using UnityEditor.XR;
+
 using NUnit.Framework;
 public class UiAni : MonoBehaviour
 {
@@ -79,10 +79,14 @@ public class UiAni : MonoBehaviour
     [SerializeField] private float IntensityEnd;
     [SerializeField] private float BorderTweenDur;
     [SerializeField] private GameObject FirstDeathButton;
+    [SerializeField] private Image helthBar;
+    [SerializeField] private GameObject deathScene;
+    public static UiAni Instance;
 
     void Start()
     {
         if (Settings != null) Settings.SetActive(false);
+        if(Instance == null) Instance = this ;
         buttonManager = GetComponent<UiButtonManager>();
         isDead = false;
         BorderMat.SetFloat(Border,IntensityStart);
@@ -323,5 +327,18 @@ public class UiAni : MonoBehaviour
     {
         DeathBorderScreen.SetActive(true);
         BorderMat.DOFloat(IntensityEnd, Border, BorderTweenDur).SetEase(Ease.InOutSine).SetUpdate(true);
+    }
+
+    public void ReduceHelthBar(float damage)
+    {
+        var totalLife = PlayerStats.Instance.MaxHealth;
+        var actual = PlayerStats.Instance.currentHealth;
+        
+        helthBar.fillAmount = actual/totalLife;
+
+    }
+    public void DeathScene()
+    {
+        deathScene.SetActive(true);
     }
 }

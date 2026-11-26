@@ -153,8 +153,8 @@ public class EnemyAgentControl
         if (vida <= 0)
         {
 
-            if (IslandManager.islandManager != null)
-                IslandManager.islandManager.enemies.Remove(self.gameObject);
+            // if (IslandManager.islandManager != null)
+            //     IslandManager.islandManager.enemies.Remove(self.gameObject);
             return true;
         }
         else return false;

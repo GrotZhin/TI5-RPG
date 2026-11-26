@@ -8,4 +8,6 @@ public class GroupFormation : MonoBehaviour
     public Agent leader;
     public Formation formation;
 
+   
+
 }

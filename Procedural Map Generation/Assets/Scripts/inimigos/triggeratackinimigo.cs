@@ -6,7 +6,7 @@ public class triggeratackinimigo : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerAgent>().Damage(5);
+            other.GetComponent<PlayerAgent>().Damage(5, transform.position);
             Debug.Log("atack saiu  " + other.GetComponent<PlayerAgent>().lifePoints);
         }
     }

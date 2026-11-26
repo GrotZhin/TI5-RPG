@@ -1,4 +1,4 @@
-using Mono.Cecil;
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +18,7 @@ public class EnemyAttackCheck : MonoBehaviour
             if (colliders[i].TryGetComponent<PlayerStats>(out PlayerStats stats))
             {
                 if (!alreadyHit.Add(stats)) continue;
-                stats.TakeDamage(skill.Force);
+                stats.TakeDamage(skill.Force, transform.position);
                 Debug.Log("acertei o player");
                 
             }
