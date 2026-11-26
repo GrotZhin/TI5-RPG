@@ -247,9 +247,9 @@ public class Map : MonoBehaviour
         int i = 0;
         foreach (var pos in positions)
         {
-            if (i > 0)
+            if (i > 1)
             {
-                if (isCorner[i - 1] )
+                if (isCorner[i - 1] || isCorner[i - 2])
                 {
                     i++;
                     continue;
@@ -278,7 +278,7 @@ public class Map : MonoBehaviour
             if (destination.x > doorPosition.x)
             {
                 doorPosition += Vector3Int.right;
-                isCorner.Add(doorPosition.x == destination.x && doorPosition.z != destination.z);
+                isCorner.Add(doorPosition.x == destination.x-1 && doorPosition.z != destination.z);
 
                 rotation.Add(Quaternion.Euler(0, 90, 0));
 
@@ -286,7 +286,7 @@ public class Map : MonoBehaviour
             else if (destination.x < doorPosition.x)
             {
                 doorPosition += Vector3Int.left;
-                isCorner.Add(doorPosition.x == destination.x && doorPosition.z != destination.z);
+                isCorner.Add(doorPosition.x == destination.x +1 && doorPosition.z != destination.z);
 
                 rotation.Add(Quaternion.Euler(0, -90, 0));
             }
