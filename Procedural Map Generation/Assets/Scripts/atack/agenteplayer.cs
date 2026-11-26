@@ -48,11 +48,11 @@ public class PlayerAgent : MonoBehaviour
         }
     }
 
-    public void Damage(float value)
+    public void Damage(float value, Vector3 origin)
     {
         if (PlayerStats.Instance != null)
         {
-            PlayerStats.Instance.TakeDamage(value);
+            PlayerStats.Instance.TakeDamage(value, origin);
             lifePoints = PlayerStats.Instance.currentHealth;
         }
         else

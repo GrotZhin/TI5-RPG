@@ -58,7 +58,7 @@ public class PlayerMove : MonoBehaviour
         TaylaAnimationBehavior.Jump += Jump;
         TaylaAnimationBehavior.Dash += Dash;
         TaylaAnimationBehavior.ResetDash += ResetDash;
-        TaylaAnimationBehavior.ResetAirActions = SetAirActions;
+        TaylaAnimationBehavior.ResetAirActions += SetAirActions;
 
         TaylaAttackSSMBehavior.AirFast += AirFastFall;
         TaylaAttackSSMBehavior.AirSlow += AirSlowFall;
@@ -81,6 +81,15 @@ public class PlayerMove : MonoBehaviour
 
     void OnDestroy()
     {
+        TaylaAnimationBehavior.Jump -= Jump;
+        TaylaAnimationBehavior.Dash -= Dash;
+        TaylaAnimationBehavior.ResetDash -= ResetDash;
+        TaylaAnimationBehavior.ResetAirActions -= SetAirActions;
+
+        TaylaAttackSSMBehavior.AirFast -= AirFastFall;
+        TaylaAttackSSMBehavior.AirSlow -= AirSlowFall;
+        TaylaAttackSSMBehavior.ResetAir -= ResetDash;
+
         if (lockOnSystem != null)
         {
             lockOnSystem.OnTargetLocked -= HandleLockTargetChanged;
