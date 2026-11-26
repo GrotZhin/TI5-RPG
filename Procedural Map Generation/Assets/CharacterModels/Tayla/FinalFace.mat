@@ -17,7 +17,8 @@ Material:
   - N_F_O_ON
   - N_F_RDC_ON
   - N_F_RELGI_ON
-  - N_F_SS_ON
+  - N_F_STSDFM_ON
+  - N_F_ST_ON
   - N_F_TRANSAFFSHA_ON
   - _UVSET_UV0
   m_InvalidKeywords:
@@ -250,7 +251,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ShadowT:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: fa9080e5f791fd745956d4865fa2649f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -518,11 +519,11 @@ Material:
     - _N_F_SL: 0
     - _N_F_SLMM: 0
     - _N_F_SON: 0
-    - _N_F_SS: 1
-    - _N_F_ST: 0
+    - _N_F_SS: 0
+    - _N_F_ST: 1
     - _N_F_STIAL: 0
     - _N_F_STIS: 0
-    - _N_F_STSDFM: 0
+    - _N_F_STSDFM: 1
     - _N_F_TP: 0
     - _N_F_UUVONEANIS: 0
     - _N_F_UUVONESDF: 0
@@ -614,9 +615,9 @@ Material:
     - _ShadowColorTexturePower: 0
     - _ShadowHardness: 0
     - _ShadowTColorPower: 1
-    - _ShadowTHardness: 1
+    - _ShadowTHardness: 0.83
     - _ShadowTIntensity: 1
-    - _ShadowTLightThreshold: 50
+    - _ShadowTLightThreshold: 200
     - _ShadowTShadowThreshold: 0
     - _ShifAnis: 0
     - _ShowInAmbientLightShadowIntensity: 1
@@ -734,14 +735,14 @@ Material:
     - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _ObjPosi: {r: 0, g: 0, b: 0, a: 0}
-    - _ObjectForward: {r: 0, g: 0, b: 0, a: 0}
-    - _ObjectRight: {r: 0, g: 0, b: 0, a: 0}
-    - _OutResi: {r: 1, g: 1, b: 1, a: 1}
+    - _ObjectForward: {r: 0.84508246, g: 0, b: -0.53463626, a: 0}
+    - _ObjectRight: {r: -0.53463626, g: 0, b: -0.84508246, a: 0}
+    - _OutResi: {r: 0.3, g: 0.3, b: 0.3, a: 0.3}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineMaskColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineOffset: {r: 0, g: 0, b: 0, a: 1}
     - _Outline_Color: {r: 1, g: 0.9235074, b: 0.84339625, a: 1}
-    - _OverallShadowColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OverallShadowColor: {r: 0.5773585, g: 0.5202643, b: 0.31700245, a: 1}
     - _PTCol: {r: 0, g: 0, b: 0, a: 1}
     - _PrevPosition: {r: 0, g: 0, b: 0, a: 0}
     - _RefracColor: {r: 1, g: 1, b: 1, a: 1}

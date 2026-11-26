@@ -434,7 +434,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c316d4002ab99744c840278fdfff4041, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.739045
+      value: 9.753139
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c316d4002ab99744c840278fdfff4041, type: 3}
       propertyPath: m_LocalPosition.y
@@ -442,23 +442,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c316d4002ab99744c840278fdfff4041, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.788918
+      value: -2.8394778
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c316d4002ab99744c840278fdfff4041, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.48237118
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c316d4002ab99744c840278fdfff4041, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c316d4002ab99744c840278fdfff4041, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.87596697
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c316d4002ab99744c840278fdfff4041, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c316d4002ab99744c840278fdfff4041, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -466,7 +466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c316d4002ab99744c840278fdfff4041, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 122.319
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c316d4002ab99744c840278fdfff4041, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -480,6 +480,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8b8160102599c894daf9b50b68d0073e, type: 2}
+    - target: {fileID: -4157524182732408741, guid: c316d4002ab99744c840278fdfff4041, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ebc0937ed736a9f4f9c93261801aaab1, type: 2}
+    - target: {fileID: -4157524182732408741, guid: c316d4002ab99744c840278fdfff4041, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ce6d324256674034db318e1766692037, type: 2}
     - target: {fileID: -3904212364582362745, guid: c316d4002ab99744c840278fdfff4041, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -515,8 +523,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -259972160606440404, guid: c316d4002ab99744c840278fdfff4041, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 26419089}
   m_SourcePrefab: {fileID: 100100000, guid: c316d4002ab99744c840278fdfff4041, type: 3}
+--- !u!4 &26419087 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7876023681238672744, guid: c316d4002ab99744c840278fdfff4041, type: 3}
+  m_PrefabInstance: {fileID: 26419086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &26419088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -259972160606440404, guid: c316d4002ab99744c840278fdfff4041, type: 3}
+  m_PrefabInstance: {fileID: 26419086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &26419089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26419088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94b1292d6eecd6b489a2afd078000520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RealToon.Script.ShadowTSDFModeHelper
+  Material: {fileID: 2100000, guid: ce6d324256674034db318e1766692037, type: 2}
+  ObjectToFollow: {fileID: 26419087}
+  SDFTexture: {fileID: 2800000, guid: fa9080e5f791fd745956d4865fa2649f, type: 3}
+  UseUV1: 0
+  LightThreshold: 200
+  Hardness: 0.83
+  ForwardInverted: 0
+  RightInverted: 0
+  SelfShadow: 0
+  checkstart: 0
 --- !u!1 &30688858
 GameObject:
   m_ObjectHideFlags: 0
