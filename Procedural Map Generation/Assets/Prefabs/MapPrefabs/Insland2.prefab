@@ -448,7 +448,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   quantidade: 10
-  map: {fileID: 841107786486459873}
+  map: {fileID: 0}
   spawnPoints:
   - {fileID: 8182142802628374468}
   - {fileID: 907775726999740334}
@@ -499,7 +499,7 @@ MonoBehaviour:
   - {fileID: 907775726999740334}
   - {fileID: 1023835180560411947}
   - {fileID: 4551273394540338546}
-  islandManager: {fileID: 841107786486459873}
+  islandManager: {fileID: 2826490100210102398}
 --- !u!1 &6834816315964541154
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +556,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6563760044453199795}
-  - component: {fileID: 841107786486459873}
+  - component: {fileID: 2826490100210102398}
   m_Layer: 0
   m_Name: IslandManager
   m_TagString: Untagged
@@ -579,7 +579,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3070503899130231041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &841107786486459873
+--- !u!114 &2826490100210102398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -588,13 +588,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7895594891820842019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2277a2206f121224cb39db535d073e27, type: 3}
+  m_Script: {fileID: 11500000, guid: 291fedf23071416469f0939eeec9fd78, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MapGM
+  m_EditorClassIdentifier: Assembly-CSharp::IslandManager
   enemies: []
   islandId: 0
   island: {fileID: 7123783621120540673}
-  wallCol: {fileID: 8534518253924494708}
+  wallCol: {fileID: 1678195921473012280}
   firstIsle: 0
   combatStarted: 0
   spawnEnemies: {fileID: 27352940555267293}
@@ -818,7 +818,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1772088074578354181, guid: 4f339ebb19249b145b85f1953117fe66, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3759460300250967873, guid: 4f339ebb19249b145b85f1953117fe66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -868,19 +868,23 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8767714462936059721, guid: 4f339ebb19249b145b85f1953117fe66, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f339ebb19249b145b85f1953117fe66, type: 3}
+--- !u!1 &1678195921473012280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8767714462936059721, guid: 4f339ebb19249b145b85f1953117fe66, type: 3}
+  m_PrefabInstance: {fileID: 7991368799808081265}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6542396190893744688 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3759460300250967873, guid: 4f339ebb19249b145b85f1953117fe66, type: 3}
-  m_PrefabInstance: {fileID: 7991368799808081265}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &8534518253924494708 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 1772088074578354181, guid: 4f339ebb19249b145b85f1953117fe66, type: 3}
   m_PrefabInstance: {fileID: 7991368799808081265}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9166390480346510728

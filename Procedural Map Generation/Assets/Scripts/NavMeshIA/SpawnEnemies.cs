@@ -9,6 +9,7 @@ public class SpawnEnemies : MonoBehaviour
     [SerializeField] private float radius;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] IslandManager islandManager;
+    int waveCount = 0;
     void Start()
     {
         SpawnEnemy();
@@ -35,9 +36,11 @@ public class SpawnEnemies : MonoBehaviour
            
            group.SetLeader();
         }
+        waveCount ++;
         
         islandManager.CloseDoors();
         islandManager.combatStarted = true;
+        if(waveCount == 2)islandManager.hasAnotherWave = true;
     }
 
 

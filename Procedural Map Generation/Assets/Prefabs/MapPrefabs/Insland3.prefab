@@ -244,7 +244,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   quantidade: 10
-  map: {fileID: 8140697337156947047}
+  map: {fileID: 0}
   spawnPoints:
   - {fileID: 4840685302024354164}
   - {fileID: 8812739347191067546}
@@ -280,7 +280,7 @@ MonoBehaviour:
   - {fileID: 8812739347191067546}
   - {fileID: 7790693611444655658}
   - {fileID: 8995625863779535545}
-  islandManager: {fileID: 8140697337156947047}
+  islandManager: {fileID: 6036732176344319783}
 --- !u!114 &2896782245263266200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,7 +352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7802409048292177583}
-  - component: {fileID: 8140697337156947047}
+  - component: {fileID: 6036732176344319783}
   m_Layer: 0
   m_Name: IslandManager
   m_TagString: Untagged
@@ -375,7 +375,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6052820231584990391}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8140697337156947047
+--- !u!114 &6036732176344319783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -384,13 +384,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4296744700047762002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2277a2206f121224cb39db535d073e27, type: 3}
+  m_Script: {fileID: 11500000, guid: 291fedf23071416469f0939eeec9fd78, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MapGM
+  m_EditorClassIdentifier: Assembly-CSharp::IslandManager
   enemies: []
   islandId: 0
   island: {fileID: 7547420405789440413}
-  wallCol: {fileID: 4543829807086597719}
+  wallCol: {fileID: 7483753032462667273}
   firstIsle: 0
   combatStarted: 0
   spawnEnemies: {fileID: 8472299999268921627}
@@ -816,6 +816,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6052820231584990391}
     m_Modifications:
+    - target: {fileID: 3532975261509533334, guid: 9d2a2d5adc98e6b46837002d5460d5f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7307669858443807253, guid: 9d2a2d5adc98e6b46837002d5460d5f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -856,6 +860,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7625415306672752328, guid: 9d2a2d5adc98e6b46837002d5460d5f6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7935869932576641199, guid: 9d2a2d5adc98e6b46837002d5460d5f6, type: 3}
       propertyPath: m_Name
       value: Level.3
@@ -870,9 +878,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7307669858443807253, guid: 9d2a2d5adc98e6b46837002d5460d5f6, type: 3}
   m_PrefabInstance: {fileID: 6258886323876409503}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &4543829807086597719 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 7625415306672752328, guid: 9d2a2d5adc98e6b46837002d5460d5f6, type: 3}
+--- !u!1 &7483753032462667273 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3532975261509533334, guid: 9d2a2d5adc98e6b46837002d5460d5f6, type: 3}
   m_PrefabInstance: {fileID: 6258886323876409503}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7949760015080573414

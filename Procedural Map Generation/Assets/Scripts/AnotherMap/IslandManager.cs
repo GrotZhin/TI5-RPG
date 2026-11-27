@@ -14,11 +14,14 @@ public class IslandManager : MonoBehaviour
     [SerializeField]
     private DoorsInScene island;
     [SerializeField]
-    MeshCollider wallCol;
+    GameObject wallCol;
     [SerializeField]
     bool firstIsle = false;
+    
+    public bool hasAnotherWave = false;
     public bool combatStarted = false;
     [SerializeField] SpawnEnemies spawnEnemies;
+    public SpawnEnemies SpawnEnemies => spawnEnemies;
     void Awake()
     {
         islandManager = this;
@@ -29,11 +32,16 @@ public class IslandManager : MonoBehaviour
     }
 
     void LateUpdate()
-    {
+    {   
+      
+
         if (enemies.Count <= 0 && combatStarted)
         {
-            if(AnotherWave())
+            if(AnotherWave() && !hasAnotherWave)
+            {
             spawnEnemies.SpawnEnemy();
+            combatStarted = false;
+            }
             else
             OpenDoor();
         }
@@ -51,10 +59,10 @@ public class IslandManager : MonoBehaviour
             item.mesh.SetActive(true);
             item.animator.Play("DoorLock", 0, 0f);
         }
-        if (wallCol != null) wallCol.enabled = true;
+        if (wallCol != null) wallCol.SetActive(true);
     }
     [ContextMenu("OpenDoor")]
-    private void OpenDoor()
+    public void OpenDoor()
     {
 
         foreach (var item in island.doors)
@@ -68,7 +76,7 @@ public class IslandManager : MonoBehaviour
 
             StartCoroutine(DisableMesh(item.animator, item));
         }
-        if (wallCol != null) wallCol.enabled = false;
+        if (wallCol != null) wallCol.SetActive(false);
     }
     IEnumerator DisableMesh(Animator animator, DoorPos item)
     {

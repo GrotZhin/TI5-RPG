@@ -431,7 +431,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1416334211842972176}
-  - component: {fileID: 7543050271464693593}
+  - component: {fileID: 7981155378764130915}
   m_Layer: 0
   m_Name: IslandManager
   m_TagString: Untagged
@@ -454,7 +454,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5483819961052278721}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7543050271464693593
+--- !u!114 &7981155378764130915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -463,13 +463,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8581164672944988229}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2277a2206f121224cb39db535d073e27, type: 3}
+  m_Script: {fileID: 11500000, guid: 291fedf23071416469f0939eeec9fd78, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MapGM
+  m_EditorClassIdentifier: Assembly-CSharp::IslandManager
   enemies: []
   islandId: 0
   island: {fileID: 5161513982095503321}
-  wallCol: {fileID: 7025347876604880512}
+  wallCol: {fileID: 7775343240761319147}
   firstIsle: 0
   combatStarted: 0
   spawnEnemies: {fileID: 7802222206432515682}
@@ -524,7 +524,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   quantidade: 10
-  map: {fileID: 7543050271464693593}
+  map: {fileID: 0}
   spawnPoints:
   - {fileID: 8943536247808634894}
   - {fileID: 1320393563314314871}
@@ -576,7 +576,7 @@ MonoBehaviour:
   - {fileID: 8078479341033816634}
   - {fileID: 3672911951454908226}
   - {fileID: 5565747047521754153}
-  islandManager: {fileID: 7543050271464693593}
+  islandManager: {fileID: 7981155378764130915}
 --- !u!1 &8951015830854173300
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,6 +707,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5065082097285767113, guid: 5f2b0a76c0929454788b3a3a91ffe631, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535579816799807394, guid: 5f2b0a76c0929454788b3a3a91ffe631, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -717,9 +725,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1936297003080773533, guid: 5f2b0a76c0929454788b3a3a91ffe631, type: 3}
   m_PrefabInstance: {fileID: 2825382013920131401}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &7025347876604880512 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 5065082097285767113, guid: 5f2b0a76c0929454788b3a3a91ffe631, type: 3}
+--- !u!1 &7775343240761319147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5535579816799807394, guid: 5f2b0a76c0929454788b3a3a91ffe631, type: 3}
   m_PrefabInstance: {fileID: 2825382013920131401}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2916522079659967125

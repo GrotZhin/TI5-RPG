@@ -29,8 +29,8 @@ public class Death : IState
 
     public void Execute(float delta)
     {
-        time -= Time.deltaTime;
-        if (agent.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && !agent.animator.IsInTransition(0) && time <= 0)
+    
+        if (agent.animator.GetCurrentAnimatorStateInfo(0).IsTag("Death")&&agent.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && !agent.animator.IsInTransition(0))
         {
             agent.Remove();
         }
