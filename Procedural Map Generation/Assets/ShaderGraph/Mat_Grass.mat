@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MatCorredorChao
-  m_Shader: {fileID: 4800000, guid: 9eae6f0ef0b0b5146a089322b857f47a, type: 3}
+  m_Name: Mat_Grass
+  m_Shader: {fileID: 4800000, guid: 2781b6d8dbd3bca4c97041e97d7e240f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -22,15 +22,24 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+    m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _StencilComp: 3
+    - _AmbientBoost: 1.5
+    - _FadeEnd: 60
+    - _FadeStart: 40
+    - _Height: 0.6
+    - _HeightVariation: 0.4
+    - _PatchAmount: 0.35
+    - _PatchScale: 0.06
+    - _Translucency: 0.6
+    - _WindScale: 0.15
+    - _WindSpeed: 1.2
+    - _WindStrength: 0.35
     m_Colors:
-    - _Color: {r: 0.7570987, g: 0.6019491, b: 0.764151, a: 1}
+    - _BaseColor: {r: 0.05882353, g: 0.22745098, b: 0.18039216, a: 1}
+    - _PatchColor: {r: 1, g: 0.9990728, b: 0.0047169924, a: 1}
+    - _TipColor: {r: 0.49803922, g: 0.8784314, b: 0.627451, a: 1}
+    - _WindDir: {r: 1, g: 0.4, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

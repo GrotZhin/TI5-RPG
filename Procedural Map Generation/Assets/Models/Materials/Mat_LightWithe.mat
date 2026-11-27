@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8838778103255672017
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Editor::UnityEditor.Rendering.Universal.AssetVersion
-  version: 10
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,26 +7,30 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_LeavesRed
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Name: Mat_LightWithe
+  m_Shader: {fileID: 4800000, guid: be891319084e9d147b09d89e80ce60e0, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _RECEIVE_SHADOWS_OFF
-  - _SPECULAR_SETUP
+  - _EMISSIVE_SIMPLE
+  - _IS_OUTLINE_CLIPPING_YES
+  - _IS_TRANSCLIPPING_ON
+  - _OUTLINE_NML
+  - _SHADINGGRADEMAP
+  m_InvalidKeywords:
+  - _SPECULARHIGHLIGHTS_OFF
   - _SURFACE_TYPE_TRANSPARENT
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: 3000
   stringTagMap:
     IgnoreProjection: true
     RenderType: Transparent
   disabledShaderPasses:
-  - SHADOWCASTER
-  - DepthOnly
   - MOTIONVECTORS
+  - DepthOnly
+  - SHADOWCASTER
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -69,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: a3edd018306282246ba3e494f8baf76e, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMap:
@@ -137,7 +128,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a3edd018306282246ba3e494f8baf76e, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
@@ -248,8 +239,8 @@ Material:
     - _ToonMaterialVersion: 0
     m_Floats:
     - _1st2nd_Shades_Feather: 0.0001
-    - _1st_ShadeColor_Feather: 0.523
-    - _1st_ShadeColor_Step: 0.515
+    - _1st_ShadeColor_Feather: 1
+    - _1st_ShadeColor_Step: 0.392
     - _2nd_ShadeColor_Feather: 0.0001
     - _2nd_ShadeColor_Step: 0
     - _AORemapMax: 1
@@ -280,8 +271,8 @@ Material:
     - _AutoRenderQueue: 1
     - _BaseColorOverridden: 0
     - _BaseColorVisible: 1
-    - _BaseColor_Step: 0.515
-    - _BaseShade_Feather: 0.523
+    - _BaseColor_Step: 0.392
+    - _BaseShade_Feather: 1
     - _Base_Speed: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 0
@@ -293,7 +284,7 @@ Material:
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _ClippingMatteMode: 0
-    - _ClippingMode: 2
+    - _ClippingMode: 1
     - _Clipping_Level: 0
     - _CoatMask: 0
     - _ColorShift_Speed: 0
@@ -348,7 +339,7 @@ Material:
     - _Ior: 1
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
-    - _IsBaseMapAlphaAsClippingMask: 1
+    - _IsBaseMapAlphaAsClippingMask: 0
     - _Is_BLD: 0
     - _Is_BakedNormal: 0
     - _Is_BlendAddToHiColor: 0
@@ -400,13 +391,13 @@ Material:
     - _PPDMinSamples: 5
     - _Parallax: 0.005
     - _QueueOffset: 0
-    - _ReceiveShadows: 0
+    - _ReceiveShadows: 1
     - _RimLight: 0
     - _RimLightOverridden: 0
     - _RimLightVisible: 1
     - _RimLight_FeatherOff: 0
     - _RimLight_InsideMask: 0.0001
-    - _RimLight_Power: 0.1
+    - _RimLight_Power: 1
     - _Rotate_EmissiveUV: 0
     - _Rotate_MatCapUV: 0
     - _Rotate_NormalMapForMatCapUV: 0
@@ -418,13 +409,13 @@ Material:
     - _SecondShadeVisible: 1
     - _Set_SystemShadowsToBase: 0
     - _ShadeColor_Step: 0
-    - _Smoothness: 0
+    - _Smoothness: 1
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
-    - _SpecularHighlights: 1
+    - _SpecularHighlights: 0
     - _SpecularOcclusionMode: 1
     - _SrcBlend: 5
     - _SrcBlendAlpha: 1
@@ -445,6 +436,7 @@ Material:
     - _StepOffset: 0
     - _SubsurfaceMask: 1
     - _Surface: 1
+    - _SystemShadowsToLightColor: 0
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
@@ -460,14 +452,14 @@ Material:
     - _Tweak_MatcapMaskLevel: 0
     - _Tweak_RimLightMaskLevel: 0
     - _Tweak_ShadingGradeMapLevel: 0
-    - _Tweak_SystemShadowsLevel: -0.246
-    - _Tweak_transparency: 1
+    - _Tweak_SystemShadowsLevel: -0.132
+    - _Tweak_transparency: -0.05
     - _UVDetail: 0
     - _Unlit_Intensity: 0
     - _UseShadowThreshold: 0
     - _Use_1stAs2nd: 0
     - _Use_BaseAs1st: 0
-    - _WorkflowMode: 0
+    - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
     - _ZOverDrawMode: 1
     - _ZTestDepthEqualForOpaque: 4
@@ -477,22 +469,22 @@ Material:
     - _ZWrite: 0
     - _ZWriteMode: 0
     - _simpleUI: 0
-    - _utsTechnique: 0
+    - _utsTechnique: 1
     m_Colors:
-    - _1st_ShadeColor: {r: 0.3962264, g: 0.03418424, b: 0, a: 1}
-    - _2nd_ShadeColor: {r: 0, g: 0, b: 0, a: 1}
+    - _1st_ShadeColor: {r: 0, g: 0.6698113, b: 0.625385, a: 1}
+    - _2nd_ShadeColor: {r: 0.066009, g: 0.11320752, b: 0.040049832, a: 1}
     - _AngelRingMaskColor: {r: 0, g: 1, b: 0, a: 1}
     - _AngelRing_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Ap_RimLightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor: {r: 0.4811321, g: 0, b: 0, a: 1}
+    - _BaseColor: {r: 0.04184014, g: 0, b: 0.5283019, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColorMaskColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.4811321, g: 0, b: 0, a: 1}
+    - _Color: {r: 0.04184012, g: 0, b: 0.5283019, a: 1}
     - _ColorShift: {r: 0, g: 0, b: 0, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 2.3396225, g: 0.7225892, b: 0, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Emissive_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Emissive_Color: {r: 1, g: 1, b: 1, a: 1}
     - _FirstShadeMaskColor: {r: 0, g: 1, b: 1, a: 1}
     - _HighColor: {r: 0, g: 0, b: 0, a: 1}
     - _HighlightMaskColor: {r: 1, g: 1, b: 0, a: 1}
@@ -501,10 +493,10 @@ Material:
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineMaskColor: {r: 0, g: 0, b: 0, a: 1}
     - _Outline_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _RimLightColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimLightColor: {r: 0.23137257, g: 1, b: 0.9490197, a: 1}
     - _RimLightMaskColor: {r: 1, g: 0, b: 1, a: 1}
     - _SecondShadeMaskColor: {r: 0, g: 0, b: 1, a: 1}
-    - _SpecColor: {r: 0.41509432, g: 0.09594162, b: 0.09594162, a: 1}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
@@ -515,3 +507,16 @@ Material:
     - emissive: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
+--- !u!114 &4126691263392500539
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Editor::UnityEditor.Rendering.Universal.AssetVersion
+  version: 10

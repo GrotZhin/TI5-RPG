@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MatCorredor
-  m_Shader: {fileID: 4800000, guid: 9eae6f0ef0b0b5146a089322b857f47a, type: 3}
+  m_Name: Mat_Leaves
+  m_Shader: {fileID: 4800000, guid: 8e47db460da90a04099479a46b166af7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -22,15 +22,25 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+    m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _StencilComp: 3
+    - _AmbientBoost: 1
+    - _Emission: 0.1
+    - _FallSpeed: 0.8
+    - _Size: 0.18
+    - _SizeVariation: 0.5
+    - _SpinSpeed: 1.5
+    - _Sway: 0.6
+    - _Tilt: 0.8
+    - _Translucency: 0.5
+    - _WindSpeed: 1.2
     m_Colors:
-    - _Color: {r: 0.8206633, g: 0.6539694, b: 0.8301887, a: 1}
+    - _BoxMin: {r: 0, g: 0, b: 0, a: 0}
+    - _BoxSize: {r: 30, g: 12, b: 30, a: 0}
+    - _ColorA: {r: 0.8, g: 0.17999998, b: 0.09999997, a: 1}
+    - _ColorB: {r: 0.95, g: 0.5, b: 0.11999995, a: 1}
+    - _ColorC: {r: 0.4528302, g: 0, b: 0.079256386, a: 1}
+    - _WindDir: {r: 1, g: 0.3, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

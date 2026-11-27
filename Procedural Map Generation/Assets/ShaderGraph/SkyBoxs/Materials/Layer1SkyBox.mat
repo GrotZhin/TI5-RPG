@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MatMascara
-  m_Shader: {fileID: 4800000, guid: 46ec61840e6fbe044b8bfbf8dd4d5822, type: 3}
+  m_Name: Layer1SkyBox
+  m_Shader: {fileID: 103, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -22,9 +22,16 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _Tex:
+        m_Texture: {fileID: 8900000, guid: 0a4a340bd93720f4a96fb31490dddf9c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _Exposure: 1
+    - _Rotation: 0
+    m_Colors:
+    - _Tint: {r: 0.23921569, g: 0.14117648, b: 0.28235295, a: 0.5}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
