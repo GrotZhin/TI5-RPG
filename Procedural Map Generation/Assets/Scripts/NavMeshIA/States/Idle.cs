@@ -12,7 +12,7 @@ public class Idle : IState
     }
     public void Enter()
     {
-       agent.StartCoroutine(SortState(2));
+       agent.StartCoroutine(SortState(3));
     }
 
     IEnumerator SortState(float seconds)

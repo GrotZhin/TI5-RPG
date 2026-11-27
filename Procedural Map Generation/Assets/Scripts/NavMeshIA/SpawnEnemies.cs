@@ -8,32 +8,37 @@ public class SpawnEnemies : MonoBehaviour
     [SerializeField] private int max;
     [SerializeField] private float radius;
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField]IslandManager islandManager;
+    [SerializeField] IslandManager islandManager;
     void Start()
     {
         SpawnEnemy();
     }
-    void SpawnEnemy()
+    public void SpawnEnemy()
     {
-        
-        var count = Random.Range(min , max);
-      
-        
-        for(int i = 0; i<count; i++)
+
+        var count = Random.Range(min, max);
+
+
+        for (int i = 0; i < count; i++)
         {
             var circle = Random.insideUnitSphere * radius;
             circle.y = 0;
-            var rd = Random.Range(0, enemy.Length); 
-            var pos =  spawnPoints[Random.Range(0,spawnPoints.Length)].position + circle;
-           
-            islandManager.enemies.Add(Instantiate(enemy[rd], pos,Quaternion.identity, transform));
-            
+            var rd = Random.Range(0, enemy.Length);
+            var pos = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+            islandManager.enemies.Add(Instantiate(enemy[rd], pos.position + circle, Quaternion.identity, pos));
+
         }
-        var rdLeader = Random.Range(0, islandManager.enemies.Count); 
-        islandManager.enemies[rdLeader].isLeader = true;
+        foreach (var enemy in spawnPoints )
+        {
+            var group = enemy.GetComponent<GroupFormation>();
+           
+           group.SetLeader();
+        }
+        
         islandManager.CloseDoors();
         islandManager.combatStarted = true;
     }
 
- 
+
 }

@@ -8,6 +8,12 @@ public class GroupFormation : MonoBehaviour
     public Agent leader;
     public Formation formation;
 
-   
+   public void SetLeader()
+    {
+        Debug.Log(list.Count);
+        var leader = list[Random.Range(0,list.Count)];
+        leader.isLeader = true;
+        this.leader = leader;
+    }
 
 }

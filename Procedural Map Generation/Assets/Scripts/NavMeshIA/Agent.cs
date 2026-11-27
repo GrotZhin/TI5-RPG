@@ -22,13 +22,12 @@ public class Agent : MonoBehaviour
   bool waitingFlashEffect;
 
   IState state;
-  void Start()
+  void Awake()
   {
     agent = GetComponent<NavMeshAgent>();
 
     group = transform.parent.GetComponent<GroupFormation>();
-    state = new Idle(this);
-    state?.Enter();
+  
 
     if (isLeader)
     {
@@ -38,7 +37,9 @@ public class Agent : MonoBehaviour
     }
     else
       group.list.Add(this);
-
+    
+     state = new Idle(this);
+    state?.Enter();
 
   }
   public void AttackPlayer()

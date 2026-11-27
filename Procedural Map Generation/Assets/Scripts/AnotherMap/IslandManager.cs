@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +18,7 @@ public class IslandManager : MonoBehaviour
     [SerializeField]
     bool firstIsle = false;
     public bool combatStarted = false;
+    [SerializeField] SpawnEnemies spawnEnemies;
     void Awake()
     {
         islandManager = this;
@@ -31,6 +32,9 @@ public class IslandManager : MonoBehaviour
     {
         if (enemies.Count <= 0 && combatStarted)
         {
+            if(AnotherWave())
+            spawnEnemies.SpawnEnemy();
+            else
             OpenDoor();
         }
     }
@@ -76,5 +80,10 @@ public class IslandManager : MonoBehaviour
         item.pair.mesh.SetActive(false);
     }
 
+    public bool AnotherWave()
+    {
+        bool rd = Random.value >  0.5f;
+        return rd;
+    }
 
 }

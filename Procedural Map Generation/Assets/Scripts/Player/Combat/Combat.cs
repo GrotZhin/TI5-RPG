@@ -42,7 +42,8 @@ public class Combat : MonoBehaviour
     }
     void CheckCollision(Transform point, SkillData data)
     {
-        Collider[] colliders = Physics.OverlapSphere(point.position, data.HitBox, layer);
+        //Collider[] colliders = Physics.OverlapSphere(point.position, data.HitBox, layer);
+        Collider[] colliders = Physics.OverlapBox(point.position, new Vector3(data.HitBox,data.HitBox,data.HitBox),Quaternion.identity, layer);
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -65,15 +66,18 @@ public class Combat : MonoBehaviour
         if (skill == null) return;
         if (skill.Both)
         {
-            Gizmos.DrawWireSphere(scissorLeft.position, skill.HitBox);
-            Gizmos.DrawWireSphere(scissorRight.position, skill.HitBox);
+            // Gizmos.DrawWireSphere(scissorLeft.position, skill.HitBox);
+            // Gizmos.DrawWireSphere(scissorRight.position, skill.HitBox);
+            Gizmos.DrawWireCube(scissorLeft.position, new Vector3(skill.HitBox,skill.HitBox,skill.HitBox));
+            Gizmos.DrawWireCube(scissorRight.position, new Vector3(skill.HitBox,skill.HitBox,skill.HitBox));
         }
         else
         {
             if (skill.Left)
-                Gizmos.DrawWireSphere(scissorLeft.position, skill.HitBox);
+                //Gizmos.DrawWireSphere(scissorLeft.position, skill.HitBox);
+                    Gizmos.DrawWireCube(scissorLeft.position, new Vector3(skill.HitBox,skill.HitBox,skill.HitBox));
             else
-                Gizmos.DrawWireSphere(scissorRight.position, skill.HitBox);
+                  Gizmos.DrawWireCube(scissorRight.position, new Vector3(skill.HitBox,skill.HitBox,skill.HitBox));
         }
     }
 }
