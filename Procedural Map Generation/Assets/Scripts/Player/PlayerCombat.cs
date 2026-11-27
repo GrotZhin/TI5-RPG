@@ -17,7 +17,7 @@ public class PlayerCombat : MonoBehaviour
     }
 
     public MinMax pauseBufferTimer;
-    float tickCharge = 1f;
+    float tickCharge = 0.7f;
     float chargeTime = 0;
     bool charge = false;
 
