@@ -30,7 +30,7 @@ public class Death : IState
     public void Execute(float delta)
     {
     
-        if (agent.animator.GetCurrentAnimatorStateInfo(0).IsTag("Death")&&agent.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && !agent.animator.IsInTransition(0))
+        if (agent.animator.GetCurrentAnimatorStateInfo(0).IsTag("Death") && agent.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
         {
             agent.Remove();
         }

@@ -39,8 +39,8 @@ public class IslandManager : MonoBehaviour
         {
             if(AnotherWave() && !hasAnotherWave)
             {
-            spawnEnemies.SpawnEnemy();
             combatStarted = false;
+            spawnEnemies.SpawnEnemy();
             }
             else
             OpenDoor();

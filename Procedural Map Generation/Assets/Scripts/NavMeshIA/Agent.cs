@@ -27,7 +27,7 @@ public class Agent : MonoBehaviour
     agent = GetComponent<NavMeshAgent>();
 
     group = transform.parent.GetComponent<GroupFormation>();
-  
+
 
     if (isLeader)
     {
@@ -37,8 +37,8 @@ public class Agent : MonoBehaviour
     }
     else
       group.list.Add(this);
-    
-     state = new Idle(this);
+
+    state = new Idle(this);
     state?.Enter();
 
   }
@@ -95,12 +95,15 @@ public class Agent : MonoBehaviour
 
   public void Remove()
   {
-    if (IslandManager.islandManager != null)
-      IslandManager.islandManager.enemies.Remove(this);
+
+
+
     Destroy(gameObject);
   }
   void OnDestroy()
   {
+    if (IslandManager.islandManager != null)
+      IslandManager.islandManager.enemies.Remove(this);
     if (!isLeader)
     {
       group.list.Remove(this);
@@ -109,12 +112,11 @@ public class Agent : MonoBehaviour
     else
     {
       if (group.list.Count <= 0) return;
-      group.leader = group.list[Random.Range(0, group.list.Count)];
       group.leader.isLeader = true;
+      group.leader = group.list[Random.Range(0, group.list.Count)];
+      group.list.Remove(this);
 
     }
-
-
 
   }
 }
