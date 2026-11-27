@@ -293,7 +293,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4461622632805357268}
   - {fileID: 3449969209907225059}
   - {fileID: 8943536247808634894}
   - {fileID: 1320393563314314871}
@@ -309,6 +308,7 @@ Transform:
   - {fileID: 8943288643002562489}
   - {fileID: 5159040520199506505}
   - {fileID: 383313318127402375}
+  - {fileID: 7680481370604231963}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6988685904872318385
@@ -389,7 +389,7 @@ MonoBehaviour:
   enemies: []
   islandId: 0
   island: {fileID: 5161513982095503321}
-  wallCol: {fileID: 7025347876604880512}
+  wallCol: {fileID: 0}
   firstIsle: 0
   combatStarted: 0
 --- !u!1 &8829429770802729922
@@ -626,19 +626,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1998139049521492220, guid: 5f2b0a76c0929454788b3a3a91ffe631, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b93d34811902da46a3214e775688eae, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f2b0a76c0929454788b3a3a91ffe631, type: 3}
---- !u!4 &4461622632805357268 stripped
+--- !u!4 &7680481370604231963 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1936297003080773533, guid: 5f2b0a76c0929454788b3a3a91ffe631, type: 3}
-  m_PrefabInstance: {fileID: 2825382013920131401}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &7025347876604880512 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 5065082097285767113, guid: 5f2b0a76c0929454788b3a3a91ffe631, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5594395313875084370, guid: 5f2b0a76c0929454788b3a3a91ffe631, type: 3}
   m_PrefabInstance: {fileID: 2825382013920131401}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2916522079659967125
