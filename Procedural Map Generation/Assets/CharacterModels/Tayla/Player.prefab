@@ -22045,6 +22045,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8598953473315845756}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8274922249834679537}
   m_SourcePrefab: {fileID: 100100000, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
 --- !u!4 &31865522768702435 stripped
 Transform:
@@ -22401,6 +22404,24 @@ MonoBehaviour:
   camShakeAmp: 10
   camShakeFreq: 1
   camShakeDurantion: 0.1
+--- !u!114 &8274922249834679537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221939404844916877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d933cf292ac8f4e856d53887ab5c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactor
+  interactRange: 3
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  promptText: {fileID: 0}
+  debugLog: 0
 --- !u!4 &1235730827740214771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8281442279077697489, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}

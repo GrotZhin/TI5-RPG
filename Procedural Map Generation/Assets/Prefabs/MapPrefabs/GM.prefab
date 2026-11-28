@@ -288,6 +288,143 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AtributteCam
   cinemachine: {fileID: 1710632043283798765}
   trackingTarget: {fileID: 0}
+--- !u!1 &5295122787483041223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4418157371435208240}
+  - component: {fileID: 2814377124808610486}
+  m_Layer: 0
+  m_Name: MoneyOrbManeger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4418157371435208240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5295122787483041223}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.048591, y: 0, z: 47.97861}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3237480618588263262}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2814377124808610486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5295122787483041223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31d3a1668aeea64f90adbb34370d478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoneyOrbManager
+  orbPrefab: {fileID: 1588349038653789761, guid: ae5e40035860b0c46aa2e869acdd1eae, type: 3}
+  fallbackScale: 0.25
+  coinsPerOrb: 5
+  maxOrbsPerDrop: 10
+  maxActiveOrbs: 150
+  prewarm: 40
+  burstSpeed: 16
+  burstUp: 8
+  gravity: 25
+  bounce: 0.45
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 512
+  groundOffset: 0.15
+  magnetDelay: {x: 0.45, y: 0.8}
+  startSpeed: 6
+  maxSpeed: 35
+  acceleration: 60
+  collectRadius: 0.6
+  targetHeight: 1
+  styleBonusPerRank: 0.1
+  showPopup: 1
+  popupDelay: 0.4
+--- !u!1 &6347493138337073795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6374333086131958079}
+  - component: {fileID: 2308488784768035649}
+  m_Layer: 0
+  m_Name: StyleSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6374333086131958079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6347493138337073795}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.048591, y: 0, z: 47.97861}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3237480618588263262}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2308488784768035649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6347493138337073795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95592ce0f82305543978e0fa6f7db6eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StyleSystem
+  rankSize: 100
+  decayPerSecond:
+  - 4
+  - 6
+  - 9
+  - 13
+  - 18
+  - 24
+  decayDelay: 1.2
+  gainFalloffPerRank: 0.08
+  airHitMultiplier: 1.25
+  freshMoveMultiplier: 1.25
+  historySize: 8
+  repeatPenalty: 0.25
+  minRepeatMultiplier: 0.1
+  sameSwingWindow: 0.1
+  jumpPoints: 3
+  dashPoints: 4
+  combatWindow: 4
+  movementCooldown: 0.6
+  perfectDodgePoints: 25
+  perfectDodgeCooldown: 1
+  dodgeWindow: 0.4
+  hitPenaltyRanks: 1.5
+  hitLockout: 1
+  playerController: {fileID: 0}
 --- !u!1 &8980099606188656712
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +628,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6374333086131958079}
+  - {fileID: 4418157371435208240}
   - {fileID: 2347577684450103960}
   - {fileID: 8084481758707531528}
   - {fileID: 5079262747893836421}
