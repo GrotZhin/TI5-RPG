@@ -38,6 +38,7 @@ public class SwitchModes : MonoBehaviour
                     needle[0].SetActive(true);
                     needle[1].SetActive(true);
                     needle[2].SetActive(true);
+                    needle[3].SetActive(true);
                     taylaani.runtimeAnimatorController = controllerList[2];
                 }
             }
@@ -48,6 +49,7 @@ public class SwitchModes : MonoBehaviour
                 needle[0].SetActive(false);
                 needle[1].SetActive(false);
                 needle[2].SetActive(false);
+                needle[3].SetActive(false);
                 taylaani.runtimeAnimatorController = controllerList[0];
                 if (type == SwitchType.SCISSORS)
                 {
@@ -76,6 +78,7 @@ public class SwitchModes : MonoBehaviour
                         needle[0].SetActive(true);
                         needle[1].SetActive(true);
                         needle[2].SetActive(true);
+                        needle[3].SetActive(true);
                         taylaani.runtimeAnimatorController = controllerList[2];
                         break;
                 }

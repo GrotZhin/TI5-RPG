@@ -34137,6 +34137,11 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &1446951045 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6631831189295067267, guid: f58fab68e14aca541bd59f3a3e2f1347, type: 3}
+  m_PrefabInstance: {fileID: 171862858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1451245590
 GameObject:
   m_ObjectHideFlags: 0
@@ -34542,9 +34547,10 @@ MonoBehaviour:
   - {fileID: 1624325050}
   - {fileID: 811984360}
   needle:
-  - {fileID: 759267620}
+  - {fileID: 1446951045}
   - {fileID: 65333869}
   - {fileID: 1299872645}
+  - {fileID: 759267620}
   taylaani: {fileID: 655379586}
 --- !u!65 &1463483793
 BoxCollider:

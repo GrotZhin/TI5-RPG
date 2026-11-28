@@ -8,11 +8,16 @@ using UnityEngine.InputSystem.Interactions;
 public class Combat : MonoBehaviour
 {
     public Animator anim;
-    public Transform scissorLeft, scissorRight;
+    public Transform scissorLeft, scissorRight, bowHandle;
     public SkillData skill;
     public LayerMask layer;
     public readonly HashSet<Agent> alreadyHit = new HashSet<Agent>();
 
+    private GameObject arrow;
+    private void Start()
+    {
+        DefineSkill.ShootArrow = ShootArrow;
+    }
 
     void FixedUpdate()
     {
@@ -20,7 +25,7 @@ public class Combat : MonoBehaviour
         bool inAttack = state.IsTag("Input Lock");
 
 
-        if (!inAttack || skill == null) return;
+        if (!inAttack || skill == null || skill.Arrow) return;
         {
 
             if (skill.Both)
@@ -40,6 +45,14 @@ public class Combat : MonoBehaviour
         }
 
     }
+
+    public void ShootArrow()
+    { 
+        GameObject prefab = Resources.Load<GameObject>("Needle");
+        arrow =  Instantiate(prefab, bowHandle.transform.position, transform.rotation);
+        arrow.GetComponent<Arrow>().Init(skill);
+    }
+
     void CheckCollision(Transform point, SkillData data)
     {
         //Collider[] colliders = Physics.OverlapSphere(point.position, data.HitBox, layer);

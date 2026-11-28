@@ -22356,6 +22356,7 @@ MonoBehaviour:
   anim: {fileID: 2240998246895074095}
   scissorLeft: {fileID: 31865522768702435}
   scissorRight: {fileID: 2768801710972273599}
+  bowHandle: {fileID: 7209026027640365544}
   skill: {fileID: 0}
   layer:
     serializedVersion: 2
@@ -23319,6 +23320,11 @@ Transform:
 --- !u!4 &7203891386748701470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -14346738475247934, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
+  m_PrefabInstance: {fileID: 2032349094392389084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7209026027640365544 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -558516439526081484, guid: 954e723ab5f74464fa235fa3c58e3ee4, type: 3}
   m_PrefabInstance: {fileID: 2032349094392389084}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7237937188544616756 stripped
